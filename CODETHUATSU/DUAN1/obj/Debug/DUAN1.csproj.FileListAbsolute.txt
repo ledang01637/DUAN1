@@ -1,0 +1,10 @@
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\DUAN1.exe.config
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\DUAN1.exe
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\DUAN1.pdb
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.AssemblyReference.cache
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Login.resources
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Properties.Resources.resources
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.GenerateResource.cache
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CoreCompileInputs.cache
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.exe
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.pdb
