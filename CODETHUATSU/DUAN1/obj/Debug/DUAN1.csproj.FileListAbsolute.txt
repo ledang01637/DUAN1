@@ -15,3 +15,20 @@ D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyKhachHang.resources
 D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyNhanVien.resources
 D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ThongTinNhanVien.resources
 D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuenMatKhau.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\DUAN1.exe.config
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\DUAN1.exe
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\DUAN1.pdb
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.AssemblyReference.cache
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.KhoHangHangHoa.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Login.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Properties.Resources.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyHangHoa.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyHoaDon.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyKhachHang.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyNhanVien.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuenMatKhau.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ThongTinNhanVien.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.GenerateResource.cache
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CoreCompileInputs.cache
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.exe
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.pdb
