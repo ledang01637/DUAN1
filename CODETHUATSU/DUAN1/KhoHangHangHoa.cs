@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DUAN1
 {
-    public partial class KhoHang_HangHoa : Form
+    public partial class KhoHangHangHoa : Form
     {
-        public KhoHang_HangHoa()
+        public KhoHangHangHoa()
         {
             InitializeComponent();
         }

@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KhoHang_HangHoa.cs">
+    <Compile Include="KhoHangHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KhoHang_HangHoa.Designer.cs">
-      <DependentUpon>KhoHang_HangHoa.cs</DependentUpon>
+    <Compile Include="KhoHangHangHoa.Designer.cs">
+      <DependentUpon>KhoHangHangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -96,8 +96,8 @@
     <Compile Include="ThongTinNhanVien.Designer.cs">
       <DependentUpon>ThongTinNhanVien.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="KhoHang_HangHoa.resx">
-      <DependentUpon>KhoHang_HangHoa.cs</DependentUpon>
+    <EmbeddedResource Include="KhoHangHangHoa.resx">
+      <DependentUpon>KhoHangHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
