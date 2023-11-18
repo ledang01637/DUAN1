@@ -105,7 +105,7 @@ namespace DUAN1
             int xacNhan;
             if(int.TryParse(tbxacnhan.Text,out xacNhan))
             {
-                if (xacNhan == 99)
+                if (xacNhan == code)
                 {
                     if (tbpassword1.Text.Trim().Equals(tbpassword2.Text.Trim()) && getTK(tbusername.Text.Trim()))
                     {
