@@ -17,17 +17,7 @@ namespace DUAN1
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
+        private void btnsubmit_Click(object sender, EventArgs e)
         {
             this.Hide();
             QuanLyKhoHang form = new QuanLyKhoHang();
