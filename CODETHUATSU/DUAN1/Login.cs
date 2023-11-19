@@ -26,5 +26,13 @@ namespace DUAN1
         {
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhoHang form = new QuanLyKhoHang();
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }
