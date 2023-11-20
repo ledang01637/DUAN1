@@ -15,6 +15,9 @@ namespace DUAN1
     {
         List<hang_hoa> dsHang;
         String imagePath = "";
+        bool focus, focusTenHH, focusNSX, focusGia, focusHSD;
+        bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD;
+
         public QuanLyHangHoa()
         {
             InitializeComponent();
@@ -31,9 +34,10 @@ namespace DUAN1
             dsHang.ForEach(row => dataGridView1.Rows.Add(
                 row.ma_hang_hoa,
                 row.ten,
-                DateTime.Parse(row.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                DateTime.Parse(row.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                row.gia
+                DateTime.Parse(row.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
+                DateTime.Parse(row.hsd.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
+                row.gia,
+                row.hinh
             ));
             dataGridView1.Update();
         }
@@ -65,12 +69,12 @@ namespace DUAN1
             try
             {
                 var cell = (sender as DataGridView).CurrentCell;
-                var row =  dataGridView1.Rows[cell.RowIndex];
+                var row = dataGridView1.Rows[cell.RowIndex];
 
                 tbmahanghoa.Text = row.Cells[0].Value?.ToString();
                 tbtenhanghoa.Text = row.Cells[1].Value?.ToString();
-                dtpngaysanxuat.Value = DateTime.Parse(row.Cells[2].Value?.ToString());
-                dtphansudung.Value = DateTime.Parse(row.Cells[3].Value?.ToString());
+                //dtpngaysanxuat.Value = DateTime.Parse(row.Cells[2].Value?.ToString(), CultureInfo.InvariantCulture);
+                //dtphansudung.Value = DateTime.Parse(row.Cells[3].Value?.ToString(), CultureInfo.InvariantCulture);
                 tbgia.Text = row.Cells[4].Value?.ToString();
 
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
@@ -94,7 +98,7 @@ namespace DUAN1
             }
             catch
             {
-                
+                MessageBox.Show("Lỗi");
             }
             
         }
@@ -119,9 +123,29 @@ namespace DUAN1
             float gia;
             if (float.TryParse(tbgia.Text, out gia))
             {
-                if (hinhanh == null && hinhanh.Image == null)
+                if (hinhanh == null || hinhanh.Image == null)
                 {
-                    MessageBox.Show("Vui lòng thêm hình");
+                    MessageBox.Show("Vui lòng thêm hình","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                if(dtpngaysanxuat.Value > DateTime.Now)
+                {
+                    MessageBox.Show("Ngày sản xuất phải phải <= ngày hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (dtphansudung.Value < dtpngaysanxuat.Value)
+                {
+                    MessageBox.Show("HSD phải > NSX", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (gia < 0)
+                {
+                    MessageBox.Show("Giá phải > 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if(tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null || tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
+                {
+                    MessageBox.Show("Không bỏ trống mã, tên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 hang_hoa hangHoaAdd = new hang_hoa();
@@ -163,6 +187,31 @@ namespace DUAN1
             float Gia;
             if (float.TryParse(tbgia.Text, out Gia))
             {
+                if (hinhanh == null || hinhanh.Image == null)
+                {
+                    MessageBox.Show("Vui lòng thêm hình", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (dtpngaysanxuat.Value > DateTime.Now)
+                {
+                    MessageBox.Show("Ngày sản xuất phải phải <= ngày hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (dtphansudung.Value < dtpngaysanxuat.Value)
+                {
+                    MessageBox.Show("HSD phải > NSX", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (Gia < 0)
+                {
+                    MessageBox.Show("Giá phải > 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null || tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
+                {
+                    MessageBox.Show("Không bỏ trống mã, tên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
                 hang_hoa selectedHH = dsHang[selectedRowIndex];
                 selectedHH.ten = tbtenhanghoa.Text;
@@ -282,6 +331,236 @@ namespace DUAN1
                     MessageBox.Show("Tìm không thấy", "Thông báo", MessageBoxButtons.OK);
                 }  
             }  
+        }
+        private void pictureBox2_Paint(object sender, PaintEventArgs e)
+        {
+            //MaHH
+            if (focus)
+            {
+                if (tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null)
+                {
+                    Pen pen = new Pen(Color.Red);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbmahanghoa.Location.X - LoX - 2, tbmahanghoa.Location.Y - LoY - 2, tbmahanghoa.Width + 1, tbmahanghoa.Height + 1));
+                }
+                else if (isText)
+                {
+                    Pen pen = new Pen(Color.LawnGreen);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbmahanghoa.Location.X - LoX - 2, tbmahanghoa.Location.Y - LoY - 2, tbmahanghoa.Width + 1, tbmahanghoa.Height + 1));
+                }
+            }
+            else
+            {
+                tbmahanghoa.BorderStyle = BorderStyle.FixedSingle;
+            }
+            //TenHH
+            if (focusTenHH)
+            {
+                if (tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
+                {
+                    Pen pen = new Pen(Color.Red);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbtenhanghoa.Location.X - LoX - 2, tbtenhanghoa.Location.Y - LoY - 2, tbtenhanghoa.Width + 1, tbtenhanghoa.Height + 1));
+                }
+                else if (isTextTenHH)
+                {
+                    Pen pen = new Pen(Color.LawnGreen);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbtenhanghoa.Location.X - LoX - 2, tbtenhanghoa.Location.Y - LoY - 2, tbtenhanghoa.Width + 1, tbtenhanghoa.Height + 1));
+                }
+            }
+            else
+            {
+                tbtenhanghoa.BorderStyle = BorderStyle.FixedSingle;
+            }
+            //NgaySX
+            if (focusNSX)
+            {
+                if (dtpngaysanxuat.Value > DateTime.Now)
+                {
+                    Pen pen = new Pen(Color.Red);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(dtpngaysanxuat.Location.X - LoX - 2, dtpngaysanxuat.Location.Y - LoY - 2, dtpngaysanxuat.Width + 1, dtpngaysanxuat.Height + 1));
+                }
+                else if (isTextNSX)
+                {
+                    Pen pen = new Pen(Color.LawnGreen);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(dtpngaysanxuat.Location.X - LoX - 2, dtpngaysanxuat.Location.Y - LoY - 2, dtpngaysanxuat.Width + 1, dtpngaysanxuat.Height + 1));
+                }
+            }
+            //HSD
+            if (focusHSD)
+            {
+                if (dtphansudung.Value < dtpngaysanxuat.Value)
+                {
+                    Pen pen = new Pen(Color.Red);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(dtphansudung.Location.X - LoX - 2, dtphansudung.Location.Y - LoY - 2, dtphansudung.Width + 1, dtphansudung.Height + 1));
+                }
+                else if (isTextHSD)
+                {
+                    Pen pen = new Pen(Color.LawnGreen);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(dtphansudung.Location.X - LoX - 2, dtphansudung.Location.Y - LoY - 2, dtphansudung.Width + 1, dtphansudung.Height + 1));
+                }
+            }
+            //Gia
+            if (focusGia)
+            {
+                float Gia;
+                var isNumber = float.TryParse(tbgia.Text, out Gia);
+                if (isNumber == false || Gia < 0)
+                {
+                    Pen pen = new Pen(Color.Red);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbgia.Location.X - LoX - 2, tbgia.Location.Y - LoY - 2, tbgia.Width + 1, tbgia.Height + 1));
+                }
+                else if (isTextGia)
+                {
+                    Pen pen = new Pen(Color.LawnGreen);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbgia.Location.X - LoX - 2, tbgia.Location.Y - LoY - 2, tbgia.Width + 1, tbgia.Height + 1));
+                }
+            }
+            else
+            {
+                tbgia.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        //MaHH
+        private void tbmahanghoa_Enter(object sender, EventArgs e)
+        {
+            focus = true;
+            this.Refresh();
+        }
+        private void tbmahanghoa_Leave(object sender, EventArgs e)
+        {
+            if (tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null)
+            {
+                focus = true;
+                this.Refresh();
+            }
+            else
+            {
+                focus = false;
+                this.Refresh();
+            }    
+        }
+        private void tbmahanghoa_TextChanged(object sender, EventArgs e)
+        {
+            isText = true;
+            this.Refresh();
+        }
+        //TenHH
+        private void tbtenhanghoa_Enter(object sender, EventArgs e)
+        {
+            focusTenHH = true;
+            this.Refresh();
+        }
+        private void tbtenhanghoa_Leave(object sender, EventArgs e)
+        {
+            if (tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
+            {
+                focusTenHH = true;
+                this.Refresh();
+            }
+            else
+            {
+                focusTenHH = false;
+                this.Refresh();
+            }          
+        }
+        private void tbtenhanghoa_TextChanged(object sender, EventArgs e)
+        {
+            isTextTenHH = true;
+            this.Refresh();
+        }
+        //NSX
+        private void dtpngaysanxuat_Enter(object sender, EventArgs e)
+        {
+            focusNSX = true;
+            this.Refresh();
+        }
+        private void dtpngaysanxuat_Leave(object sender, EventArgs e)
+        {
+            if (dtpngaysanxuat.Value > DateTime.Now)
+            {
+                focusNSX = true;
+                this.Refresh();
+            }
+            else
+            {
+                focusNSX = false;
+                this.Refresh();
+            }
+        }
+        private void dtpngaysanxuat_ValueChanged(object sender, EventArgs e)
+        {
+            isTextNSX = true;
+            this.Refresh();
+        }
+        //HSD
+        private void dtphansudung_Enter(object sender, EventArgs e)
+        {
+            focusHSD = true;
+            this.Refresh();
+        }
+        private void dtphansudung_Leave(object sender, EventArgs e)
+        {
+            if (dtphansudung.Value < dtpngaysanxuat.Value)
+            {
+                focusHSD = true;
+                this.Refresh();
+            }
+            else
+            {
+                focusHSD = false;
+                this.Refresh();
+            }
+        }
+        private void dtphansudung_ValueChanged(object sender, EventArgs e)
+        {
+            isTextHSD = true;
+            this.Refresh();
+        }
+        //Gia
+        private void tbgia_Enter(object sender, EventArgs e)
+        {
+            focusGia = true;
+            this.Refresh();
+        }
+        private void tbgia_Leave(object sender, EventArgs e)
+        {
+            float Gia;
+            var isNumber = float.TryParse(tbgia.Text, out Gia);
+            if (isNumber == false || Gia < 0)
+            {
+                focusGia = true;
+                this.Refresh();
+            }
+            else
+            {
+                focusGia = false;
+                this.Refresh();
+            }
+        }
+        private void tbgia_TextChanged(object sender, EventArgs e)
+        {
+            isTextGia = true;
+            this.Refresh();
         }
     }
 }
