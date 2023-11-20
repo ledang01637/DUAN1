@@ -69,6 +69,7 @@ namespace DUAN1
             this.NgaySX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinhanh)).BeginInit();
@@ -99,6 +100,9 @@ namespace DUAN1
             this.tbmahanghoa.Name = "tbmahanghoa";
             this.tbmahanghoa.Size = new System.Drawing.Size(127, 34);
             this.tbmahanghoa.TabIndex = 37;
+            this.tbmahanghoa.TextChanged += new System.EventHandler(this.tbmahanghoa_TextChanged);
+            this.tbmahanghoa.Enter += new System.EventHandler(this.tbmahanghoa_Enter);
+            this.tbmahanghoa.Leave += new System.EventHandler(this.tbmahanghoa_Leave);
             // 
             // button1
             // 
@@ -123,6 +127,7 @@ namespace DUAN1
             this.pictureBox2.Size = new System.Drawing.Size(1485, 686);
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox2_Paint);
             // 
             // pictureBox1
             // 
@@ -138,6 +143,7 @@ namespace DUAN1
             // button15
             // 
             this.button15.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button15.Enabled = false;
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.Location = new System.Drawing.Point(184, 15);
             this.button15.Margin = new System.Windows.Forms.Padding(4);
@@ -171,6 +177,9 @@ namespace DUAN1
             this.tbtenhanghoa.Name = "tbtenhanghoa";
             this.tbtenhanghoa.Size = new System.Drawing.Size(612, 31);
             this.tbtenhanghoa.TabIndex = 51;
+            this.tbtenhanghoa.TextChanged += new System.EventHandler(this.tbtenhanghoa_TextChanged);
+            this.tbtenhanghoa.Enter += new System.EventHandler(this.tbtenhanghoa_Enter);
+            this.tbtenhanghoa.Leave += new System.EventHandler(this.tbtenhanghoa_Leave);
             // 
             // lbngaysx
             // 
@@ -207,6 +216,9 @@ namespace DUAN1
             this.dtpngaysanxuat.Name = "dtpngaysanxuat";
             this.dtpngaysanxuat.Size = new System.Drawing.Size(612, 34);
             this.dtpngaysanxuat.TabIndex = 57;
+            this.dtpngaysanxuat.ValueChanged += new System.EventHandler(this.dtpngaysanxuat_ValueChanged);
+            this.dtpngaysanxuat.Enter += new System.EventHandler(this.dtpngaysanxuat_Enter);
+            this.dtpngaysanxuat.Leave += new System.EventHandler(this.dtpngaysanxuat_Leave);
             // 
             // hinhanh
             // 
@@ -246,6 +258,9 @@ namespace DUAN1
             this.tbgia.Name = "tbgia";
             this.tbgia.Size = new System.Drawing.Size(295, 34);
             this.tbgia.TabIndex = 60;
+            this.tbgia.TextChanged += new System.EventHandler(this.tbgia_TextChanged);
+            this.tbgia.Enter += new System.EventHandler(this.tbgia_Enter);
+            this.tbgia.Leave += new System.EventHandler(this.tbgia_Leave);
             // 
             // btnkhachhang
             // 
@@ -452,6 +467,9 @@ namespace DUAN1
             this.dtphansudung.Name = "dtphansudung";
             this.dtphansudung.Size = new System.Drawing.Size(405, 34);
             this.dtphansudung.TabIndex = 159;
+            this.dtphansudung.ValueChanged += new System.EventHandler(this.dtphansudung_ValueChanged);
+            this.dtphansudung.Enter += new System.EventHandler(this.dtphansudung_Enter);
+            this.dtphansudung.Leave += new System.EventHandler(this.dtphansudung_Leave);
             // 
             // dataGridView1
             // 
@@ -462,7 +480,8 @@ namespace DUAN1
             this.Ten,
             this.NgaySX,
             this.HSD,
-            this.Gia});
+            this.Gia,
+            this.Hinh});
             this.dataGridView1.Location = new System.Drawing.Point(200, 587);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -490,7 +509,7 @@ namespace DUAN1
             this.Ten.MinimumWidth = 6;
             this.Ten.Name = "Ten";
             this.Ten.ReadOnly = true;
-            this.Ten.Width = 300;
+            this.Ten.Width = 250;
             // 
             // NgaySX
             // 
@@ -500,7 +519,7 @@ namespace DUAN1
             this.NgaySX.MinimumWidth = 6;
             this.NgaySX.Name = "NgaySX";
             this.NgaySX.ReadOnly = true;
-            this.NgaySX.Width = 350;
+            this.NgaySX.Width = 200;
             // 
             // HSD
             // 
@@ -510,7 +529,7 @@ namespace DUAN1
             this.HSD.MinimumWidth = 6;
             this.HSD.Name = "HSD";
             this.HSD.ReadOnly = true;
-            this.HSD.Width = 350;
+            this.HSD.Width = 200;
             // 
             // Gia
             // 
@@ -519,6 +538,14 @@ namespace DUAN1
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
             this.Gia.Width = 200;
+            // 
+            // Hinh
+            // 
+            this.Hinh.HeaderText = "Hình";
+            this.Hinh.MinimumWidth = 6;
+            this.Hinh.Name = "Hinh";
+            this.Hinh.ReadOnly = true;
+            this.Hinh.Width = 350;
             // 
             // QuanLyHangHoa
             // 
@@ -609,5 +636,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySX;
         private System.Windows.Forms.DataGridViewTextBoxColumn HSD;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hinh;
     }
 }
