@@ -69,7 +69,7 @@ namespace DUAN1
             }
         }
 
-        // Cập nhật  DFV
+        // Cập nhật  DGV
         private void UpdateDGV()
         {
             dataGridView1.Rows.Clear();
@@ -170,7 +170,6 @@ namespace DUAN1
             // khi check kho hang hang hoa
             else if (cbkhohanghanghoa.Checked)
             {
-                MessageBox.Show("a ");
                 try
                 {
                     kho_hang addkh = new kho_hang();
@@ -333,15 +332,53 @@ namespace DUAN1
             // khi check kho hang hang hoa
             else if (cbkhohanghanghoa.Checked)
             {
-                MessageBox.Show("a ");
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    string maKhoHang = tbmakhohang.Text;
+                    khohang_hanghoa edit = db.khohang_hanghoa.FirstOrDefault(x => x.ma_kho_hang == maKhoHang);
+                    if (edit != null)
+                    {
+                        edit.ma_kho_hang = tbmakhohang.Text;
+                        edit.ma_hang_hoa = tbmahanghoa.Text;
+                        edit.ngay_nhap = dtpngaynhapkho.Value;
+                        edit.ngay_xuat = dtpngayxuatkho.Value;
+                        edit.so_luong = int.Parse(tbsoluong.Text);
+                        db.SaveChanges();
+                        MessageBox.Show("Sửa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khách hàng");
+                    }
+                    UpdateDGV();
+                }
             }
             // khi check kho hang
             else if (cbkhohang.Checked)
             {
                 MessageBox.Show("b");
 
-               
-                
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    string maKH = tbmakh.Text;
+                    kho_hang edit = db.kho_hang.FirstOrDefault(x => x.ma_kho_hang == maKH);
+                    if (edit != null)
+                    {
+                        edit.ma_kho_hang = tbmakh.Text;
+                        edit.dia_chi = cbbdiachi.Text;
+
+                        db.SaveChanges();
+                        MessageBox.Show("Sửa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khách hàng");
+                    }
+                    UpdateDGV();
+                }
+
+
+
             }
             // khi không check
             else
@@ -385,6 +422,6 @@ namespace DUAN1
         }
 
 
-
+         
     }
 }
