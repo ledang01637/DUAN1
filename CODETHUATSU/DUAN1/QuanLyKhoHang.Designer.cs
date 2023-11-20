@@ -102,7 +102,9 @@ namespace DUAN1
             // 
             // dtpngayxuatkho
             // 
+            this.dtpngayxuatkho.CustomFormat = "dd/MM/yyyy";
             this.dtpngayxuatkho.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpngayxuatkho.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpngayxuatkho.Location = new System.Drawing.Point(336, 284);
             this.dtpngayxuatkho.Name = "dtpngayxuatkho";
             this.dtpngayxuatkho.Size = new System.Drawing.Size(437, 32);
@@ -347,7 +349,9 @@ namespace DUAN1
             // 
             // dtpngaynhapkho
             // 
+            this.dtpngaynhapkho.CustomFormat = "dd/MM/yyyy";
             this.dtpngaynhapkho.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpngaynhapkho.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpngaynhapkho.Location = new System.Drawing.Point(336, 226);
             this.dtpngaynhapkho.Name = "dtpngaynhapkho";
             this.dtpngaynhapkho.Size = new System.Drawing.Size(437, 32);

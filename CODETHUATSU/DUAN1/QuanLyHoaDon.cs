@@ -17,11 +17,6 @@ namespace DUAN1
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void QuanLyHoaDon_Load(object sender, EventArgs e)
         {
             dtpngaylap.Format = DateTimePickerFormat.Short;
@@ -134,7 +129,6 @@ namespace DUAN1
             cbbmakhachhang.Enabled = true;
             cbbmanv.Enabled = true;
             cbbmahanghoa.Enabled = true;
-            tbthanhtien.ReadOnly = false;
             tbsoluong.ReadOnly = false;
             tbtrangthai.ReadOnly = false;
             dtpngaylap.Enabled = true;
@@ -236,5 +230,88 @@ namespace DUAN1
             //}
             //UpdateDGV();
         }
+
+        //chức năng xóa
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    hoa_don delete = db.hoa_don.Where(x => x.ma_hd == tbmahoadon.Text).FirstOrDefault();
+
+                    db.hoa_don.Remove(delete);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Xóa thành công ");
+                UpdateDGV();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm cần xóa ");
+            }
+        }
+
+        // Chức năng hủy reload lại form
+        private void btnhuy_Click(object sender, EventArgs e)
+        {
+            tbmahoadon.Text = "";
+            cbbmahanghoa.Text = "";
+            cbbmakhachhang.Text = "";
+            cbbmanv.Text = "";
+            tbsoluong.Text = "";
+            tbthanhtien.Text = "";
+            dtpngaylap.Text = "";
+            tbtrangthai.Text = "";
+
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnhuy.Enabled = false;
+            btnluu.Enabled = false;
+
+            tbmahoadon.ReadOnly = true;
+            cbbmakhachhang.Enabled = false;
+            cbbmanv.Enabled = false;
+            cbbmahanghoa.Enabled = false;
+            tbsoluong.ReadOnly = true;
+            tbtrangthai.ReadOnly = true;
+            dtpngaylap.Enabled = false;
+        }
+
+        // Chức năng tìm kiếm theo mã
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbtimkiem.Text.Equals(""))
+                {
+                    tbtimkiem.Text = "";
+                }
+
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    List<hoa_don> listhd = db.hoa_don.Where(x => x.ma_hd.Equals(tbtimkiem.Text)).ToList();
+                    dataGridView1.Rows.Clear();
+                    listhd.ToList().ForEach(hd =>
+                    {
+                        dataGridView1.Rows.Add(
+                        hd.ma_hd,
+                        hd.ma_kh,
+                        hd.ma_nv,
+                        hd.ma_hang_hoa,
+                        hd.ngay_lap,
+                        hd.so_luong,
+                        hd.thanh_tien,
+                        hd.trang_thai);
+                    }
+                    );
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không để trống");
+            }
+        }
+    
     }
 }

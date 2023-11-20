@@ -36,6 +36,14 @@ namespace DUAN1
             this.lbngaysx = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_hang_hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.so_luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thanh_tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.tbmahoadon = new System.Windows.Forms.TextBox();
             this.btnthoat = new System.Windows.Forms.Button();
@@ -64,14 +72,6 @@ namespace DUAN1
             this.btnkhohang = new System.Windows.Forms.Button();
             this.btnhanghoa = new System.Windows.Forms.Button();
             this.btnthongtinnv = new System.Windows.Forms.Button();
-            this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_hang_hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.so_luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thanh_tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbmakhachhang = new System.Windows.Forms.ComboBox();
             this.cbbmanv = new System.Windows.Forms.ComboBox();
             this.cbbmahanghoa = new System.Windows.Forms.ComboBox();
@@ -157,6 +157,54 @@ namespace DUAN1
             this.dataGridView1.Size = new System.Drawing.Size(1091, 195);
             this.dataGridView1.TabIndex = 106;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ma_hd
+            // 
+            this.ma_hd.HeaderText = "Mã hóa đơn";
+            this.ma_hd.Name = "ma_hd";
+            this.ma_hd.ReadOnly = true;
+            // 
+            // ma_kh
+            // 
+            this.ma_kh.HeaderText = "Mã khách hàng";
+            this.ma_kh.Name = "ma_kh";
+            this.ma_kh.ReadOnly = true;
+            // 
+            // ma_nv
+            // 
+            this.ma_nv.HeaderText = "Mã nhân viên";
+            this.ma_nv.Name = "ma_nv";
+            this.ma_nv.ReadOnly = true;
+            // 
+            // ma_hang_hoa
+            // 
+            this.ma_hang_hoa.HeaderText = "Mã hàng hóa";
+            this.ma_hang_hoa.Name = "ma_hang_hoa";
+            this.ma_hang_hoa.ReadOnly = true;
+            // 
+            // ngay_lap
+            // 
+            this.ngay_lap.HeaderText = "Ngày lập";
+            this.ngay_lap.Name = "ngay_lap";
+            this.ngay_lap.ReadOnly = true;
+            // 
+            // so_luong
+            // 
+            this.so_luong.HeaderText = "Số lượng";
+            this.so_luong.Name = "so_luong";
+            this.so_luong.ReadOnly = true;
+            // 
+            // thanh_tien
+            // 
+            this.thanh_tien.HeaderText = "Thành tiền";
+            this.thanh_tien.Name = "thanh_tien";
+            this.thanh_tien.ReadOnly = true;
+            // 
+            // trang_thai
+            // 
+            this.trang_thai.HeaderText = "Trạng thái";
+            this.trang_thai.Name = "trang_thai";
+            this.trang_thai.ReadOnly = true;
             // 
             // lbmahanghoa
             // 
@@ -271,7 +319,9 @@ namespace DUAN1
             // 
             // dtpngaylap
             // 
+            this.dtpngaylap.CustomFormat = "dd/MM/yyyy";
             this.dtpngaylap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpngaylap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpngaylap.Location = new System.Drawing.Point(304, 235);
             this.dtpngaylap.Name = "dtpngaylap";
             this.dtpngaylap.Size = new System.Drawing.Size(486, 29);
@@ -341,6 +391,7 @@ namespace DUAN1
             this.btnhuy.Size = new System.Drawing.Size(120, 52);
             this.btnhuy.TabIndex = 139;
             this.btnhuy.UseVisualStyleBackColor = true;
+            this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
             // 
             // btnxoa
             // 
@@ -353,6 +404,7 @@ namespace DUAN1
             this.btnxoa.Size = new System.Drawing.Size(120, 52);
             this.btnxoa.TabIndex = 138;
             this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
             // btnsua
             // 
@@ -377,9 +429,11 @@ namespace DUAN1
             this.btntimkiem.Size = new System.Drawing.Size(120, 52);
             this.btntimkiem.TabIndex = 136;
             this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // tbtimkiem
             // 
+            this.tbtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbtimkiem.Location = new System.Drawing.Point(779, 401);
             this.tbtimkiem.Multiline = true;
             this.tbtimkiem.Name = "tbtimkiem";
@@ -474,46 +528,6 @@ namespace DUAN1
             this.btnthongtinnv.Size = new System.Drawing.Size(120, 52);
             this.btnthongtinnv.TabIndex = 140;
             this.btnthongtinnv.UseVisualStyleBackColor = false;
-            // 
-            // ma_hd
-            // 
-            this.ma_hd.HeaderText = "Mã hóa đơn";
-            this.ma_hd.Name = "ma_hd";
-            // 
-            // ma_kh
-            // 
-            this.ma_kh.HeaderText = "Mã khách hàng";
-            this.ma_kh.Name = "ma_kh";
-            // 
-            // ma_nv
-            // 
-            this.ma_nv.HeaderText = "Mã nhân viên";
-            this.ma_nv.Name = "ma_nv";
-            // 
-            // ma_hang_hoa
-            // 
-            this.ma_hang_hoa.HeaderText = "Mã hàng hóa";
-            this.ma_hang_hoa.Name = "ma_hang_hoa";
-            // 
-            // ngay_lap
-            // 
-            this.ngay_lap.HeaderText = "Ngày lập";
-            this.ngay_lap.Name = "ngay_lap";
-            // 
-            // so_luong
-            // 
-            this.so_luong.HeaderText = "Số lượng";
-            this.so_luong.Name = "so_luong";
-            // 
-            // thanh_tien
-            // 
-            this.thanh_tien.HeaderText = "Thành tiền";
-            this.thanh_tien.Name = "thanh_tien";
-            // 
-            // trang_thai
-            // 
-            this.trang_thai.HeaderText = "Trạng thái";
-            this.trang_thai.Name = "trang_thai";
             // 
             // cbbmakhachhang
             // 

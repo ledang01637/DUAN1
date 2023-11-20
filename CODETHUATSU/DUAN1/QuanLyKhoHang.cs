@@ -206,7 +206,6 @@ namespace DUAN1
             // khi check kho hang
             else if (cbkhohang.Checked)
             {
-                MessageBox.Show("b");
                 try
                 {
                     kho_hang addsp = new kho_hang();
@@ -252,8 +251,6 @@ namespace DUAN1
             // khi check kho hang hang hoa
             else if (cbkhohanghanghoa.Checked)
             {
-                MessageBox.Show("a ");
-
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
                     khohang_hanghoa delete = db.khohang_hanghoa.Where(x => x.ma_kho_hang == tbmakhohang.Text).FirstOrDefault();
@@ -267,8 +264,6 @@ namespace DUAN1
             // khi check kho hang
             else if (cbkhohang.Checked)
             {
-                MessageBox.Show("b");
-
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
                     kho_hang delete = db.kho_hang.FirstOrDefault(x => x.ma_kho_hang == tbmakh.Text);
