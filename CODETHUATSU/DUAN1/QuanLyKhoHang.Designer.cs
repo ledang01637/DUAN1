@@ -256,6 +256,7 @@ namespace DUAN1
             this.so_luong});
             this.dataGridView1.Location = new System.Drawing.Point(149, 461);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1091, 195);
             this.dataGridView1.TabIndex = 74;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -264,26 +265,31 @@ namespace DUAN1
             // 
             this.ma_kho_hang.HeaderText = "Mã kho hàng";
             this.ma_kho_hang.Name = "ma_kho_hang";
+            this.ma_kho_hang.ReadOnly = true;
             // 
             // ma_hang_hoa
             // 
             this.ma_hang_hoa.HeaderText = "Mã hàng hóa";
             this.ma_hang_hoa.Name = "ma_hang_hoa";
+            this.ma_hang_hoa.ReadOnly = true;
             // 
             // ngay_nhap
             // 
             this.ngay_nhap.HeaderText = "Ngày nhập";
             this.ngay_nhap.Name = "ngay_nhap";
+            this.ngay_nhap.ReadOnly = true;
             // 
             // ngay_xuat
             // 
             this.ngay_xuat.HeaderText = "Ngày xuất";
             this.ngay_xuat.Name = "ngay_xuat";
+            this.ngay_xuat.ReadOnly = true;
             // 
             // so_luong
             // 
             this.so_luong.HeaderText = "Số lượng";
             this.so_luong.Name = "so_luong";
+            this.so_luong.ReadOnly = true;
             // 
             // lbmahanghoa
             // 
@@ -478,6 +484,7 @@ namespace DUAN1
             this.dia_chi});
             this.dataGridView2.Location = new System.Drawing.Point(913, 226);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(327, 147);
             this.dataGridView2.TabIndex = 161;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
@@ -486,11 +493,13 @@ namespace DUAN1
             // 
             this.ma_khohang.HeaderText = "Mã kho hàng";
             this.ma_khohang.Name = "ma_khohang";
+            this.ma_khohang.ReadOnly = true;
             // 
             // dia_chi
             // 
             this.dia_chi.HeaderText = "Địa chỉ";
             this.dia_chi.Name = "dia_chi";
+            this.dia_chi.ReadOnly = true;
             // 
             // lbmakh
             // 

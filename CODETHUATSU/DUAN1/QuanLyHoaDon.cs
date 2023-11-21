@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace DUAN1
 {
@@ -20,10 +21,11 @@ namespace DUAN1
         private void QuanLyHoaDon_Load(object sender, EventArgs e)
         {
             dtpngaylap.Format = DateTimePickerFormat.Short;
-            dtpngaylap.Value = DateTime.Today;
+            dtpngaylap.CustomFormat = "dd/MM/yyyy";
 
             using (DUAN1Entities db = new DUAN1Entities())
             {
+
                 //mã khách hàng
                 cbbmakhachhang.Items.Clear();
                 db.khach_hang.ToList().ForEach(row => cbbmakhachhang.Items.Add(row.ma_kh));
@@ -43,7 +45,7 @@ namespace DUAN1
                     hd.ma_kh,
                     hd.ma_nv,
                     hd.ma_hang_hoa,
-                    hd.ngay_lap,
+                    DateTime.Parse(hd.ngay_lap.ToString(),CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.so_luong,
                     hd.thanh_tien,
                     hd.trang_thai
@@ -83,7 +85,7 @@ namespace DUAN1
                     hd.ma_kh,
                     hd.ma_nv,
                     hd.ma_hang_hoa,
-                    hd.ngay_lap,
+                    DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.so_luong,
                     hd.thanh_tien,
                     hd.trang_thai
@@ -114,14 +116,22 @@ namespace DUAN1
                 tbthanhtien.Text = hd.thanh_tien.ToString();
                 tbtrangthai.Text = hd.trang_thai;
             }
+
+            btnxoa.Enabled = true;
+            btnsua.Enabled = true;
+            btnhuy.Enabled = true;
+            btnluu.Enabled = false;
+
+            tbmahoadon.ReadOnly = true;
+
         }
         
         //chức năng thêm
         private void btnthem_Click(object sender, EventArgs e)
         {
             btnluu.Enabled = true;
-            btnxoa.Enabled = true;
-            btnsua.Enabled = true;
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
             btnhuy.Enabled = true;
             btnluu.Enabled = true;
 
@@ -312,6 +322,39 @@ namespace DUAN1
                 MessageBox.Show("Không để trống");
             }
         }
-    
+        
+        //chức năng sủa
+        private void btnsua_Click(object sender, EventArgs e)
+        {
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                string maHD = tbmahoadon.Text;
+                hoa_don edit = db.hoa_don.FirstOrDefault(x => x.ma_hd == maHD);
+                if (edit != null)
+                {
+                    edit.ma_hd = tbmahoadon.Text;
+                    edit.ma_kh = cbbmakhachhang.Text;
+                    edit.ma_nv = cbbmanv.Text;
+                    edit.ma_hang_hoa = cbbmahanghoa.Text;
+                    edit.ngay_lap = dtpngaylap.Value;
+                    edit.so_luong = int.Parse(tbsoluong.Text);
+                    edit.thanh_tien = int.Parse(tbthanhtien.Text);
+                    edit.trang_thai = tbtrangthai.Text;
+                    db.SaveChanges();
+                    MessageBox.Show("Sửa thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy khách hàng");
+                }
+                UpdateDGV();
+            }
+        }
+
+        //chức năng chuyển sang listview
+        private void btnchuyen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

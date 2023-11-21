@@ -20,7 +20,7 @@ namespace DUAN1
         private void btnsubmit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyHoaDon form = new QuanLyHoaDon();
+            QuanLyKhoHang form = new QuanLyKhoHang();
             form.ShowDialog();
             this.Close();
         }

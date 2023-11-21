@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace DUAN1
 {
@@ -37,8 +38,8 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                     khhh.kho_hang.ma_kho_hang,
                     khhh.ma_hang_hoa,
-                    khhh.ngay_nhap,
-                    khhh.ngay_xuat,
+                    DateTime.Parse(khhh.ngay_nhap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                    DateTime.Parse(khhh.ngay_xuat.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     khhh.so_luong
                     );
                 }
@@ -86,8 +87,8 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                     khhh.kho_hang.ma_kho_hang,
                     khhh.ma_hang_hoa,
-                    khhh.ngay_nhap,
-                    khhh.ngay_xuat,
+                    DateTime.Parse(khhh.ngay_nhap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                    DateTime.Parse(khhh.ngay_xuat.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     khhh.so_luong,
                     khhh.kho_hang.dia_chi
                     );
@@ -122,6 +123,19 @@ namespace DUAN1
                 dtpngayxuatkho.Text = sv.ngay_xuat.ToString();
                 tbsoluong.Text = sv.so_luong.ToString();
             }
+
+            btnxoa.Enabled = true;
+            btnsua.Enabled = true;
+            btnhuy.Enabled = true;
+            btnluu.Enabled = false;
+
+            tbmakhohang.ReadOnly = true;
+            tbmahanghoa.ReadOnly = false;
+            dtpngaynhapkho.Enabled = true;
+            dtpngayxuatkho.Enabled = true;
+            tbsoluong.ReadOnly = false;
+            cbbdiachi.Enabled = true;
+            tbmakh.ReadOnly = false;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -136,6 +150,14 @@ namespace DUAN1
                 tbmakh.Text = sv.ma_kho_hang;
                 cbbdiachi.Text = sv.dia_chi;
             }
+
+            btnxoa.Enabled = true;
+            btnsua.Enabled = true;
+            btnhuy.Enabled = true;
+            btnluu.Enabled = false;
+
+            tbmakhohang.ReadOnly = true;
+            cbbdiachi.Enabled = true;
         }
 
         // Chức năng thêm
