@@ -16,5 +16,10 @@ namespace DUAN1
         {
             InitializeComponent();
         }
+
+        private void btnthem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
