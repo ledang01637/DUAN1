@@ -30,7 +30,7 @@ namespace DUAN1
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //Lưu tài khoản vào bản tạm
+            //Lưu tài khoản vào bảng tạm
             tbusername.Text = Properties.Settings.Default.Username;
             tbpassword.Text = Properties.Settings.Default.Password;
             if(Properties.Settings.Default.Username != "")

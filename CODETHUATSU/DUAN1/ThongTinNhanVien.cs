@@ -41,6 +41,9 @@ namespace DUAN1
                 }
             }
             btnnhanvien.Enabled = false;
+            tbmanhanvien.Enabled = false;
+            tbtennhanvien.Enabled = false;
+            tbsdt.Enabled = false;
         }
 
         private void btnthoat_Click(object sender, EventArgs e)
