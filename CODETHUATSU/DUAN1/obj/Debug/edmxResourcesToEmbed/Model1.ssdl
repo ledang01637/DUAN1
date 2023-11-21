@@ -5,7 +5,7 @@
       <PropertyRef Name="tai_khoan" />
     </Key>
     <Property Name="tai_khoan" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="mat_khau" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mat_khau" Type="varchar" MaxLength="60" Nullable="false" />
     <Property Name="role" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="hang_hoa">

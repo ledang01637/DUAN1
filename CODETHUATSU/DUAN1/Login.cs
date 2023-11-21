@@ -42,6 +42,7 @@ namespace DUAN1
 
         private void btnsubmit_Click(object sender, EventArgs e)
         {
+            String MaHoaMatKhau = GetMD5(tbpassword.Text);
             //check box đăng nhập
             if (tbusername.Text == "" || tbpassword.Text == "")
             {
@@ -56,9 +57,10 @@ namespace DUAN1
             else
             {
                 //Tạo một biến role để truyền tài khoản và mật khẩu vào DBHandler để tìm tài khoản và phân quyền của tài khoản đó
-                String role = DBHandler.Login(tbusername.Text, tbpassword.Text);
+                String role = DBHandler.Login(tbusername.Text, MaHoaMatKhau);
                 if (role != null)
                 {
+                    
                     if (role.Equals("nhanvien"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là nhanvien
@@ -136,6 +138,17 @@ namespace DUAN1
                 }
             }
         }
-        
+        public string GetMD5(String chuoi)
+        {
+            String str_Md5 = "";
+            byte[] mang = Encoding.UTF8.GetBytes(chuoi);
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            mang = md5.ComputeHash(mang);
+            foreach (byte b in mang)
+            {
+                str_Md5 += b.ToString();
+            }
+            return str_Md5;
+        }
     }
 }

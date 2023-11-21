@@ -35,9 +35,9 @@ namespace DUAN1
                 else
                 {
                     //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
-                    tbtennhanvien.Text = "Doan Van A";
-                    tbsdt.Text = "09785634312";
-                    tbmanhanvien.Text = "admin";
+                    tbtennhanvien.Text = "";
+                    tbsdt.Text = "";
+                    tbmanhanvien.Text = "";
                 }
             }
             btnnhanvien.Enabled = false;
