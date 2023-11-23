@@ -25,7 +25,8 @@ namespace DUAN1
         public string ten { get; set; }
         public Nullable<System.DateTime> ngay_sx { get; set; }
         public Nullable<System.DateTime> hsd { get; set; }
-        public Nullable<double> gia { get; set; }
+        public Nullable<double> gia_ban { get; set; }
+        public Nullable<double> gia_nhap { get; set; }
         public string hinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
