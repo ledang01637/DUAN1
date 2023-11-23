@@ -73,6 +73,7 @@ namespace DUAN1
             this.tbmakh = new System.Windows.Forms.TextBox();
             this.lbdiachi = new System.Windows.Forms.Label();
             this.cbbdiachi = new System.Windows.Forms.ComboBox();
+            this.btnthongke = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -543,11 +544,25 @@ namespace DUAN1
             this.cbbdiachi.Size = new System.Drawing.Size(177, 28);
             this.cbbdiachi.TabIndex = 166;
             // 
+            // btnthongke
+            // 
+            this.btnthongke.BackColor = System.Drawing.SystemColors.Control;
+            this.btnthongke.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnthongke.BackgroundImage")));
+            this.btnthongke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnthongke.FlatAppearance.BorderSize = 0;
+            this.btnthongke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnthongke.Location = new System.Drawing.Point(12, 458);
+            this.btnthongke.Name = "btnthongke";
+            this.btnthongke.Size = new System.Drawing.Size(120, 52);
+            this.btnthongke.TabIndex = 191;
+            this.btnthongke.UseVisualStyleBackColor = false;
+            // 
             // QuanLyKhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.cbbdiachi);
             this.Controls.Add(this.lbdiachi);
             this.Controls.Add(this.lbmakh);
@@ -644,5 +659,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_nhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_xuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn so_luong;
+        private System.Windows.Forms.Button btnthongke;
     }
 }
