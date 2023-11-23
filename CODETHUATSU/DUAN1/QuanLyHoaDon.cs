@@ -23,7 +23,7 @@ namespace DUAN1
             dtpngaylap.Format = DateTimePickerFormat.Short;
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
 
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
 
                 //mã khách hàng
@@ -74,7 +74,7 @@ namespace DUAN1
         private void UpdateDGV()
         {
             dataGridView1.Rows.Clear();
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
                 dataGridView1.Rows.Clear();
 
@@ -104,7 +104,7 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             String MaHD = rowData.Cells[0].Value.ToString();
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
                 hoa_don hd = db.hoa_don.Where(x => x.ma_hd == MaHD).FirstOrDefault();
                 tbmahoadon.Text = hd.ma_hd;
@@ -123,6 +123,14 @@ namespace DUAN1
             btnluu.Enabled = false;
 
             tbmahoadon.ReadOnly = true;
+            cbbmakhachhang.Enabled = true;
+            cbbmanv.Enabled = true;
+            cbbmahanghoa.Enabled = true;
+            tbthanhtien.ReadOnly = false;
+            tbsoluong.ReadOnly = false;
+            tbtrangthai.ReadOnly = false;
+            dtpngaylap.Enabled = true;
+
 
         }
         
@@ -145,7 +153,7 @@ namespace DUAN1
             UpdateDGV();
         }
 
-        //chức năng thêm
+        //chức năng lưu
         private void btnluu_Click(object sender, EventArgs e)
         {
             try
@@ -153,7 +161,7 @@ namespace DUAN1
                 String maHH = cbbmahanghoa.Text;
                 int soLuong = int.Parse(tbsoluong.Text);
 
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
                     if (hangHoa != null)
@@ -211,7 +219,7 @@ namespace DUAN1
 
 
 
-            //    using (DUAN1Entities db = new DUAN1Entities())
+            //    using (DUAN1Entities1 db = new DUAN1Entities1())
             //    {
 
             //        addhd.ma_hd = tbmahoadon.Text;
@@ -246,7 +254,7 @@ namespace DUAN1
         {
             try
             {
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     hoa_don delete = db.hoa_don.Where(x => x.ma_hd == tbmahoadon.Text).FirstOrDefault();
 
@@ -298,7 +306,7 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     List<hoa_don> listhd = db.hoa_don.Where(x => x.ma_hd.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
@@ -326,27 +334,37 @@ namespace DUAN1
         //chức năng sủa
         private void btnsua_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
-                string maHD = tbmahoadon.Text;
-                hoa_don edit = db.hoa_don.FirstOrDefault(x => x.ma_hd == maHD);
-                if (edit != null)
+                string maHH = cbbmahanghoa.Text;
+                int soLuong = int.Parse(tbsoluong.Text);
+
+                hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
+                if (hangHoa != null)
                 {
-                    edit.ma_hd = tbmahoadon.Text;
-                    edit.ma_kh = cbbmakhachhang.Text;
-                    edit.ma_nv = cbbmanv.Text;
-                    edit.ma_hang_hoa = cbbmahanghoa.Text;
-                    edit.ngay_lap = dtpngaylap.Value;
-                    edit.so_luong = int.Parse(tbsoluong.Text);
-                    edit.thanh_tien = int.Parse(tbthanhtien.Text);
-                    edit.trang_thai = tbtrangthai.Text;
-                    db.SaveChanges();
-                    MessageBox.Show("Sửa thành công");
+                    hoa_don edit = db.hoa_don.FirstOrDefault(hd => hd.ma_hd == tbmahoadon.Text);
+                    if (edit != null)
+                    {
+                        edit.ma_kh = cbbmakhachhang.Text;
+                        edit.ma_nv = cbbmanv.Text;
+                        edit.ma_hang_hoa = cbbmahanghoa.Text;
+                        edit.ngay_lap = dtpngaylap.Value;
+                        edit.so_luong = soLuong;
+                        edit.thanh_tien = hangHoa.gia * soLuong;
+                        edit.trang_thai = tbtrangthai.Text;
+                        db.SaveChanges();
+                        MessageBox.Show("Sửa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy hóa đơn");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy khách hàng");
+                    MessageBox.Show("Không tìm thấy hàng hóa");
                 }
+
                 UpdateDGV();
             }
         }
@@ -355,6 +373,14 @@ namespace DUAN1
         private void btnchuyen_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnkhohang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhoHang form = new QuanLyKhoHang();
+            form.ShowDialog();
+            this.Close();
         }
     }
 }

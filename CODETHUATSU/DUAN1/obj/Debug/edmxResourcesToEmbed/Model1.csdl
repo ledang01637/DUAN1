@@ -5,7 +5,7 @@
       <PropertyRef Name="tai_khoan" />
     </Key>
     <Property Name="tai_khoan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="mat_khau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mat_khau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="hang_hoa">
@@ -136,7 +136,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DUAN1Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DUAN1Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="dang_nhap" EntityType="Self.dang_nhap" />
     <EntitySet Name="hang_hoa" EntityType="Self.hang_hoa" />
     <EntitySet Name="hoa_don" EntityType="Self.hoa_don" />

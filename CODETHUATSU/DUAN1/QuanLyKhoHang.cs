@@ -25,7 +25,7 @@ namespace DUAN1
             dtpngaynhapkho.Value = DateTime.Today;
             dtpngayxuatkho.Value = DateTime.Today;
 
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
                 cbbdiachi.Items.Clear();
                 db.kho_hang.ToList().ForEach(row => cbbdiachi.Items.Add(row.dia_chi));
@@ -74,7 +74,7 @@ namespace DUAN1
         private void UpdateDGV()
         {
             dataGridView1.Rows.Clear();
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
                 cbbdiachi.Items.Clear();
                 db.kho_hang.ToList().ForEach(row => cbbdiachi.Items.Add(row.dia_chi));
@@ -114,7 +114,7 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             String MaSP = rowData.Cells[0].Value.ToString();
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
                 khohang_hanghoa sv = db.khohang_hanghoa.Where(x => x.ma_kho_hang == MaSP).FirstOrDefault();
                 tbmakhohang.Text = sv.ma_kho_hang;
@@ -144,7 +144,7 @@ namespace DUAN1
             var rowData = dataGridView2.Rows[row];
 
             String MaKH = rowData.Cells[0].Value.ToString();
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DUAN1Entities1 db = new DUAN1Entities1())
             {
                 kho_hang sv = db.kho_hang.Where(x => x.ma_kho_hang == MaKH).FirstOrDefault();
                 tbmakh.Text = sv.ma_kho_hang;
@@ -205,7 +205,7 @@ namespace DUAN1
                     addkhhh.so_luong = int.Parse(tbsoluong.Text);
 
 
-                    using (DUAN1Entities db = new DUAN1Entities())
+                    using (DUAN1Entities1 db = new DUAN1Entities1())
                     {
                         addkhhh.ma_kho_hang = addkh.ma_kho_hang = tbmakhohang.Text;
                         addkhhh.ma_hang_hoa = tbmahanghoa.Text;
@@ -235,7 +235,7 @@ namespace DUAN1
                     addsp.dia_chi = cbbdiachi.Text;
 
 
-                    using (DUAN1Entities db = new DUAN1Entities())
+                    using (DUAN1Entities1 db = new DUAN1Entities1())
                     {
                         //kho_hang quocgiaduocchon = db.kho_hang.Where(x => x.dia_chi == cbbdiachi.SelectedItem.ToString()).FirstOrDefault();
                         //addsp.ma_kho_hang = quocgiaduocchon.dia_chi;
@@ -273,7 +273,7 @@ namespace DUAN1
             // khi check kho hang hang hoa
             else if (cbkhohanghanghoa.Checked)
             {
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     khohang_hanghoa delete = db.khohang_hanghoa.Where(x => x.ma_kho_hang == tbmakhohang.Text).FirstOrDefault();
 
@@ -286,7 +286,7 @@ namespace DUAN1
             // khi check kho hang
             else if (cbkhohang.Checked)
             {
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     kho_hang delete = db.kho_hang.FirstOrDefault(x => x.ma_kho_hang == tbmakh.Text);
 
@@ -349,7 +349,7 @@ namespace DUAN1
             // khi check kho hang hang hoa
             else if (cbkhohanghanghoa.Checked)
             {
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     string maKhoHang = tbmakhohang.Text;
                     khohang_hanghoa edit = db.khohang_hanghoa.FirstOrDefault(x => x.ma_kho_hang == maKhoHang);
@@ -375,7 +375,7 @@ namespace DUAN1
             {
                 MessageBox.Show("b");
 
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     string maKH = tbmakh.Text;
                     kho_hang edit = db.kho_hang.FirstOrDefault(x => x.ma_kho_hang == maKH);
@@ -416,7 +416,7 @@ namespace DUAN1
 
 
 
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DUAN1Entities1 db = new DUAN1Entities1())
                 {
                     List<khohang_hanghoa> listsv = db.khohang_hanghoa.Where(x => x.ma_kho_hang.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
@@ -438,7 +438,12 @@ namespace DUAN1
             }
         }
 
-
-         
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon form = new QuanLyHoaDon();
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }

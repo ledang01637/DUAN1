@@ -13,10 +13,10 @@ namespace DUAN1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DUAN1Entities : DbContext
+    public partial class DUAN1Entities1 : DbContext
     {
-        public DUAN1Entities()
-            : base("name=DUAN1Entities")
+        public DUAN1Entities1()
+            : base("name=DUAN1Entities1")
         {
         }
     

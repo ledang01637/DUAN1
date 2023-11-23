@@ -451,6 +451,7 @@ namespace DUAN1
             this.btnhoadon.Size = new System.Drawing.Size(120, 52);
             this.btnhoadon.TabIndex = 152;
             this.btnhoadon.UseVisualStyleBackColor = false;
+            this.btnhoadon.Click += new System.EventHandler(this.btnhoadon_Click);
             // 
             // cbkhohanghanghoa
             // 

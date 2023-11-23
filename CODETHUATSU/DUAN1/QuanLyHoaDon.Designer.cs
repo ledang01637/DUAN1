@@ -496,6 +496,7 @@ namespace DUAN1
             this.btnkhohang.Size = new System.Drawing.Size(120, 52);
             this.btnkhohang.TabIndex = 142;
             this.btnkhohang.UseVisualStyleBackColor = false;
+            this.btnkhohang.Click += new System.EventHandler(this.btnkhohang_Click);
             // 
             // btnhanghoa
             // 

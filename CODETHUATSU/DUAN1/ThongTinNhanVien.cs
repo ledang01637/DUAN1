@@ -16,5 +16,10 @@ namespace DUAN1
         {
             InitializeComponent();
         }
+
+        private void ThongTinNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

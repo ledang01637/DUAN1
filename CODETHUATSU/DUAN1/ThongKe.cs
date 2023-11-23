@@ -16,5 +16,10 @@ namespace DUAN1
         {
             InitializeComponent();
         }
+
+        private void ThongKe_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
