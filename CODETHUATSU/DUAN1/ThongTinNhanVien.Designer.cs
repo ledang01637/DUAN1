@@ -47,6 +47,8 @@ namespace DUAN1
             this.btnthongtinnv = new System.Windows.Forms.Button();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnhoadon = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbtaikhoan = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -263,11 +265,36 @@ namespace DUAN1
             this.btnhoadon.TabIndex = 152;
             this.btnhoadon.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(736, 494);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(206, 46);
+            this.label1.TabIndex = 160;
+            this.label1.Text = "Tài khoản:";
+            // 
+            // tbtaikhoan
+            // 
+            this.tbtaikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbtaikhoan.Location = new System.Drawing.Point(1079, 494);
+            this.tbtaikhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.tbtaikhoan.Multiline = true;
+            this.tbtaikhoan.Name = "tbtaikhoan";
+            this.tbtaikhoan.Size = new System.Drawing.Size(453, 45);
+            this.tbtaikhoan.TabIndex = 159;
+            // 
             // ThongTinNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 828);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbtaikhoan);
             this.Controls.Add(this.btnkhachhang);
             this.Controls.Add(this.btnnhanvien);
             this.Controls.Add(this.btnkhohang);
@@ -318,5 +345,7 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthongtinnv;
         private System.Windows.Forms.Button btnthoat;
         private System.Windows.Forms.Button btnhoadon;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbtaikhoan;
     }
 }

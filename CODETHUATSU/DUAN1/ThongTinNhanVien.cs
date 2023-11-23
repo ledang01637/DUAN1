@@ -16,7 +16,7 @@ namespace DUAN1
         {
             //Mã nhân viên sẽ là tài khoản nhân viên nên khi đăng nhập vào tài khoản, username sẽ truyền vào textbox tbmanhanvien
             InitializeComponent();
-            tbmanhanvien.Text = username;
+            tbtaikhoan.Text = username;
         }
 
         private void ThongTinNhanVien_Load(object sender, EventArgs e)
@@ -24,13 +24,15 @@ namespace DUAN1
             //Hiển thị thông tin nhân viên
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                List<nhan_vien> lnv = db.nhan_vien.Where(x => x.ma_nv.Equals(tbmanhanvien.Text)).ToList();
+                List<nhan_vien> lnv = db.nhan_vien.Where(x => x.ma_nv.Equals(tbtaikhoan.Text)).ToList();
                 if(lnv.Any())
                 {
                     //Nếu nhân viên tồn tại, tên nhân viên và số điện thoại sẽ xuất ra trong text box dựa theo mã nhân viên ở tbmanhanvien
-                    nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv.Equals(tbmanhanvien.Text)).FirstOrDefault();
+                    nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv.Equals(tbtaikhoan.Text)).FirstOrDefault();
+                    tbmanhanvien.Text = nv.ma_nv;
                     tbtennhanvien.Text = nv.ten_nv;
                     tbsdt.Text = nv.sdt;
+                    btnnhanvien.Enabled = false;
                 }
                 else
                 {
@@ -38,12 +40,15 @@ namespace DUAN1
                     tbtennhanvien.Text = "";
                     tbsdt.Text = "";
                     tbmanhanvien.Text = "";
+                    tbtaikhoan.Text = "";
+                    btnnhanvien.Enabled = true;
                 }
             }
-            btnnhanvien.Enabled = false;
+            
             tbmanhanvien.Enabled = false;
             tbtennhanvien.Enabled = false;
             tbsdt.Enabled = false;
+            tbtaikhoan.Enabled = false;
         }
 
         private void btnthoat_Click(object sender, EventArgs e)

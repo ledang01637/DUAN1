@@ -38,7 +38,7 @@ namespace DUAN1
             this.lbpassword = new System.Windows.Forms.Label();
             this.btnsubmit = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.quenmatkhau = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.cbghinhodn = new System.Windows.Forms.CheckBox();
             this.cbhienmatkhau = new System.Windows.Forms.CheckBox();
@@ -148,18 +148,18 @@ namespace DUAN1
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
             // 
-            // label4
+            // quenmatkhau
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1343, 697);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 25);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Quên mật khẩu";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.quenmatkhau.AutoSize = true;
+            this.quenmatkhau.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.quenmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quenmatkhau.Location = new System.Drawing.Point(1343, 697);
+            this.quenmatkhau.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.quenmatkhau.Name = "quenmatkhau";
+            this.quenmatkhau.Size = new System.Drawing.Size(146, 25);
+            this.quenmatkhau.TabIndex = 10;
+            this.quenmatkhau.Text = "Quên mật khẩu";
+            this.quenmatkhau.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox3
             // 
@@ -215,7 +215,7 @@ namespace DUAN1
             this.Controls.Add(this.lbpassword);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.lbusername);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.quenmatkhau);
             this.Controls.Add(this.btnsubmit);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
@@ -246,7 +246,7 @@ namespace DUAN1
         private System.Windows.Forms.Label lbpassword;
         private System.Windows.Forms.Button btnsubmit;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label quenmatkhau;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.CheckBox cbghinhodn;
         private System.Windows.Forms.CheckBox cbhienmatkhau;

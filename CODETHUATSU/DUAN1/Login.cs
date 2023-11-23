@@ -25,7 +25,10 @@ namespace DUAN1
 
         private void label4_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            QuenMatKhau form = new QuenMatKhau();
+            form.ShowDialog();
+            this.Close();
         }
 
         private void Login_Load(object sender, EventArgs e)
