@@ -78,7 +78,8 @@ namespace DUAN1
                     found.ten = hangHoaUpdate.ten;
                     found.ngay_sx = hangHoaUpdate.ngay_sx;
                     found.hsd = hangHoaUpdate.hsd;
-                    found.gia = hangHoaUpdate.gia;
+                    found.gia_ban = hangHoaUpdate.gia_ban;
+                    found.gia_nhap = hangHoaUpdate.gia_nhap;
                     found.hinh = hangHoaUpdate.hinh;
                     HangHoa_.SaveChanges();
                     return true;
@@ -102,11 +103,11 @@ namespace DUAN1
                 return null;
             }
         }
-        public static hang_hoa timGia(int GiaHH)
+        public static hang_hoa timGia(float GiaHH)
         {
             using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
             {
-                hang_hoa hang_Hoa = dUAN1Entities.hang_hoa.FirstOrDefault(a => a.gia == (GiaHH));
+                hang_hoa hang_Hoa = dUAN1Entities.hang_hoa.FirstOrDefault(a => a.gia_ban == (GiaHH) || a.gia_nhap == (GiaHH));
                 if (hang_Hoa != null)
                 {
                     return hang_Hoa;

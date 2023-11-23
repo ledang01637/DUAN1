@@ -30,10 +30,10 @@ namespace DUAN1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyHangHoa));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.tbmahanghoa = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -64,12 +64,15 @@ namespace DUAN1
             this.btnthem = new System.Windows.Forms.Button();
             this.dtphansudung = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbgianhap = new System.Windows.Forms.TextBox();
             this.MaHH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgaySX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinhanh)).BeginInit();
@@ -243,9 +246,9 @@ namespace DUAN1
             this.lbgia.Location = new System.Drawing.Point(200, 386);
             this.lbgia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbgia.Name = "lbgia";
-            this.lbgia.Size = new System.Drawing.Size(190, 31);
+            this.lbgia.Size = new System.Drawing.Size(123, 31);
             this.lbgia.TabIndex = 61;
-            this.lbgia.Text = "Giá hàng hóa :";
+            this.lbgia.Text = "Giá bán :";
             // 
             // tbgia
             // 
@@ -481,7 +484,8 @@ namespace DUAN1
             this.NgaySX,
             this.HSD,
             this.Gia,
-            this.Hinh});
+            this.Hinh,
+            this.GiaNhap});
             this.dataGridView1.Location = new System.Drawing.Point(200, 587);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -491,10 +495,38 @@ namespace DUAN1
             this.dataGridView1.TabIndex = 160;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(201, 451);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 31);
+            this.label1.TabIndex = 162;
+            this.label1.Text = "Giá nhập :";
+            // 
+            // tbgianhap
+            // 
+            this.tbgianhap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbgianhap.Enabled = false;
+            this.tbgianhap.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbgianhap.Location = new System.Drawing.Point(408, 448);
+            this.tbgianhap.Margin = new System.Windows.Forms.Padding(4);
+            this.tbgianhap.Multiline = true;
+            this.tbgianhap.Name = "tbgianhap";
+            this.tbgianhap.Size = new System.Drawing.Size(295, 34);
+            this.tbgianhap.TabIndex = 161;
+            this.tbgianhap.TextChanged += new System.EventHandler(this.tbgianhap_TextChanged);
+            this.tbgianhap.Enter += new System.EventHandler(this.tbgianhap_Enter);
+            this.tbgianhap.Leave += new System.EventHandler(this.tbgianhap_Leave);
+            // 
             // MaHH
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaHH.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaHH.DefaultCellStyle = dataGridViewCellStyle13;
             this.MaHH.HeaderText = "Mã hàng hóa";
             this.MaHH.MinimumWidth = 6;
             this.MaHH.Name = "MaHH";
@@ -503,18 +535,18 @@ namespace DUAN1
             // 
             // Ten
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ten.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.DefaultCellStyle = dataGridViewCellStyle14;
             this.Ten.HeaderText = "Tên hàng hóa";
             this.Ten.MinimumWidth = 6;
             this.Ten.Name = "Ten";
             this.Ten.ReadOnly = true;
-            this.Ten.Width = 250;
+            this.Ten.Width = 200;
             // 
             // NgaySX
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgaySX.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgaySX.DefaultCellStyle = dataGridViewCellStyle15;
             this.NgaySX.HeaderText = "Ngày sản xuất";
             this.NgaySX.MinimumWidth = 6;
             this.NgaySX.Name = "NgaySX";
@@ -523,8 +555,8 @@ namespace DUAN1
             // 
             // HSD
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HSD.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSD.DefaultCellStyle = dataGridViewCellStyle16;
             this.HSD.HeaderText = "Hạn sử dụng";
             this.HSD.MinimumWidth = 6;
             this.HSD.Name = "HSD";
@@ -533,11 +565,11 @@ namespace DUAN1
             // 
             // Gia
             // 
-            this.Gia.HeaderText = "Giá";
+            this.Gia.HeaderText = "Giá bán";
             this.Gia.MinimumWidth = 6;
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
-            this.Gia.Width = 200;
+            this.Gia.Width = 175;
             // 
             // Hinh
             // 
@@ -545,13 +577,23 @@ namespace DUAN1
             this.Hinh.MinimumWidth = 6;
             this.Hinh.Name = "Hinh";
             this.Hinh.ReadOnly = true;
-            this.Hinh.Width = 350;
+            this.Hinh.Width = 250;
+            // 
+            // GiaNhap
+            // 
+            this.GiaNhap.HeaderText = "Giá nhập";
+            this.GiaNhap.MinimumWidth = 6;
+            this.GiaNhap.Name = "GiaNhap";
+            this.GiaNhap.ReadOnly = true;
+            this.GiaNhap.Width = 175;
             // 
             // QuanLyHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 828);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbgianhap);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dtphansudung);
             this.Controls.Add(this.btnhuy);
@@ -631,11 +673,14 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthem;
         private System.Windows.Forms.DateTimePicker dtphansudung;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbgianhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHH;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySX;
         private System.Windows.Forms.DataGridViewTextBoxColumn HSD;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaNhap;
     }
 }

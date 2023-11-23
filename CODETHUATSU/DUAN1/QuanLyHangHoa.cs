@@ -15,8 +15,8 @@ namespace DUAN1
     {
         List<hang_hoa> dsHang;
         String imagePath = "";
-        bool focus, focusTenHH, focusNSX, focusGia, focusHSD;
-        bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD;
+        bool focus, focusTenHH, focusNSX, focusGia, focusHSD, foucusGiaNhap;
+        bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD, isTextGiaNhap;
 
         public QuanLyHangHoa()
         {
@@ -36,26 +36,30 @@ namespace DUAN1
                 row.ten,
                 DateTime.Parse(row.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
                 DateTime.Parse(row.hsd.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
-                row.gia,
-                row.hinh
+                row.gia_ban,
+                row.hinh,
+                row.gia_nhap
+                
             ));
             dataGridView1.Update();
         }
-        public void Reset()
+        private void Reset()
         {
             tbmahanghoa.Text = "";
             tbtenhanghoa.Text = "";
             tbgia.Text = "";
+            tbgianhap.Text = "";
             hinhanh.Image = null;
             dtpngaysanxuat.Value = DateTime.Now;
             dtphansudung.Value = DateTime.Now;
-            tbtimkiem.Text = "";
+            tbtimkiem.Text = "";  
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
             tbmahanghoa.Enabled = true;
             tbtenhanghoa.Enabled = true;
             tbgia.Enabled = true;
+            tbgianhap.Enabled = true;
             dtpngaysanxuat.Enabled = true;
             dtphansudung.Enabled = true;
             hinhanh.Enabled = true;
@@ -76,6 +80,7 @@ namespace DUAN1
                 //dtpngaysanxuat.Value = DateTime.Parse(row.Cells[2].Value?.ToString(), CultureInfo.InvariantCulture);
                 //dtphansudung.Value = DateTime.Parse(row.Cells[3].Value?.ToString(), CultureInfo.InvariantCulture);
                 tbgia.Text = row.Cells[4].Value?.ToString();
+                tbgianhap.Text = row.Cells[6].Value?.ToString();
 
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
                 hang_hoa selectedSP = dsHang[selectedRowIndex];
@@ -90,6 +95,7 @@ namespace DUAN1
                 tbmahanghoa.Enabled = false;
                 tbtenhanghoa.Enabled = true;
                 tbgia.Enabled = true;
+                tbgianhap.Enabled = true;
                 dtpngaysanxuat.Enabled = true;
                 dtphansudung.Enabled = true;
                 hinhanh.Enabled = true;
@@ -117,11 +123,11 @@ namespace DUAN1
                 hinhanh.Image = Image.FromFile(@"" + imagePath);
             }
         }
-
         private void btnluu_Click(object sender, EventArgs e)
         {
-            float gia;
-            if (float.TryParse(tbgia.Text, out gia))
+            float giaBan;
+            float giaNhap;
+            if (float.TryParse(tbgia.Text, out giaBan) && float.TryParse(tbgianhap.Text, out giaNhap))
             {
                 if (hinhanh == null || hinhanh.Image == null)
                 {
@@ -138,9 +144,9 @@ namespace DUAN1
                     MessageBox.Show("HSD phải > NSX", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (gia < 0)
+                if (giaBan < 0 || giaNhap < 0)
                 {
-                    MessageBox.Show("Giá phải > 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Giá bán và giá nhập phải > 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if(tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null || tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
@@ -151,7 +157,8 @@ namespace DUAN1
                 hang_hoa hangHoaAdd = new hang_hoa();
                 hangHoaAdd.ma_hang_hoa = tbmahanghoa.Text;
                 hangHoaAdd.ten = tbtenhanghoa.Text;
-                hangHoaAdd.gia = gia;
+                hangHoaAdd.gia_ban = giaBan;
+                hangHoaAdd.gia_nhap = giaNhap;
                 hangHoaAdd.ngay_sx = dtpngaysanxuat.Value;
                 hangHoaAdd.hsd = dtphansudung.Value;
                 hangHoaAdd.hinh = imagePath;
@@ -181,11 +188,11 @@ namespace DUAN1
                 );
             }
         }
-
         private void btnsua_Click(object sender, EventArgs e)
         {
-            float Gia;
-            if (float.TryParse(tbgia.Text, out Gia))
+            float giaBan;
+            float giaNhap;
+            if (float.TryParse(tbgia.Text, out giaBan) && float.TryParse(tbgianhap.Text, out giaNhap))
             {
                 if (hinhanh == null || hinhanh.Image == null)
                 {
@@ -202,7 +209,7 @@ namespace DUAN1
                     MessageBox.Show("HSD phải > NSX", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (Gia < 0)
+                if (giaBan < 0 || giaNhap < 0)
                 {
                     MessageBox.Show("Giá phải > 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -215,7 +222,8 @@ namespace DUAN1
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
                 hang_hoa selectedHH = dsHang[selectedRowIndex];
                 selectedHH.ten = tbtenhanghoa.Text;
-                selectedHH.gia = Gia;
+                selectedHH.gia_ban = giaBan;
+                selectedHH.gia_nhap = giaNhap;
                 selectedHH.ngay_sx = dtpngaysanxuat.Value;
                 selectedHH.hsd = dtphansudung.Value;
                 if (hinhanh != null && hinhanh.Image != null)
@@ -247,12 +255,10 @@ namespace DUAN1
                 );
             }
         }
-
         private void btnhuy_Click(object sender, EventArgs e)
         {
             Reset();
         }
-
         private void btnxoa_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show(
@@ -280,12 +286,12 @@ namespace DUAN1
                 }
             }
         }
-
         private void btntimkiem_Click(object sender, EventArgs e)
         {
             using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
             {
-                int Gia;
+                float giaBan;
+                float giaNhap;
                 DateTime nsxhsd;
                 try
                 {
@@ -298,11 +304,13 @@ namespace DUAN1
                             hang.ten,
                             DateTime.Parse(hang.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
                             DateTime.Parse(hang.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                            hang.gia
+                            hang.gia_ban,
+                            hang.hinh,
+                            hang.gia_nhap
                         );
                         dataGridView1.Update();
                     }
-                    else if (int.TryParse(tbtimkiem.Text, out Gia) && DBHanler.timGia(Gia) != null)
+                    else if (float.TryParse(tbtimkiem.Text, out giaBan) && (float.TryParse(tbtimkiem.Text, out giaNhap) && DBHanler.timGia(giaNhap) != null))
                     {
                         hang_hoa hang = DBHanler.timGia(int.Parse(tbtimkiem.Text));
                         dataGridView1.Rows.Clear();
@@ -311,7 +319,9 @@ namespace DUAN1
                             hang.ten,
                             DateTime.Parse(hang.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
                             DateTime.Parse(hang.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                            hang.gia
+                            hang.gia_ban,
+                            hang.hinh,
+                            hang.gia_nhap
                         );
                         dataGridView1.Update();
                     }
@@ -438,6 +448,30 @@ namespace DUAN1
             {
                 tbgia.BorderStyle = BorderStyle.FixedSingle;
             }
+            //GiaNhap
+            if (foucusGiaNhap)
+            {
+                float Gia;
+                var isNumber = float.TryParse(tbgianhap.Text, out Gia);
+                if (isNumber == false || Gia < 0)
+                {
+                    Pen pen = new Pen(Color.Red);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbgianhap.Location.X - LoX - 2, tbgianhap.Location.Y - LoY - 2, tbgianhap.Width + 1, tbgianhap.Height + 1));
+                }
+                else if (isTextGiaNhap)
+                {
+                    Pen pen = new Pen(Color.LawnGreen);
+                    int LoX = pictureBox2.Location.X;
+                    int LoY = pictureBox2.Location.Y;
+                    e.Graphics.DrawRectangle(pen, new Rectangle(tbgianhap.Location.X - LoX - 2, tbgianhap.Location.Y - LoY - 2, tbgianhap.Width + 1, tbgianhap.Height + 1));
+                }
+            }
+            else
+            {
+                tbgianhap.BorderStyle = BorderStyle.FixedSingle;
+            }
         }
 
         //MaHH
@@ -560,6 +594,32 @@ namespace DUAN1
         private void tbgia_TextChanged(object sender, EventArgs e)
         {
             isTextGia = true;
+            this.Refresh();
+        }
+        //GiaNhap
+        private void tbgianhap_Enter(object sender, EventArgs e)
+        {
+            foucusGiaNhap = true;
+            this.Refresh();
+        }
+        private void tbgianhap_Leave(object sender, EventArgs e)
+        {
+            float Gia;
+            var isNumber = float.TryParse(tbgianhap.Text, out Gia);
+            if (isNumber == false || Gia < 0)
+            {
+                foucusGiaNhap = true;
+                this.Refresh();
+            }
+            else
+            {
+                foucusGiaNhap = false;
+                this.Refresh();
+            }
+        }
+        private void tbgianhap_TextChanged(object sender, EventArgs e)
+        {
+            isTextGiaNhap = true;
             this.Refresh();
         }
     }
