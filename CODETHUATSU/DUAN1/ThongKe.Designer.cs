@@ -52,7 +52,7 @@ namespace DUAN1
             this.btnthongke = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbtonggia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dtpngaylap = new System.Windows.Forms.DateTimePicker();
@@ -342,17 +342,17 @@ namespace DUAN1
             this.label4.TabIndex = 192;
             this.label4.Text = "Số lượng đã bán :";
             // 
-            // label6
+            // lbtonggia
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(464, 343);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 25);
-            this.label6.TabIndex = 194;
-            this.label6.Text = "Giá sản phẩm :";
+            this.lbtonggia.AutoSize = true;
+            this.lbtonggia.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbtonggia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbtonggia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtonggia.Location = new System.Drawing.Point(464, 343);
+            this.lbtonggia.Name = "lbtonggia";
+            this.lbtonggia.Size = new System.Drawing.Size(108, 25);
+            this.lbtonggia.TabIndex = 194;
+            this.lbtonggia.Text = "Tổng giá :";
             // 
             // label7
             // 
@@ -399,11 +399,11 @@ namespace DUAN1
             // tbgia
             // 
             this.tbgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbgia.Location = new System.Drawing.Point(627, 343);
+            this.tbgia.Location = new System.Drawing.Point(651, 343);
             this.tbgia.Multiline = true;
             this.tbgia.Name = "tbgia";
             this.tbgia.ReadOnly = true;
-            this.tbgia.Size = new System.Drawing.Size(269, 25);
+            this.tbgia.Size = new System.Drawing.Size(245, 25);
             this.tbgia.TabIndex = 201;
             // 
             // tbsltrongkho
@@ -484,7 +484,7 @@ namespace DUAN1
             // 
             // giasanpham
             // 
-            this.giasanpham.HeaderText = "Giá sản phẩm";
+            this.giasanpham.HeaderText = "Tổng giá";
             this.giasanpham.Name = "giasanpham";
             this.giasanpham.ReadOnly = true;
             // 
@@ -516,7 +516,7 @@ namespace DUAN1
             this.Controls.Add(this.dtpngaylap);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbtonggia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnthongke);
@@ -576,7 +576,7 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbtonggia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtpngaylap;
