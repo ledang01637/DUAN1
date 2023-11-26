@@ -582,6 +582,7 @@ namespace DUAN1
             this.btnthongke.Size = new System.Drawing.Size(120, 52);
             this.btnthongke.TabIndex = 190;
             this.btnthongke.UseVisualStyleBackColor = false;
+            this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
             // QuanLyHoaDon
             // 

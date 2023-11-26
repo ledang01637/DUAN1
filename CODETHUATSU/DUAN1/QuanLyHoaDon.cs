@@ -382,5 +382,13 @@ namespace DUAN1
             form.ShowDialog();
             this.Close();
         }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongKe form = new ThongKe();
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }
