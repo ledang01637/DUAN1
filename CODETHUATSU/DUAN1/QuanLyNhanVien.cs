@@ -46,5 +46,10 @@ namespace DUAN1
         {
 
         }
+
+        private void QuanLyNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

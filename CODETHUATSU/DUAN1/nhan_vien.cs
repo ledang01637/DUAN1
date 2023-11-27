@@ -23,9 +23,7 @@ namespace DUAN1
         public string ma_nv { get; set; }
         public string ten_nv { get; set; }
         public string sdt { get; set; }
-        public string tai_khoan_dangnhap { get; set; }
     
-        public virtual dang_nhap dang_nhap { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<hoa_don> hoa_don { get; set; }
     }

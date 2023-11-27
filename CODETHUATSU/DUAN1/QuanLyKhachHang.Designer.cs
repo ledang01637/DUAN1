@@ -56,6 +56,7 @@ namespace DUAN1
             this.tbtimkiem = new System.Windows.Forms.TextBox();
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
+            this.btnthongke = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -353,11 +354,25 @@ namespace DUAN1
             this.btnthem.TabIndex = 166;
             this.btnthem.UseVisualStyleBackColor = true;
             // 
+            // btnthongke
+            // 
+            this.btnthongke.BackColor = System.Drawing.SystemColors.Control;
+            this.btnthongke.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnthongke.BackgroundImage")));
+            this.btnthongke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnthongke.FlatAppearance.BorderSize = 0;
+            this.btnthongke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnthongke.Location = new System.Drawing.Point(12, 459);
+            this.btnthongke.Name = "btnthongke";
+            this.btnthongke.Size = new System.Drawing.Size(120, 52);
+            this.btnthongke.TabIndex = 191;
+            this.btnthongke.UseVisualStyleBackColor = false;
+            // 
             // QuanLyKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.btnhuy);
             this.Controls.Add(this.btnxoa);
             this.Controls.Add(this.btnsua);
@@ -386,6 +401,7 @@ namespace DUAN1
             this.Controls.Add(this.pictureBox1);
             this.Name = "QuanLyKhachHang";
             this.Text = "QuanLyKhachHang";
+            this.Load += new System.EventHandler(this.QuanLyKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -423,5 +439,6 @@ namespace DUAN1
         private System.Windows.Forms.TextBox tbtimkiem;
         private System.Windows.Forms.Button btnluu;
         private System.Windows.Forms.Button btnthem;
+        private System.Windows.Forms.Button btnthongke;
     }
 }

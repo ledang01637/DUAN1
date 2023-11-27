@@ -108,7 +108,6 @@ namespace DUAN1
             this.lbpassword.Size = new System.Drawing.Size(149, 37);
             this.lbpassword.TabIndex = 6;
             this.lbpassword.Text = "Mật khẩu";
-            this.lbpassword.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnsubmit
             // 
@@ -124,6 +123,7 @@ namespace DUAN1
             this.btnsubmit.TabIndex = 8;
             this.btnsubmit.Text = "Đăng nhập";
             this.btnsubmit.UseVisualStyleBackColor = false;
+            this.btnsubmit.Click += new System.EventHandler(this.btnsubmit_Click);
             // 
             // pictureBox4
             // 
@@ -147,7 +147,6 @@ namespace DUAN1
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Quên mật khẩu";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox3
             // 
@@ -208,6 +207,7 @@ namespace DUAN1
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
