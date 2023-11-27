@@ -29,7 +29,7 @@ namespace DUAN1
             dtpdenngay.Format = DateTimePickerFormat.Short;
             dtpdenngay.CustomFormat = "dd/MM/yyyy";
 
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
                 cbbmahanghoa.Items.Clear();
                 db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
@@ -65,7 +65,7 @@ namespace DUAN1
             dtpdenngay.Format = DateTimePickerFormat.Short;
             dtpdenngay.CustomFormat = "dd/MM/yyyy";
 
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
                 cbbmahanghoa.Items.Clear();
                 db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
@@ -97,7 +97,7 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             string MaHH = rowData.Cells[0].Value.ToString();
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
                 hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hang_hoa == MaHH);
                 khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.ma_hang_hoa == MaHH);
@@ -126,7 +126,7 @@ namespace DUAN1
                     DateTime fromDate = dtptungay.Value.Date;
                     DateTime toDate = dtpdenngay.Value.Date.AddDays(1); // Bổ sung 1 ngày để bao gồm cả ngày kết thúc
 
-                    using (DUAN1Entities1 db = new DUAN1Entities1())
+                    using (DUAN1Entities db = new DUAN1Entities())
                     {
                         List<hoa_don> listhd = db.hoa_don
                             .Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)

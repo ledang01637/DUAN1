@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DUAN1ModelStoreContainer" CdmEntityContainer="DUAN1Entities1">
+  <EntityContainerMapping StorageEntityContainer="DUAN1ModelStoreContainer" CdmEntityContainer="DUAN1Entities">
     <EntitySetMapping Name="dang_nhap">
       <EntityTypeMapping TypeName="DUAN1Model.dang_nhap">
         <MappingFragment StoreEntitySet="dang_nhap">
@@ -17,7 +17,8 @@
           <ScalarProperty Name="ten" ColumnName="ten" />
           <ScalarProperty Name="ngay_sx" ColumnName="ngay_sx" />
           <ScalarProperty Name="hsd" ColumnName="hsd" />
-          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="gia_nhap" ColumnName="gia_nhap" />
           <ScalarProperty Name="hinh" ColumnName="hinh" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -70,6 +71,7 @@
           <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
           <ScalarProperty Name="ten_nv" ColumnName="ten_nv" />
           <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="tai_khoan_dangnhap" ColumnName="tai_khoan_dangnhap" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
