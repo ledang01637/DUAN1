@@ -305,6 +305,7 @@ namespace DUAN1
             this.btnhuy.Size = new System.Drawing.Size(180, 80);
             this.btnhuy.TabIndex = 172;
             this.btnhuy.UseVisualStyleBackColor = true;
+            this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
             // 
             // btnxoa
             // 
@@ -318,6 +319,7 @@ namespace DUAN1
             this.btnxoa.Size = new System.Drawing.Size(180, 80);
             this.btnxoa.TabIndex = 171;
             this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
             // btnsua
             // 
@@ -331,6 +333,7 @@ namespace DUAN1
             this.btnsua.Size = new System.Drawing.Size(180, 80);
             this.btnsua.TabIndex = 170;
             this.btnsua.UseVisualStyleBackColor = true;
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
             // 
             // btntimkiem
             // 
@@ -344,6 +347,7 @@ namespace DUAN1
             this.btntimkiem.Size = new System.Drawing.Size(180, 80);
             this.btntimkiem.TabIndex = 169;
             this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // tbtimkiem
             // 
@@ -366,6 +370,7 @@ namespace DUAN1
             this.btnluu.Size = new System.Drawing.Size(180, 80);
             this.btnluu.TabIndex = 167;
             this.btnluu.UseVisualStyleBackColor = true;
+            this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
             // 
             // btnthem
             // 
@@ -415,6 +420,7 @@ namespace DUAN1
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLyKhachHang";
             this.Text = "QuanLyKhachHang";
+            this.Load += new System.EventHandler(this.QuanLyKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
