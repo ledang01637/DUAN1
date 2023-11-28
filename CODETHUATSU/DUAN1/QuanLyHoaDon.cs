@@ -23,7 +23,7 @@ namespace DUAN1
             dtpngaylap.Format = DateTimePickerFormat.Short;
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
 
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
 
                 //mã khách hàng
@@ -74,7 +74,7 @@ namespace DUAN1
         private void UpdateDGV()
         {
             dataGridView1.Rows.Clear();
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
                 dataGridView1.Rows.Clear();
 
@@ -104,7 +104,7 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             String MaHD = rowData.Cells[0].Value.ToString();
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
                 hoa_don hd = db.hoa_don.Where(x => x.ma_hd == MaHD).FirstOrDefault();
                 tbmahoadon.Text = hd.ma_hd;
@@ -161,7 +161,7 @@ namespace DUAN1
                 String maHH = cbbmahanghoa.Text;
                 int soLuong = int.Parse(tbsoluong.Text);
 
-                using (DUAN1Entities1 db = new DUAN1Entities1())
+                using (DUAN1Entities db = new DUAN1Entities())
                 {
                     hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
                     if (hangHoa != null)
@@ -173,7 +173,7 @@ namespace DUAN1
                         addhd.ma_hang_hoa = maHH;
                         addhd.ngay_lap = dtpngaylap.Value;
                         addhd.so_luong = soLuong;
-                        addhd.thanh_tien = hangHoa.gia * soLuong;
+                        addhd.thanh_tien = hangHoa.gia_ban * soLuong;
                         addhd.trang_thai = tbtrangthai.Text;
 
                         db.hoa_don.Add(addhd);
@@ -219,7 +219,7 @@ namespace DUAN1
 
 
 
-            //    using (DUAN1Entities1 db = new DUAN1Entities1())
+            //    using (DUAN1Entities db = new DUAN1Entities())
             //    {
 
             //        addhd.ma_hd = tbmahoadon.Text;
@@ -254,7 +254,7 @@ namespace DUAN1
         {
             try
             {
-                using (DUAN1Entities1 db = new DUAN1Entities1())
+                using (DUAN1Entities db = new DUAN1Entities())
                 {
                     hoa_don delete = db.hoa_don.Where(x => x.ma_hd == tbmahoadon.Text).FirstOrDefault();
 
@@ -306,7 +306,7 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-                using (DUAN1Entities1 db = new DUAN1Entities1())
+                using (DUAN1Entities db = new DUAN1Entities())
                 {
                     List<hoa_don> listhd = db.hoa_don.Where(x => x.ma_hd.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
@@ -334,7 +334,7 @@ namespace DUAN1
         //chức năng sủa
         private void btnsua_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities1 db = new DUAN1Entities1())
+            using (DUAN1Entities db = new DUAN1Entities())
             {
                 string maHH = cbbmahanghoa.Text;
                 int soLuong = int.Parse(tbsoluong.Text);
@@ -350,7 +350,7 @@ namespace DUAN1
                         edit.ma_hang_hoa = cbbmahanghoa.Text;
                         edit.ngay_lap = dtpngaylap.Value;
                         edit.so_luong = soLuong;
-                        edit.thanh_tien = hangHoa.gia * soLuong;
+                        edit.thanh_tien = hangHoa.gia_ban * soLuong;
                         edit.trang_thai = tbtrangthai.Text;
                         db.SaveChanges();
                         MessageBox.Show("Sửa thành công");
@@ -378,7 +378,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyKhoHang form = new QuanLyKhoHang();
+            KhoHangHangHoa form = new KhoHangHangHoa();
             form.ShowDialog();
             this.Close();
         }
