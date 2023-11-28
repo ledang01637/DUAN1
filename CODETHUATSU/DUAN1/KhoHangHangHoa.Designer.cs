@@ -1,7 +1,7 @@
 ﻿
 namespace DUAN1
 {
-    partial class QuanLyKhoHang
+    partial class KhoHangHangHoa
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace DUAN1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyKhoHang));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhoHangHangHoa));
             this.lbsoluong = new System.Windows.Forms.Label();
             this.tbsoluong = new System.Windows.Forms.TextBox();
             this.dtpngayxuatkho = new System.Windows.Forms.DateTimePicker();

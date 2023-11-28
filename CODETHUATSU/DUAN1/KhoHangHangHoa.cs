@@ -11,9 +11,9 @@ using System.Globalization;
 
 namespace DUAN1
 {
-    public partial class QuanLyKhoHang : Form
+    public partial class KhoHangHangHoa : Form
     {
-        public QuanLyKhoHang()
+        public KhoHangHangHoa()
         {
             InitializeComponent();
         }

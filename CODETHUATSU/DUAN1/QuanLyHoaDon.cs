@@ -378,7 +378,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyKhoHang form = new QuanLyKhoHang();
+            KhoHangHangHoa form = new KhoHangHangHoa();
             form.ShowDialog();
             this.Close();
         }
