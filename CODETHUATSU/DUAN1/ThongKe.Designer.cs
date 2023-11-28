@@ -41,6 +41,11 @@ namespace DUAN1
             this.label2 = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.mahanghoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaylap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giasanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluongdaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluongcontrongkho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnhoadon = new System.Windows.Forms.Button();
@@ -64,11 +69,6 @@ namespace DUAN1
             this.dtptungay = new System.Windows.Forms.DateTimePicker();
             this.dtpdenngay = new System.Windows.Forms.DateTimePicker();
             this.lbdenngay = new System.Windows.Forms.Label();
-            this.mahanghoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaylap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giasanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluongdaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluongcontrongkho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -79,7 +79,7 @@ namespace DUAN1
             this.cbbmahanghoa.Enabled = false;
             this.cbbmahanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmahanghoa.FormattingEnabled = true;
-            this.cbbmahanghoa.Location = new System.Drawing.Point(651, 122);
+            this.cbbmahanghoa.Location = new System.Drawing.Point(371, 123);
             this.cbbmahanghoa.Name = "cbbmahanghoa";
             this.cbbmahanghoa.Size = new System.Drawing.Size(245, 28);
             this.cbbmahanghoa.TabIndex = 185;
@@ -175,7 +175,7 @@ namespace DUAN1
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(464, 121);
+            this.label2.Location = new System.Drawing.Point(184, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 25);
             this.label2.TabIndex = 163;
@@ -210,6 +210,36 @@ namespace DUAN1
             this.dataGridView1.Size = new System.Drawing.Size(1091, 195);
             this.dataGridView1.TabIndex = 156;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // mahanghoa
+            // 
+            this.mahanghoa.HeaderText = "Mã hàng hóa";
+            this.mahanghoa.Name = "mahanghoa";
+            this.mahanghoa.ReadOnly = true;
+            // 
+            // ngaylap
+            // 
+            this.ngaylap.HeaderText = "Ngày lập";
+            this.ngaylap.Name = "ngaylap";
+            this.ngaylap.ReadOnly = true;
+            // 
+            // giasanpham
+            // 
+            this.giasanpham.HeaderText = "Tổng giá";
+            this.giasanpham.Name = "giasanpham";
+            this.giasanpham.ReadOnly = true;
+            // 
+            // soluongdaban
+            // 
+            this.soluongdaban.HeaderText = "Số lượng đã bán";
+            this.soluongdaban.Name = "soluongdaban";
+            this.soluongdaban.ReadOnly = true;
+            // 
+            // soluongcontrongkho
+            // 
+            this.soluongcontrongkho.HeaderText = "Số lượng còn trong kho";
+            this.soluongcontrongkho.Name = "soluongcontrongkho";
+            this.soluongcontrongkho.ReadOnly = true;
             // 
             // pictureBox1
             // 
@@ -324,7 +354,7 @@ namespace DUAN1
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(464, 179);
+            this.label1.Location = new System.Drawing.Point(696, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 25);
             this.label1.TabIndex = 190;
@@ -336,7 +366,7 @@ namespace DUAN1
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(464, 227);
+            this.label4.Location = new System.Drawing.Point(184, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 25);
             this.label4.TabIndex = 192;
@@ -348,7 +378,7 @@ namespace DUAN1
             this.lbtonggia.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbtonggia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbtonggia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtonggia.Location = new System.Drawing.Point(464, 343);
+            this.lbtonggia.Location = new System.Drawing.Point(184, 334);
             this.lbtonggia.Name = "lbtonggia";
             this.lbtonggia.Size = new System.Drawing.Size(108, 25);
             this.lbtonggia.TabIndex = 194;
@@ -381,7 +411,7 @@ namespace DUAN1
             this.dtpngaylap.Enabled = false;
             this.dtpngaylap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpngaylap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpngaylap.Location = new System.Drawing.Point(651, 179);
+            this.dtpngaylap.Location = new System.Drawing.Point(883, 123);
             this.dtpngaylap.Name = "dtpngaylap";
             this.dtpngaylap.Size = new System.Drawing.Size(245, 29);
             this.dtpngaylap.TabIndex = 198;
@@ -389,7 +419,7 @@ namespace DUAN1
             // tbsoluongdaban
             // 
             this.tbsoluongdaban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsoluongdaban.Location = new System.Drawing.Point(651, 227);
+            this.tbsoluongdaban.Location = new System.Drawing.Point(371, 226);
             this.tbsoluongdaban.Multiline = true;
             this.tbsoluongdaban.Name = "tbsoluongdaban";
             this.tbsoluongdaban.ReadOnly = true;
@@ -399,7 +429,7 @@ namespace DUAN1
             // tbgia
             // 
             this.tbgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbgia.Location = new System.Drawing.Point(651, 343);
+            this.tbgia.Location = new System.Drawing.Point(371, 334);
             this.tbgia.Multiline = true;
             this.tbgia.Name = "tbgia";
             this.tbgia.ReadOnly = true;
@@ -409,7 +439,7 @@ namespace DUAN1
             // tbsltrongkho
             // 
             this.tbsltrongkho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsltrongkho.Location = new System.Drawing.Point(716, 285);
+            this.tbsltrongkho.Location = new System.Drawing.Point(948, 227);
             this.tbsltrongkho.Multiline = true;
             this.tbsltrongkho.Name = "tbsltrongkho";
             this.tbsltrongkho.ReadOnly = true;
@@ -422,7 +452,7 @@ namespace DUAN1
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(464, 285);
+            this.label3.Location = new System.Drawing.Point(696, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(246, 25);
             this.label3.TabIndex = 204;
@@ -434,7 +464,7 @@ namespace DUAN1
             this.lbtungay.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbtungay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbtungay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtungay.Location = new System.Drawing.Point(147, 412);
+            this.lbtungay.Location = new System.Drawing.Point(191, 409);
             this.lbtungay.Name = "lbtungay";
             this.lbtungay.Size = new System.Drawing.Size(102, 25);
             this.lbtungay.TabIndex = 206;
@@ -444,7 +474,7 @@ namespace DUAN1
             // 
             this.dtptungay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtptungay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtptungay.Location = new System.Drawing.Point(255, 409);
+            this.dtptungay.Location = new System.Drawing.Point(299, 406);
             this.dtptungay.Name = "dtptungay";
             this.dtptungay.Size = new System.Drawing.Size(135, 29);
             this.dtptungay.TabIndex = 207;
@@ -453,7 +483,7 @@ namespace DUAN1
             // 
             this.dtpdenngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpdenngay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpdenngay.Location = new System.Drawing.Point(542, 412);
+            this.dtpdenngay.Location = new System.Drawing.Point(586, 409);
             this.dtpdenngay.Name = "dtpdenngay";
             this.dtpdenngay.Size = new System.Drawing.Size(135, 29);
             this.dtpdenngay.TabIndex = 209;
@@ -464,41 +494,11 @@ namespace DUAN1
             this.lbdenngay.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbdenngay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbdenngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbdenngay.Location = new System.Drawing.Point(420, 412);
+            this.lbdenngay.Location = new System.Drawing.Point(464, 409);
             this.lbdenngay.Name = "lbdenngay";
             this.lbdenngay.Size = new System.Drawing.Size(116, 25);
             this.lbdenngay.TabIndex = 208;
             this.lbdenngay.Text = "Đến ngày :";
-            // 
-            // mahanghoa
-            // 
-            this.mahanghoa.HeaderText = "Mã hàng hóa";
-            this.mahanghoa.Name = "mahanghoa";
-            this.mahanghoa.ReadOnly = true;
-            // 
-            // ngaylap
-            // 
-            this.ngaylap.HeaderText = "Ngày lập";
-            this.ngaylap.Name = "ngaylap";
-            this.ngaylap.ReadOnly = true;
-            // 
-            // giasanpham
-            // 
-            this.giasanpham.HeaderText = "Tổng giá";
-            this.giasanpham.Name = "giasanpham";
-            this.giasanpham.ReadOnly = true;
-            // 
-            // soluongdaban
-            // 
-            this.soluongdaban.HeaderText = "Số lượng đã bán";
-            this.soluongdaban.Name = "soluongdaban";
-            this.soluongdaban.ReadOnly = true;
-            // 
-            // soluongcontrongkho
-            // 
-            this.soluongcontrongkho.HeaderText = "Số lượng còn trong kho";
-            this.soluongcontrongkho.Name = "soluongcontrongkho";
-            this.soluongcontrongkho.ReadOnly = true;
             // 
             // ThongKe
             // 
