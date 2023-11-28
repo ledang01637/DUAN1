@@ -58,6 +58,7 @@
     <Compile Include="dang_nhap.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBHandler.cs" />
     <Compile Include="hang_hoa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
