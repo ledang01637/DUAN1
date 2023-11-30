@@ -18,22 +18,6 @@ namespace DUAN1
             InitializeComponent();
         }
 
-        private void btnsubmit_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            KhoHangHangHoa form = new KhoHangHangHoa();
-            form.ShowDialog();
-            this.Close();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuenMatKhau form = new QuenMatKhau();
-            form.ShowDialog();
-            this.Close();
-        }
-
         private void Login_Load(object sender, EventArgs e)
         {
             //Lưu tài khoản vào bảng tạm
@@ -156,5 +140,6 @@ namespace DUAN1
             }
             return str_Md5;
         }
+
     }
 }

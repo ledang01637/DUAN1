@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Data.Entity.Validation;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace DUAN1
 {
@@ -103,6 +104,7 @@ namespace DUAN1
                 
             }
         }
+
         private void btnsubmit_Click(object sender, EventArgs e)
         {
             int xacNhan;
@@ -117,7 +119,7 @@ namespace DUAN1
                             using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
                             {
                                 //Mã hóa
-                                DBHanler dBHanler = new DBHanler();
+                                DBHandler dBHanler = new DBHandler();
                                 String Hash = dBHanler.GetMD5(tbpassword1.Text);
                                 dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.tai_khoan.Equals(tbusername.Text.Trim()));
                                 dang_.mat_khau = Hash;

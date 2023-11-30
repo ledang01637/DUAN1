@@ -60,7 +60,7 @@ namespace DUAN1
             this.Close();
         }
 
-        private void ThongTinNhanVien_Load(object sender, EventArgs e)
+        private void ThongTinNhanVien_Load_1(object sender, EventArgs e)
         {
 
         }
