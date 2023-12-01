@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DUAN1ModelStoreContainer" CdmEntityContainer="DUAN1Entities">
+    <EntitySetMapping Name="dang_nhap">
+      <EntityTypeMapping TypeName="DUAN1Model.dang_nhap">
+        <MappingFragment StoreEntitySet="dang_nhap">
+          <ScalarProperty Name="tai_khoan" ColumnName="tai_khoan" />
+          <ScalarProperty Name="mat_khau" ColumnName="mat_khau" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hang_hoa">
+      <EntityTypeMapping TypeName="DUAN1Model.hang_hoa">
+        <MappingFragment StoreEntitySet="hang_hoa">
+          <ScalarProperty Name="ma_hang_hoa" ColumnName="ma_hang_hoa" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ngay_sx" ColumnName="ngay_sx" />
+          <ScalarProperty Name="hsd" ColumnName="hsd" />
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="gia_nhap" ColumnName="gia_nhap" />
+          <ScalarProperty Name="hinh" ColumnName="hinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoa_don">
+      <EntityTypeMapping TypeName="DUAN1Model.hoa_don">
+        <MappingFragment StoreEntitySet="hoa_don">
+          <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
+          <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+          <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
+          <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
+          <ScalarProperty Name="ngay_lap" ColumnName="ngay_lap" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+          <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
+          <ScalarProperty Name="trang_thai" ColumnName="trang_thai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khach_hang">
+      <EntityTypeMapping TypeName="DUAN1Model.khach_hang">
+        <MappingFragment StoreEntitySet="khach_hang">
+          <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+          <ScalarProperty Name="ten_kh" ColumnName="ten_kh" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kho_hang">
+      <EntityTypeMapping TypeName="DUAN1Model.kho_hang">
+        <MappingFragment StoreEntitySet="kho_hang">
+          <ScalarProperty Name="ma_kho_hang" ColumnName="ma_kho_hang" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khohang_hanghoa">
+      <EntityTypeMapping TypeName="DUAN1Model.khohang_hanghoa">
+        <MappingFragment StoreEntitySet="khohang_hanghoa">
+          <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
+          <ScalarProperty Name="ma_kho_hang" ColumnName="ma_kho_hang" />
+          <ScalarProperty Name="ma_hang_hoa" ColumnName="ma_hang_hoa" />
+          <ScalarProperty Name="ngay_nhap" ColumnName="ngay_nhap" />
+          <ScalarProperty Name="ngay_xuat" ColumnName="ngay_xuat" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nhan_vien">
+      <EntityTypeMapping TypeName="DUAN1Model.nhan_vien">
+        <MappingFragment StoreEntitySet="nhan_vien">
+          <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
+          <ScalarProperty Name="ten_nv" ColumnName="ten_nv" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="tai_khoan_dangnhap" ColumnName="tai_khoan_dangnhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

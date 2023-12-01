@@ -14,6 +14,13 @@ namespace DUAN1
     
     public partial class khohang_hanghoa
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public khohang_hanghoa()
+        {
+            this.hoa_don = new HashSet<hoa_don>();
+        }
+    
+        public string makho_hangchitiet { get; set; }
         public string ma_kho_hang { get; set; }
         public string ma_hang_hoa { get; set; }
         public Nullable<System.DateTime> ngay_nhap { get; set; }
@@ -21,6 +28,8 @@ namespace DUAN1
         public Nullable<int> so_luong { get; set; }
     
         public virtual hang_hoa hang_hoa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<hoa_don> hoa_don { get; set; }
         public virtual kho_hang kho_hang { get; set; }
     }
 }

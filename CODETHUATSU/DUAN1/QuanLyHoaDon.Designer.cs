@@ -77,6 +77,8 @@ namespace DUAN1
             this.btnchuyen = new System.Windows.Forms.Button();
             this.lvhoadon = new System.Windows.Forms.ListView();
             this.btnthongke = new System.Windows.Forms.Button();
+            this.lbmakhohang = new System.Windows.Forms.Label();
+            this.cbbmakhohang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -359,7 +361,7 @@ namespace DUAN1
             this.tbtrangthai.Location = new System.Drawing.Point(304, 354);
             this.tbtrangthai.Multiline = true;
             this.tbtrangthai.Name = "tbtrangthai";
-            this.tbtrangthai.Size = new System.Drawing.Size(487, 28);
+            this.tbtrangthai.Size = new System.Drawing.Size(138, 28);
             this.tbtrangthai.TabIndex = 130;
             // 
             // btninhoadon
@@ -372,6 +374,7 @@ namespace DUAN1
             this.btninhoadon.TabIndex = 132;
             this.btninhoadon.Text = "In ra hóa đơn";
             this.btninhoadon.UseVisualStyleBackColor = false;
+            this.btninhoadon.Click += new System.EventHandler(this.btninhoadon_Click);
             // 
             // btnhuy
             // 
@@ -566,7 +569,7 @@ namespace DUAN1
             this.lvhoadon.HideSelection = false;
             this.lvhoadon.Location = new System.Drawing.Point(892, 122);
             this.lvhoadon.Name = "lvhoadon";
-            this.lvhoadon.Size = new System.Drawing.Size(348, 215);
+            this.lvhoadon.Size = new System.Drawing.Size(348, 199);
             this.lvhoadon.TabIndex = 126;
             this.lvhoadon.UseCompatibleStateImageBehavior = false;
             // 
@@ -584,11 +587,34 @@ namespace DUAN1
             this.btnthongke.UseVisualStyleBackColor = false;
             this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
+            // lbmakhohang
+            // 
+            this.lbmakhohang.AutoSize = true;
+            this.lbmakhohang.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbmakhohang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbmakhohang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbmakhohang.Location = new System.Drawing.Point(475, 351);
+            this.lbmakhohang.Name = "lbmakhohang";
+            this.lbmakhohang.Size = new System.Drawing.Size(149, 25);
+            this.lbmakhohang.TabIndex = 192;
+            this.lbmakhohang.Text = "Mã kho hàng :";
+            // 
+            // cbbmakhohang
+            // 
+            this.cbbmakhohang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbmakhohang.FormattingEnabled = true;
+            this.cbbmakhohang.Location = new System.Drawing.Point(651, 351);
+            this.cbbmakhohang.Name = "cbbmakhohang";
+            this.cbbmakhohang.Size = new System.Drawing.Size(139, 28);
+            this.cbbmakhohang.TabIndex = 193;
+            // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.cbbmakhohang);
+            this.Controls.Add(this.lbmakhohang);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.btnchuyen);
             this.Controls.Add(this.cbbmahanghoa);
@@ -690,5 +716,7 @@ namespace DUAN1
         private System.Windows.Forms.Button btnchuyen;
         private System.Windows.Forms.ListView lvhoadon;
         private System.Windows.Forms.Button btnthongke;
+        private System.Windows.Forms.Label lbmakhohang;
+        private System.Windows.Forms.ComboBox cbbmakhohang;
     }
 }

@@ -40,10 +40,10 @@ namespace DUAN1
 
                 foreach (var hoaDon in hoaDonList)
                 {
-                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.ma_hang_hoa == hoaDon.ma_hang_hoa);
+                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
 
                     dataGridView1.Rows.Add(
-                        hoaDon.ma_hang_hoa,
+                        hoaDon.makho_hangchitiet,
                         DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                         hoaDon.thanh_tien,
                         hoaDon.so_luong,
@@ -76,10 +76,10 @@ namespace DUAN1
 
                 foreach (var hoaDon in hoaDonList)
                 {
-                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.ma_hang_hoa == hoaDon.ma_hang_hoa);
+                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
 
                     dataGridView1.Rows.Add(
-                        hoaDon.ma_hang_hoa,
+                        hoaDon.makho_hangchitiet,
                         DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                         hoaDon.thanh_tien,
                         hoaDon.so_luong,
@@ -99,10 +99,10 @@ namespace DUAN1
             string MaHH = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hang_hoa == MaHH);
-                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.ma_hang_hoa == MaHH);
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.makho_hangchitiet == MaHH);
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaHH);
                 
-                cbbmahanghoa.Text = hd.ma_hang_hoa;
+                cbbmahanghoa.Text = hd.makho_hangchitiet;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
                 tbgia.Text = hd.thanh_tien.ToString();
                 tbsoluongdaban.Text = hd.so_luong.ToString();
@@ -129,22 +129,22 @@ namespace DUAN1
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
                         List<hoa_don> listhd = db.hoa_don
-                            .Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
+                            .Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
                             .ToList();
 
                         List<khohang_hanghoa> listkhhh = db.khohang_hanghoa
-                            .Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text))
+                            .Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text))
                             .ToList();
 
                         dataGridView1.Rows.Clear();
 
                         listhd.ForEach(hd =>
                         {
-                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.ma_hang_hoa == hd.ma_hang_hoa);
+                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.makho_hangchitiet == hd.makho_hangchitiet);
                             if (khhh != null)
                             {
                                 dataGridView1.Rows.Add(
-                                    hd.ma_hang_hoa,
+                                    hd.makho_hangchitiet,
                                     hd.ngay_lap,
                                     hd.thanh_tien,
                                     hd.so_luong,
@@ -160,8 +160,12 @@ namespace DUAN1
             }
         }
 
-
-
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon form = new QuanLyHoaDon();
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }

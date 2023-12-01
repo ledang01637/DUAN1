@@ -34,7 +34,7 @@ namespace DUAN1
                 db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ma_nv));
                 //mã hàng hóa
                 cbbmahanghoa.Items.Clear();
-                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
+                db.khohang_hanghoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.makho_hangchitiet));
 
                 dataGridView1.Rows.Clear();
                 
@@ -44,7 +44,7 @@ namespace DUAN1
                     hd.ma_hd,
                     hd.ma_kh,
                     hd.ma_nv,
-                    hd.ma_hang_hoa,
+                    hd.makho_hangchitiet,
                     DateTime.Parse(hd.ngay_lap.ToString(),CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.so_luong,
                     hd.thanh_tien,
@@ -84,7 +84,7 @@ namespace DUAN1
                     hd.ma_hd,
                     hd.ma_kh,
                     hd.ma_nv,
-                    hd.ma_hang_hoa,
+                    hd.makho_hangchitiet,
                     DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.so_luong,
                     hd.thanh_tien,
@@ -110,7 +110,7 @@ namespace DUAN1
                 tbmahoadon.Text = hd.ma_hd;
                 cbbmakhachhang.Text = hd.ma_kh;
                 cbbmanv.Text = hd.ma_nv;
-                cbbmahanghoa.Text = hd.ma_hang_hoa;
+                cbbmahanghoa.Text = hd.makho_hangchitiet;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
                 tbsoluong.Text = hd.so_luong.ToString();
                 tbthanhtien.Text = hd.thanh_tien.ToString();
@@ -163,14 +163,16 @@ namespace DUAN1
 
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
-                    if (hangHoa != null)
-                    {
-                        hoa_don addhd = new hoa_don();
+                    hoa_don addhd = new hoa_don();
+                    khohang_hanghoa khhh = new khohang_hanghoa();
+
+                    khohang_hanghoa khohang_Hanghoa = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == maHH);
+                    hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khohang_Hanghoa.ma_hang_hoa));
+
                         addhd.ma_hd = tbmahoadon.Text;
                         addhd.ma_kh = cbbmakhachhang.Text;
                         addhd.ma_nv = cbbmanv.Text;
-                        addhd.ma_hang_hoa = maHH;
+                        addhd.makho_hangchitiet = maHH;
                         addhd.ngay_lap = dtpngaylap.Value;
                         addhd.so_luong = soLuong;
                         addhd.thanh_tien = hangHoa.gia_ban * soLuong;
@@ -181,72 +183,15 @@ namespace DUAN1
 
                         MessageBox.Show("Thêm thành công");
                         UpdateDGV();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy hàng hóa");
-                    }
+                    
+
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Không được để trống");
+                MessageBox.Show("Không được để trống hoặc sai thông tin");
             }
 
-
-
-            ///////////////////////////////////
-            //try
-            //{
-            //    hoa_don addhd = new hoa_don();
-
-
-            //    hang_hoa addhh = new hang_hoa();
-
-            //    addhd.ma_hd = tbmahoadon.Text;
-            //    addhd.ma_kh = cbbmakhachhang.Text;
-            //    addhd.ma_nv = cbbmanv.Text;
-            //    addhd.ma_hang_hoa = cbbmahanghoa.Text;
-            //    addhd.ngay_lap = dtpngaylap.Value;
-            //    addhd.so_luong = int.Parse(tbsoluong.Text);
-
-            //    if (addhd.ma_hang_hoa == addhh.ma_hang_hoa)
-            //    {
-            //        addhd.thanh_tien = addhh.gia * addhd.so_luong;
-            //    }
-
-            //    addhd.trang_thai = tbtrangthai.Text;
-
-
-
-            //    using (DUAN1Entities db = new DUAN1Entities())
-            //    {
-
-            //        addhd.ma_hd = tbmahoadon.Text;
-            //        addhd.ma_kh = cbbmakhachhang.Text;
-            //        addhd.ma_nv = cbbmanv.Text;
-            //        addhd.ma_hang_hoa = cbbmahanghoa.Text;
-            //        addhd.ngay_lap = dtpngaylap.Value;
-            //        addhd.so_luong = int.Parse(tbsoluong.Text);
-
-            //        if (addhd.ma_hang_hoa == addhh.ma_hang_hoa)
-            //        {
-            //            addhd.thanh_tien = addhh.gia * addhd.so_luong;
-            //        }
-
-            //        addhd.trang_thai = tbtrangthai.Text;
-            //        db.hoa_don.Add(addhd);
-            //        db.SaveChanges();
-            //    }
-            //    MessageBox.Show("Thêm thành công ");
-            //    UpdateDGV();
-            //}
-            //catch (Exception)
-            //{
-
-            //    MessageBox.Show("Không được để trống");
-            //}
-            //UpdateDGV();
         }
 
         //chức năng xóa
@@ -316,7 +261,7 @@ namespace DUAN1
                         hd.ma_hd,
                         hd.ma_kh,
                         hd.ma_nv,
-                        hd.ma_hang_hoa,
+                        hd.makho_hangchitiet,
                         hd.ngay_lap,
                         hd.so_luong,
                         hd.thanh_tien,
@@ -339,15 +284,17 @@ namespace DUAN1
                 string maHH = cbbmahanghoa.Text;
                 int soLuong = int.Parse(tbsoluong.Text);
 
-                hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
-                if (hangHoa != null)
+                khohang_hanghoa khohang_Hanghoa = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == maHH);
+                hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khohang_Hanghoa.ma_hang_hoa));
+
+                if (khohang_Hanghoa != null)
                 {
                     hoa_don edit = db.hoa_don.FirstOrDefault(hd => hd.ma_hd == tbmahoadon.Text);
                     if (edit != null)
                     {
                         edit.ma_kh = cbbmakhachhang.Text;
                         edit.ma_nv = cbbmanv.Text;
-                        edit.ma_hang_hoa = cbbmahanghoa.Text;
+                        edit.makho_hangchitiet = cbbmahanghoa.Text;
                         edit.ngay_lap = dtpngaylap.Value;
                         edit.so_luong = soLuong;
                         edit.thanh_tien = hangHoa.gia_ban * soLuong;
@@ -389,6 +336,20 @@ namespace DUAN1
             ThongKe form = new ThongKe();
             form.ShowDialog();
             this.Close();
+        }
+
+        private void btninhoadon_Click(object sender, EventArgs e)
+        {
+            string maHD = tbmahoadon.Text;
+            string thanhtien = tbthanhtien.Text;
+
+            if (!string.IsNullOrEmpty(maHD) &&
+                !string.IsNullOrEmpty(thanhtien))
+            {
+                // Thêm chuỗi vào ListView
+                lvhoadon.Items.Add("Mã hóa đơn : " + maHD);
+                lvhoadon.Items.Add("Thành tiền : " + thanhtien);
+            }
         }
     }
 }

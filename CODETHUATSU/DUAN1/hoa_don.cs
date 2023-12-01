@@ -17,14 +17,14 @@ namespace DUAN1
         public string ma_hd { get; set; }
         public string ma_kh { get; set; }
         public string ma_nv { get; set; }
-        public string ma_hang_hoa { get; set; }
+        public string makho_hangchitiet { get; set; }
         public Nullable<System.DateTime> ngay_lap { get; set; }
         public Nullable<int> so_luong { get; set; }
         public Nullable<double> thanh_tien { get; set; }
         public string trang_thai { get; set; }
     
-        public virtual hang_hoa hang_hoa { get; set; }
         public virtual nhan_vien nhan_vien { get; set; }
+        public virtual khohang_hanghoa khohang_hanghoa { get; set; }
         public virtual khach_hang khach_hang { get; set; }
     }
 }
