@@ -59,7 +59,7 @@ namespace DUAN1
                         form.ShowDialog();
                         this.Close();
                     }
-                    else if (role.Equals("Admin"))
+                    else if (role.Equals("admin"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là admin
                         this.Hide();
@@ -146,6 +146,23 @@ namespace DUAN1
             QuenMatKhau quenMatKhau = new QuenMatKhau();
             this.Hide();
             quenMatKhau.Show();
+        }
+
+        private void Login_Load_1(object sender, EventArgs e)
+        {
+        }
+
+        private void tbusername_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void tbpassword_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void tbpassword_TextAlignChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
