@@ -182,6 +182,11 @@ namespace DUAN1
         // Chức năng luu
         private void btnluu_Click(object sender, EventArgs e)
         {
+            if (tbmakh.Text == "" || cbbdiachi.Text == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return;
+            }
             // khi check 2 cái
             if (cbkhohanghanghoa.Checked && cbkhohang.Checked)
             {
@@ -237,21 +242,19 @@ namespace DUAN1
 
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
-                        //kho_hang quocgiaduocchon = db.kho_hang.Where(x => x.dia_chi == cbbdiachi.SelectedItem.ToString()).FirstOrDefault();
-                        //addsp.ma_kho_hang = quocgiaduocchon.dia_chi;
                         addsp.ma_kho_hang = tbmakh.Text;
                         addsp.dia_chi = cbbdiachi.Text;
                         db.kho_hang.Add(addsp);
                         db.SaveChanges();
                     }
                     MessageBox.Show("Thêm thành công ");
+                    UpdateDGV();
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("Không được để trống");
+
                 }
-                UpdateDGV();
             }
             // khi không check
             else
@@ -373,8 +376,6 @@ namespace DUAN1
             // khi check kho hang
             else if (cbkhohang.Checked)
             {
-                MessageBox.Show("b");
-
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
                     string maKH = tbmakh.Text;
@@ -389,7 +390,7 @@ namespace DUAN1
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy khách hàng");
+                        MessageBox.Show("Không tìm thấy kho hàng");
                     }
                     UpdateDGV();
                 }
