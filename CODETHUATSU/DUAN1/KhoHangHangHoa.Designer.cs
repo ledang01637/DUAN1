@@ -45,6 +45,12 @@ namespace DUAN1
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.makho_hangchitiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_kho_hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_hang_hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngay_nhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngay_xuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.so_luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -69,14 +75,8 @@ namespace DUAN1
             this.btnthongke = new System.Windows.Forms.Button();
             this.cbbmakhohang = new System.Windows.Forms.ComboBox();
             this.cbbmahanghoa = new System.Windows.Forms.ComboBox();
-            this.cbbmakhohangchitiet = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.makho_hangchitiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_kho_hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_hang_hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngay_nhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngay_xuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.so_luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbmakhohangchitiet = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -265,6 +265,42 @@ namespace DUAN1
             this.dataGridView1.Size = new System.Drawing.Size(1091, 195);
             this.dataGridView1.TabIndex = 74;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // makho_hangchitiet
+            // 
+            this.makho_hangchitiet.HeaderText = "Mã kho hàng chi tiết";
+            this.makho_hangchitiet.Name = "makho_hangchitiet";
+            this.makho_hangchitiet.ReadOnly = true;
+            // 
+            // ma_kho_hang
+            // 
+            this.ma_kho_hang.HeaderText = "Mã kho hàng";
+            this.ma_kho_hang.Name = "ma_kho_hang";
+            this.ma_kho_hang.ReadOnly = true;
+            // 
+            // ma_hang_hoa
+            // 
+            this.ma_hang_hoa.HeaderText = "Mã hàng hóa";
+            this.ma_hang_hoa.Name = "ma_hang_hoa";
+            this.ma_hang_hoa.ReadOnly = true;
+            // 
+            // ngay_nhap
+            // 
+            this.ngay_nhap.HeaderText = "Ngày nhập";
+            this.ngay_nhap.Name = "ngay_nhap";
+            this.ngay_nhap.ReadOnly = true;
+            // 
+            // ngay_xuat
+            // 
+            this.ngay_xuat.HeaderText = "Ngày xuất";
+            this.ngay_xuat.Name = "ngay_xuat";
+            this.ngay_xuat.ReadOnly = true;
+            // 
+            // so_luong
+            // 
+            this.so_luong.HeaderText = "Số lượng";
+            this.so_luong.Name = "so_luong";
+            this.so_luong.ReadOnly = true;
             // 
             // lbmahanghoa
             // 
@@ -532,15 +568,6 @@ namespace DUAN1
             this.cbbmahanghoa.Size = new System.Drawing.Size(137, 28);
             this.cbbmahanghoa.TabIndex = 193;
             // 
-            // cbbmakhohangchitiet
-            // 
-            this.cbbmakhohangchitiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbmakhohangchitiet.FormattingEnabled = true;
-            this.cbbmakhohangchitiet.Location = new System.Drawing.Point(384, 179);
-            this.cbbmakhohangchitiet.Name = "cbbmakhohangchitiet";
-            this.cbbmakhohangchitiet.Size = new System.Drawing.Size(170, 28);
-            this.cbbmakhohangchitiet.TabIndex = 195;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -553,48 +580,21 @@ namespace DUAN1
             this.label1.TabIndex = 194;
             this.label1.Text = "Mã kho hàng chi tiết :";
             // 
-            // makho_hangchitiet
+            // tbmakhohangchitiet
             // 
-            this.makho_hangchitiet.HeaderText = "Mã kho hàng chi tiết";
-            this.makho_hangchitiet.Name = "makho_hangchitiet";
-            this.makho_hangchitiet.ReadOnly = true;
-            // 
-            // ma_kho_hang
-            // 
-            this.ma_kho_hang.HeaderText = "Mã kho hàng";
-            this.ma_kho_hang.Name = "ma_kho_hang";
-            this.ma_kho_hang.ReadOnly = true;
-            // 
-            // ma_hang_hoa
-            // 
-            this.ma_hang_hoa.HeaderText = "Mã hàng hóa";
-            this.ma_hang_hoa.Name = "ma_hang_hoa";
-            this.ma_hang_hoa.ReadOnly = true;
-            // 
-            // ngay_nhap
-            // 
-            this.ngay_nhap.HeaderText = "Ngày nhập";
-            this.ngay_nhap.Name = "ngay_nhap";
-            this.ngay_nhap.ReadOnly = true;
-            // 
-            // ngay_xuat
-            // 
-            this.ngay_xuat.HeaderText = "Ngày xuất";
-            this.ngay_xuat.Name = "ngay_xuat";
-            this.ngay_xuat.ReadOnly = true;
-            // 
-            // so_luong
-            // 
-            this.so_luong.HeaderText = "Số lượng";
-            this.so_luong.Name = "so_luong";
-            this.so_luong.ReadOnly = true;
+            this.tbmakhohangchitiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbmakhohangchitiet.Location = new System.Drawing.Point(384, 180);
+            this.tbmakhohangchitiet.Multiline = true;
+            this.tbmakhohangchitiet.Name = "tbmakhohangchitiet";
+            this.tbmakhohangchitiet.Size = new System.Drawing.Size(170, 28);
+            this.tbmakhohangchitiet.TabIndex = 195;
             // 
             // KhoHangHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.cbbmakhohangchitiet);
+            this.Controls.Add(this.tbmakhohangchitiet);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbbmahanghoa);
             this.Controls.Add(this.cbbmakhohang);
@@ -689,7 +689,6 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.ComboBox cbbmakhohang;
         private System.Windows.Forms.ComboBox cbbmahanghoa;
-        private System.Windows.Forms.ComboBox cbbmakhohangchitiet;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn makho_hangchitiet;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_kho_hang;
@@ -697,5 +696,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_nhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_xuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn so_luong;
+        private System.Windows.Forms.TextBox tbmakhohangchitiet;
     }
 }

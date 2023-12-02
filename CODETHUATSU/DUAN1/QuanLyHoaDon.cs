@@ -33,8 +33,8 @@ namespace DUAN1
                 cbbmanv.Items.Clear();
                 db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ma_nv));
                 //mã hàng hóa
-                cbbmahanghoa.Items.Clear();
-                db.khohang_hanghoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.makho_hangchitiet));
+                cbbmakhct.Items.Clear();
+                db.khohang_hanghoa.ToList().ForEach(row => cbbmakhct.Items.Add(row.makho_hangchitiet));
 
                 dataGridView1.Rows.Clear();
                 
@@ -61,7 +61,7 @@ namespace DUAN1
                 tbmahoadon.ReadOnly = true;
                 cbbmakhachhang.Enabled = false;
                 cbbmanv.Enabled = false;
-                cbbmahanghoa.Enabled = false;
+                cbbmakhct.Enabled = false;
                 tbthanhtien.ReadOnly = true;
                 tbsoluong.ReadOnly = true;
                 tbtrangthai.ReadOnly = true;
@@ -110,7 +110,7 @@ namespace DUAN1
                 tbmahoadon.Text = hd.ma_hd;
                 cbbmakhachhang.Text = hd.ma_kh;
                 cbbmanv.Text = hd.ma_nv;
-                cbbmahanghoa.Text = hd.makho_hangchitiet;
+                cbbmakhct.Text = hd.makho_hangchitiet;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
                 tbsoluong.Text = hd.so_luong.ToString();
                 tbthanhtien.Text = hd.thanh_tien.ToString();
@@ -125,7 +125,7 @@ namespace DUAN1
             tbmahoadon.ReadOnly = true;
             cbbmakhachhang.Enabled = true;
             cbbmanv.Enabled = true;
-            cbbmahanghoa.Enabled = true;
+            cbbmakhct.Enabled = true;
             tbthanhtien.ReadOnly = false;
             tbsoluong.ReadOnly = false;
             tbtrangthai.ReadOnly = false;
@@ -146,7 +146,7 @@ namespace DUAN1
             tbmahoadon.ReadOnly = false;
             cbbmakhachhang.Enabled = true;
             cbbmanv.Enabled = true;
-            cbbmahanghoa.Enabled = true;
+            cbbmakhct.Enabled = true;
             tbsoluong.ReadOnly = false;
             tbtrangthai.ReadOnly = false;
             dtpngaylap.Enabled = true;
@@ -158,7 +158,7 @@ namespace DUAN1
         {
             try
             {
-                String maHH = cbbmahanghoa.Text;
+                String maHH = cbbmakhct.Text;
                 int soLuong = int.Parse(tbsoluong.Text);
 
                 using (DUAN1Entities db = new DUAN1Entities())
@@ -219,7 +219,7 @@ namespace DUAN1
         private void btnhuy_Click(object sender, EventArgs e)
         {
             tbmahoadon.Text = "";
-            cbbmahanghoa.Text = "";
+            cbbmakhct.Text = "";
             cbbmakhachhang.Text = "";
             cbbmanv.Text = "";
             tbsoluong.Text = "";
@@ -235,7 +235,7 @@ namespace DUAN1
             tbmahoadon.ReadOnly = true;
             cbbmakhachhang.Enabled = false;
             cbbmanv.Enabled = false;
-            cbbmahanghoa.Enabled = false;
+            cbbmakhct.Enabled = false;
             tbsoluong.ReadOnly = true;
             tbtrangthai.ReadOnly = true;
             dtpngaylap.Enabled = false;
@@ -281,7 +281,7 @@ namespace DUAN1
         {
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                string maHH = cbbmahanghoa.Text;
+                string maHH = cbbmakhct.Text;
                 int soLuong = int.Parse(tbsoluong.Text);
 
                 khohang_hanghoa khohang_Hanghoa = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == maHH);
@@ -294,7 +294,7 @@ namespace DUAN1
                     {
                         edit.ma_kh = cbbmakhachhang.Text;
                         edit.ma_nv = cbbmanv.Text;
-                        edit.makho_hangchitiet = cbbmahanghoa.Text;
+                        edit.makho_hangchitiet = cbbmakhct.Text;
                         edit.ngay_lap = dtpngaylap.Value;
                         edit.so_luong = soLuong;
                         edit.thanh_tien = hangHoa.gia_ban * soLuong;
@@ -338,18 +338,27 @@ namespace DUAN1
             this.Close();
         }
 
-        private void btninhoadon_Click(object sender, EventArgs e)
+        private void dgvinhoadon_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string maHD = tbmahoadon.Text;
-            string thanhtien = tbthanhtien.Text;
+            //using (DUAN1Entities db = new DUAN1Entities())
+            //{
+            //    khohang_hanghoa khhh = new khohang_hanghoa();
 
-            if (!string.IsNullOrEmpty(maHD) &&
-                !string.IsNullOrEmpty(thanhtien))
-            {
-                // Thêm chuỗi vào ListView
-                lvhoadon.Items.Add("Mã hóa đơn : " + maHD);
-                lvhoadon.Items.Add("Thành tiền : " + thanhtien);
-            }
+            //    string maHD = tbmahoadon.Text;
+            //    string ngaylap = dtpngaylap.Text;
+            //    var tien = db.khohang_hanghoa
+            //                    .Where(x => x.ma_hang_hoa == khhh.ma_hang_hoa)
+            //                    .Select(a => a.hang_hoa.gia_ban)
+            //                    .FirstOrDefault();
+
+            //    if (!string.IsNullOrEmpty(maHD) && tien != null)
+            //    {
+            //        ListViewItem item1 = new ListViewItem(maHD + "\t");
+            //        ListViewItem item2 = new ListViewItem(tien.ToString());
+            //        dgvinhoadon.Rows.Add(item1);
+            //        dgvinhoadon.Rows.Add(item2);
+            //    }
+            //}
         }
     }
 }
