@@ -54,41 +54,41 @@ namespace DUAN1
         }
 
         //update
-        private void UpdateDGV()
-        {
-            dtpngaylap.Format = DateTimePickerFormat.Short;
-            dtpngaylap.CustomFormat = "dd/MM/yyyy";
+        //private void UpdateDGV()
+        //{
+        //    dtpngaylap.Format = DateTimePickerFormat.Short;
+        //    dtpngaylap.CustomFormat = "dd/MM/yyyy";
 
-            dtptungay.Format = DateTimePickerFormat.Short;
-            dtptungay.CustomFormat = "dd/MM/yyyy";
+        //    dtptungay.Format = DateTimePickerFormat.Short;
+        //    dtptungay.CustomFormat = "dd/MM/yyyy";
 
-            dtpdenngay.Format = DateTimePickerFormat.Short;
-            dtpdenngay.CustomFormat = "dd/MM/yyyy";
+        //    dtpdenngay.Format = DateTimePickerFormat.Short;
+        //    dtpdenngay.CustomFormat = "dd/MM/yyyy";
 
-            using (DUAN1Entities db = new DUAN1Entities())
-            {
-                cbbmahanghoa.Items.Clear();
-                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
+        //    using (DUAN1Entities db = new DUAN1Entities())
+        //    {
+        //        cbbmahanghoa.Items.Clear();
+        //        db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
 
-                dataGridView1.Rows.Clear();
+        //        dataGridView1.Rows.Clear();
 
-                var hoaDonList = db.hoa_don.ToList();
+        //        var hoaDonList = db.hoa_don.ToList();
 
-                foreach (var hoaDon in hoaDonList)
-                {
-                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
+        //        foreach (var hoaDon in hoaDonList)
+        //        {
+        //            var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
 
-                    dataGridView1.Rows.Add(
-                        hoaDon.makho_hangchitiet,
-                        DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                        hoaDon.thanh_tien,
-                        hoaDon.so_luong,
-                        khoHang != null ? khoHang.so_luong - hoaDon.so_luong : 0
-                    );
-                }
-            }
+        //            dataGridView1.Rows.Add(
+        //                hoaDon.makho_hangchitiet,
+        //                DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+        //                hoaDon.thanh_tien,
+        //                hoaDon.so_luong,
+        //                khoHang != null ? khoHang.so_luong - hoaDon.so_luong : 0
+        //            );
+        //        }
+        //    }
 
-        }
+        //}
         
         //hiển thị
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -96,17 +96,20 @@ namespace DUAN1
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
 
-            string MaHH = rowData.Cells[0].Value.ToString();
+            string MaKH = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.makho_hangchitiet == MaHH);
-                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaHH);
-                
-                cbbmahanghoa.Text = hd.makho_hangchitiet;
-                dtpngaylap.Text = hd.ngay_lap.ToString();
-                tbgia.Text = hd.thanh_tien.ToString();
-                tbsoluongdaban.Text = hd.so_luong.ToString();
-                tbsltrongkho.Text = (khhh.so_luong - hd.so_luong).ToString();
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
+
+                if (hd != null && khhh != null)
+                {
+                    cbbmahanghoa.Text = hd.makho_hangchitiet;
+                    dtpngaylap.Value = hd.ngay_lap.Value;
+                    tbgia.Text = hd.thanh_tien.ToString();
+                    tbsoluongdaban.Text = hd.so_luong.ToString();
+                    tbsltrongkho.Text = (khhh.so_luong - hd.so_luong).ToString();
+                }
             }
 
 
@@ -166,6 +169,11 @@ namespace DUAN1
             QuanLyHoaDon form = new QuanLyHoaDon();
             form.ShowDialog();
             this.Close();
+        }
+
+        private void btnhuy_Click(object sender, EventArgs e)
+        {
+            ThongKe_Load(null, EventArgs.Empty);
         }
     }
 }

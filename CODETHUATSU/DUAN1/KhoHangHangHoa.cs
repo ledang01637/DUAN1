@@ -197,7 +197,7 @@ namespace DUAN1
         // Chức năng luu
         private void btnluu_Click(object sender, EventArgs e)
         {
-            if (tbmakh.Text == null || cbbdiachi.Text == null)
+            if (tbmakh.Text == "" && cbbdiachi.Text == "" && cbkhohang.Checked)
             {
                 MessageBox.Show("Không được để trống");
                 return;
@@ -242,7 +242,7 @@ namespace DUAN1
             }
                 catch (Exception)
             {
-                MessageBox.Show("Không được để trống");
+                MessageBox.Show("Không được để trống hoặc bị trùng mã");
             }
         }
             // khi check kho hang
@@ -267,7 +267,7 @@ namespace DUAN1
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Không được để trống");
+                    MessageBox.Show("Không được để trống hoặc bị trùng mã");
 
                 }
             }
@@ -288,7 +288,7 @@ namespace DUAN1
             {
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    khohang_hanghoa delete = db.khohang_hanghoa.Where(x => x.ma_kho_hang == cbbmakhohang.Text).FirstOrDefault();
+                    khohang_hanghoa delete = db.khohang_hanghoa.Where(x => x.makho_hangchitiet == tbmakhohangchitiet.Text).FirstOrDefault();
 
                     db.khohang_hanghoa.Remove(delete);
                     db.SaveChanges();
@@ -331,6 +331,7 @@ namespace DUAN1
             dtpngaynhapkho.Text = "";
             dtpngayxuatkho.Text = "";
             tbsoluong.Text = "";
+            tbmakhohangchitiet.Text = "";
 
             tbmakh.Text = "";
             cbbdiachi.Text = "";
@@ -340,6 +341,7 @@ namespace DUAN1
             btnhuy.Enabled = false;
             btnluu.Enabled = false;
 
+            tbmakhohangchitiet.ReadOnly = true;
             cbbmakhohang.Enabled = false;
             cbbmahanghoa.Enabled = false;
             dtpngaynhapkho.Enabled = false;
@@ -352,6 +354,12 @@ namespace DUAN1
         // Chức năng sửa
         private void btnsua_Click(object sender, EventArgs e)
         {
+            // khi không check
+            if (cbkhohanghanghoa.Checked == false && cbkhohang.Checked == false)
+            {
+                MessageBox.Show("Không được để trống, Hãy chọn chế độ ");
+                return;
+            }
             // khi check 2 cái
             if (cbkhohanghanghoa.Checked && cbkhohang.Checked)
             {
@@ -360,14 +368,15 @@ namespace DUAN1
                 cbkhohanghanghoa.Checked = false;
             }
             // khi check kho hang hang hoa
-            else if (cbkhohanghanghoa.Checked)
+            if (cbkhohanghanghoa.Checked)
             {
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    string maKhoHang = cbbmakhohang.Text;
-                    khohang_hanghoa edit = db.khohang_hanghoa.FirstOrDefault(x => x.ma_kho_hang == maKhoHang);
+                    string maCTHH = tbmakhohangchitiet.Text;
+                    khohang_hanghoa edit = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == maCTHH);
                     if (edit != null)
                     {
+                        edit.makho_hangchitiet = tbmakhohangchitiet.Text;
                         edit.ma_kho_hang = cbbmakhohang.Text;
                         edit.ma_hang_hoa = cbbmahanghoa.Text;
                         edit.ngay_nhap = dtpngaynhapkho.Value;
@@ -384,7 +393,7 @@ namespace DUAN1
                 }
             }
             // khi check kho hang
-            else if (cbkhohang.Checked)
+            if (cbkhohang.Checked)
             {
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
@@ -408,11 +417,7 @@ namespace DUAN1
 
 
             }
-            // khi không check
-            else
-            {
-                MessageBox.Show("Không được để trống, Hãy chọn chế độ ");
-            }
+
         }
 
         // Chức năng tìm kiếm theo mã

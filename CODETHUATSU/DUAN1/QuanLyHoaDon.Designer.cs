@@ -102,10 +102,10 @@ namespace DUAN1
             // tbsoluong
             // 
             this.tbsoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsoluong.Location = new System.Drawing.Point(653, 178);
+            this.tbsoluong.Location = new System.Drawing.Point(590, 178);
             this.tbsoluong.Multiline = true;
             this.tbsoluong.Name = "tbsoluong";
-            this.tbsoluong.Size = new System.Drawing.Size(138, 28);
+            this.tbsoluong.Size = new System.Drawing.Size(201, 28);
             this.tbsoluong.TabIndex = 119;
             // 
             // lbhansudung
@@ -331,7 +331,7 @@ namespace DUAN1
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(475, 296);
+            this.label4.Location = new System.Drawing.Point(513, 296);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 25);
             this.label4.TabIndex = 129;
@@ -340,10 +340,10 @@ namespace DUAN1
             // tbthanhtien
             // 
             this.tbthanhtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbthanhtien.Location = new System.Drawing.Point(607, 293);
+            this.tbthanhtien.Location = new System.Drawing.Point(645, 293);
             this.tbthanhtien.Multiline = true;
             this.tbthanhtien.Name = "tbthanhtien";
-            this.tbthanhtien.Size = new System.Drawing.Size(184, 28);
+            this.tbthanhtien.Size = new System.Drawing.Size(146, 28);
             this.tbthanhtien.TabIndex = 128;
             // 
             // label5
@@ -364,7 +364,7 @@ namespace DUAN1
             this.tbtrangthai.Location = new System.Drawing.Point(304, 296);
             this.tbtrangthai.Multiline = true;
             this.tbtrangthai.Name = "tbtrangthai";
-            this.tbtrangthai.Size = new System.Drawing.Size(138, 28);
+            this.tbtrangthai.Size = new System.Drawing.Size(203, 28);
             this.tbtrangthai.TabIndex = 130;
             // 
             // btninhoadon
