@@ -51,7 +51,7 @@ namespace DUAN1
                 if (role != null)
                 {
                     
-                    if (role.Equals("nhanvien"))
+                    if (role.Trim().ToLower().Equals("nhanvien"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là nhanvien
                         this.Hide();
@@ -59,7 +59,7 @@ namespace DUAN1
                         form.ShowDialog();
                         this.Close();
                     }
-                    else if (role.Equals("Admin"))
+                    else if (role.Trim().ToLower().Equals("admin"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là admin
                         this.Hide();

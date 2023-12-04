@@ -278,6 +278,7 @@ namespace DUAN1
             this.btnkhachhang.Size = new System.Drawing.Size(159, 64);
             this.btnkhachhang.TabIndex = 151;
             this.btnkhachhang.UseVisualStyleBackColor = true;
+            this.btnkhachhang.Click += new System.EventHandler(this.btnkhachhang_Click);
             // 
             // btnnhanvien
             // 
@@ -291,6 +292,7 @@ namespace DUAN1
             this.btnnhanvien.Size = new System.Drawing.Size(159, 64);
             this.btnnhanvien.TabIndex = 150;
             this.btnnhanvien.UseVisualStyleBackColor = true;
+            this.btnnhanvien.Click += new System.EventHandler(this.btnnhanvien_Click);
             // 
             // btnkhohang
             // 
@@ -305,6 +307,7 @@ namespace DUAN1
             this.btnkhohang.Size = new System.Drawing.Size(159, 64);
             this.btnkhohang.TabIndex = 149;
             this.btnkhohang.UseVisualStyleBackColor = false;
+            this.btnkhohang.Click += new System.EventHandler(this.btnkhohang_Click);
             // 
             // btnhanghoa
             // 
@@ -346,6 +349,7 @@ namespace DUAN1
             this.btnthoat.Size = new System.Drawing.Size(159, 64);
             this.btnthoat.TabIndex = 146;
             this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // btnhoadon
             // 
@@ -360,6 +364,7 @@ namespace DUAN1
             this.btnhoadon.Size = new System.Drawing.Size(159, 64);
             this.btnhoadon.TabIndex = 145;
             this.btnhoadon.UseVisualStyleBackColor = false;
+            this.btnhoadon.Click += new System.EventHandler(this.btnhoadon_Click);
             // 
             // btnhuy
             // 
@@ -445,7 +450,7 @@ namespace DUAN1
             this.btnluu.Size = new System.Drawing.Size(160, 53);
             this.btnluu.TabIndex = 153;
             this.btnluu.UseVisualStyleBackColor = true;
-            this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
+            this.btnluu.Click += new System.EventHandler(this.btnhanghoa_Click);
             // 
             // btnthem
             // 
@@ -601,6 +606,7 @@ namespace DUAN1
             this.btnthongke.Size = new System.Drawing.Size(159, 64);
             this.btnthongke.TabIndex = 192;
             this.btnthongke.UseVisualStyleBackColor = false;
+            this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
             // QuanLyHangHoa
             // 

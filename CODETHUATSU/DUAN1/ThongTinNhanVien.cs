@@ -59,10 +59,52 @@ namespace DUAN1
             form.ShowDialog();
             this.Close();
         }
-
-        private void ThongTinNhanVien_Load_1(object sender, EventArgs e)
+        private void btnhanghoa_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
+            quanLyHangHoa.ShowDialog();
+            this.Close();
+        }
 
+        private void btnkhohang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            khhh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon qlhd= new QuanLyHoaDon();
+            qlhd.ShowDialog();
+            this.Close();
+        }
+
+        private void btnnhanvien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien();
+            qlnv.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhachhang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang();
+            qlkh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongKe tk = new ThongKe();
+            tk.ShowDialog();
+            this.Close();
         }
     }
 }
