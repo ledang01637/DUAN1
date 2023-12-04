@@ -438,6 +438,7 @@ namespace DUAN1
             }
         }
 
+        //btn hóa đơn
         private void btnhoadon_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -445,6 +446,8 @@ namespace DUAN1
             form.ShowDialog();
             this.Close();
         }
+
+        //btn thoát
         private void btnthoat_Click(object sender, EventArgs e)
         {
             //Nút thoát ra ngoài form Đăng nhập
@@ -453,6 +456,8 @@ namespace DUAN1
             form.ShowDialog();
             this.Close();
         }
+
+        //btn hàng hóa
         private void btnhanghoa_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -461,6 +466,7 @@ namespace DUAN1
             this.Close();
         }
 
+        //btn kho hàng
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -468,6 +474,8 @@ namespace DUAN1
             khhh.ShowDialog();
             this.Close();
         }
+
+        //btn nhân viên
         private void btnnhanvien_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -476,6 +484,7 @@ namespace DUAN1
             this.Close();
         }
 
+        //btn nhân viên
         private void btnkhachhang_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -484,10 +493,20 @@ namespace DUAN1
             this.Close();
         }
 
+        //btn thống kê
         private void btnthongke_Click(object sender, EventArgs e)
         {
             this.Hide();
             ThongKe tk = new ThongKe();
+            tk.ShowDialog();
+            this.Close();
+        }
+
+        //btn thông tin nhân viên
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongTinNhanVien tk = new ThongTinNhanVien();
             tk.ShowDialog();
             this.Close();
         }

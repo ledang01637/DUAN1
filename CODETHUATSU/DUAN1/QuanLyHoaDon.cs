@@ -13,9 +13,10 @@ namespace DUAN1
 {
     public partial class QuanLyHoaDon : Form
     {
-        public QuanLyHoaDon()
+        public QuanLyHoaDon(String username)
         {
             InitializeComponent();
+            tbusername.Text = username;
         }
 
         private void QuanLyHoaDon_Load(object sender, EventArgs e)

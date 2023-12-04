@@ -18,9 +18,10 @@ namespace DUAN1
         bool focus, focusTenHH, focusNSX, focusGia, focusHSD, foucusGiaNhap;
         bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD, isTextGiaNhap;
 
-        public QuanLyHangHoa()
+        public QuanLyHangHoa(String username)
         {
             InitializeComponent();
+            tbusername.Text = username;
         }
         private void QuanLyHangHoa_Load(object sender, EventArgs e)
         {
