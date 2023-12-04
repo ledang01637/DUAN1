@@ -124,7 +124,9 @@ namespace DUAN1
                 if (them != null)
                 {
                     //them.ten_nv = tbtennhanvien.Text;
+                    them.ten_nv = tbtennhanvien.Text;                  
                     them.sdt = tbsdt.Text;
+                    them.tai_khoan_dangnhap = tbcv.Text;
 
                     // You don't need to set them.ma_kh again; it's redundant.
 
@@ -216,6 +218,7 @@ namespace DUAN1
             btnxoa.Enabled = true;
             btnsua.Enabled = true;
             btnhuy.Enabled = true;
+            tbmanhanvien.ReadOnly = true;
 
         }
     }

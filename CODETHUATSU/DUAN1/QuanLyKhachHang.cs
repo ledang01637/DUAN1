@@ -212,6 +212,7 @@ namespace DUAN1
             btnxoa.Enabled = true;
             btnsua.Enabled = true;
             btnhuy.Enabled = true;
+            tbmakhachhang.ReadOnly = true;
         }
 
         private void label1_Click(object sender, EventArgs e)

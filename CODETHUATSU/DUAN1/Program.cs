@@ -16,7 +16,7 @@ namespace DUAN1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLyKhachHang());
+            Application.Run(new QuanLyNhanVien());
         }
     }
 }
