@@ -153,6 +153,7 @@ namespace DUAN1
             btnxoa.Enabled = false;
             btnsua.Enabled = false;
             btnluu.Enabled = false;
+            btnthem.Enabled = true;
 
             tbcv.ReadOnly = true;
             tbmanhanvien.ReadOnly = true;
@@ -214,6 +215,7 @@ namespace DUAN1
                 tbcv.Text = nv.tai_khoan_dangnhap;
             }
 
+            btnthem.Enabled = false;
             btnluu.Enabled = false;
             btnxoa.Enabled = true;
             btnsua.Enabled = true;

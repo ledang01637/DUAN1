@@ -75,7 +75,7 @@ namespace DUAN1
             // Kiểm tra xem các trường thông tin đã được nhập đầy đủ
             if (string.IsNullOrEmpty(maKH) || string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(sdt))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin khách hàng");
                 return;
             }          
 
@@ -91,7 +91,7 @@ namespace DUAN1
                 db.SaveChanges();
             }
 
-            MessageBox.Show("Thêm nhân viên thành công");
+            MessageBox.Show("Thêm khách hàng thành công");
 
             // Xóa nội dung trong TextBox sau khi lưu thành công
             tbmakhachhang.Text = "";
@@ -181,6 +181,7 @@ namespace DUAN1
             btnxoa.Enabled = false;
             btnsua.Enabled = false;
             btnluu.Enabled = false;
+            btnthem.Enabled = true;
 
             
             tbmakhachhang.ReadOnly = true;
@@ -208,6 +209,7 @@ namespace DUAN1
                 tbtenkhachhang.Text = kh.ten_kh;
                 tbsdt.Text = kh.sdt;
             }
+            btnthem.Enabled = false;
             btnluu.Enabled = false;
             btnxoa.Enabled = true;
             btnsua.Enabled = true;
