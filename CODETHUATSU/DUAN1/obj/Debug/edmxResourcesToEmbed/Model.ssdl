@@ -4,9 +4,10 @@
     <Key>
       <PropertyRef Name="tai_khoan" />
     </Key>
-    <Property Name="tai_khoan" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tai_khoan" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="mat_khau" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="role" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="hang_hoa">
     <Key>
@@ -66,9 +67,9 @@
     <Property Name="ma_nv" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ten_nv" Type="nvarchar" MaxLength="40" />
     <Property Name="sdt" Type="varchar" MaxLength="12" />
-    <Property Name="tai_khoan_dangnhap" Type="varchar" MaxLength="20" />
+    <Property Name="tai_khoan_dangnhap" Type="varchar" MaxLength="100" />
   </EntityType>
-  <Association Name="FK__hoa_don__ma_nv__46E78A0C">
+  <Association Name="FK__hoa_don__ma_nv__47DBAE45">
     <End Role="nhan_vien" Type="Self.nhan_vien" Multiplicity="0..1" />
     <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
     <ReferentialConstraint>
@@ -80,7 +81,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hoa_don__makho_h__47DBAE45">
+  <Association Name="FK__hoa_don__makho_h__48CFD27E">
     <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="0..1" />
     <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
     <ReferentialConstraint>
@@ -92,7 +93,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hoa_don__trang_t__45F365D3">
+  <Association Name="FK__hoa_don__trang_t__46E78A0C">
     <End Role="khach_hang" Type="Self.khach_hang" Multiplicity="0..1" />
     <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
     <ReferentialConstraint>
@@ -104,7 +105,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__khohang_h__ma_ha__3E52440B">
+  <Association Name="FK__khohang_h__ma_ha__3F466844">
     <End Role="hang_hoa" Type="Self.hang_hoa" Multiplicity="0..1" />
     <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="*" />
     <ReferentialConstraint>
@@ -116,7 +117,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__khohang_h__so_lu__3D5E1FD2">
+  <Association Name="FK__khohang_h__so_lu__3E52440B">
     <End Role="kho_hang" Type="Self.kho_hang" Multiplicity="0..1" />
     <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="*" />
     <ReferentialConstraint>
@@ -128,7 +129,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__nhan_vien__tai_k__412EB0B6">
+  <Association Name="FK__nhan_vien__tai_k__4222D4EF">
     <End Role="dang_nhap" Type="Self.dang_nhap" Multiplicity="0..1" />
     <End Role="nhan_vien" Type="Self.nhan_vien" Multiplicity="*" />
     <ReferentialConstraint>
@@ -148,27 +149,27 @@
     <EntitySet Name="kho_hang" EntityType="Self.kho_hang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="khohang_hanghoa" EntityType="Self.khohang_hanghoa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="nhan_vien" EntityType="Self.nhan_vien" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__hoa_don__ma_nv__46E78A0C" Association="Self.FK__hoa_don__ma_nv__46E78A0C">
+    <AssociationSet Name="FK__hoa_don__ma_nv__47DBAE45" Association="Self.FK__hoa_don__ma_nv__47DBAE45">
       <End Role="nhan_vien" EntitySet="nhan_vien" />
       <End Role="hoa_don" EntitySet="hoa_don" />
     </AssociationSet>
-    <AssociationSet Name="FK__hoa_don__makho_h__47DBAE45" Association="Self.FK__hoa_don__makho_h__47DBAE45">
+    <AssociationSet Name="FK__hoa_don__makho_h__48CFD27E" Association="Self.FK__hoa_don__makho_h__48CFD27E">
       <End Role="khohang_hanghoa" EntitySet="khohang_hanghoa" />
       <End Role="hoa_don" EntitySet="hoa_don" />
     </AssociationSet>
-    <AssociationSet Name="FK__hoa_don__trang_t__45F365D3" Association="Self.FK__hoa_don__trang_t__45F365D3">
+    <AssociationSet Name="FK__hoa_don__trang_t__46E78A0C" Association="Self.FK__hoa_don__trang_t__46E78A0C">
       <End Role="khach_hang" EntitySet="khach_hang" />
       <End Role="hoa_don" EntitySet="hoa_don" />
     </AssociationSet>
-    <AssociationSet Name="FK__khohang_h__ma_ha__3E52440B" Association="Self.FK__khohang_h__ma_ha__3E52440B">
+    <AssociationSet Name="FK__khohang_h__ma_ha__3F466844" Association="Self.FK__khohang_h__ma_ha__3F466844">
       <End Role="hang_hoa" EntitySet="hang_hoa" />
       <End Role="khohang_hanghoa" EntitySet="khohang_hanghoa" />
     </AssociationSet>
-    <AssociationSet Name="FK__khohang_h__so_lu__3D5E1FD2" Association="Self.FK__khohang_h__so_lu__3D5E1FD2">
+    <AssociationSet Name="FK__khohang_h__so_lu__3E52440B" Association="Self.FK__khohang_h__so_lu__3E52440B">
       <End Role="kho_hang" EntitySet="kho_hang" />
       <End Role="khohang_hanghoa" EntitySet="khohang_hanghoa" />
     </AssociationSet>
-    <AssociationSet Name="FK__nhan_vien__tai_k__412EB0B6" Association="Self.FK__nhan_vien__tai_k__412EB0B6">
+    <AssociationSet Name="FK__nhan_vien__tai_k__4222D4EF" Association="Self.FK__nhan_vien__tai_k__4222D4EF">
       <End Role="dang_nhap" EntitySet="dang_nhap" />
       <End Role="nhan_vien" EntitySet="nhan_vien" />
     </AssociationSet>

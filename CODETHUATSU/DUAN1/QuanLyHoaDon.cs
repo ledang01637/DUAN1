@@ -338,6 +338,9 @@ namespace DUAN1
             this.Close();
         }
 
+        private void btninhoadon_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

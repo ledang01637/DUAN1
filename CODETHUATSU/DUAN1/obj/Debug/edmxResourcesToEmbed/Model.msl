@@ -7,6 +7,7 @@
           <ScalarProperty Name="tai_khoan" ColumnName="tai_khoan" />
           <ScalarProperty Name="mat_khau" ColumnName="mat_khau" />
           <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

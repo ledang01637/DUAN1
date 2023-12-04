@@ -371,6 +371,7 @@ namespace DUAN1
             this.btninhoadon.TabIndex = 132;
             this.btninhoadon.Text = "In ra hóa đơn";
             this.btninhoadon.UseVisualStyleBackColor = false;
+            this.btninhoadon.Click += new System.EventHandler(this.btninhoadon_Click);
             // 
             // btnhuy
             // 

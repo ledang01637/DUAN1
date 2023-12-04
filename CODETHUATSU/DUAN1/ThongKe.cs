@@ -52,43 +52,6 @@ namespace DUAN1
                 }
             }
         }
-
-        //update
-        //private void UpdateDGV()
-        //{
-        //    dtpngaylap.Format = DateTimePickerFormat.Short;
-        //    dtpngaylap.CustomFormat = "dd/MM/yyyy";
-
-        //    dtptungay.Format = DateTimePickerFormat.Short;
-        //    dtptungay.CustomFormat = "dd/MM/yyyy";
-
-        //    dtpdenngay.Format = DateTimePickerFormat.Short;
-        //    dtpdenngay.CustomFormat = "dd/MM/yyyy";
-
-        //    using (DUAN1Entities db = new DUAN1Entities())
-        //    {
-        //        cbbmahanghoa.Items.Clear();
-        //        db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
-
-        //        dataGridView1.Rows.Clear();
-
-        //        var hoaDonList = db.hoa_don.ToList();
-
-        //        foreach (var hoaDon in hoaDonList)
-        //        {
-        //            var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
-
-        //            dataGridView1.Rows.Add(
-        //                hoaDon.makho_hangchitiet,
-        //                DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-        //                hoaDon.thanh_tien,
-        //                hoaDon.so_luong,
-        //                khoHang != null ? khoHang.so_luong - hoaDon.so_luong : 0
-        //            );
-        //        }
-        //    }
-
-        //}
         
         //hiển thị
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
