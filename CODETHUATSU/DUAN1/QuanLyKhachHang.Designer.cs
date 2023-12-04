@@ -56,6 +56,9 @@ namespace DUAN1
             this.tbtimkiem = new System.Windows.Forms.TextBox();
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,14 +79,20 @@ namespace DUAN1
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaKH,
+            this.TenKH,
+            this.SDT});
             this.dataGridView1.Location = new System.Drawing.Point(224, 717);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1635, 292);
             this.dataGridView1.TabIndex = 132;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             // 
             // lbsdt
             // 
@@ -386,6 +395,27 @@ namespace DUAN1
             this.btnthem.UseVisualStyleBackColor = true;
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
             // 
+            // MaKH
+            // 
+            this.MaKH.HeaderText = "MaKH";
+            this.MaKH.MinimumWidth = 8;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.Width = 150;
+            // 
+            // TenKH
+            // 
+            this.TenKH.HeaderText = "TenKH";
+            this.TenKH.MinimumWidth = 8;
+            this.TenKH.Name = "TenKH";
+            this.TenKH.Width = 150;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "SDT";
+            this.SDT.MinimumWidth = 8;
+            this.SDT.Name = "SDT";
+            this.SDT.Width = 150;
+            // 
             // QuanLyKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -458,5 +488,8 @@ namespace DUAN1
         private System.Windows.Forms.TextBox tbtimkiem;
         private System.Windows.Forms.Button btnluu;
         private System.Windows.Forms.Button btnthem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
     }
 }

@@ -13,11 +13,37 @@ namespace DUAN1
 {
     public partial class QuanLyKhachHang : Form
     {
-        DataSet ds = new DataSet();
         public QuanLyKhachHang()
         {
             InitializeComponent();
         }
+        //Form
+        private void QuanLyKhachHang_Load(object sender, EventArgs e)
+        {
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                UpdateGV();
+            }
+        }
+
+        private void UpdateGV()
+        {
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                dataGridView1.Rows.Clear();
+
+                db.khach_hang.ToList().ForEach(kh =>
+                {
+                    dataGridView1.Rows.Add(
+                        kh.ma_kh,
+                        kh.ten_kh,
+                        kh.sdt
+                   );
+                }
+                );
+            }
+        }
+
         //Thêm 
         private void btnthem_Click(object sender, EventArgs e)
         {
@@ -32,84 +58,84 @@ namespace DUAN1
             tbsdt.Enabled = true;
             tbtimkiem.Enabled = true;
         }
-        //Form
-        private void QuanLyKhachHang_Load(object sender, EventArgs e)
-        {
-            using (DUAN1Entities db = new DUAN1Entities())
-            {
-                updatedgv();
-                tbmakhachhang.Enabled = false;
-            }
-        }
-        //Update
-        private void updatedgv()
-        {
-            using (DUAN1Entities db = new DUAN1Entities())
-            {
-                dataGridView1.Rows.Clear();
-                db.khach_hang.ToList().ForEach(kh =>
-                {
-                    dataGridView1.Rows.Add(
-                        kh.ma_kh,
-                        kh.ten_kh,
-                        kh.sdt
-                   );
-                }
-                );
-            }
-        }
-        //Lưu
+
         private void btnluu_Click(object sender, EventArgs e)
         {
-            if (tbmakhachhang.Text == "")
+            string maKH = tbmakhachhang.Text;
+            string tenKH = tbtenkhachhang.Text;
+            string sdt = tbsdt.Text;
+
+            // Kiểm tra xem các trường thông tin đã được nhập đầy đủ
+            if (string.IsNullOrEmpty(maKH) || string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(sdt))
             {
-                MessageBox.Show("Không được để trống");
-            }
-            else
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên");
+                return;
+            }          
+
+            // Thêm khách hàng vào cơ sở dữ liệu
+            using (DUAN1Entities db = new DUAN1Entities())
             {
-                khach_hang them = new khach_hang();
-                them.ma_kh = tbmakhachhang.Text;
-                them.ten_kh = tbtenkhachhang.Text;
-                them.sdt = tbsdt.Text;
-                using (DUAN1Entities db = new DUAN1Entities())
-                {
-                    khach_hang nganhduocchon = db.khach_hang
-                        .Where(x => x.ma_kh == tbmakhachhang.Text)
-                        .FirstOrDefault();
-                    them.ma_kh = nganhduocchon.ma_kh;
-                    db.khach_hang.Add(them);
-                    db.SaveChanges();
-                }
-                updatedgv();
+                khach_hang KH = new khach_hang();
+                KH.ma_kh = maKH;
+                KH.ten_kh = tenKH;
+                KH.sdt = sdt;
+
+                db.khach_hang.Add(KH);
+                db.SaveChanges();
             }
+
+            MessageBox.Show("Thêm nhân viên thành công");
+
+            // Xóa nội dung trong TextBox sau khi lưu thành công
+            tbmakhachhang.Text = "";
+            tbtenkhachhang.Text = "";
+            tbsdt.Text = "";
+
+            UpdateGV();
         }
         //sửa thông tin khách hàng
         private void btnsua_Click(object sender, EventArgs e)
-        {
+        { 
             using (DUAN1Entities db = new DUAN1Entities())
             {
                 khach_hang them = db.khach_hang
                     .Where(x => x.ma_kh == tbmakhachhang.Text)
                     .FirstOrDefault();
-                them.ten_kh = tbtenkhachhang.Text;
-                them.sdt = tbsdt.Text;
-                them.sdt = tbsdt.Text;
-                khach_hang thongtinkh = db.khach_hang
-                    .Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
-                them.ma_kh = thongtinkh.ma_kh;
-                db.SaveChanges();
+
+                if (them != null)
+                {
+                    them.ten_kh = tbtenkhachhang.Text;
+                    them.sdt = tbsdt.Text;
+
+                    // You don't need to set them.ma_kh again; it's redundant.
+
+                    db.SaveChanges();
+                }
             }
+            MessageBox.Show("Sửa thành công");
+            UpdateGV();
+            
         }
         //Xóa khách hàng
         private void btnxoa_Click(object sender, EventArgs e)
-        {
-            using (DUAN1Entities db = new DUAN1Entities())
+        {   
+            if(tbmakhachhang.Text == null)
             {
-                khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
-                db.khach_hang.Remove(xoa);
-                db.SaveChanges();
+                MessageBox.Show("Nhập đúng mã khách hàng cần xóa");
             }
-            updatedgv();
+            else
+            {
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
+                    db.khach_hang.Remove(xoa);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Xóa thành công");
+                UpdateGV();
+            }
+            
+            
         }
         //Tìm kiếm khách hàng
         private void btntimkiem_Click(object sender, EventArgs e)
@@ -134,6 +160,7 @@ namespace DUAN1
                        );
                     }
                     );
+
                 }
             }
             catch (Exception)
@@ -150,6 +177,23 @@ namespace DUAN1
             btnsua.Enabled = false;
             btnxoa.Enabled = false;
             btnthem.Enabled = true;
+
+            UpdateGV();
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView1.SelectedCells[0].RowIndex;
+            var rowData = dataGridView1.Rows[row];
+
+            String MaKH = rowData.Cells[0].Value.ToString();
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                khach_hang kh = db.khach_hang.Where(x => x.ma_kh == MaKH).FirstOrDefault();
+                tbmakhachhang.Text = kh.ma_kh;
+                tbtenkhachhang.Text = kh.ten_kh;
+                tbsdt.Text = kh.sdt;
+            }
         }
     }
 }

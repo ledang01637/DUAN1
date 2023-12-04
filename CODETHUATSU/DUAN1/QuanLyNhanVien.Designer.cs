@@ -29,6 +29,7 @@ namespace DUAN1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyNhanVien));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -40,6 +41,10 @@ namespace DUAN1
             this.lbsdt = new System.Windows.Forms.Label();
             this.tbsdt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nhanvienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button15 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnkhachhang = new System.Windows.Forms.Button();
@@ -59,6 +64,7 @@ namespace DUAN1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanvienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,12 +176,42 @@ namespace DUAN1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ma,
+            this.Ten,
+            this.SDT});
             this.dataGridView1.Location = new System.Drawing.Point(224, 717);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1635, 292);
             this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Ma
+            // 
+            this.Ma.HeaderText = "Ma";
+            this.Ma.MinimumWidth = 8;
+            this.Ma.Name = "Ma";
+            this.Ma.Width = 150;
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 8;
+            this.Ten.Name = "Ten";
+            this.Ten.Width = 150;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số ĐT";
+            this.SDT.MinimumWidth = 8;
+            this.SDT.Name = "SDT";
+            this.SDT.Width = 150;
+            // 
+            // nhanvienBindingSource
+            // 
+            this.nhanvienBindingSource.DataMember = "nhan_vien";
             // 
             // button15
             // 
@@ -429,6 +465,7 @@ namespace DUAN1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanvienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -463,5 +500,12 @@ namespace DUAN1
         private System.Windows.Forms.TextBox tbtimkiem;
         private System.Windows.Forms.Button btnluu;
         private System.Windows.Forms.Button btnthem;
+        private System.Windows.Forms.BindingSource nhanvienBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tennvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
     }
 }

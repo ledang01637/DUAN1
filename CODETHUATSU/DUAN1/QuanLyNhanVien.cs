@@ -14,7 +14,6 @@ namespace DUAN1
 {
     public partial class QuanLyNhanVien : Form
     {
-        DataSet ds = new DataSet();
         public QuanLyNhanVien()
         {
             InitializeComponent();
@@ -52,28 +51,42 @@ namespace DUAN1
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
+            UpdateGV();
+        }
+
+        private void UpdateGV()
+        {
+            // TODO: This line of code loads data into the 'dUAN1DataSet.nhan_vien' table. You can move, or remove it, as needed.
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                updatedgv();
-                tbmanhanvien.Enabled = false;
+                dataGridView1.Rows.Clear();
+
+                db.nhan_vien.ToList().ForEach(nv =>
+                    dataGridView1.Rows.Add(
+                        nv.ma_nv,
+                        nv.ten_nv,
+                        nv.sdt
+                   )
+                );
             }
         }
 
         private void updatedgv()
         {
-            using (DUAN1Entities db = new DUAN1Entities())
-            {
-                dataGridView1.Rows.Clear();
-                db.nhan_vien.ToList().ForEach(kh =>
-                {
-                    dataGridView1.Rows.Add(
-                        kh.ma_nv,
-                        kh.ten_nv,
-                        kh.sdt
-                   );
-                }
-                );
-            }
+            //using (DUAN1Entities db = new DUAN1Entities())
+            //{
+            //    dataGridView1.Rows.Clear();
+
+            //    db.nhan_vien.ToList().ForEach(nv =>
+            //    {
+            //        dataGridView1.Rows.Add(
+            //            nv.ma_nv,
+            //            nv.ten_nv,
+            //            nv.sdt
+            //       );
+            //    }
+            //    );
+            //}
         }
 
         private void btnthem_Click(object sender, EventArgs e)
@@ -105,15 +118,24 @@ namespace DUAN1
                 them.sdt = tbsdt.Text;
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    nhan_vien nganhduocchon = db.nhan_vien
+                    nhan_vien nv = db.nhan_vien
                         .Where(x => x.ma_nv == tbmanhanvien.Text)
                         .FirstOrDefault();
-                    them.ma_nv = nganhduocchon.ma_nv;
-                    db.nhan_vien.Add(them);
-                    db.SaveChanges();
+
+                    if (nv == null) // Check if the record doesn't exist
+                    {
+                        db.nhan_vien.Add(them);
+                        db.SaveChanges();
+                        updatedgv();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã nhân viên đã tồn tại");
+                    }
                 }
-                updatedgv();
+
             }
+            UpdateGV();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -123,14 +145,19 @@ namespace DUAN1
                 nhan_vien them = db.nhan_vien
                     .Where(x => x.ma_nv == tbmanhanvien.Text)
                     .FirstOrDefault();
-                them.ten_nv = tbtennhanvien.Text;
-                them.sdt = tbsdt.Text;
-                them.sdt = tbsdt.Text;
-                nhan_vien thongtinkh = db.nhan_vien
-                    .Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
-                them.ma_nv = thongtinkh.ma_nv;
-                db.SaveChanges();
+
+                if (them != null)
+                {
+                    //them.ten_nv = tbtennhanvien.Text;
+                    them.sdt = tbsdt.Text;
+
+                    // You don't need to set them.ma_kh again; it's redundant.
+
+                    db.SaveChanges();
+                }
             }
+            MessageBox.Show("Sửa thành công");
+            UpdateGV();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -141,7 +168,7 @@ namespace DUAN1
                 db.nhan_vien.Remove(xoa);
                 db.SaveChanges();
             }
-            updatedgv();
+            UpdateGV();
         }
 
         private void btnhuy_Click(object sender, EventArgs e)
@@ -152,6 +179,7 @@ namespace DUAN1
             btnsua.Enabled = false;
             btnxoa.Enabled = false;
             btnthem.Enabled = true;
+            UpdateGV();
         }
 
         private void btntimkiem_Click(object sender, EventArgs e)
@@ -181,6 +209,27 @@ namespace DUAN1
             catch (Exception)
             {
                 MessageBox.Show("Không để trống");
+            }
+            UpdateGV();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView1.SelectedCells[0].RowIndex;
+            var rowData = dataGridView1.Rows[row];
+
+            String Manv = rowData.Cells[0].Value.ToString();
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv == Manv).FirstOrDefault();
+                tbmanhanvien.Text = nv.ma_nv;
+                tbtennhanvien.Text = nv.ten_nv;
+                tbsdt.Text = nv.sdt;
             }
         }
     }
