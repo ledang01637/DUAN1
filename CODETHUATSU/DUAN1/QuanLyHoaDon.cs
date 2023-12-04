@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Drawing.Printing;
 
 namespace DUAN1
 {
@@ -116,6 +117,14 @@ namespace DUAN1
                 tbsoluong.Text = hd.so_luong.ToString();
                 tbthanhtien.Text = hd.thanh_tien.ToString();
                 tbtrangthai.Text = hd.trang_thai;
+                lvhoadon.Clear();
+
+                lvhoadon.Columns.Add("a", 50, HorizontalAlignment.Center);
+                lvhoadon.Items.Add(tbmahoadon.Text);
+                lvhoadon.Items.Add(dtpngaylap.Text);
+                lvhoadon.Items.Add(tbsoluong.Text);
+                lvhoadon.Items.Add(tbthanhtien.Text);
+
             }
 
             btnxoa.Enabled = true;
@@ -423,6 +432,86 @@ namespace DUAN1
             ThongKe tk = new ThongKe(tbusername.Text);
             tk.ShowDialog();
             this.Close();
+        }
+        //Print HoaDon
+        private PrintDocument docToPrint = new PrintDocument();
+        int y = 0;
+        int height = 300;
+        int width = 228;
+        private void btninhoadon_Click(object sender, EventArgs e)
+        {
+            var a = lvhoadon.Items.Count;
+            if (a > 0)
+            {
+                PrintDialog PrintDialog1 = new PrintDialog();
+                docToPrint.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", width, height);
+                PrintDialog1.AllowSomePages = true;
+                PrintDialog1.ShowHelp = true;
+                PrintDialog1.Document = docToPrint;
+
+
+                DialogResult result = PrintDialog1.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    docToPrint.PrintPage += new PrintPageEventHandler(document_PrintPage);
+                    docToPrint.Print();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+        private void document_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            string title = "HOA DON BAN HANG\n";
+            StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
+            Rectangle rectangle = new Rectangle(new Point(height, y), new Size(width, height));
+            stringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat.Alignment = StringAlignment.Center;
+            Font printFont = new Font("Arial", 11, FontStyle.Bold);
+            e.Graphics.DrawString(title, printFont, Brushes.Black, rectangle, stringFormat);
+
+            string body = "Ten      Tien";
+
+                    
+
+            StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+            Rectangle rectangleBody = new Rectangle(new Point(height, y + 150), new Size(width, height));
+            stringFormatBody.LineAlignment = StringAlignment.Near;
+            stringFormatBody.Alignment = StringAlignment.Near;
+            Font printFontBody = new Font("Arial", 11, FontStyle.Regular);
+            e.Graphics.DrawString(body, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+        }
+        private static readonly string[] VietNamChar = new string[]
+        {
+        "aAeEoOuUiIdDyY",
+        "áàạảãâấầậẩẫăắằặẳẵ",
+        "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+        "éèẹẻẽêếềệểễ",
+        "ÉÈẸẺẼÊẾỀỆỂỄ",
+        "óòọỏõôốồộổỗơớờợởỡ",
+        "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+        "úùụủũưứừựửữ",
+        "ÚÙỤỦŨƯỨỪỰỬỮ",
+        "íìịỉĩ",
+        "ÍÌỊỈĨ",
+        "đ",
+        "Đ",
+        "ýỳỵỷỹ",
+        "ÝỲỴỶỸ"
+        };
+        public static string LocDau(string str)
+        {
+            //Thay thế và lọc dấu từng char      
+            for (int i = 1; i < VietNamChar.Length; i++)
+            {
+                for (int j = 0; j < VietNamChar[i].Length; j++)
+                    str = str.Replace(VietNamChar[i][j], VietNamChar[0][i - 1]);
+            }
+            return str;
         }
     }
 }
