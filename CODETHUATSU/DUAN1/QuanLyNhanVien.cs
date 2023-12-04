@@ -19,44 +19,9 @@ namespace DUAN1
             InitializeComponent();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
-            UpdateGV();
-        }
-
-        private void UpdateGV()
-        {
-            // TODO: This line of code loads data into the 'dUAN1DataSet.nhan_vien' table. You can move, or remove it, as needed.
             using (DUAN1Entities db = new DUAN1Entities())
             {
                 dataGridView1.Rows.Clear();
@@ -65,42 +30,51 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                         nv.ma_nv,
                         nv.ten_nv,
-                        nv.sdt
+                        nv.sdt,
+                        nv.tai_khoan_dangnhap
+                   )
+                );
+            }
+
+
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnluu.Enabled = false;
+
+            tbcv.ReadOnly = true;
+            tbmanhanvien.ReadOnly = true;
+            tbtennhanvien.ReadOnly = true;
+            tbsdt.Enabled = false;
+        }
+
+        private void UpdateGV()
+        {
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                dataGridView1.Rows.Clear();
+
+                db.nhan_vien.ToList().ForEach(nv =>
+                    dataGridView1.Rows.Add(
+                        nv.ma_nv,
+                        nv.ten_nv,
+                        nv.sdt,
+                        nv.tai_khoan_dangnhap
                    )
                 );
             }
         }
 
-        private void updatedgv()
-        {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    dataGridView1.Rows.Clear();
-
-            //    db.nhan_vien.ToList().ForEach(nv =>
-            //    {
-            //        dataGridView1.Rows.Add(
-            //            nv.ma_nv,
-            //            nv.ten_nv,
-            //            nv.sdt
-            //       );
-            //    }
-            //    );
-            //}
-        }
 
         private void btnthem_Click(object sender, EventArgs e)
         {
             btnluu.Enabled = true;
-            btnxoa.Enabled = true;
-            btnsua.Enabled = true;
-            btnhuy.Enabled = true;
-            btnluu.Enabled = true;
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
 
+            tbcv.ReadOnly = false;
             tbmanhanvien.ReadOnly = false;
             tbtennhanvien.ReadOnly = false;
             tbsdt.Enabled = true;
-            tbtimkiem.Enabled = true;
 
         }
 
@@ -116,6 +90,7 @@ namespace DUAN1
                 them.ma_nv = tbmanhanvien.Text;
                 them.ten_nv = tbtennhanvien.Text;
                 them.sdt = tbsdt.Text;
+                them.tai_khoan_dangnhap = tbcv.Text;
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
                     nhan_vien nv = db.nhan_vien
@@ -126,7 +101,7 @@ namespace DUAN1
                     {
                         db.nhan_vien.Add(them);
                         db.SaveChanges();
-                        updatedgv();
+                        UpdateGV();
                     }
                     else
                     {
@@ -173,12 +148,20 @@ namespace DUAN1
 
         private void btnhuy_Click(object sender, EventArgs e)
         {
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnluu.Enabled = false;
+
+            tbcv.ReadOnly = true;
+            tbmanhanvien.ReadOnly = true;
+            tbtennhanvien.ReadOnly = true;
+            tbsdt.Enabled = false;
+
             tbmanhanvien.Text = "";
             tbtennhanvien.Text = "";
             tbsdt.Text = "";
-            btnsua.Enabled = false;
-            btnxoa.Enabled = false;
-            btnthem.Enabled = true;
+            tbcv.Text = " ";
+
             UpdateGV();
         }
 
@@ -200,7 +183,8 @@ namespace DUAN1
                         dataGridView1.Rows.Add(
                         hd.ma_nv,
                         hd.ten_nv,
-                        hd.sdt
+                        hd.sdt,
+                        hd.tai_khoan_dangnhap
                        );
                     }
                     );
@@ -211,11 +195,6 @@ namespace DUAN1
                 MessageBox.Show("Không để trống");
             }
             UpdateGV();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -230,7 +209,14 @@ namespace DUAN1
                 tbmanhanvien.Text = nv.ma_nv;
                 tbtennhanvien.Text = nv.ten_nv;
                 tbsdt.Text = nv.sdt;
+                tbcv.Text = nv.tai_khoan_dangnhap;
             }
+
+            btnluu.Enabled = false;
+            btnxoa.Enabled = true;
+            btnsua.Enabled = true;
+            btnhuy.Enabled = true;
+
         }
     }
 }

@@ -44,6 +44,7 @@ namespace DUAN1
             this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nhanvienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button15 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -61,6 +62,8 @@ namespace DUAN1
             this.tbtimkiem = new System.Windows.Forms.TextBox();
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
+            this.tbcv = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -179,7 +182,8 @@ namespace DUAN1
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ma,
             this.Ten,
-            this.SDT});
+            this.SDT,
+            this.ChucVu});
             this.dataGridView1.Location = new System.Drawing.Point(224, 717);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
@@ -208,6 +212,13 @@ namespace DUAN1
             this.SDT.MinimumWidth = 8;
             this.SDT.Name = "SDT";
             this.SDT.Width = 150;
+            // 
+            // ChucVu
+            // 
+            this.ChucVu.HeaderText = "ChucVu";
+            this.ChucVu.MinimumWidth = 8;
+            this.ChucVu.Name = "ChucVu";
+            this.ChucVu.Width = 150;
             // 
             // nhanvienBindingSource
             // 
@@ -424,11 +435,36 @@ namespace DUAN1
             this.btnthem.UseVisualStyleBackColor = true;
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
             // 
+            // tbcv
+            // 
+            this.tbcv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbcv.Location = new System.Drawing.Point(916, 528);
+            this.tbcv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbcv.Multiline = true;
+            this.tbcv.Name = "tbcv";
+            this.tbcv.Size = new System.Drawing.Size(510, 35);
+            this.tbcv.TabIndex = 166;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(694, 531);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 32);
+            this.label1.TabIndex = 167;
+            this.label1.Text = "Chức Vụ";
+            // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1887, 1022);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbcv);
             this.Controls.Add(this.btnhuy);
             this.Controls.Add(this.btnxoa);
             this.Controls.Add(this.btnsua);
@@ -507,5 +543,8 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.TextBox tbcv;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
     }
 }

@@ -14,8 +14,18 @@ namespace DUAN1
     
     public partial class dang_nhap
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public dang_nhap()
+        {
+            this.nhan_vien = new HashSet<nhan_vien>();
+        }
+    
         public string tai_khoan { get; set; }
         public string mat_khau { get; set; }
         public string role { get; set; }
+        public string email { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<nhan_vien> nhan_vien { get; set; }
     }
 }

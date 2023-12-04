@@ -24,6 +24,15 @@ namespace DUAN1
             {
                 UpdateGV();
             }
+
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnluu.Enabled = false;
+
+            
+            tbmakhachhang.ReadOnly = true;
+            tbtenkhachhang.ReadOnly = true;
+            tbsdt.Enabled = false;
         }
 
         private void UpdateGV()
@@ -48,15 +57,13 @@ namespace DUAN1
         private void btnthem_Click(object sender, EventArgs e)
         {
             btnluu.Enabled = true;
-            btnxoa.Enabled = true;
-            btnsua.Enabled = true;
-            btnhuy.Enabled = true;
-            btnluu.Enabled = true;
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
 
+            
             tbmakhachhang.ReadOnly = false;
             tbtenkhachhang.ReadOnly = false;
             tbsdt.Enabled = true;
-            tbtimkiem.Enabled = true;
         }
 
         private void btnluu_Click(object sender, EventArgs e)
@@ -171,12 +178,19 @@ namespace DUAN1
 
         private void btnhuy_Click(object sender, EventArgs e)
         {
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnluu.Enabled = false;
+
+            
+            tbmakhachhang.ReadOnly = true;
+            tbtenkhachhang.ReadOnly = true;
+            tbsdt.Enabled = false;
+
             tbmakhachhang.Text = "";
             tbtenkhachhang.Text = "";
             tbsdt.Text = "";
-            btnsua.Enabled = false;
-            btnxoa.Enabled = false;
-            btnthem.Enabled = true;
+            
 
             UpdateGV();
         }
@@ -194,6 +208,15 @@ namespace DUAN1
                 tbtenkhachhang.Text = kh.ten_kh;
                 tbsdt.Text = kh.sdt;
             }
+            btnluu.Enabled = false;
+            btnxoa.Enabled = true;
+            btnsua.Enabled = true;
+            btnhuy.Enabled = true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
