@@ -559,7 +559,6 @@ namespace DUAN1
             this.btnchuyen.Size = new System.Drawing.Size(61, 65);
             this.btnchuyen.TabIndex = 148;
             this.btnchuyen.UseVisualStyleBackColor = true;
-            this.btnchuyen.Click += new System.EventHandler(this.btnchuyen_Click);
             // 
             // lvhoadon
             // 

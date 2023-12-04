@@ -368,26 +368,59 @@ namespace DUAN1
                 UpdateDGV();
             }
         }
-
-        //chức năng chuyển sang listview
-        private void btnchuyen_Click(object sender, EventArgs e)
+        private void btnthoat_Click(object sender, EventArgs e)
         {
-
+            //Nút thoát ra ngoài form Đăng nhập
+            this.Hide();
+            Login form = new Login();
+            form.ShowDialog();
+            this.Close();
+        }
+        private void btnhanghoa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
+            quanLyHangHoa.ShowDialog();
+            this.Close();
         }
 
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa form = new KhoHangHangHoa();
-            form.ShowDialog();
+            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            khhh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon qlhd = new QuanLyHoaDon();
+            qlhd.ShowDialog();
+            this.Close();
+        }
+
+        private void btnnhanvien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien();
+            qlnv.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhachhang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang();
+            qlkh.ShowDialog();
             this.Close();
         }
 
         private void btnthongke_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ThongKe form = new ThongKe();
-            form.ShowDialog();
+            ThongKe tk = new ThongKe();
+            tk.ShowDialog();
             this.Close();
         }
     }
