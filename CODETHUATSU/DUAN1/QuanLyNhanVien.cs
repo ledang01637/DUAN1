@@ -14,40 +14,10 @@ namespace DUAN1
 {
     public partial class QuanLyNhanVien : Form
     {
-        DataSet ds = new DataSet();
-        public QuanLyNhanVien()
+        public QuanLyNhanVien(String username)
         {
             InitializeComponent();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            tbusername.Text = username;
         }
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)

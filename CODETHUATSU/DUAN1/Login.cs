@@ -63,7 +63,7 @@ namespace DUAN1
                     {
                         //Nếu tìm được tài khoản có phân quyền là admin
                         this.Hide();
-                        ThongTinNhanVien form = new ThongTinNhanVien("admin");
+                        ThongTinNhanVien form = new ThongTinNhanVien(tbusername.Text);
                         form.ShowDialog();
                         this.Close();
                     }

@@ -442,7 +442,7 @@ namespace DUAN1
         private void btnhoadon_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyHoaDon form = new QuanLyHoaDon();
+            QuanLyHoaDon form = new QuanLyHoaDon(tbusername.Text);
             form.ShowDialog();
             this.Close();
         }
@@ -461,7 +461,7 @@ namespace DUAN1
         private void btnhanghoa_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
             quanLyHangHoa.ShowDialog();
             this.Close();
         }
@@ -479,7 +479,7 @@ namespace DUAN1
         private void btnnhanvien_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyNhanVien qlnv = new QuanLyNhanVien();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
             qlnv.ShowDialog();
             this.Close();
         }
@@ -488,7 +488,7 @@ namespace DUAN1
         private void btnkhachhang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyKhachHang qlkh = new QuanLyKhachHang();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
             qlkh.ShowDialog();
             this.Close();
         }
@@ -497,7 +497,7 @@ namespace DUAN1
         private void btnthongke_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ThongKe tk = new ThongKe();
+            ThongKe tk = new ThongKe(tbusername.Text);
             tk.ShowDialog();
             this.Close();
         }
@@ -506,7 +506,7 @@ namespace DUAN1
         private void btnthongtinnv_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ThongTinNhanVien tk = new ThongTinNhanVien();
+            ThongTinNhanVien tk = new ThongTinNhanVien(tbusername.Text);
             tk.ShowDialog();
             this.Close();
         }
