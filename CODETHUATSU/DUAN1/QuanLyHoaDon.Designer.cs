@@ -75,16 +75,10 @@ namespace DUAN1
             this.cbbmanv = new System.Windows.Forms.ComboBox();
             this.cbbmakhct = new System.Windows.Forms.ComboBox();
             this.btnthongke = new System.Windows.Forms.Button();
-            this.dgvinhoadon = new System.Windows.Forms.DataGridView();
-            this.mahoadon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenhanghoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaylap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lvhoadon = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvinhoadon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -570,52 +564,21 @@ namespace DUAN1
             this.btnthongke.UseVisualStyleBackColor = false;
             this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
-            // dgvinhoadon
+            // lvhoadon
             // 
-            this.dgvinhoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvinhoadon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mahoadon,
-            this.tenhanghoa,
-            this.ngaylap,
-            this.soluong,
-            this.thanhtien});
-            this.dgvinhoadon.Location = new System.Drawing.Point(892, 126);
-            this.dgvinhoadon.Name = "dgvinhoadon";
-            this.dgvinhoadon.Size = new System.Drawing.Size(348, 198);
-            this.dgvinhoadon.TabIndex = 191;
-            this.dgvinhoadon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinhoadon_CellContentClick);
-            // 
-            // mahoadon
-            // 
-            this.mahoadon.HeaderText = "Mã hóa đơn";
-            this.mahoadon.Name = "mahoadon";
-            // 
-            // tenhanghoa
-            // 
-            this.tenhanghoa.HeaderText = "Tên hàng hóa";
-            this.tenhanghoa.Name = "tenhanghoa";
-            // 
-            // ngaylap
-            // 
-            this.ngaylap.HeaderText = "Ngày mua hàng";
-            this.ngaylap.Name = "ngaylap";
-            // 
-            // soluong
-            // 
-            this.soluong.HeaderText = "Số lượng";
-            this.soluong.Name = "soluong";
-            // 
-            // thanhtien
-            // 
-            this.thanhtien.HeaderText = "Thành tiền";
-            this.thanhtien.Name = "thanhtien";
+            this.lvhoadon.HideSelection = false;
+            this.lvhoadon.Location = new System.Drawing.Point(892, 126);
+            this.lvhoadon.Name = "lvhoadon";
+            this.lvhoadon.Size = new System.Drawing.Size(348, 198);
+            this.lvhoadon.TabIndex = 192;
+            this.lvhoadon.UseCompatibleStateImageBehavior = false;
             // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.dgvinhoadon);
+            this.Controls.Add(this.lvhoadon);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.cbbmakhct);
             this.Controls.Add(this.cbbmanv);
@@ -662,7 +625,6 @@ namespace DUAN1
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvinhoadon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,11 +676,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn thanh_tien;
         private System.Windows.Forms.DataGridViewTextBoxColumn trang_thai;
         private System.Windows.Forms.Button btnthongke;
-        private System.Windows.Forms.DataGridView dgvinhoadon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mahoadon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenhanghoa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaylap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
+        private System.Windows.Forms.ListView lvhoadon;
     }
 }

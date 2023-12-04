@@ -338,27 +338,6 @@ namespace DUAN1
             this.Close();
         }
 
-        private void dgvinhoadon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    khohang_hanghoa khhh = new khohang_hanghoa();
 
-            //    string maHD = tbmahoadon.Text;
-            //    string ngaylap = dtpngaylap.Text;
-            //    var tien = db.khohang_hanghoa
-            //                    .Where(x => x.ma_hang_hoa == khhh.ma_hang_hoa)
-            //                    .Select(a => a.hang_hoa.gia_ban)
-            //                    .FirstOrDefault();
-
-            //    if (!string.IsNullOrEmpty(maHD) && tien != null)
-            //    {
-            //        ListViewItem item1 = new ListViewItem(maHD + "\t");
-            //        ListViewItem item2 = new ListViewItem(tien.ToString());
-            //        dgvinhoadon.Rows.Add(item1);
-            //        dgvinhoadon.Rows.Add(item2);
-            //    }
-            //}
-        }
     }
 }
