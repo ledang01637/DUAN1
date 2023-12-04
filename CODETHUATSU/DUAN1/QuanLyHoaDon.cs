@@ -44,7 +44,7 @@ namespace DUAN1
                     hd.ma_hd,
                     hd.ma_kh,
                     hd.ma_nv,
-                    hd.ma_hang_hoa,
+                    hd.makho_hangchitiet,
                     DateTime.Parse(hd.ngay_lap.ToString(),CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.so_luong,
                     hd.thanh_tien,
@@ -84,7 +84,7 @@ namespace DUAN1
                     hd.ma_hd,
                     hd.ma_kh,
                     hd.ma_nv,
-                    hd.ma_hang_hoa,
+                    hd.makho_hangchitiet,
                     DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.so_luong,
                     hd.thanh_tien,
@@ -110,7 +110,7 @@ namespace DUAN1
                 tbmahoadon.Text = hd.ma_hd;
                 cbbmakhachhang.Text = hd.ma_kh;
                 cbbmanv.Text = hd.ma_nv;
-                cbbmahanghoa.Text = hd.ma_hang_hoa;
+                cbbmahanghoa.Text = hd.makho_hangchitiet;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
                 tbsoluong.Text = hd.so_luong.ToString();
                 tbthanhtien.Text = hd.thanh_tien.ToString();
@@ -170,7 +170,7 @@ namespace DUAN1
                         addhd.ma_hd = tbmahoadon.Text;
                         addhd.ma_kh = cbbmakhachhang.Text;
                         addhd.ma_nv = cbbmanv.Text;
-                        addhd.ma_hang_hoa = maHH;
+                        addhd.makho_hangchitiet = maHH;
                         addhd.ngay_lap = dtpngaylap.Value;
                         addhd.so_luong = soLuong;
                         addhd.thanh_tien = hangHoa.gia_ban * soLuong;
@@ -206,11 +206,11 @@ namespace DUAN1
             //    addhd.ma_hd = tbmahoadon.Text;
             //    addhd.ma_kh = cbbmakhachhang.Text;
             //    addhd.ma_nv = cbbmanv.Text;
-            //    addhd.ma_hang_hoa = cbbmahanghoa.Text;
+            //    addhd.makho_hangchitiet = cbbmahanghoa.Text;
             //    addhd.ngay_lap = dtpngaylap.Value;
             //    addhd.so_luong = int.Parse(tbsoluong.Text);
 
-            //    if (addhd.ma_hang_hoa == addhh.ma_hang_hoa)
+            //    if (addhd.makho_hangchitiet == addhh.makho_hangchitiet)
             //    {
             //        addhd.thanh_tien = addhh.gia * addhd.so_luong;
             //    }
@@ -225,11 +225,11 @@ namespace DUAN1
             //        addhd.ma_hd = tbmahoadon.Text;
             //        addhd.ma_kh = cbbmakhachhang.Text;
             //        addhd.ma_nv = cbbmanv.Text;
-            //        addhd.ma_hang_hoa = cbbmahanghoa.Text;
+            //        addhd.makho_hangchitiet = cbbmahanghoa.Text;
             //        addhd.ngay_lap = dtpngaylap.Value;
             //        addhd.so_luong = int.Parse(tbsoluong.Text);
 
-            //        if (addhd.ma_hang_hoa == addhh.ma_hang_hoa)
+            //        if (addhd.makho_hangchitiet == addhh.makho_hangchitiet)
             //        {
             //            addhd.thanh_tien = addhh.gia * addhd.so_luong;
             //        }
@@ -316,7 +316,7 @@ namespace DUAN1
                         hd.ma_hd,
                         hd.ma_kh,
                         hd.ma_nv,
-                        hd.ma_hang_hoa,
+                        hd.makho_hangchitiet,
                         hd.ngay_lap,
                         hd.so_luong,
                         hd.thanh_tien,
@@ -347,7 +347,7 @@ namespace DUAN1
                     {
                         edit.ma_kh = cbbmakhachhang.Text;
                         edit.ma_nv = cbbmanv.Text;
-                        edit.ma_hang_hoa = cbbmahanghoa.Text;
+                        edit.makho_hangchitiet = cbbmahanghoa.Text;
                         edit.ngay_lap = dtpngaylap.Value;
                         edit.so_luong = soLuong;
                         edit.thanh_tien = hangHoa.gia_ban * soLuong;

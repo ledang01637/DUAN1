@@ -70,12 +70,7 @@ namespace DUAN1
                 "\n\nCảm ơn.";
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(from);
-            if(tbemail.Text == null || tbemail.Text == "")
-            {
-                MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
+            if(getEmail(tbemail.Text.ToLower().Trim()))
             {
                 string strRegex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
                 Regex regex = new Regex(strRegex);
@@ -94,7 +89,7 @@ namespace DUAN1
                     {
                         smtpClient.Send(mail);
                         MessageBox.Show("Đã gửi OTP vui lòng kiểm tra email của bạn");
-                        
+
                     }
                     catch
                     {
@@ -105,8 +100,12 @@ namespace DUAN1
                 {
                     MessageBox.Show("Lỗi email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }
-                
+                }  
+            }
+            else
+            {
+                MessageBox.Show("Email không có trong hệ thống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -172,6 +171,18 @@ namespace DUAN1
                 }
                 return false;
             } 
+        }
+        public bool getEmail(string email)
+        {
+            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
+            {
+                dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.email.Equals(email));
+                if (dang_ != null)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
         private void groupBox2_Paint(object sender, PaintEventArgs e)
         {

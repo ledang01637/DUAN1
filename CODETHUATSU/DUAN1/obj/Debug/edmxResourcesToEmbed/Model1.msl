@@ -7,6 +7,7 @@
           <ScalarProperty Name="tai_khoan" ColumnName="tai_khoan" />
           <ScalarProperty Name="mat_khau" ColumnName="mat_khau" />
           <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -29,7 +30,7 @@
           <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
           <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
           <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
-          <ScalarProperty Name="ma_hang_hoa" ColumnName="ma_hang_hoa" />
+          <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
           <ScalarProperty Name="ngay_lap" ColumnName="ngay_lap" />
           <ScalarProperty Name="so_luong" ColumnName="so_luong" />
           <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
@@ -57,6 +58,7 @@
     <EntitySetMapping Name="khohang_hanghoa">
       <EntityTypeMapping TypeName="DUAN1Model.khohang_hanghoa">
         <MappingFragment StoreEntitySet="khohang_hanghoa">
+          <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
           <ScalarProperty Name="ma_kho_hang" ColumnName="ma_kho_hang" />
           <ScalarProperty Name="ma_hang_hoa" ColumnName="ma_hang_hoa" />
           <ScalarProperty Name="ngay_nhap" ColumnName="ngay_nhap" />

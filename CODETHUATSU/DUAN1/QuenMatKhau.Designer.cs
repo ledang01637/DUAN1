@@ -280,6 +280,7 @@ namespace DUAN1
             this.btnthoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnthoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnthoat.BackgroundImage")));
             this.btnthoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnthoat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnthoat.FlatAppearance.BorderSize = 0;
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnthoat.Location = new System.Drawing.Point(1376, 49);
