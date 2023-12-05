@@ -115,6 +115,7 @@ namespace DUAN1
             this.tbsdt.Name = "tbsdt";
             this.tbsdt.Size = new System.Drawing.Size(510, 35);
             this.tbsdt.TabIndex = 130;
+            this.tbsdt.TextChanged += new System.EventHandler(this.tbsdt_TextChanged);
             // 
             // lbtenkhachhang
             // 
@@ -308,7 +309,7 @@ namespace DUAN1
             this.btnhuy.FlatAppearance.BorderSize = 0;
             this.btnhuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnhuy.Image = ((System.Drawing.Image)(resources.GetObject("btnhuy.Image")));
-            this.btnhuy.Location = new System.Drawing.Point(978, 614);
+            this.btnhuy.Location = new System.Drawing.Point(977, 617);
             this.btnhuy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(180, 80);
@@ -322,7 +323,7 @@ namespace DUAN1
             this.btnxoa.FlatAppearance.BorderSize = 0;
             this.btnxoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnxoa.Image = ((System.Drawing.Image)(resources.GetObject("btnxoa.Image")));
-            this.btnxoa.Location = new System.Drawing.Point(789, 614);
+            this.btnxoa.Location = new System.Drawing.Point(789, 617);
             this.btnxoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnxoa.Name = "btnxoa";
             this.btnxoa.Size = new System.Drawing.Size(180, 80);
@@ -336,7 +337,7 @@ namespace DUAN1
             this.btnsua.FlatAppearance.BorderSize = 0;
             this.btnsua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnsua.Image = ((System.Drawing.Image)(resources.GetObject("btnsua.Image")));
-            this.btnsua.Location = new System.Drawing.Point(600, 614);
+            this.btnsua.Location = new System.Drawing.Point(601, 617);
             this.btnsua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(180, 80);
@@ -350,7 +351,7 @@ namespace DUAN1
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
-            this.btntimkiem.Location = new System.Drawing.Point(1678, 617);
+            this.btntimkiem.Location = new System.Drawing.Point(1679, 615);
             this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(180, 80);
@@ -373,7 +374,7 @@ namespace DUAN1
             this.btnluu.FlatAppearance.BorderSize = 0;
             this.btnluu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnluu.Image = ((System.Drawing.Image)(resources.GetObject("btnluu.Image")));
-            this.btnluu.Location = new System.Drawing.Point(411, 614);
+            this.btnluu.Location = new System.Drawing.Point(410, 617);
             this.btnluu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(180, 80);

@@ -241,5 +241,10 @@ namespace DUAN1
         {
 
         }
+
+        private void tbsdt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
