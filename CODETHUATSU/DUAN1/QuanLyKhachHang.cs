@@ -125,8 +125,8 @@ namespace DUAN1
         }
         //Xóa khách hàng
         private void btnxoa_Click(object sender, EventArgs e)
-        {   
-            if(tbmakhachhang.Text == null)
+        {
+            if (string.IsNullOrEmpty(tbmakhachhang.Text))
             {
                 MessageBox.Show("Nhập đúng mã khách hàng cần xóa");
             }
@@ -135,14 +135,27 @@ namespace DUAN1
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
                     khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
-                    db.khach_hang.Remove(xoa);
-                    db.SaveChanges();
+                    if (xoa != null)
+                    {
+                        db.khach_hang.Remove(xoa);
+                        db.SaveChanges();
+                        MessageBox.Show("Xóa thành công");
+
+                        // Reset các TextBox sau khi xóa thành công
+                        tbmakhachhang.Text = "";
+                        tbtenkhachhang.Text = "";
+                        tbsdt.Text = "";
+
+                        UpdateGV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khách hàng có mã khách hàng đã nhập");
+                    }
                 }
-                MessageBox.Show("Xóa thành công");
-                UpdateGV();
             }
-            
-            
+
+
         }
         //Tìm kiếm khách hàng
         private void btntimkiem_Click(object sender, EventArgs e)
