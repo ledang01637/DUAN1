@@ -51,7 +51,7 @@ namespace DUAN1
                 if (role != null)
                 {
                     
-                    if (role.Equals("nhanvien"))
+                    if (role.Trim().ToLower().Equals("nhanvien"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là nhanvien
                         this.Hide();
@@ -59,11 +59,11 @@ namespace DUAN1
                         form.ShowDialog();
                         this.Close();
                     }
-                    else if (role.Equals("admin"))
+                    else if (role.Trim().ToLower().Equals("admin"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là admin
                         this.Hide();
-                        ThongTinNhanVien form = new ThongTinNhanVien("admin");
+                        ThongTinNhanVien form = new ThongTinNhanVien(tbusername.Text);
                         form.ShowDialog();
                         this.Close();
                     }
@@ -149,18 +149,6 @@ namespace DUAN1
         }
 
         private void Login_Load_1(object sender, EventArgs e)
-        {
-        }
-
-        private void tbusername_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void tbpassword_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void tbpassword_TextAlignChanged(object sender, EventArgs e)
         {
 
         }

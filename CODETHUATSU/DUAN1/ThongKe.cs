@@ -13,9 +13,10 @@ namespace DUAN1
 {
     public partial class ThongKe : Form
     {
-        public ThongKe()
+        public ThongKe(String username)
         {
             InitializeComponent();
+            tbusername.Text = username;
         }
 
         private void ThongKe_Load(object sender, EventArgs e)
@@ -40,10 +41,10 @@ namespace DUAN1
 
                 foreach (var hoaDon in hoaDonList)
                 {
-                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.ma_hang_hoa == hoaDon.ma_hang_hoa);
+                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
 
                     dataGridView1.Rows.Add(
-                        hoaDon.ma_hang_hoa,
+                        hoaDon.ma_hd,
                         DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                         hoaDon.thanh_tien,
                         hoaDon.so_luong,
@@ -53,42 +54,6 @@ namespace DUAN1
             }
         }
 
-        //update
-        private void UpdateDGV()
-        {
-            dtpngaylap.Format = DateTimePickerFormat.Short;
-            dtpngaylap.CustomFormat = "dd/MM/yyyy";
-
-            dtptungay.Format = DateTimePickerFormat.Short;
-            dtptungay.CustomFormat = "dd/MM/yyyy";
-
-            dtpdenngay.Format = DateTimePickerFormat.Short;
-            dtpdenngay.CustomFormat = "dd/MM/yyyy";
-
-            using (DUAN1Entities db = new DUAN1Entities())
-            {
-                cbbmahanghoa.Items.Clear();
-                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
-
-                dataGridView1.Rows.Clear();
-
-                var hoaDonList = db.hoa_don.ToList();
-
-                foreach (var hoaDon in hoaDonList)
-                {
-                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.ma_hang_hoa == hoaDon.ma_hang_hoa);
-
-                    dataGridView1.Rows.Add(
-                        hoaDon.ma_hang_hoa,
-                        DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                        hoaDon.thanh_tien,
-                        hoaDon.so_luong,
-                        khoHang != null ? khoHang.so_luong - hoaDon.so_luong : 0
-                    );
-                }
-            }
-
-        }
         
         //hiển thị
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -96,17 +61,20 @@ namespace DUAN1
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
 
-            string MaHH = rowData.Cells[0].Value.ToString();
+            string MaKH = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hang_hoa == MaHH);
-                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.ma_hang_hoa == MaHH);
-                
-                cbbmahanghoa.Text = hd.ma_hang_hoa;
-                dtpngaylap.Text = hd.ngay_lap.ToString();
-                tbgia.Text = hd.thanh_tien.ToString();
-                tbsoluongdaban.Text = hd.so_luong.ToString();
-                tbsltrongkho.Text = (khhh.so_luong - hd.so_luong).ToString();
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
+
+                if (hd != null && khhh != null)
+                {
+                    cbbmahanghoa.Text = hd.makho_hangchitiet;
+                    dtpngaylap.Value = hd.ngay_lap.Value;
+                    tbgia.Text = hd.thanh_tien.ToString();
+                    tbsoluongdaban.Text = hd.so_luong.ToString();
+                    tbsltrongkho.Text = (khhh.so_luong - hd.so_luong).ToString();
+                }
             }
 
 
@@ -129,22 +97,22 @@ namespace DUAN1
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
                         List<hoa_don> listhd = db.hoa_don
-                            .Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
+                            .Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
                             .ToList();
 
                         List<khohang_hanghoa> listkhhh = db.khohang_hanghoa
-                            .Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text))
+                            .Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text))
                             .ToList();
 
                         dataGridView1.Rows.Clear();
 
                         listhd.ForEach(hd =>
                         {
-                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.ma_hang_hoa == hd.ma_hang_hoa);
+                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.makho_hangchitiet == hd.makho_hangchitiet);
                             if (khhh != null)
                             {
                                 dataGridView1.Rows.Add(
-                                    hd.ma_hang_hoa,
+                                    hd.makho_hangchitiet,
                                     hd.ngay_lap,
                                     hd.thanh_tien,
                                     hd.so_luong,
@@ -160,6 +128,83 @@ namespace DUAN1
             }
         }
 
+        private void btnhuy_Click(object sender, EventArgs e)
+        {
+            ThongKe_Load(null, EventArgs.Empty);
+        }
+
+        //btn hóa đơn
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon form = new QuanLyHoaDon(tbusername.Text);
+            form.ShowDialog();
+            this.Close();
+        }
+
+        //btn thoát
+        private void btnthoat_Click(object sender, EventArgs e)
+        {
+            //Nút thoát ra ngoài form Đăng nhập
+            this.Hide();
+            Login form = new Login();
+            form.ShowDialog();
+            this.Close();
+        }
+
+        //btn hàng hóa
+        private void btnhanghoa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
+            quanLyHangHoa.ShowDialog();
+            this.Close();
+        }
+
+        //btn kho hàng
+        private void btnkhohang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            khhh.ShowDialog();
+            this.Close();
+        }
+
+        //btn nhân viên
+        private void btnnhanvien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
+            qlnv.ShowDialog();
+            this.Close();
+        }
+
+        //btn nhân viên
+        private void btnkhachhang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
+            qlkh.ShowDialog();
+            this.Close();
+        }
+
+        //btn thống kê
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongKe tk = new ThongKe(tbusername.Text);
+            tk.ShowDialog();
+            this.Close();
+        }
+
+        //btn thông tin nhân viên
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongTinNhanVien ttnv = new ThongTinNhanVien(tbusername.Text);
+            ttnv.ShowDialog();
+            this.Close();
+        }
 
 
 

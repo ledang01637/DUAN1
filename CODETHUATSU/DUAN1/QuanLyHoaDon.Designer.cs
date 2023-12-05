@@ -77,6 +77,7 @@ namespace DUAN1
             this.btnchuyen = new System.Windows.Forms.Button();
             this.lvhoadon = new System.Windows.Forms.ListView();
             this.btnthongke = new System.Windows.Forms.Button();
+            this.tbusername = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -559,7 +560,6 @@ namespace DUAN1
             this.btnchuyen.Size = new System.Drawing.Size(61, 65);
             this.btnchuyen.TabIndex = 148;
             this.btnchuyen.UseVisualStyleBackColor = true;
-            this.btnchuyen.Click += new System.EventHandler(this.btnchuyen_Click);
             // 
             // lvhoadon
             // 
@@ -584,11 +584,21 @@ namespace DUAN1
             this.btnthongke.UseVisualStyleBackColor = false;
             this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
+            // tbusername
+            // 
+            this.tbusername.AutoSize = true;
+            this.tbusername.Location = new System.Drawing.Point(156, 52);
+            this.tbusername.Name = "tbusername";
+            this.tbusername.Size = new System.Drawing.Size(35, 13);
+            this.tbusername.TabIndex = 249;
+            this.tbusername.Text = "label6";
+            // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.btnchuyen);
             this.Controls.Add(this.cbbmahanghoa);
@@ -690,5 +700,6 @@ namespace DUAN1
         private System.Windows.Forms.Button btnchuyen;
         private System.Windows.Forms.ListView lvhoadon;
         private System.Windows.Forms.Button btnthongke;
+        private System.Windows.Forms.Label tbusername;
     }
 }

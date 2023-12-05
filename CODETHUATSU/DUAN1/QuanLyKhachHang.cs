@@ -14,9 +14,10 @@ namespace DUAN1
     public partial class QuanLyKhachHang : Form
     {
         DataSet ds = new DataSet();
-        public QuanLyKhachHang()
+        public QuanLyKhachHang(String username)
         {
             InitializeComponent();
+            tbusername.Text = username;
         }
         //Thêm 
         private void btnthem_Click(object sender, EventArgs e)

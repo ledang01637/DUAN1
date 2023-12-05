@@ -57,6 +57,11 @@ namespace DUAN1
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
+            this.tbusername = new System.Windows.Forms.Label();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -101,11 +106,11 @@ namespace DUAN1
             // tbmanhanvien
             // 
             this.tbmanhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbmanhanvien.Location = new System.Drawing.Point(814, 204);
+            this.tbmanhanvien.Location = new System.Drawing.Point(813, 204);
             this.tbmanhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbmanhanvien.Multiline = true;
             this.tbmanhanvien.Name = "tbmanhanvien";
-            this.tbmanhanvien.Size = new System.Drawing.Size(454, 29);
+            this.tbmanhanvien.Size = new System.Drawing.Size(455, 29);
             this.tbmanhanvien.TabIndex = 12;
             // 
             // lbmanhanvien
@@ -137,11 +142,11 @@ namespace DUAN1
             // tbtennhanvien
             // 
             this.tbtennhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbtennhanvien.Location = new System.Drawing.Point(814, 279);
+            this.tbtennhanvien.Location = new System.Drawing.Point(813, 279);
             this.tbtennhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbtennhanvien.Multiline = true;
             this.tbtennhanvien.Name = "tbtennhanvien";
-            this.tbtennhanvien.Size = new System.Drawing.Size(454, 29);
+            this.tbtennhanvien.Size = new System.Drawing.Size(455, 29);
             this.tbtennhanvien.TabIndex = 14;
             // 
             // lbsdt
@@ -160,17 +165,24 @@ namespace DUAN1
             // tbsdt
             // 
             this.tbsdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsdt.Location = new System.Drawing.Point(814, 366);
+            this.tbsdt.Location = new System.Drawing.Point(813, 366);
             this.tbsdt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbsdt.Multiline = true;
             this.tbsdt.Name = "tbsdt";
-            this.tbsdt.Size = new System.Drawing.Size(454, 29);
+            this.tbsdt.Size = new System.Drawing.Size(455, 29);
             this.tbsdt.TabIndex = 16;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ma,
+            this.Ten,
+            this.SDT,
+            this.TaiKhoan});
             this.dataGridView1.Location = new System.Drawing.Point(199, 574);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
@@ -358,7 +370,7 @@ namespace DUAN1
             this.tbtimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbtimkiem.Multiline = true;
             this.tbtimkiem.Name = "tbtimkiem";
-            this.tbtimkiem.Size = new System.Drawing.Size(614, 63);
+            this.tbtimkiem.Size = new System.Drawing.Size(615, 63);
             this.tbtimkiem.TabIndex = 161;
             // 
             // btnluu
@@ -403,11 +415,45 @@ namespace DUAN1
             this.btnthongke.TabIndex = 191;
             this.btnthongke.UseVisualStyleBackColor = false;
             // 
+            // tbusername
+            // 
+            this.tbusername.AutoSize = true;
+            this.tbusername.Location = new System.Drawing.Point(195, 63);
+            this.tbusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tbusername.Name = "tbusername";
+            this.tbusername.Size = new System.Drawing.Size(0, 17);
+            this.tbusername.TabIndex = 249;
+            // 
+            // Ma
+            // 
+            this.Ma.HeaderText = "Mã nhân viên";
+            this.Ma.MinimumWidth = 6;
+            this.Ma.Name = "Ma";
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Tên ";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số điện thoại";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            // 
+            // TaiKhoan
+            // 
+            this.TaiKhoan.HeaderText = "Tài khoản";
+            this.TaiKhoan.MinimumWidth = 6;
+            this.TaiKhoan.Name = "TaiKhoan";
+            // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1681, 818);
+            this.ClientSize = new System.Drawing.Size(1680, 818);
+            this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.btnhuy);
             this.Controls.Add(this.btnxoa);
@@ -436,8 +482,8 @@ namespace DUAN1
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1699, 872);
-            this.MinimumSize = new System.Drawing.Size(1699, 814);
+            this.MaximumSize = new System.Drawing.Size(1698, 870);
+            this.MinimumSize = new System.Drawing.Size(1698, 813);
             this.Name = "QuanLyNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLyNhanVien";
@@ -480,5 +526,10 @@ namespace DUAN1
         private System.Windows.Forms.Button btnluu;
         private System.Windows.Forms.Button btnthem;
         private System.Windows.Forms.Button btnthongke;
+        private System.Windows.Forms.Label tbusername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TaiKhoan;
     }
 }

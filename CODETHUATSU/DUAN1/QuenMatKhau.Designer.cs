@@ -46,6 +46,7 @@ namespace DUAN1
             this.lbxacnhan = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnthoat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -274,11 +275,28 @@ namespace DUAN1
             this.groupBox2.TabStop = false;
             this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
+            // btnthoat
+            // 
+            this.btnthoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnthoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnthoat.BackgroundImage")));
+            this.btnthoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnthoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnthoat.FlatAppearance.BorderSize = 0;
+            this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnthoat.Location = new System.Drawing.Point(1376, 49);
+            this.btnthoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(160, 64);
+            this.btnthoat.TabIndex = 154;
+            this.btnthoat.UseVisualStyleBackColor = false;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
+            // 
             // QuenMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 828);
+            this.Controls.Add(this.btnthoat);
             this.Controls.Add(this.tbxacnhan);
             this.Controls.Add(this.lbxacnhan);
             this.Controls.Add(this.tbpassword2);
@@ -326,5 +344,6 @@ namespace DUAN1
         private System.Windows.Forms.Label lbxacnhan;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnthoat;
     }
 }

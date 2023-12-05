@@ -32,6 +32,9 @@ namespace DUAN1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyKhachHang));
             this.button15 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbsdt = new System.Windows.Forms.Label();
             this.tbsdt = new System.Windows.Forms.TextBox();
             this.lbtenkhachhang = new System.Windows.Forms.Label();
@@ -57,6 +60,7 @@ namespace DUAN1
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
+            this.tbusername = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,14 +81,38 @@ namespace DUAN1
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ma,
+            this.Ten,
+            this.SDT});
             this.dataGridView1.Location = new System.Drawing.Point(199, 574);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1453, 234);
             this.dataGridView1.TabIndex = 132;
+            // 
+            // Ma
+            // 
+            this.Ma.HeaderText = "Mã KH";
+            this.Ma.MinimumWidth = 6;
+            this.Ma.Name = "Ma";
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Tên KH";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số điện thoại";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
             // 
             // lbsdt
             // 
@@ -105,7 +133,7 @@ namespace DUAN1
             this.tbsdt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbsdt.Multiline = true;
             this.tbsdt.Name = "tbsdt";
-            this.tbsdt.Size = new System.Drawing.Size(454, 29);
+            this.tbsdt.Size = new System.Drawing.Size(455, 29);
             this.tbsdt.TabIndex = 130;
             // 
             // lbtenkhachhang
@@ -127,7 +155,7 @@ namespace DUAN1
             this.tbtenkhachhang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbtenkhachhang.Multiline = true;
             this.tbtenkhachhang.Name = "tbtenkhachhang";
-            this.tbtenkhachhang.Size = new System.Drawing.Size(454, 29);
+            this.tbtenkhachhang.Size = new System.Drawing.Size(455, 29);
             this.tbtenkhachhang.TabIndex = 128;
             // 
             // lbmakhachhang
@@ -149,7 +177,7 @@ namespace DUAN1
             this.tbmakhachhang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbmakhachhang.Multiline = true;
             this.tbmakhachhang.Name = "tbmakhachhang";
-            this.tbmakhachhang.Size = new System.Drawing.Size(454, 29);
+            this.tbmakhachhang.Size = new System.Drawing.Size(455, 29);
             this.tbmakhachhang.TabIndex = 126;
             // 
             // button1
@@ -287,7 +315,7 @@ namespace DUAN1
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(270, 172);
+            this.pictureBox3.Location = new System.Drawing.Point(269, 172);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(277, 242);
@@ -356,7 +384,7 @@ namespace DUAN1
             this.tbtimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbtimkiem.Multiline = true;
             this.tbtimkiem.Name = "tbtimkiem";
-            this.tbtimkiem.Size = new System.Drawing.Size(614, 63);
+            this.tbtimkiem.Size = new System.Drawing.Size(615, 63);
             this.tbtimkiem.TabIndex = 168;
             // 
             // btnluu
@@ -401,11 +429,22 @@ namespace DUAN1
             this.btnthongke.TabIndex = 191;
             this.btnthongke.UseVisualStyleBackColor = false;
             // 
+            // tbusername
+            // 
+            this.tbusername.AutoSize = true;
+            this.tbusername.Location = new System.Drawing.Point(219, 63);
+            this.tbusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tbusername.Name = "tbusername";
+            this.tbusername.Size = new System.Drawing.Size(46, 17);
+            this.tbusername.TabIndex = 249;
+            this.tbusername.Text = "label6";
+            // 
             // QuanLyKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.btnhuy);
             this.Controls.Add(this.btnxoa);
@@ -475,5 +514,9 @@ namespace DUAN1
         private System.Windows.Forms.Button btnluu;
         private System.Windows.Forms.Button btnthem;
         private System.Windows.Forms.Button btnthongke;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.Label tbusername;
     }
 }
