@@ -80,7 +80,7 @@ namespace DUAN1
 
         private void btnluu_Click(object sender, EventArgs e)
         {
-            if (tbmanhanvien.Text == "")
+            if (tbmanhanvien.Text == "" & string.IsNullOrEmpty(tbsdt.Text) || tbsdt.Text.Length != 10)
             {
                 MessageBox.Show("Không được để trống");
             }
