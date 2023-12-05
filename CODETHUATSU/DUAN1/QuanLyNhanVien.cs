@@ -117,24 +117,27 @@ namespace DUAN1
         {
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                nhan_vien them = db.nhan_vien
+                nhan_vien sua = db.nhan_vien
                     .Where(x => x.ma_nv == tbmanhanvien.Text)
                     .FirstOrDefault();
 
-                if (them != null)
+                if (sua != null)
                 {
-                    //them.ten_nv = tbtennhanvien.Text;
-                    them.ten_nv = tbtennhanvien.Text;                  
-                    them.sdt = tbsdt.Text;
-                    them.tai_khoan_dangnhap = tbcv.Text;
-
-                    // You don't need to set them.ma_kh again; it's redundant.
+                    sua.ten_nv = tbtennhanvien.Text;
+                    sua.sdt = tbsdt.Text;
 
                     db.SaveChanges();
+                    MessageBox.Show("Sửa thành công");
+
+                    // Reset các TextBox sau khi sửa thành công
+                    tbmanhanvien.Text = "";
+                    tbtennhanvien.Text = "";
+                    tbsdt.Text = "";
+                    tbcv.Text = "";
+
+                    UpdateGV();
                 }
             }
-            MessageBox.Show("Sửa thành công");
-            UpdateGV();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)

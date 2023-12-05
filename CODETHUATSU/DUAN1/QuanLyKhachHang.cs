@@ -102,26 +102,31 @@ namespace DUAN1
         }
         //sửa thông tin khách hàng
         private void btnsua_Click(object sender, EventArgs e)
-        { 
+        {
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                khach_hang them = db.khach_hang
+                khach_hang sua = db.khach_hang
                     .Where(x => x.ma_kh == tbmakhachhang.Text)
                     .FirstOrDefault();
 
-                if (them != null)
+                if (sua != null)
                 {
-                    them.ten_kh = tbtenkhachhang.Text;
-                    them.sdt = tbsdt.Text;
-
-                    // You don't need to set them.ma_kh again; it's redundant.
+                    sua.ten_kh = tbtenkhachhang.Text;
+                    sua.sdt = tbsdt.Text;
 
                     db.SaveChanges();
+                    MessageBox.Show("Sửa thành công");
+
+                    // Reset các TextBox sau khi sửa thành công
+                    tbmakhachhang.Text = "";
+                    tbtenkhachhang.Text = "";
+                    tbsdt.Text = "";
+                    
+
+                    UpdateGV();
                 }
             }
-            MessageBox.Show("Sửa thành công");
-            UpdateGV();
-            
+
         }
         //Xóa khách hàng
         private void btnxoa_Click(object sender, EventArgs e)
