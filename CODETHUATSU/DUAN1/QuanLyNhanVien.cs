@@ -139,13 +139,34 @@ namespace DUAN1
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities db = new DUAN1Entities())
+            if (string.IsNullOrEmpty(tbmanhanvien.Text))
             {
-                nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
-                db.nhan_vien.Remove(xoa);
-                db.SaveChanges();
+                MessageBox.Show("Nhập đúng mã nhân viên cần xóa");
             }
-            UpdateGV();
+            else
+            {
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
+                    if (xoa != null)
+                    {
+                        db.nhan_vien.Remove(xoa);
+                        db.SaveChanges();
+                        MessageBox.Show("Xóa thành công");
+
+                        // Reset các TextBox sau khi xóa thành công
+                        tbmanhanvien.Text = "";
+                        tbtennhanvien.Text = "";
+                        tbsdt.Text = "";
+
+                        UpdateGV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên có mã nhân viên đã nhập");
+                    }
+                }
+            }
         }
 
         private void btnhuy_Click(object sender, EventArgs e)
