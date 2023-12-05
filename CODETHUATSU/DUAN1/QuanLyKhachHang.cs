@@ -151,23 +151,25 @@ namespace DUAN1
             {
                 if (tbtimkiem.Text.Equals(""))
                 {
-                    tbtimkiem.Text = "";
+                    MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm!!");
                 }
-
-                using (DUAN1Entities db = new DUAN1Entities())
+                else
                 {
-                    List<khach_hang> listhd = db.khach_hang.Where(x => x.ma_kh.Equals(tbtimkiem.Text)).ToList();
-                    dataGridView1.Rows.Clear();
-                    listhd.ToList().ForEach(hd =>
-                    {
-                        dataGridView1.Rows.Add(
-                        hd.ma_kh,
-                        hd.ten_kh,
-                        hd.sdt
-                       );
-                    }
-                    );
 
+                    using (DUAN1Entities db = new DUAN1Entities())
+                    {
+                        List<khach_hang> listhd = db.khach_hang.Where(x => x.ma_kh.Equals(tbtimkiem.Text)).ToList();
+                        dataGridView1.Rows.Clear();
+                        listhd.ToList().ForEach(hd =>
+                        {
+                            dataGridView1.Rows.Add(
+                            hd.ma_kh,
+                            hd.ten_kh,
+                            hd.sdt
+                           );
+                        }
+                        );
+                    }
                 }
             }
             catch (Exception)

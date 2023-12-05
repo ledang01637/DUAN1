@@ -174,7 +174,7 @@ namespace DUAN1
             {
                 if (tbtimkiem.Text.Equals(""))
                 {
-                    tbtimkiem.Text = "";
+                    MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm!!");
                 }
 
                 using (DUAN1Entities db = new DUAN1Entities())
