@@ -409,17 +409,35 @@ namespace DUAN1
 
             using (DUAN1Entities entities = new DUAN1Entities())
             {
-                string TenHang = "Guci ";
-                string Gia = " 10000";
-                string SL = " 39";
-                var cthd = entities.chi_tiet_hoa_don.ToList().Where(a => a.ma_hd.Equals(tbmahoadon));
+                string TenHang = "";
+                string Gia = "";
+                string SL = "";
+                int cao = 50;
+                double TongTien = 0;
+                double ThanhTien = 0;
+                var cthd = entities.chi_tiet_hoa_don.ToList().Where(a => a.ma_hd.Equals(tbmahoadon.Text));
+                foreach(var item in cthd)
+                {
+                    StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+                    Rectangle rectangleBody = new Rectangle(new Point(height, y + cao), new Size(width, height));
+                    stringFormatBody.LineAlignment = StringAlignment.Center;
+                    stringFormatBody.Alignment = StringAlignment.Center;
+                    Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
+                    TenHang = item.khohang_hanghoa.hang_hoa.ten;
+                    Gia = item.khohang_hanghoa.hang_hoa.gia_ban.ToString();
+                    SL = item.khohang_hanghoa.so_luong.ToString();
+                    TongTien = (double)item.khohang_hanghoa.hang_hoa.gia_ban * (double)item.khohang_hanghoa.so_luong;
+                    ThanhTien += /*(double)item.khohang_hanghoa.hang_hoa.gia_ban*/ TongTien;
+                    e.Graphics.DrawString(TenHang + "     " + Gia + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                    cao += 20;
+                }
+                StringFormat stringFormatFooter = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangleFooter = new Rectangle(new Point(height, y + cao + 30), new Size(width, height));
+                stringFormatFooter.LineAlignment = StringAlignment.Center;
+                stringFormatFooter.Alignment = StringAlignment.Center;
+                Font printFontFooter = new Font("Arial", 10, FontStyle.Bold);
 
-                StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
-                Rectangle rectangleBody = new Rectangle(new Point(height, y + 190), new Size(width, height));
-                stringFormatBody.LineAlignment = StringAlignment.Center;
-                stringFormatBody.Alignment = StringAlignment.Center;
-                Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
-                e.Graphics.DrawString(TenHang + Gia + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                e.Graphics.DrawString("Thành tiền: " + ThanhTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
             }
         }
         private static readonly string[] VietNamChar = new string[]
