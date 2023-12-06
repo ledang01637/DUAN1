@@ -427,7 +427,7 @@ namespace DUAN1
                     Gia = item.khohang_hanghoa.hang_hoa.gia_ban.ToString();
                     SL = item.khohang_hanghoa.so_luong.ToString();
                     TongTien = (double)item.khohang_hanghoa.hang_hoa.gia_ban * (double)item.khohang_hanghoa.so_luong;
-                    ThanhTien += /*(double)item.khohang_hanghoa.hang_hoa.gia_ban*/ TongTien;
+                    ThanhTien += TongTien;
                     e.Graphics.DrawString(TenHang + "     " + Gia + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
                     cao += 20;
                 }

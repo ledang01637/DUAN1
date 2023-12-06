@@ -44,12 +44,19 @@ namespace DUAN1
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnThoatQR = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
+            this.btnThemHang = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbQR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ptbCamera
             // 
+            this.ptbCamera.BackColor = System.Drawing.Color.White;
             this.ptbCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptbCamera.Location = new System.Drawing.Point(27, 12);
             this.ptbCamera.Name = "ptbCamera";
@@ -59,6 +66,7 @@ namespace DUAN1
             // 
             // ptbQR
             // 
+            this.ptbQR.BackColor = System.Drawing.Color.White;
             this.ptbQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptbQR.Location = new System.Drawing.Point(27, 349);
             this.ptbQR.Name = "ptbQR";
@@ -117,7 +125,7 @@ namespace DUAN1
             this.tbTaoQR.Location = new System.Drawing.Point(553, 349);
             this.tbTaoQR.Multiline = true;
             this.tbTaoQR.Name = "tbTaoQR";
-            this.tbTaoQR.Size = new System.Drawing.Size(305, 300);
+            this.tbTaoQR.Size = new System.Drawing.Size(305, 91);
             this.tbTaoQR.TabIndex = 6;
             // 
             // label2
@@ -137,7 +145,7 @@ namespace DUAN1
             this.tbShowQR.Location = new System.Drawing.Point(553, 12);
             this.tbShowQR.Multiline = true;
             this.tbShowQR.Name = "tbShowQR";
-            this.tbShowQR.Size = new System.Drawing.Size(305, 300);
+            this.tbShowQR.Size = new System.Drawing.Size(305, 223);
             this.tbShowQR.TabIndex = 8;
             // 
             // label3
@@ -169,7 +177,7 @@ namespace DUAN1
             // btnThoatQR
             // 
             this.btnThoatQR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoatQR.Location = new System.Drawing.Point(768, 605);
+            this.btnThoatQR.Location = new System.Drawing.Point(773, 605);
             this.btnThoatQR.Name = "btnThoatQR";
             this.btnThoatQR.Size = new System.Drawing.Size(75, 32);
             this.btnThoatQR.TabIndex = 11;
@@ -188,11 +196,62 @@ namespace DUAN1
             this.tbusername.TabIndex = 251;
             this.tbusername.Text = "username";
             // 
+            // btnThemHang
+            // 
+            this.btnThemHang.Location = new System.Drawing.Point(553, 263);
+            this.btnThemHang.Name = "btnThemHang";
+            this.btnThemHang.Size = new System.Drawing.Size(96, 48);
+            this.btnThemHang.TabIndex = 252;
+            this.btnThemHang.Text = "Thêm hàng";
+            this.btnThemHang.UseVisualStyleBackColor = true;
+            this.btnThemHang.Click += new System.EventHandler(this.btnThemHang_Click);
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Location = new System.Drawing.Point(671, 264);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(102, 48);
+            this.btnThanhToan.TabIndex = 253;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ten,
+            this.Gia});
+            this.dataGridView1.Location = new System.Drawing.Point(553, 459);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(305, 187);
+            this.dataGridView1.TabIndex = 254;
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Ten";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // Gia
+            // 
+            this.Gia.HeaderText = "Gia";
+            this.Gia.MinimumWidth = 6;
+            this.Gia.Name = "Gia";
+            this.Gia.ReadOnly = true;
+            // 
             // QuetQR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(882, 658);
+            this.Controls.Add(this.btnThanhToan);
+            this.Controls.Add(this.btnThemHang);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnThoatQR);
             this.Controls.Add(this.btnStarQuetQr);
@@ -206,6 +265,7 @@ namespace DUAN1
             this.Controls.Add(this.btnTaoQR);
             this.Controls.Add(this.ptbQR);
             this.Controls.Add(this.ptbCamera);
+            this.Controls.Add(this.dataGridView1);
             this.MaximumSize = new System.Drawing.Size(900, 705);
             this.MinimumSize = new System.Drawing.Size(900, 705);
             this.Name = "QuetQR";
@@ -215,6 +275,7 @@ namespace DUAN1
             this.Load += new System.EventHandler(this.QuetQR_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbQR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +297,10 @@ namespace DUAN1
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnThoatQR;
         private System.Windows.Forms.Label tbusername;
+        private System.Windows.Forms.Button btnThemHang;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
     }
 }
