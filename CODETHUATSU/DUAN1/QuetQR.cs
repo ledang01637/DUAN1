@@ -126,6 +126,11 @@ namespace DUAN1
             using (DUAN1Entities HangHoa_ = new DUAN1Entities())
             {
                 hang_hoa hh = new hang_hoa();
+                if(tbShowQR.Text == null || tbShowQR.Text == "")
+                {
+                    MessageBox.Show("Vui lòng thêm hàng hóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 hh.ma_hang_hoa = tbShowQR.Text;
                 dsHang.Add(hh);  
             }
@@ -149,7 +154,6 @@ namespace DUAN1
                         var hang = du.hang_hoa.Where(a => a.ma_hang_hoa.Equals(item.ma_hang_hoa));
                         foreach (var ytem in hang)
                         {
-                            dataGridView1.Rows.Clear();
                             dataGridView1.Rows.Add(
                                 ytem.ma_hang_hoa,
                                 ytem.ten
@@ -163,8 +167,8 @@ namespace DUAN1
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            var dtg2 = dataGridView1.Rows.Count;
-            if (dtg2 > 0)
+            int ds = dsHang.Count;
+            if (ds > 0)
             {
                 PrintDialog PrintDialog1 = new PrintDialog();
                 docToPrint.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", width, height);
@@ -210,7 +214,7 @@ namespace DUAN1
                 double ThanhTien = 0;
                 foreach(var ds in dsHang)
                 {
-                    var cthd = entities.khohang_hanghoa.Where(a => a.ma_hang_hoa.Equals(ds.ma_hang_hoa));
+                    var cthd = entities.hang_hoa.Where(a => a.ma_hang_hoa.Equals(ds.ma_hang_hoa));
                     foreach (var item in cthd)
                     {
                         StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
@@ -218,9 +222,9 @@ namespace DUAN1
                         stringFormatBody.LineAlignment = StringAlignment.Center;
                         stringFormatBody.Alignment = StringAlignment.Center;
                         Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
-                        TenHang = item.hang_hoa.ten;
-                        Gia = item.hang_hoa.gia_ban.ToString();
-                        TongTien = (double)item.hang_hoa.gia_ban * SL;
+                        TenHang = item.ten;
+                        Gia = item.gia_ban.ToString();
+                        TongTien = (double)item.gia_ban * SL;
                         ThanhTien += TongTien;
                         e.Graphics.DrawString(TenHang + "     " + Gia + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
                         cao += 20;
