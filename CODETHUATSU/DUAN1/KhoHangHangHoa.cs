@@ -13,9 +13,10 @@ namespace DUAN1
 {
     public partial class KhoHangHangHoa : Form
     {
-        public KhoHangHangHoa()
+        public KhoHangHangHoa(String username)
         {
             InitializeComponent();
+            tbusername.Text = username;
         }
 
         private void QuanLyKhoHang_Load(object sender, EventArgs e)
@@ -470,7 +471,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }

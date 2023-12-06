@@ -147,10 +147,5 @@ namespace DUAN1
             this.Hide();
             quenMatKhau.Show();
         }
-
-        private void Login_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

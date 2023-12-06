@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DUAN1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="chi_tiet_hoa_don">
+    <Key>
+      <PropertyRef Name="macthd" />
+    </Key>
+    <Property Name="macthd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ma_hd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="makho_hangchitiet" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__4BAC3F29" FromRole="chi_tiet_hoa_don" ToRole="hoa_don" />
+    <NavigationProperty Name="khohang_hanghoa" Relationship="Self.FK__chi_tiet___makho__4CA06362" FromRole="chi_tiet_hoa_don" ToRole="khohang_hanghoa" />
+  </EntityType>
   <EntityType Name="dang_nhap">
     <Key>
       <PropertyRef Name="tai_khoan" />
@@ -8,7 +18,7 @@
     <Property Name="mat_khau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="nhan_vien" Relationship="Self.FK__nhan_vien__tai_k__4222D4EF" FromRole="dang_nhap" ToRole="nhan_vien" />
+    <NavigationProperty Name="nhan_vien" Relationship="Self.FK__nhan_vien__tai_k__4316F928" FromRole="dang_nhap" ToRole="nhan_vien" />
   </EntityType>
   <EntityType Name="hang_hoa">
     <Key>
@@ -30,14 +40,13 @@
     <Property Name="ma_hd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="ma_nv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="makho_hangchitiet" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="ngay_lap" Type="DateTime" Precision="0" />
     <Property Name="so_luong" Type="Int32" />
     <Property Name="thanh_tien" Type="Double" />
     <Property Name="trang_thai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="nhan_vien" Relationship="Self.FK__hoa_don__ma_nv__47DBAE45" FromRole="hoa_don" ToRole="nhan_vien" />
-    <NavigationProperty Name="khohang_hanghoa" Relationship="Self.FK__hoa_don__makho_h__48CFD27E" FromRole="hoa_don" ToRole="khohang_hanghoa" />
-    <NavigationProperty Name="khach_hang" Relationship="Self.FK__hoa_don__trang_t__46E78A0C" FromRole="hoa_don" ToRole="khach_hang" />
+    <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__4BAC3F29" FromRole="hoa_don" ToRole="chi_tiet_hoa_don" />
+    <NavigationProperty Name="nhan_vien" Relationship="Self.FK__hoa_don__ma_nv__48CFD27E" FromRole="hoa_don" ToRole="nhan_vien" />
+    <NavigationProperty Name="khach_hang" Relationship="Self.FK__hoa_don__trang_t__47DBAE45" FromRole="hoa_don" ToRole="khach_hang" />
   </EntityType>
   <EntityType Name="khach_hang">
     <Key>
@@ -46,7 +55,7 @@
     <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ten_kh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="sdt" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__trang_t__46E78A0C" FromRole="khach_hang" ToRole="hoa_don" />
+    <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__trang_t__47DBAE45" FromRole="khach_hang" ToRole="hoa_don" />
   </EntityType>
   <EntityType Name="kho_hang">
     <Key>
@@ -66,8 +75,8 @@
     <Property Name="ngay_nhap" Type="DateTime" Precision="0" />
     <Property Name="ngay_xuat" Type="DateTime" Precision="0" />
     <Property Name="so_luong" Type="Int32" />
+    <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___makho__4CA06362" FromRole="khohang_hanghoa" ToRole="chi_tiet_hoa_don" />
     <NavigationProperty Name="hang_hoa" Relationship="Self.FK__khohang_h__ma_ha__3F466844" FromRole="khohang_hanghoa" ToRole="hang_hoa" />
-    <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__makho_h__48CFD27E" FromRole="khohang_hanghoa" ToRole="hoa_don" />
     <NavigationProperty Name="kho_hang" Relationship="Self.FK__khohang_h__so_lu__3E52440B" FromRole="khohang_hanghoa" ToRole="kho_hang" />
   </EntityType>
   <EntityType Name="nhan_vien">
@@ -78,10 +87,44 @@
     <Property Name="ten_nv" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="sdt" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="tai_khoan_dangnhap" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="dang_nhap" Relationship="Self.FK__nhan_vien__tai_k__4222D4EF" FromRole="nhan_vien" ToRole="dang_nhap" />
-    <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_nv__47DBAE45" FromRole="nhan_vien" ToRole="hoa_don" />
+    <NavigationProperty Name="dang_nhap" Relationship="Self.FK__nhan_vien__tai_k__4316F928" FromRole="nhan_vien" ToRole="dang_nhap" />
+    <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_nv__48CFD27E" FromRole="nhan_vien" ToRole="hoa_don" />
   </EntityType>
-  <Association Name="FK__nhan_vien__tai_k__4222D4EF">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__chi_tiet___ma_hd__4BAC3F29">
+    <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
+    <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hoa_don">
+        <PropertyRef Name="ma_hd" />
+      </Principal>
+      <Dependent Role="chi_tiet_hoa_don">
+        <PropertyRef Name="ma_hd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chi_tiet___makho__4CA06362">
+    <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="1" />
+    <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khohang_hanghoa">
+        <PropertyRef Name="makho_hangchitiet" />
+      </Principal>
+      <Dependent Role="chi_tiet_hoa_don">
+        <PropertyRef Name="makho_hangchitiet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__nhan_vien__tai_k__4316F928">
     <End Role="dang_nhap" Type="Self.dang_nhap" Multiplicity="0..1" />
     <End Role="nhan_vien" Type="Self.nhan_vien" Multiplicity="*" />
     <ReferentialConstraint>
@@ -105,7 +148,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hoa_don__ma_nv__47DBAE45">
+  <Association Name="FK__hoa_don__ma_nv__48CFD27E">
     <End Role="nhan_vien" Type="Self.nhan_vien" Multiplicity="0..1" />
     <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
     <ReferentialConstraint>
@@ -117,19 +160,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hoa_don__makho_h__48CFD27E">
-    <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="0..1" />
-    <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="khohang_hanghoa">
-        <PropertyRef Name="makho_hangchitiet" />
-      </Principal>
-      <Dependent Role="hoa_don">
-        <PropertyRef Name="makho_hangchitiet" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__hoa_don__trang_t__46E78A0C">
+  <Association Name="FK__hoa_don__trang_t__47DBAE45">
     <End Role="khach_hang" Type="Self.khach_hang" Multiplicity="0..1" />
     <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
     <ReferentialConstraint>
@@ -154,6 +185,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DUAN1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="chi_tiet_hoa_don" EntityType="Self.chi_tiet_hoa_don" />
     <EntitySet Name="dang_nhap" EntityType="Self.dang_nhap" />
     <EntitySet Name="hang_hoa" EntityType="Self.hang_hoa" />
     <EntitySet Name="hoa_don" EntityType="Self.hoa_don" />
@@ -161,7 +193,16 @@
     <EntitySet Name="kho_hang" EntityType="Self.kho_hang" />
     <EntitySet Name="khohang_hanghoa" EntityType="Self.khohang_hanghoa" />
     <EntitySet Name="nhan_vien" EntityType="Self.nhan_vien" />
-    <AssociationSet Name="FK__nhan_vien__tai_k__4222D4EF" Association="Self.FK__nhan_vien__tai_k__4222D4EF">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__chi_tiet___ma_hd__4BAC3F29" Association="Self.FK__chi_tiet___ma_hd__4BAC3F29">
+      <End Role="hoa_don" EntitySet="hoa_don" />
+      <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chi_tiet___makho__4CA06362" Association="Self.FK__chi_tiet___makho__4CA06362">
+      <End Role="khohang_hanghoa" EntitySet="khohang_hanghoa" />
+      <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+    </AssociationSet>
+    <AssociationSet Name="FK__nhan_vien__tai_k__4316F928" Association="Self.FK__nhan_vien__tai_k__4316F928">
       <End Role="dang_nhap" EntitySet="dang_nhap" />
       <End Role="nhan_vien" EntitySet="nhan_vien" />
     </AssociationSet>
@@ -169,15 +210,11 @@
       <End Role="hang_hoa" EntitySet="hang_hoa" />
       <End Role="khohang_hanghoa" EntitySet="khohang_hanghoa" />
     </AssociationSet>
-    <AssociationSet Name="FK__hoa_don__ma_nv__47DBAE45" Association="Self.FK__hoa_don__ma_nv__47DBAE45">
+    <AssociationSet Name="FK__hoa_don__ma_nv__48CFD27E" Association="Self.FK__hoa_don__ma_nv__48CFD27E">
       <End Role="nhan_vien" EntitySet="nhan_vien" />
       <End Role="hoa_don" EntitySet="hoa_don" />
     </AssociationSet>
-    <AssociationSet Name="FK__hoa_don__makho_h__48CFD27E" Association="Self.FK__hoa_don__makho_h__48CFD27E">
-      <End Role="khohang_hanghoa" EntitySet="khohang_hanghoa" />
-      <End Role="hoa_don" EntitySet="hoa_don" />
-    </AssociationSet>
-    <AssociationSet Name="FK__hoa_don__trang_t__46E78A0C" Association="Self.FK__hoa_don__trang_t__46E78A0C">
+    <AssociationSet Name="FK__hoa_don__trang_t__47DBAE45" Association="Self.FK__hoa_don__trang_t__47DBAE45">
       <End Role="khach_hang" EntitySet="khach_hang" />
       <End Role="hoa_don" EntitySet="hoa_don" />
     </AssociationSet>

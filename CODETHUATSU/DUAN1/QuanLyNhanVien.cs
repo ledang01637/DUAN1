@@ -17,7 +17,7 @@ namespace DUAN1
         public QuanLyNhanVien(String username)
         {
             InitializeComponent();
-            tbusername.Text = username;
+            usernamenv.Text = username;
         }
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
@@ -64,6 +64,7 @@ namespace DUAN1
             tbmanhanvien.ReadOnly = false;
             tbtennhanvien.ReadOnly = false;
             tbsdt.Enabled = true;
+            tbmanhanvien.Enabled = true;
         }
 
         private void btnluu_Click(object sender, EventArgs e)
@@ -208,6 +209,69 @@ namespace DUAN1
             btnhuy.Enabled = true;
             tbmanhanvien.ReadOnly = true;
 
+        }
+        private void btnthoat_Click(object sender, EventArgs e)
+        {
+            //Nút thoát ra ngoài form Đăng nhập
+            this.Hide();
+            Login form = new Login();
+            form.ShowDialog();
+            this.Close();
+        }
+        private void btnhanghoa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(usernamenv.Text);
+            quanLyHangHoa.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhohang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(usernamenv.Text);
+            khhh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon qlhd = new QuanLyHoaDon(usernamenv.Text);
+            qlhd.ShowDialog();
+            this.Close();
+        }
+
+        private void btnnhanvien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(usernamenv.Text);
+            qlnv.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhachhang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang(usernamenv.Text);
+            qlkh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongKe tk = new ThongKe(usernamenv.Text);
+            tk.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(usernamenv.Text);
+            this.Hide();
+            tinNhanVien.ShowDialog();
+            this.Close();
         }
     }
 }

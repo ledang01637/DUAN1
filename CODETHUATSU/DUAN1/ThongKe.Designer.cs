@@ -49,7 +49,6 @@ namespace DUAN1
             this.btnthongke = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.cbbmahanghoa = new System.Windows.Forms.ComboBox();
             this.btnkhachhang = new System.Windows.Forms.Button();
             this.btnnhanvien = new System.Windows.Forms.Button();
@@ -83,9 +82,10 @@ namespace DUAN1
             this.btnhuy.FlatAppearance.BorderSize = 0;
             this.btnhuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnhuy.Image = ((System.Drawing.Image)(resources.GetObject("btnhuy.Image")));
-            this.btnhuy.Location = new System.Drawing.Point(1108, 604);
+            this.btnhuy.Location = new System.Drawing.Point(1477, 743);
+            this.btnhuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnhuy.Name = "btnhuy";
-            this.btnhuy.Size = new System.Drawing.Size(120, 52);
+            this.btnhuy.Size = new System.Drawing.Size(160, 64);
             this.btnhuy.TabIndex = 247;
             this.btnhuy.UseVisualStyleBackColor = true;
             this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
@@ -96,9 +96,10 @@ namespace DUAN1
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(184, 422);
+            this.label5.Location = new System.Drawing.Point(245, 519);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(394, 31);
+            this.label5.Size = new System.Drawing.Size(496, 39);
             this.label5.TabIndex = 246;
             this.label5.Text = "Tìm kiếm  theo mã và thời gian :";
             // 
@@ -106,9 +107,10 @@ namespace DUAN1
             // 
             this.dtpdenngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpdenngay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpdenngay.Location = new System.Drawing.Point(371, 552);
+            this.dtpdenngay.Location = new System.Drawing.Point(495, 679);
+            this.dtpdenngay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpdenngay.Name = "dtpdenngay";
-            this.dtpdenngay.Size = new System.Drawing.Size(322, 38);
+            this.dtpdenngay.Size = new System.Drawing.Size(428, 45);
             this.dtpdenngay.TabIndex = 245;
             // 
             // lbdenngay
@@ -117,9 +119,10 @@ namespace DUAN1
             this.lbdenngay.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbdenngay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbdenngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbdenngay.Location = new System.Drawing.Point(184, 552);
+            this.lbdenngay.Location = new System.Drawing.Point(245, 679);
+            this.lbdenngay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbdenngay.Name = "lbdenngay";
-            this.lbdenngay.Size = new System.Drawing.Size(145, 31);
+            this.lbdenngay.Size = new System.Drawing.Size(181, 39);
             this.lbdenngay.TabIndex = 244;
             this.lbdenngay.Text = "Đến ngày :";
             // 
@@ -127,9 +130,10 @@ namespace DUAN1
             // 
             this.dtptungay.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtptungay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtptungay.Location = new System.Drawing.Point(371, 480);
+            this.dtptungay.Location = new System.Drawing.Point(495, 591);
+            this.dtptungay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtptungay.Name = "dtptungay";
-            this.dtptungay.Size = new System.Drawing.Size(328, 38);
+            this.dtptungay.Size = new System.Drawing.Size(436, 45);
             this.dtptungay.TabIndex = 243;
             // 
             // lbtungay
@@ -138,20 +142,22 @@ namespace DUAN1
             this.lbtungay.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbtungay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbtungay.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtungay.Location = new System.Drawing.Point(184, 480);
+            this.lbtungay.Location = new System.Drawing.Point(245, 591);
+            this.lbtungay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbtungay.Name = "lbtungay";
-            this.lbtungay.Size = new System.Drawing.Size(127, 31);
+            this.lbtungay.Size = new System.Drawing.Size(158, 39);
             this.lbtungay.TabIndex = 242;
             this.lbtungay.Text = "Từ ngày :";
             // 
             // tbsltrongkho
             // 
             this.tbsltrongkho.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsltrongkho.Location = new System.Drawing.Point(496, 358);
+            this.tbsltrongkho.Location = new System.Drawing.Point(661, 441);
+            this.tbsltrongkho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbsltrongkho.Multiline = true;
             this.tbsltrongkho.Name = "tbsltrongkho";
             this.tbsltrongkho.ReadOnly = true;
-            this.tbsltrongkho.Size = new System.Drawing.Size(203, 37);
+            this.tbsltrongkho.Size = new System.Drawing.Size(269, 45);
             this.tbsltrongkho.TabIndex = 241;
             // 
             // label3
@@ -160,30 +166,33 @@ namespace DUAN1
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(184, 358);
+            this.label3.Location = new System.Drawing.Point(245, 441);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(306, 31);
+            this.label3.Size = new System.Drawing.Size(384, 39);
             this.label3.TabIndex = 240;
             this.label3.Text = "Số lượng còn trong kho :";
             // 
             // tbgia
             // 
             this.tbgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbgia.Location = new System.Drawing.Point(371, 232);
+            this.tbgia.Location = new System.Drawing.Point(495, 286);
+            this.tbgia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbgia.Multiline = true;
             this.tbgia.Name = "tbgia";
             this.tbgia.ReadOnly = true;
-            this.tbgia.Size = new System.Drawing.Size(322, 37);
+            this.tbgia.Size = new System.Drawing.Size(428, 45);
             this.tbgia.TabIndex = 239;
             // 
             // tbsoluongdaban
             // 
             this.tbsoluongdaban.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsoluongdaban.Location = new System.Drawing.Point(414, 174);
+            this.tbsoluongdaban.Location = new System.Drawing.Point(552, 214);
+            this.tbsoluongdaban.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbsoluongdaban.Multiline = true;
             this.tbsoluongdaban.Name = "tbsoluongdaban";
             this.tbsoluongdaban.ReadOnly = true;
-            this.tbsoluongdaban.Size = new System.Drawing.Size(279, 37);
+            this.tbsoluongdaban.Size = new System.Drawing.Size(371, 45);
             this.tbsoluongdaban.TabIndex = 238;
             // 
             // dtpngaylap
@@ -191,9 +200,10 @@ namespace DUAN1
             this.dtpngaylap.Enabled = false;
             this.dtpngaylap.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpngaylap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpngaylap.Location = new System.Drawing.Point(373, 290);
+            this.dtpngaylap.Location = new System.Drawing.Point(497, 357);
+            this.dtpngaylap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpngaylap.Name = "dtpngaylap";
-            this.dtpngaylap.Size = new System.Drawing.Size(328, 38);
+            this.dtpngaylap.Size = new System.Drawing.Size(436, 45);
             this.dtpngaylap.TabIndex = 237;
             // 
             // label9
@@ -202,9 +212,10 @@ namespace DUAN1
             this.label9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(528, 254);
+            this.label9.Location = new System.Drawing.Point(704, 313);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 25);
+            this.label9.Size = new System.Drawing.Size(0, 31);
             this.label9.TabIndex = 236;
             // 
             // label7
@@ -213,9 +224,10 @@ namespace DUAN1
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(522, 207);
+            this.label7.Location = new System.Drawing.Point(696, 255);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 25);
+            this.label7.Size = new System.Drawing.Size(0, 31);
             this.label7.TabIndex = 235;
             // 
             // lbtonggia
@@ -224,9 +236,10 @@ namespace DUAN1
             this.lbtonggia.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbtonggia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbtonggia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtonggia.Location = new System.Drawing.Point(184, 232);
+            this.lbtonggia.Location = new System.Drawing.Point(245, 286);
+            this.lbtonggia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbtonggia.Name = "lbtonggia";
-            this.lbtonggia.Size = new System.Drawing.Size(134, 31);
+            this.lbtonggia.Size = new System.Drawing.Size(168, 39);
             this.lbtonggia.TabIndex = 234;
             this.lbtonggia.Text = "Tổng giá :";
             // 
@@ -236,9 +249,10 @@ namespace DUAN1
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(184, 174);
+            this.label4.Location = new System.Drawing.Point(245, 214);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(224, 31);
+            this.label4.Size = new System.Drawing.Size(283, 39);
             this.label4.TabIndex = 233;
             this.label4.Text = "Số lượng đã bán :";
             // 
@@ -248,9 +262,10 @@ namespace DUAN1
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(186, 290);
+            this.label1.Location = new System.Drawing.Point(248, 357);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 31);
+            this.label1.Size = new System.Drawing.Size(179, 39);
             this.label1.TabIndex = 232;
             this.label1.Text = "Ngày lập  :";
             // 
@@ -261,9 +276,10 @@ namespace DUAN1
             this.btnthongke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnthongke.FlatAppearance.BorderSize = 0;
             this.btnthongke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnthongke.Location = new System.Drawing.Point(12, 459);
+            this.btnthongke.Location = new System.Drawing.Point(16, 565);
+            this.btnthongke.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnthongke.Name = "btnthongke";
-            this.btnthongke.Size = new System.Drawing.Size(120, 52);
+            this.btnthongke.Size = new System.Drawing.Size(160, 64);
             this.btnthongke.TabIndex = 231;
             this.btnthongke.UseVisualStyleBackColor = false;
             // 
@@ -273,9 +289,10 @@ namespace DUAN1
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(12, 604);
+            this.button4.Location = new System.Drawing.Point(16, 743);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 52);
+            this.button4.Size = new System.Drawing.Size(160, 64);
             this.button4.TabIndex = 230;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.btnthoat_Click);
@@ -287,33 +304,23 @@ namespace DUAN1
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(12, 285);
+            this.button3.Location = new System.Drawing.Point(16, 351);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 52);
+            this.button3.Size = new System.Drawing.Size(160, 64);
             this.button3.TabIndex = 229;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.btnhoadon_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 93);
-            this.button2.TabIndex = 228;
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // cbbmahanghoa
             // 
             this.cbbmahanghoa.Enabled = false;
             this.cbbmahanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmahanghoa.FormattingEnabled = true;
-            this.cbbmahanghoa.Location = new System.Drawing.Point(371, 123);
+            this.cbbmahanghoa.Location = new System.Drawing.Point(495, 151);
+            this.cbbmahanghoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbmahanghoa.Name = "cbbmahanghoa";
-            this.cbbmahanghoa.Size = new System.Drawing.Size(322, 39);
+            this.cbbmahanghoa.Size = new System.Drawing.Size(428, 47);
             this.cbbmahanghoa.TabIndex = 227;
             // 
             // btnkhachhang
@@ -322,9 +329,10 @@ namespace DUAN1
             this.btnkhachhang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnkhachhang.FlatAppearance.BorderSize = 0;
             this.btnkhachhang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnkhachhang.Location = new System.Drawing.Point(12, 401);
+            this.btnkhachhang.Location = new System.Drawing.Point(16, 494);
+            this.btnkhachhang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnkhachhang.Name = "btnkhachhang";
-            this.btnkhachhang.Size = new System.Drawing.Size(120, 52);
+            this.btnkhachhang.Size = new System.Drawing.Size(160, 64);
             this.btnkhachhang.TabIndex = 226;
             this.btnkhachhang.UseVisualStyleBackColor = true;
             this.btnkhachhang.Click += new System.EventHandler(this.btnkhachhang_Click);
@@ -335,9 +343,10 @@ namespace DUAN1
             this.btnnhanvien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnnhanvien.FlatAppearance.BorderSize = 0;
             this.btnnhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnnhanvien.Location = new System.Drawing.Point(12, 343);
+            this.btnnhanvien.Location = new System.Drawing.Point(16, 422);
+            this.btnnhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnnhanvien.Name = "btnnhanvien";
-            this.btnnhanvien.Size = new System.Drawing.Size(120, 52);
+            this.btnnhanvien.Size = new System.Drawing.Size(160, 64);
             this.btnnhanvien.TabIndex = 225;
             this.btnnhanvien.UseVisualStyleBackColor = true;
             this.btnnhanvien.Click += new System.EventHandler(this.btnnhanvien_Click);
@@ -349,9 +358,10 @@ namespace DUAN1
             this.btnkhohang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnkhohang.FlatAppearance.BorderSize = 0;
             this.btnkhohang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnkhohang.Location = new System.Drawing.Point(12, 227);
+            this.btnkhohang.Location = new System.Drawing.Point(16, 279);
+            this.btnkhohang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnkhohang.Name = "btnkhohang";
-            this.btnkhohang.Size = new System.Drawing.Size(120, 52);
+            this.btnkhohang.Size = new System.Drawing.Size(160, 64);
             this.btnkhohang.TabIndex = 224;
             this.btnkhohang.UseVisualStyleBackColor = false;
             this.btnkhohang.Click += new System.EventHandler(this.btnkhohang_Click);
@@ -363,9 +373,10 @@ namespace DUAN1
             this.btnhanghoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnhanghoa.FlatAppearance.BorderSize = 0;
             this.btnhanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnhanghoa.Location = new System.Drawing.Point(12, 169);
+            this.btnhanghoa.Location = new System.Drawing.Point(16, 208);
+            this.btnhanghoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnhanghoa.Name = "btnhanghoa";
-            this.btnhanghoa.Size = new System.Drawing.Size(120, 52);
+            this.btnhanghoa.Size = new System.Drawing.Size(160, 64);
             this.btnhanghoa.TabIndex = 223;
             this.btnhanghoa.UseVisualStyleBackColor = false;
             this.btnhanghoa.Click += new System.EventHandler(this.btnhanghoa_Click);
@@ -377,9 +388,10 @@ namespace DUAN1
             this.btnthongtinnv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnthongtinnv.FlatAppearance.BorderSize = 0;
             this.btnthongtinnv.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnthongtinnv.Location = new System.Drawing.Point(12, 111);
+            this.btnthongtinnv.Location = new System.Drawing.Point(16, 137);
+            this.btnthongtinnv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnthongtinnv.Name = "btnthongtinnv";
-            this.btnthongtinnv.Size = new System.Drawing.Size(120, 52);
+            this.btnthongtinnv.Size = new System.Drawing.Size(160, 64);
             this.btnthongtinnv.TabIndex = 222;
             this.btnthongtinnv.UseVisualStyleBackColor = false;
             this.btnthongtinnv.Click += new System.EventHandler(this.btnthongtinnv_Click);
@@ -390,19 +402,21 @@ namespace DUAN1
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
-            this.btntimkiem.Location = new System.Drawing.Point(579, 604);
+            this.btntimkiem.Location = new System.Drawing.Point(772, 743);
+            this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(120, 52);
+            this.btntimkiem.Size = new System.Drawing.Size(160, 64);
             this.btntimkiem.TabIndex = 221;
             this.btntimkiem.UseVisualStyleBackColor = true;
             // 
             // tbtimkiem
             // 
             this.tbtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbtimkiem.Location = new System.Drawing.Point(161, 604);
+            this.tbtimkiem.Location = new System.Drawing.Point(215, 743);
+            this.tbtimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbtimkiem.Multiline = true;
             this.tbtimkiem.Name = "tbtimkiem";
-            this.tbtimkiem.Size = new System.Drawing.Size(538, 52);
+            this.tbtimkiem.Size = new System.Drawing.Size(716, 63);
             this.tbtimkiem.TabIndex = 220;
             // 
             // label2
@@ -411,9 +425,10 @@ namespace DUAN1
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(184, 122);
+            this.label2.Location = new System.Drawing.Point(245, 150);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 31);
+            this.label2.Size = new System.Drawing.Size(233, 39);
             this.label2.TabIndex = 219;
             this.label2.Text = "Mã hàng hóa :";
             // 
@@ -421,9 +436,10 @@ namespace DUAN1
             // 
             this.button15.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(138, 12);
+            this.button15.Location = new System.Drawing.Point(184, 15);
+            this.button15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(1114, 93);
+            this.button15.Size = new System.Drawing.Size(1485, 114);
             this.button15.TabIndex = 218;
             this.button15.Text = "THỐNG KÊ";
             this.button15.UseVisualStyleBackColor = false;
@@ -440,39 +456,46 @@ namespace DUAN1
             this.giasanpham,
             this.soluongdaban,
             this.soluongcontrongkho});
-            this.dataGridView1.Location = new System.Drawing.Point(755, 122);
+            this.dataGridView1.Location = new System.Drawing.Point(1007, 150);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(473, 468);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(631, 576);
             this.dataGridView1.TabIndex = 217;
             // 
             // mahanghoa
             // 
             this.mahanghoa.HeaderText = "Mã hàng hóa";
+            this.mahanghoa.MinimumWidth = 6;
             this.mahanghoa.Name = "mahanghoa";
             this.mahanghoa.ReadOnly = true;
             // 
             // ngaylap
             // 
             this.ngaylap.HeaderText = "Ngày lập";
+            this.ngaylap.MinimumWidth = 6;
             this.ngaylap.Name = "ngaylap";
             this.ngaylap.ReadOnly = true;
             // 
             // giasanpham
             // 
             this.giasanpham.HeaderText = "Tổng giá";
+            this.giasanpham.MinimumWidth = 6;
             this.giasanpham.Name = "giasanpham";
             this.giasanpham.ReadOnly = true;
             // 
             // soluongdaban
             // 
             this.soluongdaban.HeaderText = "Số lượng đã bán";
+            this.soluongdaban.MinimumWidth = 6;
             this.soluongdaban.Name = "soluongdaban";
             this.soluongdaban.ReadOnly = true;
             // 
             // soluongcontrongkho
             // 
             this.soluongcontrongkho.HeaderText = "Số lượng còn trong kho";
+            this.soluongcontrongkho.MinimumWidth = 6;
             this.soluongcontrongkho.Name = "soluongcontrongkho";
             this.soluongcontrongkho.ReadOnly = true;
             // 
@@ -480,9 +503,10 @@ namespace DUAN1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 657);
+            this.pictureBox1.Size = new System.Drawing.Size(159, 808);
             this.pictureBox1.TabIndex = 212;
             this.pictureBox1.TabStop = false;
             // 
@@ -492,9 +516,10 @@ namespace DUAN1
             this.btnthoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnthoat.FlatAppearance.BorderSize = 0;
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnthoat.Location = new System.Drawing.Point(12, 604);
+            this.btnthoat.Location = new System.Drawing.Point(16, 743);
+            this.btnthoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(120, 52);
+            this.btnthoat.Size = new System.Drawing.Size(160, 64);
             this.btnthoat.TabIndex = 216;
             this.btnthoat.UseVisualStyleBackColor = true;
             // 
@@ -505,9 +530,10 @@ namespace DUAN1
             this.btnhoadon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnhoadon.FlatAppearance.BorderSize = 0;
             this.btnhoadon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnhoadon.Location = new System.Drawing.Point(12, 285);
+            this.btnhoadon.Location = new System.Drawing.Point(16, 351);
+            this.btnhoadon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnhoadon.Name = "btnhoadon";
-            this.btnhoadon.Size = new System.Drawing.Size(120, 52);
+            this.btnhoadon.Size = new System.Drawing.Size(160, 64);
             this.btnhoadon.TabIndex = 215;
             this.btnhoadon.UseVisualStyleBackColor = false;
             // 
@@ -517,9 +543,10 @@ namespace DUAN1
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(16, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 93);
+            this.button1.Size = new System.Drawing.Size(160, 114);
             this.button1.TabIndex = 214;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -527,26 +554,29 @@ namespace DUAN1
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(138, 111);
+            this.pictureBox2.Location = new System.Drawing.Point(184, 137);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1114, 558);
+            this.pictureBox2.Size = new System.Drawing.Size(1485, 686);
             this.pictureBox2.TabIndex = 213;
             this.pictureBox2.TabStop = false;
             // 
             // tbusername
             // 
             this.tbusername.AutoSize = true;
-            this.tbusername.Location = new System.Drawing.Point(158, 52);
+            this.tbusername.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbusername.Location = new System.Drawing.Point(29, 66);
+            this.tbusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tbusername.Name = "tbusername";
-            this.tbusername.Size = new System.Drawing.Size(35, 13);
-            this.tbusername.TabIndex = 248;
-            this.tbusername.Text = "label6";
+            this.tbusername.Size = new System.Drawing.Size(130, 32);
+            this.tbusername.TabIndex = 251;
+            this.tbusername.Text = "username";
             // 
             // ThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1683, 828);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnhuy);
             this.Controls.Add(this.label5);
@@ -567,7 +597,6 @@ namespace DUAN1
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.cbbmahanghoa);
             this.Controls.Add(this.btnkhachhang);
             this.Controls.Add(this.btnnhanvien);
@@ -584,8 +613,9 @@ namespace DUAN1
             this.Controls.Add(this.btnhoadon);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
-            this.MaximumSize = new System.Drawing.Size(1280, 720);
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1701, 875);
+            this.MinimumSize = new System.Drawing.Size(1701, 875);
             this.Name = "ThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QLThongKe";
@@ -619,7 +649,6 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbbmahanghoa;
         private System.Windows.Forms.Button btnkhachhang;
         private System.Windows.Forms.Button btnnhanvien;

@@ -25,6 +25,7 @@ namespace DUAN1
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<chi_tiet_hoa_don> chi_tiet_hoa_don { get; set; }
         public virtual DbSet<dang_nhap> dang_nhap { get; set; }
         public virtual DbSet<hang_hoa> hang_hoa { get; set; }
         public virtual DbSet<hoa_don> hoa_don { get; set; }
@@ -32,5 +33,6 @@ namespace DUAN1
         public virtual DbSet<kho_hang> kho_hang { get; set; }
         public virtual DbSet<khohang_hanghoa> khohang_hanghoa { get; set; }
         public virtual DbSet<nhan_vien> nhan_vien { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

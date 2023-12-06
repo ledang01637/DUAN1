@@ -13,7 +13,6 @@ namespace DUAN1
 {
     public partial class QuanLyKhachHang : Form
     {
-        DataSet ds = new DataSet();
         public QuanLyKhachHang(String username)
         {
             InitializeComponent();
@@ -220,6 +219,69 @@ namespace DUAN1
             tbmakhachhang.Enabled = true;
             tbsdt.ReadOnly = false;
             tbsdt.Enabled = true;
+        }
+        private void btnthoat_Click(object sender, EventArgs e)
+        {
+            //Nút thoát ra ngoài form Đăng nhập
+            this.Hide();
+            Login form = new Login();
+            form.ShowDialog();
+            this.Close();
+        }
+        private void btnhanghoa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
+            quanLyHangHoa.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhohang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
+            khhh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon qlhd = new QuanLyHoaDon(tbusername.Text);
+            qlhd.ShowDialog();
+            this.Close();
+        }
+
+        private void btnnhanvien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
+            qlnv.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhachhang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
+            qlkh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongKe tk = new ThongKe(tbusername.Text);
+            tk.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
+            this.Hide();
+            tinNhanVien.ShowDialog();
+            this.Close();
         }
     }
 }

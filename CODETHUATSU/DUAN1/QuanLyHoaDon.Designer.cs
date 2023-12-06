@@ -39,7 +39,6 @@ namespace DUAN1
             this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_hang_hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.so_luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanh_tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +47,6 @@ namespace DUAN1
             this.tbmahoadon = new System.Windows.Forms.TextBox();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnhoadon = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,17 +72,17 @@ namespace DUAN1
             this.cbbmakhachhang = new System.Windows.Forms.ComboBox();
             this.cbbmanv = new System.Windows.Forms.ComboBox();
             this.cbbmahanghoa = new System.Windows.Forms.ComboBox();
-            this.btnchuyen = new System.Windows.Forms.Button();
-            this.lvhoadon = new System.Windows.Forms.ListView();
             this.btnthongke = new System.Windows.Forms.Button();
+            this.dtgv2 = new System.Windows.Forms.DataGridView();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuetMaQR = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
-            this.Ma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NgayLap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TrangThai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -158,7 +156,6 @@ namespace DUAN1
             this.ma_hd,
             this.ma_kh,
             this.ma_nv,
-            this.ma_hang_hoa,
             this.ngay_lap,
             this.so_luong,
             this.thanh_tien,
@@ -192,13 +189,6 @@ namespace DUAN1
             this.ma_nv.MinimumWidth = 6;
             this.ma_nv.Name = "ma_nv";
             this.ma_nv.ReadOnly = true;
-            // 
-            // ma_hang_hoa
-            // 
-            this.ma_hang_hoa.HeaderText = "Mã hàng hóa";
-            this.ma_hang_hoa.MinimumWidth = 6;
-            this.ma_hang_hoa.Name = "ma_hang_hoa";
-            this.ma_hang_hoa.ReadOnly = true;
             // 
             // ngay_lap
             // 
@@ -277,19 +267,6 @@ namespace DUAN1
             this.btnhoadon.Size = new System.Drawing.Size(160, 64);
             this.btnhoadon.TabIndex = 100;
             this.btnhoadon.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(16, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 114);
-            this.button1.TabIndex = 96;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -515,6 +492,7 @@ namespace DUAN1
             this.btnkhachhang.Size = new System.Drawing.Size(160, 64);
             this.btnkhachhang.TabIndex = 144;
             this.btnkhachhang.UseVisualStyleBackColor = true;
+            this.btnkhachhang.Click += new System.EventHandler(this.btnkhachhang_Click);
             // 
             // btnnhanvien
             // 
@@ -528,6 +506,7 @@ namespace DUAN1
             this.btnnhanvien.Size = new System.Drawing.Size(160, 64);
             this.btnnhanvien.TabIndex = 143;
             this.btnnhanvien.UseVisualStyleBackColor = true;
+            this.btnnhanvien.Click += new System.EventHandler(this.btnnhanvien_Click);
             // 
             // btnkhohang
             // 
@@ -571,6 +550,7 @@ namespace DUAN1
             this.btnthongtinnv.Size = new System.Drawing.Size(160, 64);
             this.btnthongtinnv.TabIndex = 140;
             this.btnthongtinnv.UseVisualStyleBackColor = false;
+            this.btnthongtinnv.Click += new System.EventHandler(this.btnthongtinnv_Click);
             // 
             // cbbmakhachhang
             // 
@@ -602,31 +582,6 @@ namespace DUAN1
             this.cbbmahanghoa.Size = new System.Drawing.Size(184, 33);
             this.cbbmahanghoa.TabIndex = 147;
             // 
-            // btnchuyen
-            // 
-            this.btnchuyen.Image = ((System.Drawing.Image)(resources.GetObject("btnchuyen.Image")));
-            this.btnchuyen.Location = new System.Drawing.Point(1081, 150);
-            this.btnchuyen.Margin = new System.Windows.Forms.Padding(4);
-            this.btnchuyen.Name = "btnchuyen";
-            this.btnchuyen.Size = new System.Drawing.Size(81, 80);
-            this.btnchuyen.TabIndex = 148;
-            this.btnchuyen.UseVisualStyleBackColor = true;
-            // 
-            // lvhoadon
-            // 
-            this.lvhoadon.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Ma,
-            this.NgayLap,
-            this.SoLuong,
-            this.TrangThai});
-            this.lvhoadon.HideSelection = false;
-            this.lvhoadon.Location = new System.Drawing.Point(1189, 150);
-            this.lvhoadon.Margin = new System.Windows.Forms.Padding(4);
-            this.lvhoadon.Name = "lvhoadon";
-            this.lvhoadon.Size = new System.Drawing.Size(463, 264);
-            this.lvhoadon.TabIndex = 126;
-            this.lvhoadon.UseCompatibleStateImageBehavior = false;
-            // 
             // btnthongke
             // 
             this.btnthongke.BackColor = System.Drawing.SystemColors.Control;
@@ -642,15 +597,68 @@ namespace DUAN1
             this.btnthongke.UseVisualStyleBackColor = false;
             this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
+            // dtgv2
+            // 
+            this.dtgv2.AllowUserToAddRows = false;
+            this.dtgv2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ten,
+            this.Gia,
+            this.SL});
+            this.dtgv2.Location = new System.Drawing.Point(1189, 155);
+            this.dtgv2.Name = "dtgv2";
+            this.dtgv2.RowHeadersWidth = 51;
+            this.dtgv2.RowTemplate.Height = 24;
+            this.dtgv2.Size = new System.Drawing.Size(463, 260);
+            this.dtgv2.TabIndex = 250;
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // Gia
+            // 
+            this.Gia.HeaderText = "Giá";
+            this.Gia.MinimumWidth = 6;
+            this.Gia.Name = "Gia";
+            this.Gia.ReadOnly = true;
+            // 
+            // SL
+            // 
+            this.SL.HeaderText = "Số lượng";
+            this.SL.MinimumWidth = 6;
+            this.SL.Name = "SL";
+            this.SL.ReadOnly = true;
+            // 
+            // QuetMaQR
+            // 
+            this.QuetMaQR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.QuetMaQR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QuetMaQR.FlatAppearance.BorderSize = 0;
+            this.QuetMaQR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.QuetMaQR.Location = new System.Drawing.Point(1072, 431);
+            this.QuetMaQR.Margin = new System.Windows.Forms.Padding(4);
+            this.QuetMaQR.Name = "QuetMaQR";
+            this.QuetMaQR.Size = new System.Drawing.Size(99, 50);
+            this.QuetMaQR.TabIndex = 251;
+            this.QuetMaQR.Text = "Quét QR";
+            this.QuetMaQR.UseVisualStyleBackColor = true;
+            this.QuetMaQR.Click += new System.EventHandler(this.QuetMaQR_Click);
+            // 
             // tbusername
             // 
             this.tbusername.AutoSize = true;
-            this.tbusername.Location = new System.Drawing.Point(208, 64);
+            this.tbusername.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbusername.Location = new System.Drawing.Point(32, 66);
             this.tbusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tbusername.Name = "tbusername";
-            this.tbusername.Size = new System.Drawing.Size(46, 17);
-            this.tbusername.TabIndex = 249;
-            this.tbusername.Text = "label6";
+            this.tbusername.Size = new System.Drawing.Size(130, 32);
+            this.tbusername.TabIndex = 252;
+            this.tbusername.Text = "username";
             // 
             // QuanLyHoaDon
             // 
@@ -658,8 +666,9 @@ namespace DUAN1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 828);
             this.Controls.Add(this.tbusername);
+            this.Controls.Add(this.QuetMaQR);
+            this.Controls.Add(this.dtgv2);
             this.Controls.Add(this.btnthongke);
-            this.Controls.Add(this.btnchuyen);
             this.Controls.Add(this.cbbmahanghoa);
             this.Controls.Add(this.cbbmanv);
             this.Controls.Add(this.cbbmakhachhang);
@@ -681,7 +690,6 @@ namespace DUAN1
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbthanhtien);
             this.Controls.Add(this.dtpngaylap);
-            this.Controls.Add(this.lvhoadon);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -694,7 +702,6 @@ namespace DUAN1
             this.Controls.Add(this.tbmahoadon);
             this.Controls.Add(this.btnthoat);
             this.Controls.Add(this.btnhoadon);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -707,6 +714,7 @@ namespace DUAN1
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -723,7 +731,6 @@ namespace DUAN1
         private System.Windows.Forms.TextBox tbmahoadon;
         private System.Windows.Forms.Button btnthoat;
         private System.Windows.Forms.Button btnhoadon;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
@@ -749,21 +756,19 @@ namespace DUAN1
         private System.Windows.Forms.ComboBox cbbmakhachhang;
         private System.Windows.Forms.ComboBox cbbmanv;
         private System.Windows.Forms.ComboBox cbbmahanghoa;
+        private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_hd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_kh;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_nv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ma_hang_hoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_lap;
         private System.Windows.Forms.DataGridViewTextBoxColumn so_luong;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanh_tien;
         private System.Windows.Forms.DataGridViewTextBoxColumn trang_thai;
-        private System.Windows.Forms.Button btnchuyen;
-        private System.Windows.Forms.ListView lvhoadon;
-        private System.Windows.Forms.Button btnthongke;
+        private System.Windows.Forms.DataGridView dtgv2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.Button QuetMaQR;
         private System.Windows.Forms.Label tbusername;
-        private System.Windows.Forms.ColumnHeader Ma;
-        private System.Windows.Forms.ColumnHeader NgayLap;
-        private System.Windows.Forms.ColumnHeader SoLuong;
-        private System.Windows.Forms.ColumnHeader TrangThai;
     }
 }

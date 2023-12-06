@@ -41,7 +41,7 @@ namespace DUAN1
 
                 foreach (var hoaDon in hoaDonList)
                 {
-                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.makho_hangchitiet == hoaDon.makho_hangchitiet);
+                    var khoHang = db.khohang_hanghoa.FirstOrDefault(kh => kh.chi_tiet_hoa_don == hoaDon.chi_tiet_hoa_don);
 
                     dataGridView1.Rows.Add(
                         hoaDon.ma_hd,
@@ -64,12 +64,12 @@ namespace DUAN1
             string MaKH = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == MaKH);
                 khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
 
                 if (hd != null && khhh != null)
                 {
-                    cbbmahanghoa.Text = hd.makho_hangchitiet;
+                    cbbmahanghoa.Text = hd.ma_hd;
                     dtpngaylap.Value = hd.ngay_lap.Value;
                     tbgia.Text = hd.thanh_tien.ToString();
                     tbsoluongdaban.Text = hd.so_luong.ToString();
@@ -97,7 +97,7 @@ namespace DUAN1
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
                         List<hoa_don> listhd = db.hoa_don
-                            .Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
+                            .Where(x => x.ma_hd.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
                             .ToList();
 
                         List<khohang_hanghoa> listkhhh = db.khohang_hanghoa
@@ -108,11 +108,11 @@ namespace DUAN1
 
                         listhd.ForEach(hd =>
                         {
-                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.makho_hangchitiet == hd.makho_hangchitiet);
+                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.chi_tiet_hoa_don == hd.chi_tiet_hoa_don);
                             if (khhh != null)
                             {
                                 dataGridView1.Rows.Add(
-                                    hd.makho_hangchitiet,
+                                    hd.chi_tiet_hoa_don,
                                     hd.ngay_lap,
                                     hd.thanh_tien,
                                     hd.so_luong,
@@ -165,7 +165,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }
