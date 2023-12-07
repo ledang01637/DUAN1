@@ -21,9 +21,10 @@ namespace DUAN1
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
         List<hang_hoa> dsHang = new List<hang_hoa>();
-        public QuetQR()
+        public QuetQR(string userName)
         {
             InitializeComponent();
+            tbusername.Text = userName;
         }
 
         private void btnStarQuetQr_Click(object sender, EventArgs e)
@@ -218,7 +219,7 @@ namespace DUAN1
         readonly int width = 228;
         private void document_PrintPage(object sender, PrintPageEventArgs e)
         {
-            string title = "HOA DON BAN HANG\n\nTên hàng   Giá   Số lượng";
+            string title = "HÓA ĐƠN BÁN HÀNG\nShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\n\nTên hàng   Giá   Số lượng";
             StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
             Rectangle rectangle = new Rectangle(new Point(height, y), new Size(width, height));
             stringFormat.LineAlignment = StringAlignment.Center;
@@ -258,7 +259,7 @@ namespace DUAN1
                 stringFormatFooter.Alignment = StringAlignment.Center;
                 Font printFontFooter = new Font("Arial", 10, FontStyle.Bold);
 
-                e.Graphics.DrawString("Thành tiền: " + ThanhTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
+                e.Graphics.DrawString("----------\nThành tiền: " + ThanhTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
             }
         }
     }
