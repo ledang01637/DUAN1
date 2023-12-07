@@ -70,7 +70,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }
@@ -104,6 +104,14 @@ namespace DUAN1
             this.Hide();
             ThongKe tk = new ThongKe(tbtaikhoan.Text);
             tk.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
+            this.Hide();
+            tinNhanVien.ShowDialog();
             this.Close();
         }
     }

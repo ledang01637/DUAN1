@@ -653,7 +653,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }

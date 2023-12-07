@@ -14,17 +14,23 @@ namespace DUAN1
     
     public partial class hoa_don
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public hoa_don()
+        {
+            this.chi_tiet_hoa_don = new HashSet<chi_tiet_hoa_don>();
+        }
+    
         public string ma_hd { get; set; }
         public string ma_kh { get; set; }
         public string ma_nv { get; set; }
-        public string makho_hangchitiet { get; set; }
         public Nullable<System.DateTime> ngay_lap { get; set; }
         public Nullable<int> so_luong { get; set; }
         public Nullable<double> thanh_tien { get; set; }
         public string trang_thai { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<chi_tiet_hoa_don> chi_tiet_hoa_don { get; set; }
         public virtual nhan_vien nhan_vien { get; set; }
-        public virtual khohang_hanghoa khohang_hanghoa { get; set; }
         public virtual khach_hang khach_hang { get; set; }
     }
 }

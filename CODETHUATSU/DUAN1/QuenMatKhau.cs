@@ -18,7 +18,7 @@ namespace DUAN1
 {
     public partial class QuenMatKhau : Form
     {
-        int code = new Random().Next(10000,99999);
+        readonly int code = new Random().Next(10000,99999);
         bool focusUser, focusPw1, focusPw2, focusXN;
         bool isTextUser, isTextPw1, isTextPw2, isTextXN;
         public QuenMatKhau()

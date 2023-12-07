@@ -32,7 +32,6 @@ namespace DUAN1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyNhanVien));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tbmanhanvien = new System.Windows.Forms.TextBox();
             this.lbmanhanvien = new System.Windows.Forms.Label();
             this.lbtennhanvien = new System.Windows.Forms.Label();
@@ -40,6 +39,10 @@ namespace DUAN1
             this.lbsdt = new System.Windows.Forms.Label();
             this.tbsdt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button15 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnkhachhang = new System.Windows.Forms.Button();
@@ -58,10 +61,9 @@ namespace DUAN1
             this.btnthem = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
-            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbcv = new System.Windows.Forms.TextBox();
+            this.usernamenv = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,19 +91,6 @@ namespace DUAN1
             this.pictureBox2.Size = new System.Drawing.Size(1485, 686);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(16, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 114);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tbmanhanvien
             // 
@@ -189,6 +178,31 @@ namespace DUAN1
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1453, 234);
             this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Ma
+            // 
+            this.Ma.HeaderText = "Mã nhân viên";
+            this.Ma.MinimumWidth = 6;
+            this.Ma.Name = "Ma";
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Tên ";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số điện thoại";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            // 
+            // TaiKhoan
+            // 
+            this.TaiKhoan.HeaderText = "Tài khoản";
+            this.TaiKhoan.MinimumWidth = 6;
+            this.TaiKhoan.Name = "TaiKhoan";
             // 
             // button15
             // 
@@ -225,6 +239,7 @@ namespace DUAN1
             this.btnkhachhang.Size = new System.Drawing.Size(160, 64);
             this.btnkhachhang.TabIndex = 158;
             this.btnkhachhang.UseVisualStyleBackColor = true;
+            this.btnkhachhang.Click += new System.EventHandler(this.btnkhachhang_Click);
             // 
             // btnnhanvien
             // 
@@ -253,6 +268,7 @@ namespace DUAN1
             this.btnkhohang.Size = new System.Drawing.Size(160, 64);
             this.btnkhohang.TabIndex = 156;
             this.btnkhohang.UseVisualStyleBackColor = false;
+            this.btnkhohang.Click += new System.EventHandler(this.btnkhohang_Click);
             // 
             // btnhanghoa
             // 
@@ -267,6 +283,7 @@ namespace DUAN1
             this.btnhanghoa.Size = new System.Drawing.Size(160, 64);
             this.btnhanghoa.TabIndex = 155;
             this.btnhanghoa.UseVisualStyleBackColor = false;
+            this.btnhanghoa.Click += new System.EventHandler(this.btnhanghoa_Click);
             // 
             // btnthongtinnv
             // 
@@ -280,6 +297,7 @@ namespace DUAN1
             this.btnthongtinnv.Size = new System.Drawing.Size(160, 64);
             this.btnthongtinnv.TabIndex = 154;
             this.btnthongtinnv.UseVisualStyleBackColor = false;
+            this.btnthongtinnv.Click += new System.EventHandler(this.btnthongtinnv_Click);
             // 
             // btnthoat
             // 
@@ -293,6 +311,7 @@ namespace DUAN1
             this.btnthoat.Size = new System.Drawing.Size(160, 64);
             this.btnthoat.TabIndex = 153;
             this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // btnhoadon
             // 
@@ -307,6 +326,7 @@ namespace DUAN1
             this.btnhoadon.Size = new System.Drawing.Size(160, 64);
             this.btnhoadon.TabIndex = 152;
             this.btnhoadon.UseVisualStyleBackColor = false;
+            this.btnhoadon.Click += new System.EventHandler(this.btnhoadon_Click);
             // 
             // btnhuy
             // 
@@ -414,6 +434,7 @@ namespace DUAN1
             this.btnthongke.Size = new System.Drawing.Size(159, 66);
             this.btnthongke.TabIndex = 191;
             this.btnthongke.UseVisualStyleBackColor = false;
+            this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
             // tbusername
             // 
@@ -424,35 +445,48 @@ namespace DUAN1
             this.tbusername.Size = new System.Drawing.Size(0, 17);
             this.tbusername.TabIndex = 249;
             // 
-            // Ma
+            // label1
             // 
-            this.Ma.HeaderText = "Mã nhân viên";
-            this.Ma.MinimumWidth = 6;
-            this.Ma.Name = "Ma";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(616, 443);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 29);
+            this.label1.TabIndex = 251;
+            this.label1.Text = "Chức Vụ";
             // 
-            // Ten
+            // tbcv
             // 
-            this.Ten.HeaderText = "Tên ";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
+            this.tbcv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbcv.Location = new System.Drawing.Point(813, 441);
+            this.tbcv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbcv.Multiline = true;
+            this.tbcv.Name = "tbcv";
+            this.tbcv.Size = new System.Drawing.Size(453, 29);
+            this.tbcv.TabIndex = 250;
             // 
-            // SDT
+            // usernamenv
             // 
-            this.SDT.HeaderText = "Số điện thoại";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            // 
-            // TaiKhoan
-            // 
-            this.TaiKhoan.HeaderText = "Tài khoản";
-            this.TaiKhoan.MinimumWidth = 6;
-            this.TaiKhoan.Name = "TaiKhoan";
+            this.usernamenv.AutoSize = true;
+            this.usernamenv.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernamenv.Location = new System.Drawing.Point(30, 63);
+            this.usernamenv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.usernamenv.Name = "usernamenv";
+            this.usernamenv.Size = new System.Drawing.Size(130, 32);
+            this.usernamenv.TabIndex = 252;
+            this.usernamenv.Text = "username";
             // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1680, 818);
+            this.Controls.Add(this.usernamenv);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbcv);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.btnhuy);
@@ -478,12 +512,11 @@ namespace DUAN1
             this.Controls.Add(this.tbtennhanvien);
             this.Controls.Add(this.lbmanhanvien);
             this.Controls.Add(this.tbmanhanvien);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1698, 870);
-            this.MinimumSize = new System.Drawing.Size(1698, 813);
+            this.MaximumSize = new System.Drawing.Size(1698, 868);
+            this.MinimumSize = new System.Drawing.Size(1698, 811);
             this.Name = "QuanLyNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLyNhanVien";
@@ -501,7 +534,6 @@ namespace DUAN1
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbmanhanvien;
         private System.Windows.Forms.Label lbmanhanvien;
         private System.Windows.Forms.Label lbtennhanvien;
@@ -531,5 +563,8 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaiKhoan;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbcv;
+        private System.Windows.Forms.Label usernamenv;
     }
 }

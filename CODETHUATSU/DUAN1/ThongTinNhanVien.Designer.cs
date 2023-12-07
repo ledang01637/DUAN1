@@ -37,7 +37,6 @@ namespace DUAN1
             this.lbmanhanvien = new System.Windows.Forms.Label();
             this.tbmanhanvien = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnkhachhang = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@ namespace DUAN1
             this.btnthongke = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbtaikhoan = new System.Windows.Forms.TextBox();
+            this.tbusername = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -134,19 +134,6 @@ namespace DUAN1
             this.pictureBox3.Size = new System.Drawing.Size(400, 350);
             this.pictureBox3.TabIndex = 30;
             this.pictureBox3.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(16, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 114);
-            this.button1.TabIndex = 22;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -241,6 +228,7 @@ namespace DUAN1
             this.btnthongtinnv.Size = new System.Drawing.Size(160, 64);
             this.btnthongtinnv.TabIndex = 154;
             this.btnthongtinnv.UseVisualStyleBackColor = false;
+            this.btnthongtinnv.Click += new System.EventHandler(this.btnthongtinnv_Click);
             // 
             // btnthoat
             // 
@@ -309,11 +297,23 @@ namespace DUAN1
             this.tbtaikhoan.Size = new System.Drawing.Size(453, 45);
             this.tbtaikhoan.TabIndex = 159;
             // 
+            // tbusername
+            // 
+            this.tbusername.AutoSize = true;
+            this.tbusername.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbusername.Location = new System.Drawing.Point(31, 63);
+            this.tbusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tbusername.Name = "tbusername";
+            this.tbusername.Size = new System.Drawing.Size(130, 32);
+            this.tbusername.TabIndex = 251;
+            this.tbusername.Text = "username";
+            // 
             // ThongTinNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 826);
+            this.Controls.Add(this.tbusername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbtaikhoan);
             this.Controls.Add(this.btnthongke);
@@ -331,7 +331,6 @@ namespace DUAN1
             this.Controls.Add(this.lbmanhanvien);
             this.Controls.Add(this.tbmanhanvien);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -357,7 +356,6 @@ namespace DUAN1
         private System.Windows.Forms.Label lbmanhanvien;
         private System.Windows.Forms.TextBox tbmanhanvien;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnkhachhang;
@@ -370,5 +368,6 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbtaikhoan;
+        private System.Windows.Forms.Label tbusername;
     }
 }

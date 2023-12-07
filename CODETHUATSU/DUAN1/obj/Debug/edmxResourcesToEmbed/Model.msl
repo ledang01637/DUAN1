@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DUAN1ModelStoreContainer" CdmEntityContainer="DUAN1Entities">
+    <EntitySetMapping Name="chi_tiet_hoa_don">
+      <EntityTypeMapping TypeName="DUAN1Model.chi_tiet_hoa_don">
+        <MappingFragment StoreEntitySet="chi_tiet_hoa_don">
+          <ScalarProperty Name="macthd" ColumnName="macthd" />
+          <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
+          <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="dang_nhap">
       <EntityTypeMapping TypeName="DUAN1Model.dang_nhap">
         <MappingFragment StoreEntitySet="dang_nhap">
@@ -30,7 +39,6 @@
           <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
           <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
           <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
-          <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
           <ScalarProperty Name="ngay_lap" ColumnName="ngay_lap" />
           <ScalarProperty Name="so_luong" ColumnName="so_luong" />
           <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />

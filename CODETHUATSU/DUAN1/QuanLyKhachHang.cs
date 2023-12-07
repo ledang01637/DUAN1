@@ -13,7 +13,6 @@ namespace DUAN1
 {
     public partial class QuanLyKhachHang : Form
     {
-        DataSet ds = new DataSet();
         public QuanLyKhachHang(String username)
         {
             InitializeComponent();
@@ -23,15 +22,15 @@ namespace DUAN1
         private void btnthem_Click(object sender, EventArgs e)
         {
             btnluu.Enabled = true;
-            btnxoa.Enabled = true;
-            btnsua.Enabled = true;
-            btnhuy.Enabled = true;
-            btnluu.Enabled = true;
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+
 
             tbmakhachhang.ReadOnly = false;
+            tbmakhachhang.Enabled = true;
             tbtenkhachhang.ReadOnly = false;
+            tbsdt.ReadOnly = false;
             tbsdt.Enabled = true;
-            tbtimkiem.Enabled = true;
         }
         //Form
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
@@ -41,6 +40,15 @@ namespace DUAN1
                 updatedgv();
                 tbmakhachhang.Enabled = false;
             }
+
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnluu.Enabled = false;
+
+
+            tbmakhachhang.ReadOnly = true;
+            tbtenkhachhang.ReadOnly = true;
+            tbsdt.Enabled = false;
         }
         //Update
         private void updatedgv()
@@ -48,6 +56,7 @@ namespace DUAN1
             using (DUAN1Entities db = new DUAN1Entities())
             {
                 dataGridView1.Rows.Clear();
+
                 db.khach_hang.ToList().ForEach(kh =>
                 {
                     dataGridView1.Rows.Add(
@@ -62,28 +71,39 @@ namespace DUAN1
         //Lưu
         private void btnluu_Click(object sender, EventArgs e)
         {
-            if (tbmakhachhang.Text == "")
+            string maKH = tbmakhachhang.Text;
+            string tenKH = tbtenkhachhang.Text;
+            string sdt = tbsdt.Text;
+
+            // Kiểm tra xem các trường thông tin đã được nhập đầy đủ
+            if (string.IsNullOrEmpty(maKH) || string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(sdt))
             {
-                MessageBox.Show("Không được để trống");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin khách hàng");
+                return;
             }
-            else
+
+            // Thêm khách hàng vào cơ sở dữ liệu
+            using (DUAN1Entities db = new DUAN1Entities())
             {
-                khach_hang them = new khach_hang();
-                them.ma_kh = tbmakhachhang.Text;
-                them.ten_kh = tbtenkhachhang.Text;
-                them.sdt = tbsdt.Text;
-                using (DUAN1Entities db = new DUAN1Entities())
-                {
-                    khach_hang nganhduocchon = db.khach_hang
-                        .Where(x => x.ma_kh == tbmakhachhang.Text)
-                        .FirstOrDefault();
-                    them.ma_kh = nganhduocchon.ma_kh;
-                    db.khach_hang.Add(them);
-                    db.SaveChanges();
-                }
-                updatedgv();
+                khach_hang KH = new khach_hang();
+                KH.ma_kh = maKH;
+                KH.ten_kh = tenKH;
+                KH.sdt = sdt;
+
+                db.khach_hang.Add(KH);
+                db.SaveChanges();
             }
+
+            MessageBox.Show("Thêm khách hàng thành công");
+
+            // Xóa nội dung trong TextBox sau khi lưu thành công
+            tbmakhachhang.Text = "";
+            tbtenkhachhang.Text = "";
+            tbsdt.Text = "";
+
+            updatedgv();
         }
+
         //sửa thông tin khách hàng
         private void btnsua_Click(object sender, EventArgs e)
         {
@@ -92,23 +112,34 @@ namespace DUAN1
                 khach_hang them = db.khach_hang
                     .Where(x => x.ma_kh == tbmakhachhang.Text)
                     .FirstOrDefault();
-                them.ten_kh = tbtenkhachhang.Text;
-                them.sdt = tbsdt.Text;
-                them.sdt = tbsdt.Text;
-                khach_hang thongtinkh = db.khach_hang
-                    .Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
-                them.ma_kh = thongtinkh.ma_kh;
-                db.SaveChanges();
+
+                if (them != null)
+                {
+                    them.ten_kh = tbtenkhachhang.Text;
+                    them.sdt = tbsdt.Text;
+
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Sửa thành công");
             }
+            updatedgv();
         }
         //Xóa khách hàng
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities db = new DUAN1Entities())
+            if (tbmakhachhang.Text == null)
             {
-                khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
-                db.khach_hang.Remove(xoa);
-                db.SaveChanges();
+                MessageBox.Show("Nhập đúng mã khách hàng cần xóa");
+            }
+            else
+            {
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
+                    db.khach_hang.Remove(xoa);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Xóa thành công");
             }
             updatedgv();
         }
@@ -135,6 +166,7 @@ namespace DUAN1
                        );
                     }
                     );
+
                 }
             }
             catch (Exception)
@@ -145,12 +177,111 @@ namespace DUAN1
 
         private void btnhuy_Click(object sender, EventArgs e)
         {
+            btnxoa.Enabled = false;
+            btnsua.Enabled = false;
+            btnluu.Enabled = false;
+            btnthem.Enabled = true;
+
+
+            tbmakhachhang.ReadOnly = true;
+            tbtenkhachhang.ReadOnly = true;
+            tbsdt.Enabled = false;
+
             tbmakhachhang.Text = "";
             tbtenkhachhang.Text = "";
             tbsdt.Text = "";
-            btnsua.Enabled = false;
-            btnxoa.Enabled = false;
-            btnthem.Enabled = true;
+
+
+            updatedgv();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView1.SelectedCells[0].RowIndex;
+            var rowData = dataGridView1.Rows[row];
+
+            String MaKH = rowData.Cells[0].Value.ToString();
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                khach_hang kh = db.khach_hang.Where(x => x.ma_kh == MaKH).FirstOrDefault();
+                tbmakhachhang.Text = kh.ma_kh;
+                tbtenkhachhang.Text = kh.ten_kh;
+                tbsdt.Text = kh.sdt;
+            }
+            btnthem.Enabled = false;
+            btnluu.Enabled = false;
+            btnxoa.Enabled = true;
+            btnsua.Enabled = true;
+            btnhuy.Enabled = true;
+
+            tbmakhachhang.ReadOnly = true;
+            tbtenkhachhang.ReadOnly = false;
+            tbmakhachhang.Enabled = true;
+            tbsdt.ReadOnly = false;
+            tbsdt.Enabled = true;
+        }
+        private void btnthoat_Click(object sender, EventArgs e)
+        {
+            //Nút thoát ra ngoài form Đăng nhập
+            this.Hide();
+            Login form = new Login();
+            form.ShowDialog();
+            this.Close();
+        }
+        private void btnhanghoa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
+            quanLyHangHoa.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhohang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
+            khhh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyHoaDon qlhd = new QuanLyHoaDon(tbusername.Text);
+            qlhd.ShowDialog();
+            this.Close();
+        }
+
+        private void btnnhanvien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
+            qlnv.ShowDialog();
+            this.Close();
+        }
+
+        private void btnkhachhang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
+            qlkh.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongKe tk = new ThongKe(tbusername.Text);
+            tk.ShowDialog();
+            this.Close();
+        }
+
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
+            this.Hide();
+            tinNhanVien.ShowDialog();
+            this.Close();
         }
     }
 }
