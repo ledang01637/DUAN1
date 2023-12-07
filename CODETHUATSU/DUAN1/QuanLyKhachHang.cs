@@ -167,32 +167,33 @@ namespace DUAN1
         {
             try
             {
-                if (tbtimkiem.Text.Equals(""))
+                if (string.IsNullOrEmpty(tbtimkiem.Text))
                 {
                     MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm!!");
                 }
                 else
                 {
-
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
-                        List<khach_hang> listhd = db.khach_hang.Where(x => x.ma_kh.Equals(tbtimkiem.Text)).ToList();
-                        dataGridView1.Rows.Clear();
-                        listhd.ToList().ForEach(hd =>
+                        khach_hang khachHang = db.khach_hang.FirstOrDefault(x => x.ma_kh == tbtimkiem.Text);
+
+                        if (khachHang != null)
                         {
-                            dataGridView1.Rows.Add(
-                            hd.ma_kh,
-                            hd.ten_kh,
-                            hd.sdt
-                           );
+                            // Tìm thấy khách hàng, hiển thị thông tin trên DataGridView
+                            dataGridView1.Rows.Clear();
+                            dataGridView1.Rows.Add(khachHang.ma_kh, khachHang.ten_kh, khachHang.sdt);
                         }
-                        );
+                        else
+                        {
+                            // Không tìm thấy khách hàng
+                            MessageBox.Show("Không tìm thấy khách hàng có mã đã nhập");
+                        }
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Không để trống");
+                MessageBox.Show("Có lỗi xảy ra trong quá trình tìm kiếm");
             }
         }
 

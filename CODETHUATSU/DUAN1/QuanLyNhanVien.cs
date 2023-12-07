@@ -80,7 +80,7 @@ namespace DUAN1
 
         private void btnluu_Click(object sender, EventArgs e)
         {
-            if (tbmanhanvien.Text == "" & string.IsNullOrEmpty(tbsdt.Text) || tbsdt.Text.Length != 10)
+            if (tbmanhanvien.Text == "")
             {
                 MessageBox.Show("Không được để trống");
             }
@@ -196,32 +196,35 @@ namespace DUAN1
         {
             try
             {
-                if (tbtimkiem.Text.Equals(""))
+                if (string.IsNullOrEmpty(tbtimkiem.Text))
                 {
                     MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm!!");
                 }
-
-                using (DUAN1Entities db = new DUAN1Entities())
+                else
                 {
-                    List<nhan_vien> listhd = db.nhan_vien.Where(x => x.ma_nv.Equals(tbtimkiem.Text)).ToList();
-                    dataGridView1.Rows.Clear();
-                    listhd.ToList().ForEach(hd =>
+                    using (DUAN1Entities db = new DUAN1Entities())
                     {
-                        dataGridView1.Rows.Add(
-                        hd.ma_nv,
-                        hd.ten_nv,
-                        hd.sdt,
-                        hd.tai_khoan_dangnhap
-                       );
+                        khach_hang khachHang = db.khach_hang.FirstOrDefault(x => x.ma_kh == tbtimkiem.Text);
+
+                        if (khachHang != null)
+                        {
+                            // Tìm thấy khách hàng, hiển thị thông tin trên DataGridView
+                            dataGridView1.Rows.Clear();
+                            dataGridView1.Rows.Add(khachHang.ma_kh, khachHang.ten_kh, khachHang.sdt);
+                        }
+                        else
+                        {
+                            // Không tìm thấy khách hàng
+                            MessageBox.Show("Không tìm thấy khách hàng có mã đã nhập");
+                        }
                     }
-                    );
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Không để trống");
+                MessageBox.Show("Có lỗi xảy ra trong quá trình tìm kiếm");
             }
-            UpdateGV();
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
