@@ -47,8 +47,6 @@ namespace DUAN1
                     hd.ma_kh,
                     hd.ma_nv,
                     DateTime.Parse(hd.ngay_lap.ToString(),CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                    hd.so_luong,
-                    hd.thanh_tien,
                     hd.trang_thai
                     );
                 }
@@ -85,8 +83,6 @@ namespace DUAN1
                     hd.ma_kh,
                     hd.ma_nv,
                     DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                    hd.so_luong,
-                    hd.thanh_tien,
                     hd.trang_thai
                     );
                 }
@@ -111,8 +107,6 @@ namespace DUAN1
                 cbbmakhachhang.Text = hd.ma_kh;
                 cbbmanv.Text = hd.ma_nv;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
-                tbsoluong.Text = hd.so_luong.ToString();
-                tbthanhtien.Text = hd.thanh_tien.ToString();
                 tbtrangthai.Text = hd.trang_thai; 
 
             }
@@ -173,8 +167,6 @@ namespace DUAN1
                         addhd.ma_kh = cbbmakhachhang.Text;
                         addhd.ma_nv = cbbmanv.Text;
                         addhd.ngay_lap = dtpngaylap.Value;
-                        addhd.so_luong = soLuong;
-                        addhd.thanh_tien = hangHoa.gia_ban * soLuong;
                         addhd.trang_thai = tbtrangthai.Text;
 
                         db.hoa_don.Add(addhd);
@@ -263,8 +255,6 @@ namespace DUAN1
                         hd.ma_kh,
                         hd.ma_nv,
                         hd.ngay_lap,
-                        hd.so_luong,
-                        hd.thanh_tien,
                         hd.trang_thai);
                     }
                     );
@@ -293,8 +283,6 @@ namespace DUAN1
                         edit.ma_kh = cbbmakhachhang.Text;
                         edit.ma_nv = cbbmanv.Text;
                         edit.ngay_lap = dtpngaylap.Value;
-                        edit.so_luong = soLuong;
-                        edit.thanh_tien = hangHoa.gia_ban * soLuong;
                         edit.trang_thai = tbtrangthai.Text;
                         db.SaveChanges();
                         MessageBox.Show("Sửa thành công");

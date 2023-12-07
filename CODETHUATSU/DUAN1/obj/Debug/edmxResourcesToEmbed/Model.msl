@@ -7,6 +7,8 @@
           <ScalarProperty Name="macthd" ColumnName="macthd" />
           <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
           <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+          <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -40,8 +42,6 @@
           <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
           <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
           <ScalarProperty Name="ngay_lap" ColumnName="ngay_lap" />
-          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
-          <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
           <ScalarProperty Name="trang_thai" ColumnName="trang_thai" />
         </MappingFragment>
       </EntityTypeMapping>
