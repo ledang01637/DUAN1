@@ -28,8 +28,15 @@ namespace DUAN1
 
             using (DUAN1Entities db = new DUAN1Entities())
             {
+                //địa chỉ
                 cbbdiachi.Items.Clear();
                 db.kho_hang.ToList().ForEach(row => cbbdiachi.Items.Add(row.dia_chi));
+                // mã kho hàng
+                cbbmakhohang.Items.Clear();
+                db.kho_hang.ToList().ForEach(row => cbbmakhohang.Items.Add(row.ma_kho_hang));
+                //mã hàng hóa
+                cbbmahanghoa.Items.Clear();
+                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
 
                 dataGridView1.Rows.Clear();
                 dataGridView2.Rows.Clear();
@@ -37,6 +44,7 @@ namespace DUAN1
                 db.khohang_hanghoa.ToList().ForEach(khhh =>
                 {
                     dataGridView1.Rows.Add(
+                    khhh.makho_hangchitiet,
                     khhh.kho_hang.ma_kho_hang,
                     khhh.ma_hang_hoa,
                     DateTime.Parse(khhh.ngay_nhap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
@@ -59,8 +67,8 @@ namespace DUAN1
                 btnhuy.Enabled = false;
                 btnluu.Enabled = false;
 
-                tbmakhohang.ReadOnly = true;
-                tbmahanghoa.ReadOnly = true;
+                cbbmakhohang.Enabled = false;
+                cbbmahanghoa.Enabled = false;
                 dtpngaynhapkho.Enabled = false;
                 dtpngayxuatkho.Enabled = false;
                 tbsoluong.ReadOnly = true;
@@ -77,8 +85,15 @@ namespace DUAN1
             dataGridView1.Rows.Clear();
             using (DUAN1Entities db = new DUAN1Entities())
             {
+                //địa chỉ
                 cbbdiachi.Items.Clear();
                 db.kho_hang.ToList().ForEach(row => cbbdiachi.Items.Add(row.dia_chi));
+                // mã kho hàng
+                cbbmakhohang.Items.Clear();
+                db.kho_hang.ToList().ForEach(row => cbbmakhohang.Items.Add(row.ma_kho_hang));
+                //mã hàng hóa
+                cbbmahanghoa.Items.Clear();
+                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
 
                 dataGridView1.Rows.Clear();
                 dataGridView2.Rows.Clear();
@@ -86,12 +101,12 @@ namespace DUAN1
                 db.khohang_hanghoa.ToList().ForEach(khhh =>
                 {
                     dataGridView1.Rows.Add(
+                    khhh.makho_hangchitiet,
                     khhh.kho_hang.ma_kho_hang,
                     khhh.ma_hang_hoa,
                     DateTime.Parse(khhh.ngay_nhap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     DateTime.Parse(khhh.ngay_xuat.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                    khhh.so_luong,
-                    khhh.kho_hang.dia_chi
+                    khhh.so_luong
                     );
                 }
                 );
@@ -114,12 +129,13 @@ namespace DUAN1
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
 
-            String MaSP = rowData.Cells[0].Value.ToString();
+            String MaCTHH = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                khohang_hanghoa sv = db.khohang_hanghoa.Where(x => x.ma_kho_hang == MaSP).FirstOrDefault();
-                tbmakhohang.Text = sv.ma_kho_hang;
-                tbmahanghoa.Text = sv.ma_hang_hoa;
+                khohang_hanghoa sv = db.khohang_hanghoa.Where(x => x.makho_hangchitiet == MaCTHH).FirstOrDefault();
+                tbmachitietkhohang.Text = sv.makho_hangchitiet;
+                cbbmakhohang.Text = sv.ma_kho_hang;
+                cbbmahanghoa.Text = sv.ma_hang_hoa;
                 dtpngaynhapkho.Text = sv.ngay_nhap.ToString();
                 dtpngayxuatkho.Text = sv.ngay_xuat.ToString();
                 tbsoluong.Text = sv.so_luong.ToString();
@@ -130,8 +146,10 @@ namespace DUAN1
             btnhuy.Enabled = true;
             btnluu.Enabled = false;
 
-            tbmakhohang.ReadOnly = true;
-            tbmahanghoa.ReadOnly = false;
+            tbmachitietkhohang.Enabled = false;
+            tbmachitietkhohang.ReadOnly = true;
+            cbbmakhohang.Enabled = true;
+            cbbmahanghoa.Enabled = true;
             dtpngaynhapkho.Enabled = true;
             dtpngayxuatkho.Enabled = true;
             tbsoluong.ReadOnly = false;
@@ -157,7 +175,7 @@ namespace DUAN1
             btnhuy.Enabled = true;
             btnluu.Enabled = false;
 
-            tbmakhohang.ReadOnly = true;
+            cbbmakhohang.Enabled = false;
             cbbdiachi.Enabled = true;
         }
 
@@ -170,8 +188,10 @@ namespace DUAN1
             btnhuy.Enabled = true;
             btnluu.Enabled = true;
 
-            tbmakhohang.ReadOnly = false;
-            tbmahanghoa.ReadOnly = false;
+            tbmachitietkhohang.Enabled = true;
+            tbmachitietkhohang.ReadOnly = false;
+            cbbmakhohang.Enabled = true;
+            cbbmahanghoa.Enabled = true;
             dtpngaynhapkho.Enabled = true;
             dtpngayxuatkho.Enabled = true;
             tbsoluong.ReadOnly = false;
@@ -196,27 +216,29 @@ namespace DUAN1
                 try
                 {
                     kho_hang addkh = new kho_hang();
-
-
                     khohang_hanghoa addkhhh = new khohang_hanghoa();
-                    addkhhh.ma_kho_hang = addkh.ma_kho_hang = tbmakhohang.Text;
-                    addkhhh.ma_hang_hoa = tbmahanghoa.Text;
-                    addkhhh.ngay_nhap = dtpngaynhapkho.Value;
-                    addkhhh.ngay_xuat = dtpngayxuatkho.Value;
-                    addkhhh.so_luong = int.Parse(tbsoluong.Text);
 
 
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
-                        addkhhh.ma_kho_hang = addkh.ma_kho_hang = tbmakhohang.Text;
-                        addkhhh.ma_hang_hoa = tbmahanghoa.Text;
+                        addkhhh.makho_hangchitiet = tbmachitietkhohang.Text;
+                        addkhhh.ma_kho_hang = addkh.ma_kho_hang = cbbmakhohang.Text;
+                        addkhhh.ma_hang_hoa = cbbmahanghoa.Text;
                         addkhhh.ngay_nhap = dtpngaynhapkho.Value;
                         addkhhh.ngay_xuat = dtpngayxuatkho.Value;
-                        addkhhh.so_luong = int.Parse(tbsoluong.Text);
-                        db.khohang_hanghoa.Add(addkhhh);
-                        db.SaveChanges();
+                        int quantity;
+                        if (int.TryParse(tbsoluong.Text, out quantity))
+                        {
+                            addkhhh.so_luong = int.Parse(tbsoluong.Text);
+                            db.khohang_hanghoa.Add(addkhhh);
+                            db.SaveChanges();
+                            MessageBox.Show("Sửa thành công");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập số nguyên.");
+                        }
                     }
-                    MessageBox.Show("Thêm thành công ");
                     UpdateDGV();
                 }
                 catch (Exception)
@@ -276,7 +298,7 @@ namespace DUAN1
             {
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    khohang_hanghoa delete = db.khohang_hanghoa.Where(x => x.ma_kho_hang == tbmakhohang.Text).FirstOrDefault();
+                    khohang_hanghoa delete = db.khohang_hanghoa.Where(x => x.makho_hangchitiet == tbmachitietkhohang.Text).FirstOrDefault();
 
                     db.khohang_hanghoa.Remove(delete);
                     db.SaveChanges();
@@ -314,8 +336,9 @@ namespace DUAN1
         // Chức năng hủy reload lại form
         private void btnhuy_Click(object sender, EventArgs e)
         {
-            tbmakhohang.Text = "";
-            tbmahanghoa.Text = "";
+            tbmachitietkhohang.Text = "";
+            cbbmakhohang.Text = "";
+            cbbmahanghoa.Text = "";
             dtpngaynhapkho.Text = "";
             dtpngayxuatkho.Text = "";
             tbsoluong.Text = "";
@@ -328,8 +351,9 @@ namespace DUAN1
             btnhuy.Enabled = false;
             btnluu.Enabled = false;
 
-            tbmakhohang.ReadOnly = true;
-            tbmahanghoa.ReadOnly = true;
+            tbmachitietkhohang.Enabled = false;
+            cbbmakhohang.Enabled = false;
+            cbbmahanghoa.Enabled = false;
             dtpngaynhapkho.Enabled = false;
             dtpngayxuatkho.Enabled = false;
             tbsoluong.ReadOnly = true;
@@ -352,17 +376,26 @@ namespace DUAN1
             {
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    string maKhoHang = tbmakhohang.Text;
-                    khohang_hanghoa edit = db.khohang_hanghoa.FirstOrDefault(x => x.ma_kho_hang == maKhoHang);
+                    string MaCTHH = tbmachitietkhohang.Text;
+                    khohang_hanghoa edit = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaCTHH);
                     if (edit != null)
                     {
-                        edit.ma_kho_hang = tbmakhohang.Text;
-                        edit.ma_hang_hoa = tbmahanghoa.Text;
+                        edit.makho_hangchitiet = tbmachitietkhohang.Text;
+                        edit.ma_kho_hang = cbbmakhohang.Text;
+                        edit.ma_hang_hoa = cbbmahanghoa.Text;
                         edit.ngay_nhap = dtpngaynhapkho.Value;
                         edit.ngay_xuat = dtpngayxuatkho.Value;
-                        edit.so_luong = int.Parse(tbsoluong.Text);
-                        db.SaveChanges();
-                        MessageBox.Show("Sửa thành công");
+                        int quantity;
+                        if (int.TryParse(tbsoluong.Text, out quantity))
+                        {
+                            edit.so_luong = quantity;
+                            db.SaveChanges();
+                            MessageBox.Show("Sửa thành công");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập số nguyên.");
+                        }
                     }
                     else
                     {
@@ -415,15 +448,14 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-
-
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    List<khohang_hanghoa> listsv = db.khohang_hanghoa.Where(x => x.ma_kho_hang.Equals(tbtimkiem.Text)).ToList();
+                    List<khohang_hanghoa> listsv = db.khohang_hanghoa.Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
                     listsv.ToList().ForEach(sv =>
                     {
                         dataGridView1.Rows.Add(
+                            sv.makho_hangchitiet,
                         sv.ma_kho_hang,
                         sv.ma_hang_hoa,
                         sv.ngay_nhap,
