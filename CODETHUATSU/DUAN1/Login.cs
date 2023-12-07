@@ -20,13 +20,7 @@ namespace DUAN1
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //Lưu tài khoản vào bảng tạm
-            tbusername.Text = Properties.Settings.Default.Username;
-            tbpassword.Text = Properties.Settings.Default.Password;
-            if(Properties.Settings.Default.Username != "")
-            {
-                cbghinhodn.Checked = true;
-            }
+            
 
         }
 
@@ -146,6 +140,31 @@ namespace DUAN1
             QuenMatKhau quenMatKhau = new QuenMatKhau();
             this.Hide();
             quenMatKhau.Show();
+        }
+
+        private void Login_Load_1(object sender, EventArgs e)
+        {
+            //Lưu tài khoản vào bảng tạm
+            tbusername.Text = Properties.Settings.Default.Username;
+            tbpassword.Text = Properties.Settings.Default.Password;
+            if (Properties.Settings.Default.Username != "")
+            {
+                cbghinhodn.Checked = true;
+            }
+        }
+
+        private void tbusername_TextChanged(object sender, EventArgs e)
+        {
+            tbusername.Text = tbusername.Text.ToLower();
+            tbusername.SelectionStart = tbusername.Left;
+            tbusername.SelectionLength = 0;
+        }
+
+        private void tbpassword_TextChanged(object sender, EventArgs e)
+        {
+            tbpassword.Text = tbpassword.Text.ToLower();
+            tbpassword.SelectionStart = tbpassword.Left;
+            tbpassword.SelectionLength = 0;
         }
     }
 }

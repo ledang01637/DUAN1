@@ -24,27 +24,27 @@ namespace DUAN1
             //Hiển thị thông tin nhân viên
             using (DUAN1Entities db = new DUAN1Entities())
             {
+                nhan_vien nv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).FirstOrDefault();
                 List<nhan_vien> lnv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).ToList();
-                if(lnv.Any())
+                String RoleTK = DBHandler.CheckTK(tbtaikhoan.Text);
+                if (RoleTK.Equals("nhanvien"))
                 {
                     //Nếu nhân viên tồn tại, tên nhân viên và số điện thoại sẽ xuất ra trong text box dựa theo mã nhân viên ở tbmanhanvien
-                    nhan_vien nv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).FirstOrDefault();
                     tbmanhanvien.Text = nv.ma_nv;
                     tbtennhanvien.Text = nv.ten_nv;
                     tbsdt.Text = nv.sdt;
                     btnnhanvien.Enabled = false;
                 }
-                else
+                else if(RoleTK.Equals("admin"))
                 {
                     //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
-                    tbtennhanvien.Text = "";
-                    tbsdt.Text = "";
-                    tbmanhanvien.Text = "";
-                    tbtaikhoan.Text = "";
+                    tbmanhanvien.Text = nv.ma_nv;
+                    tbtennhanvien.Text = nv.ten_nv;
+                    tbsdt.Text = nv.sdt;
                     btnnhanvien.Enabled = true;
                 }
             }
-            
+
             tbmanhanvien.Enabled = false;
             tbtennhanvien.Enabled = false;
             tbsdt.Enabled = false;
@@ -70,7 +70,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
+            KhoHangHangHoa khhh = new KhoHangHangHoa(tbtaikhoan.Text);
             khhh.ShowDialog();
             this.Close();
         }
@@ -78,7 +78,7 @@ namespace DUAN1
         private void btnhoadon_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyHoaDon qlhd= new QuanLyHoaDon(tbtaikhoan.Text);
+            QuanLyHoaDon qlhd = new QuanLyHoaDon(tbtaikhoan.Text);
             qlhd.ShowDialog();
             this.Close();
         }
@@ -109,7 +109,7 @@ namespace DUAN1
 
         private void btnthongtinnv_Click(object sender, EventArgs e)
         {
-            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbtaikhoan.Text);
             this.Hide();
             tinNhanVien.ShowDialog();
             this.Close();

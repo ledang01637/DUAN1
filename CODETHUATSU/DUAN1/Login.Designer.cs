@@ -100,7 +100,6 @@ namespace DUAN1
             this.tbpassword.PasswordChar = '*';
             this.tbpassword.Size = new System.Drawing.Size(342, 30);
             this.tbpassword.TabIndex = 7;
-            this.tbpassword.TextAlignChanged += new System.EventHandler(this.tbpassword_TextAlignChanged);
             this.tbpassword.TextChanged += new System.EventHandler(this.tbpassword_TextChanged);
             // 
             // lbpassword
@@ -216,6 +215,7 @@ namespace DUAN1
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
