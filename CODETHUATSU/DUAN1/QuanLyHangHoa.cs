@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
+using ZXing.QrCode;
 
 namespace DUAN1
 {
@@ -343,6 +345,50 @@ namespace DUAN1
                 {
                     MessageBox.Show("Tìm không thấy", "Thông báo", MessageBoxButtons.OK);
                 }
+            }
+        }
+        private void btnTaoQR_Click(object sender, EventArgs e)
+        {
+            btnsua.Enabled = false;
+            var options = new QrCodeEncodingOptions
+            {
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = 333,
+                Height = 333,
+            };
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+            barcodeWriter.Options = options;
+            if (!string.IsNullOrEmpty(tbmahanghoa.Text))
+            {
+                Bitmap result = barcodeWriter.Write(tbmahanghoa.Text);
+                hinhanh.Image = result;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng thêm mã hàng để tạo","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLuuQR_Click(object sender, EventArgs e)
+        {
+            if (hinhanh.Image != null)
+            {
+                Bitmap myBitmap = (Bitmap)hinhanh.Image;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
+                saveFileDialog1.FilterIndex = 2;
+                saveFileDialog1.RestoreDirectory = true;
+                saveFileDialog1.FileName = hinhanh.Text + ".jpg";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    myBitmap.Save(saveFileDialog1.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void pictureBox2_Paint(object sender, PaintEventArgs e)

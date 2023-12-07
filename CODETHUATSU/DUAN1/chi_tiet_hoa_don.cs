@@ -17,6 +17,8 @@ namespace DUAN1
         public int macthd { get; set; }
         public string ma_hd { get; set; }
         public string makho_hangchitiet { get; set; }
+        public Nullable<int> so_luong { get; set; }
+        public Nullable<double> thanh_tien { get; set; }
     
         public virtual hoa_don hoa_don { get; set; }
         public virtual khohang_hanghoa khohang_hanghoa { get; set; }

@@ -30,10 +30,10 @@ namespace DUAN1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyHangHoa));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.tbmahanghoa = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -74,6 +74,8 @@ namespace DUAN1
             this.tbgianhap = new System.Windows.Forms.TextBox();
             this.btnthongke = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
+            this.btnLuuQR = new System.Windows.Forms.Button();
+            this.btnTaoQR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinhanh)).BeginInit();
@@ -222,7 +224,7 @@ namespace DUAN1
             this.hinhanh.Location = new System.Drawing.Point(1163, 167);
             this.hinhanh.Margin = new System.Windows.Forms.Padding(4);
             this.hinhanh.Name = "hinhanh";
-            this.hinhanh.Size = new System.Drawing.Size(333, 308);
+            this.hinhanh.Size = new System.Drawing.Size(333, 333);
             this.hinhanh.TabIndex = 59;
             this.hinhanh.TabStop = false;
             this.hinhanh.Click += new System.EventHandler(this.hinhanh_Click);
@@ -494,8 +496,8 @@ namespace DUAN1
             // 
             // MaHH
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaHH.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaHH.DefaultCellStyle = dataGridViewCellStyle1;
             this.MaHH.HeaderText = "Mã hàng hóa";
             this.MaHH.MinimumWidth = 6;
             this.MaHH.Name = "MaHH";
@@ -504,8 +506,8 @@ namespace DUAN1
             // 
             // Ten
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ten.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.DefaultCellStyle = dataGridViewCellStyle2;
             this.Ten.HeaderText = "Tên hàng hóa";
             this.Ten.MinimumWidth = 6;
             this.Ten.Name = "Ten";
@@ -514,8 +516,8 @@ namespace DUAN1
             // 
             // NgaySX
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgaySX.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgaySX.DefaultCellStyle = dataGridViewCellStyle3;
             this.NgaySX.HeaderText = "Ngày sản xuất";
             this.NgaySX.MinimumWidth = 6;
             this.NgaySX.Name = "NgaySX";
@@ -524,8 +526,8 @@ namespace DUAN1
             // 
             // HSD
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HSD.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSD.DefaultCellStyle = dataGridViewCellStyle4;
             this.HSD.HeaderText = "Hạn sử dụng";
             this.HSD.MinimumWidth = 6;
             this.HSD.Name = "HSD";
@@ -610,11 +612,37 @@ namespace DUAN1
             this.tbusername.TabIndex = 250;
             this.tbusername.Text = "username";
             // 
+            // btnLuuQR
+            // 
+            this.btnLuuQR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLuuQR.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuQR.Location = new System.Drawing.Point(890, 429);
+            this.btnLuuQR.Name = "btnLuuQR";
+            this.btnLuuQR.Size = new System.Drawing.Size(109, 67);
+            this.btnLuuQR.TabIndex = 252;
+            this.btnLuuQR.Text = "Lưu QR";
+            this.btnLuuQR.UseVisualStyleBackColor = true;
+            this.btnLuuQR.Click += new System.EventHandler(this.btnLuuQR_Click);
+            // 
+            // btnTaoQR
+            // 
+            this.btnTaoQR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTaoQR.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoQR.Location = new System.Drawing.Point(1005, 429);
+            this.btnTaoQR.Name = "btnTaoQR";
+            this.btnTaoQR.Size = new System.Drawing.Size(109, 67);
+            this.btnTaoQR.TabIndex = 251;
+            this.btnTaoQR.Text = "Tạo QR";
+            this.btnTaoQR.UseVisualStyleBackColor = true;
+            this.btnTaoQR.Click += new System.EventHandler(this.btnTaoQR_Click);
+            // 
             // QuanLyHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 826);
+            this.Controls.Add(this.btnLuuQR);
+            this.Controls.Add(this.btnTaoQR);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.label1);
@@ -706,5 +734,7 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaNhap;
         private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.Label tbusername;
+        private System.Windows.Forms.Button btnLuuQR;
+        private System.Windows.Forms.Button btnTaoQR;
     }
 }

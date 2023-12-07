@@ -536,6 +536,7 @@ namespace DUAN1
             this.btnhanghoa.Size = new System.Drawing.Size(160, 64);
             this.btnhanghoa.TabIndex = 141;
             this.btnhanghoa.UseVisualStyleBackColor = false;
+            this.btnhanghoa.Click += new System.EventHandler(this.btnhanghoa_Click);
             // 
             // btnthongtinnv
             // 

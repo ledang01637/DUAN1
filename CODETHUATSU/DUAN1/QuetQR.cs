@@ -20,6 +20,7 @@ namespace DUAN1
     {
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
+        List<hang_hoa> dsHang = new List<hang_hoa>();
         public QuetQR()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace DUAN1
             }cbbChonCamera
             .SelectedIndex = 0;
         }
-        private void timer1_Tick(object sender, System.EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             if (ptbCamera.Image != null)
             {
@@ -50,7 +51,34 @@ namespace DUAN1
                 Result result = barcodeReader.Decode((Bitmap)ptbCamera.Image);
                 if (result != null)
                 {
+                    tbShowQR.Text = "";
                     tbShowQR.Text = result.ToString();
+                    using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+                    {
+                        hang_hoa hh = new hang_hoa();
+                        if (String.IsNullOrWhiteSpace(tbShowQR.Text))
+                        {
+                            MessageBox.Show("Vui lòng thêm hàng hóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        hh.ma_hang_hoa = result.ToString();
+                        dsHang.Add(hh);
+                        foreach (var item in dsHang)
+                        {
+                            using (DUAN1Entities du = new DUAN1Entities())
+                            {
+                                var hang = du.hang_hoa.Where(a => a.ma_hang_hoa.Equals(item.ma_hang_hoa));
+                                dataGridView1.Rows.Clear();
+                                foreach (var ytem in hang)
+                                {
+                                    dataGridView1.Rows.Add(
+                                        ytem.ma_hang_hoa,
+                                        ytem.ten
+                                        );
+                                }
+                            }
+                        }   
+                    }
                     timer1.Stop();
                     if (videoCaptureDevice.IsRunning)
                     {
@@ -120,49 +148,38 @@ namespace DUAN1
             this.Close();
         }
 
-        List<hang_hoa> dsHang = new List<hang_hoa>();
+        
         private void btnThemHang_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities HangHoa_ = new DUAN1Entities())
-            {
-                hang_hoa hh = new hang_hoa();
-                if(tbShowQR.Text == null || tbShowQR.Text == "")
-                {
-                    MessageBox.Show("Vui lòng thêm hàng hóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                hh.ma_hang_hoa = tbShowQR.Text;
-                dsHang.Add(hh);  
-            }
-            var confirmResult = MessageBox.Show(
-               "Đã thêm, bạn có muốn tiếp tục quét QR ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (confirmResult == DialogResult.Yes)
-            {
-                videoCaptureDevice.Start();
-                timer1.Start();
-            }
-            else
-            {
-                if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
-                {
-                    videoCaptureDevice.Stop();
-                }
-                foreach (var item in dsHang)
-                {
-                    using (DUAN1Entities du = new DUAN1Entities())
-                    {
-                        var hang = du.hang_hoa.Where(a => a.ma_hang_hoa.Equals(item.ma_hang_hoa));
-                        foreach (var ytem in hang)
-                        {
-                            dataGridView1.Rows.Add(
-                                ytem.ma_hang_hoa,
-                                ytem.ten
-                                );
-                        }
-                    }
-                }
-                MessageBox.Show("Vui lòng thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+            //{
+            //    hang_hoa hh = new hang_hoa();
+            //    if(String.IsNullOrWhiteSpace(tbShowQR.Text))
+            //    {
+            //        MessageBox.Show("Vui lòng thêm hàng hóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        return;
+            //    }
+            //    hh.ma_hang_hoa = tbShowQR.Text;
+            //    dsHang.Add(hh);
+            //    tbShowQR.Text = "";
+            //}
+            //var confirmResult = MessageBox.Show(
+            //   "Đã thêm, bạn có muốn tiếp tục quét QR ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //if (confirmResult == DialogResult.Yes)
+            //{
+            //    videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbbChonCamera.SelectedIndex].MonikerString);
+            //    videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            //    videoCaptureDevice.Start();
+            //    timer1.Start();
+            //}
+            //else
+            //{
+            //    if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+            //    {
+            //        videoCaptureDevice.Stop();
+            //    }
+            //    MessageBox.Show("Vui lòng thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -207,7 +224,7 @@ namespace DUAN1
             using (DUAN1Entities entities = new DUAN1Entities())
             {
                 string TenHang = "";
-                string Gia = "";
+                double Gia = 0;
                 int SL = 1;
                 int cao = 50;
                 double TongTien = 0;
@@ -223,10 +240,10 @@ namespace DUAN1
                         stringFormatBody.Alignment = StringAlignment.Center;
                         Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
                         TenHang = item.ten;
-                        Gia = item.gia_ban.ToString();
+                        Gia = (double)item.gia_ban;
                         TongTien = (double)item.gia_ban * SL;
                         ThanhTien += TongTien;
-                        e.Graphics.DrawString(TenHang + "     " + Gia + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                        e.Graphics.DrawString(TenHang + "     " + Gia.ToString("#,##0") + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
                         cao += 20;
                     }
                 }

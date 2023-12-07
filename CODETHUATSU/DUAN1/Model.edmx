@@ -10,8 +10,10 @@
             <PropertyRef Name="macthd" />
           </Key>
           <Property Name="macthd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ma_hd" Type="varchar" MaxLength="20" />
-          <Property Name="makho_hangchitiet" Type="varchar" MaxLength="20" />
+          <Property Name="ma_hd" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="makho_hangchitiet" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="so_luong" Type="int" />
+          <Property Name="thanh_tien" Type="float" />
         </EntityType>
         <EntityType Name="dang_nhap">
           <Key>
@@ -42,8 +44,6 @@
           <Property Name="ma_kh" Type="varchar" MaxLength="20" />
           <Property Name="ma_nv" Type="varchar" MaxLength="20" />
           <Property Name="ngay_lap" Type="date" />
-          <Property Name="so_luong" Type="int" />
-          <Property Name="thanh_tien" Type="float" />
           <Property Name="trang_thai" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="khach_hang">
@@ -82,7 +82,7 @@
           <Property Name="tai_khoan_dangnhap" Type="varchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK__chi_tiet___ma_hd__4BAC3F29">
-          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="0..1" />
+          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
           <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hoa_don">
@@ -94,7 +94,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__chi_tiet___makho__4CA06362">
-          <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="0..1" />
+          <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="1" />
           <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="khohang_hanghoa">
@@ -213,8 +213,10 @@
             <PropertyRef Name="macthd" />
           </Key>
           <Property Name="macthd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ma_hd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="makho_hangchitiet" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ma_hd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makho_hangchitiet" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="so_luong" Type="Int32" />
+          <Property Name="thanh_tien" Type="Double" />
           <NavigationProperty Name="hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__4BAC3F29" FromRole="chi_tiet_hoa_don" ToRole="hoa_don" />
           <NavigationProperty Name="khohang_hanghoa" Relationship="Self.FK__chi_tiet___makho__4CA06362" FromRole="chi_tiet_hoa_don" ToRole="khohang_hanghoa" />
         </EntityType>
@@ -249,8 +251,6 @@
           <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ma_nv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ngay_lap" Type="DateTime" Precision="0" />
-          <Property Name="so_luong" Type="Int32" />
-          <Property Name="thanh_tien" Type="Double" />
           <Property Name="trang_thai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__4BAC3F29" FromRole="hoa_don" ToRole="chi_tiet_hoa_don" />
           <NavigationProperty Name="nhan_vien" Relationship="Self.FK__hoa_don__ma_nv__48CFD27E" FromRole="hoa_don" ToRole="nhan_vien" />
@@ -299,7 +299,7 @@
           <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_nv__48CFD27E" FromRole="nhan_vien" ToRole="hoa_don" />
         </EntityType>
         <Association Name="FK__chi_tiet___ma_hd__4BAC3F29">
-          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="0..1" />
+          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
           <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hoa_don">
@@ -311,7 +311,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__chi_tiet___makho__4CA06362">
-          <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="0..1" />
+          <End Role="khohang_hanghoa" Type="Self.khohang_hanghoa" Multiplicity="1" />
           <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="khohang_hanghoa">
@@ -432,6 +432,8 @@
                 <ScalarProperty Name="macthd" ColumnName="macthd" />
                 <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
                 <ScalarProperty Name="makho_hangchitiet" ColumnName="makho_hangchitiet" />
+                <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+                <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -465,8 +467,6 @@
                 <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
                 <ScalarProperty Name="ma_nv" ColumnName="ma_nv" />
                 <ScalarProperty Name="ngay_lap" ColumnName="ngay_lap" />
-                <ScalarProperty Name="so_luong" ColumnName="so_luong" />
-                <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
                 <ScalarProperty Name="trang_thai" ColumnName="trang_thai" />
               </MappingFragment>
             </EntityTypeMapping>
