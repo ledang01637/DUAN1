@@ -30,6 +30,7 @@ namespace DUAN1
         {
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbbChonCamera.SelectedIndex].MonikerString);
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            tbShowQR.Text = "";
             videoCaptureDevice.Start();
             timer1.Start();
         }
@@ -49,9 +50,8 @@ namespace DUAN1
             {
                 BarcodeReader barcodeReader = new BarcodeReader();
                 Result result = barcodeReader.Decode((Bitmap)ptbCamera.Image);
-                if (result != null)
+                if (result != null )
                 {
-                    tbShowQR.Text = "";
                     tbShowQR.Text = result.ToString();
                     using (DUAN1Entities HangHoa_ = new DUAN1Entities())
                     {
@@ -62,13 +62,14 @@ namespace DUAN1
                             return;
                         }
                         hh.ma_hang_hoa = result.ToString();
+                        dataGridView1.Rows.Clear();
                         dsHang.Add(hh);
                         foreach (var item in dsHang)
                         {
                             using (DUAN1Entities du = new DUAN1Entities())
                             {
                                 var hang = du.hang_hoa.Where(a => a.ma_hang_hoa.Equals(item.ma_hang_hoa));
-                                dataGridView1.Rows.Clear();
+
                                 foreach (var ytem in hang)
                                 {
                                     dataGridView1.Rows.Add(
@@ -77,7 +78,7 @@ namespace DUAN1
                                         );
                                 }
                             }
-                        }   
+                        } 
                     }
                     timer1.Stop();
                     if (videoCaptureDevice.IsRunning)
@@ -184,6 +185,10 @@ namespace DUAN1
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.Stop();
+            }
             int ds = dsHang.Count;
             if (ds > 0)
             {

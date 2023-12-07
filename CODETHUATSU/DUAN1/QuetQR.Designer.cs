@@ -172,6 +172,7 @@ namespace DUAN1
             // 
             // timer1
             // 
+            this.timer1.Interval = 1500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnThoatQR
@@ -198,6 +199,7 @@ namespace DUAN1
             // 
             // btnThemHang
             // 
+            this.btnThemHang.Enabled = false;
             this.btnThemHang.Location = new System.Drawing.Point(553, 263);
             this.btnThemHang.Name = "btnThemHang";
             this.btnThemHang.Size = new System.Drawing.Size(96, 48);
