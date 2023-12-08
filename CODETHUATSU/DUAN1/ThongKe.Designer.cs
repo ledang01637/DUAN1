@@ -50,7 +50,6 @@ namespace DUAN1
             this.btnthongke = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.cbbmahanghoa = new System.Windows.Forms.ComboBox();
             this.btnkhachhang = new System.Windows.Forms.Button();
             this.btnnhanvien = new System.Windows.Forms.Button();
             this.btnkhohang = new System.Windows.Forms.Button();
@@ -61,19 +60,20 @@ namespace DUAN1
             this.label2 = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mahanghoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaylap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giasanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluongdaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluongcontrongkho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnhoadon = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbusername = new System.Windows.Forms.Label();
+            this.tbmakhohangchitiet = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnChiTietHoaDon = new System.Windows.Forms.Button();
+            this.mahoadon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaylap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giasanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluongdaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluongcontrongkho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -280,7 +280,7 @@ namespace DUAN1
             this.btnthongke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnthongke.FlatAppearance.BorderSize = 0;
             this.btnthongke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnthongke.Location = new System.Drawing.Point(16, 565);
+            this.btnthongke.Location = new System.Drawing.Point(16, 640);
             this.btnthongke.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnthongke.Name = "btnthongke";
             this.btnthongke.Size = new System.Drawing.Size(160, 64);
@@ -319,24 +319,13 @@ namespace DUAN1
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.btnhoadon_Click);
             // 
-            // cbbmahanghoa
-            // 
-            this.cbbmahanghoa.Enabled = false;
-            this.cbbmahanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbmahanghoa.FormattingEnabled = true;
-            this.cbbmahanghoa.Location = new System.Drawing.Point(495, 151);
-            this.cbbmahanghoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbbmahanghoa.Name = "cbbmahanghoa";
-            this.cbbmahanghoa.Size = new System.Drawing.Size(428, 47);
-            this.cbbmahanghoa.TabIndex = 227;
-            // 
             // btnkhachhang
             // 
             this.btnkhachhang.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnkhachhang.BackgroundImage")));
             this.btnkhachhang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnkhachhang.FlatAppearance.BorderSize = 0;
             this.btnkhachhang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnkhachhang.Location = new System.Drawing.Point(16, 494);
+            this.btnkhachhang.Location = new System.Drawing.Point(16, 569);
             this.btnkhachhang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnkhachhang.Name = "btnkhachhang";
             this.btnkhachhang.Size = new System.Drawing.Size(160, 64);
@@ -351,7 +340,7 @@ namespace DUAN1
             this.btnnhanvien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnnhanvien.FlatAppearance.BorderSize = 0;
             this.btnnhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnnhanvien.Location = new System.Drawing.Point(16, 422);
+            this.btnnhanvien.Location = new System.Drawing.Point(16, 497);
             this.btnnhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnnhanvien.Name = "btnnhanvien";
             this.btnnhanvien.Size = new System.Drawing.Size(160, 64);
@@ -421,6 +410,7 @@ namespace DUAN1
             this.btntimkiem.TabIndex = 221;
             this.toolTip1.SetToolTip(this.btntimkiem, "Tìm kiếm");
             this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // tbtimkiem
             // 
@@ -441,9 +431,9 @@ namespace DUAN1
             this.label2.Location = new System.Drawing.Point(245, 150);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(233, 39);
+            this.label2.Size = new System.Drawing.Size(338, 39);
             this.label2.TabIndex = 219;
-            this.label2.Text = "Mã hàng hóa :";
+            this.label2.Text = "Mã kho hàng chi tiết :";
             // 
             // button15
             // 
@@ -464,7 +454,7 @@ namespace DUAN1
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mahanghoa,
+            this.mahoadon,
             this.ngaylap,
             this.giasanpham,
             this.soluongdaban,
@@ -476,41 +466,7 @@ namespace DUAN1
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(631, 576);
             this.dataGridView1.TabIndex = 217;
-            // 
-            // mahanghoa
-            // 
-            this.mahanghoa.HeaderText = "Mã hàng hóa";
-            this.mahanghoa.MinimumWidth = 6;
-            this.mahanghoa.Name = "mahanghoa";
-            this.mahanghoa.ReadOnly = true;
-            // 
-            // ngaylap
-            // 
-            this.ngaylap.HeaderText = "Ngày lập";
-            this.ngaylap.MinimumWidth = 6;
-            this.ngaylap.Name = "ngaylap";
-            this.ngaylap.ReadOnly = true;
-            // 
-            // giasanpham
-            // 
-            this.giasanpham.HeaderText = "Tổng giá";
-            this.giasanpham.MinimumWidth = 6;
-            this.giasanpham.Name = "giasanpham";
-            this.giasanpham.ReadOnly = true;
-            // 
-            // soluongdaban
-            // 
-            this.soluongdaban.HeaderText = "Số lượng đã bán";
-            this.soluongdaban.MinimumWidth = 6;
-            this.soluongdaban.Name = "soluongdaban";
-            this.soluongdaban.ReadOnly = true;
-            // 
-            // soluongcontrongkho
-            // 
-            this.soluongcontrongkho.HeaderText = "Số lượng còn trong kho";
-            this.soluongcontrongkho.MinimumWidth = 6;
-            this.soluongcontrongkho.Name = "soluongcontrongkho";
-            this.soluongcontrongkho.ReadOnly = true;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // pictureBox1
             // 
@@ -585,6 +541,17 @@ namespace DUAN1
             this.tbusername.TabIndex = 251;
             this.tbusername.Text = "username";
             // 
+            // tbmakhohangchitiet
+            // 
+            this.tbmakhohangchitiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbmakhohangchitiet.Location = new System.Drawing.Point(613, 150);
+            this.tbmakhohangchitiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbmakhohangchitiet.Multiline = true;
+            this.tbmakhohangchitiet.Name = "tbmakhohangchitiet";
+            this.tbmakhohangchitiet.ReadOnly = true;
+            this.tbmakhohangchitiet.Size = new System.Drawing.Size(309, 45);
+            this.tbmakhohangchitiet.TabIndex = 252;
+            // 
             // btnChiTietHoaDon
             // 
             this.btnChiTietHoaDon.BackColor = System.Drawing.SystemColors.Control;
@@ -592,19 +559,55 @@ namespace DUAN1
             this.btnChiTietHoaDon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChiTietHoaDon.FlatAppearance.BorderSize = 0;
             this.btnChiTietHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChiTietHoaDon.Location = new System.Drawing.Point(16, 637);
-            this.btnChiTietHoaDon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChiTietHoaDon.Location = new System.Drawing.Point(14, 424);
+            this.btnChiTietHoaDon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnChiTietHoaDon.Name = "btnChiTietHoaDon";
-            this.btnChiTietHoaDon.Size = new System.Drawing.Size(160, 64);
+            this.btnChiTietHoaDon.Size = new System.Drawing.Size(159, 64);
             this.btnChiTietHoaDon.TabIndex = 297;
             this.btnChiTietHoaDon.UseVisualStyleBackColor = false;
             this.btnChiTietHoaDon.Click += new System.EventHandler(this.btnChiTietHoaDon_Click);
+            // 
+            // mahoadon
+            // 
+            this.mahoadon.HeaderText = "Mã kho hàng chi tiết";
+            this.mahoadon.MinimumWidth = 6;
+            this.mahoadon.Name = "mahoadon";
+            this.mahoadon.ReadOnly = true;
+            // 
+            // ngaylap
+            // 
+            this.ngaylap.HeaderText = "Ngày lập";
+            this.ngaylap.MinimumWidth = 6;
+            this.ngaylap.Name = "ngaylap";
+            this.ngaylap.ReadOnly = true;
+            // 
+            // giasanpham
+            // 
+            this.giasanpham.HeaderText = "Tổng giá";
+            this.giasanpham.MinimumWidth = 6;
+            this.giasanpham.Name = "giasanpham";
+            this.giasanpham.ReadOnly = true;
+            // 
+            // soluongdaban
+            // 
+            this.soluongdaban.HeaderText = "Số lượng đã bán";
+            this.soluongdaban.MinimumWidth = 6;
+            this.soluongdaban.Name = "soluongdaban";
+            this.soluongdaban.ReadOnly = true;
+            // 
+            // soluongcontrongkho
+            // 
+            this.soluongcontrongkho.HeaderText = "Số lượng còn trong kho";
+            this.soluongcontrongkho.MinimumWidth = 6;
+            this.soluongcontrongkho.Name = "soluongcontrongkho";
+            this.soluongcontrongkho.ReadOnly = true;
             // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1683, 826);
+            this.ClientSize = new System.Drawing.Size(1683, 825);
+            this.Controls.Add(this.tbmakhohangchitiet);
             this.Controls.Add(this.btnChiTietHoaDon);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnhuy);
@@ -626,7 +629,6 @@ namespace DUAN1
             this.Controls.Add(this.btnthongke);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.cbbmahanghoa);
             this.Controls.Add(this.btnkhachhang);
             this.Controls.Add(this.btnnhanvien);
             this.Controls.Add(this.btnkhohang);
@@ -642,9 +644,9 @@ namespace DUAN1
             this.Controls.Add(this.btnhoadon);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1701, 873);
-            this.MinimumSize = new System.Drawing.Size(1701, 873);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MaximumSize = new System.Drawing.Size(1701, 872);
+            this.MinimumSize = new System.Drawing.Size(1701, 872);
             this.Name = "ThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QLThongKe";
@@ -678,7 +680,6 @@ namespace DUAN1
         private System.Windows.Forms.Button btnthongke;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox cbbmahanghoa;
         private System.Windows.Forms.Button btnkhachhang;
         private System.Windows.Forms.Button btnnhanvien;
         private System.Windows.Forms.Button btnkhohang;
@@ -689,18 +690,19 @@ namespace DUAN1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mahanghoa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaylap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giasanpham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soluongdaban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soluongcontrongkho;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnthoat;
         private System.Windows.Forms.Button btnhoadon;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label tbusername;
+        private System.Windows.Forms.TextBox tbmakhohangchitiet;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnChiTietHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mahoadon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaylap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giasanpham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soluongdaban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soluongcontrongkho;
     }
 }
