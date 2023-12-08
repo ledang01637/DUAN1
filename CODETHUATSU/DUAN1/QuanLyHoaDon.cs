@@ -357,16 +357,17 @@ namespace DUAN1
         }
         //Print HoaDon
         private readonly PrintDocument docToPrint = new PrintDocument();
-        readonly int  y = 0;
-        readonly int height = 300;
-        readonly int width = 228;
+        readonly int x = 0;
+        readonly int y = 0;
+        readonly int height = 30;
+        readonly int width = 220;
         private void btninhoadon_Click(object sender, EventArgs e)
         {
             var dtg2 = dtgv2.Rows.Count;
             if (dtg2 > 0)
             {
                 PrintDialog PrintDialog1 = new PrintDialog();
-                docToPrint.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", width, height);
+                docToPrint.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", width, height+200);
                 PrintDialog1.AllowSomePages = true;
                 PrintDialog1.ShowHelp = true;
                 PrintDialog1.Document = docToPrint;
@@ -387,13 +388,21 @@ namespace DUAN1
         }
         private void document_PrintPage(object sender, PrintPageEventArgs e)
         {
-            string title = "HÓA ĐƠN BÁN HÀNG\nShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\n\nTên hàng   Giá   Số lượng";
+            string title = "HÓA ĐƠN BÁN HÀNG";
             StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
-            Rectangle rectangle = new Rectangle(new Point(height, y), new Size(width, height));
+            Rectangle rectangle = new Rectangle(x-30,y,width,height);
             stringFormat.LineAlignment = StringAlignment.Center;
             stringFormat.Alignment = StringAlignment.Center;
             Font printFont = new Font("Arial", 11, FontStyle.Bold);
             e.Graphics.DrawString(title, printFont, Brushes.Black, rectangle, stringFormat);
+               
+            string head = "ShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\nTên hàng   Giá   Số lượng";
+            StringFormat stringFormat2 = new StringFormat(StringFormatFlags.NoClip);
+            Rectangle rectangle2 = new Rectangle(x, y + height,width + 30,height + 30);
+            stringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat.Alignment = StringAlignment.Center;
+            Font printFont2 = new Font("Arial", 10, FontStyle.Regular);
+            e.Graphics.DrawString(head, printFont2, Brushes.Black, rectangle2, stringFormat2);
 
             using (DUAN1Entities entities = new DUAN1Entities())
             {
@@ -404,13 +413,13 @@ namespace DUAN1
                 double TongTien = 0;
                 double ThanhTien = 0;
                 var cthd = entities.chi_tiet_hoa_don.ToList().Where(a => a.ma_hd.Equals(tbmahoadon.Text));
-                foreach(var item in cthd)
+                foreach (var item in cthd)
                 {
                     StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
-                    Rectangle rectangleBody = new Rectangle(new Point(height, y + cao), new Size(width, height));
+                    Rectangle rectangleBody = new Rectangle(x - 30, y + cao + 30, width,height);
                     stringFormatBody.LineAlignment = StringAlignment.Center;
                     stringFormatBody.Alignment = StringAlignment.Center;
-                    Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
+                    Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
                     TenHang = item.khohang_hanghoa.hang_hoa.ten;
                     Gia = item.khohang_hanghoa.hang_hoa.gia_ban.ToString();
                     SL = item.khohang_hanghoa.so_luong.ToString();
@@ -420,10 +429,10 @@ namespace DUAN1
                     cao += 20;
                 }
                 StringFormat stringFormatFooter = new StringFormat(StringFormatFlags.NoClip);
-                Rectangle rectangleFooter = new Rectangle(new Point(height, y + cao + 30), new Size(width, height));
+                Rectangle rectangleFooter = new Rectangle(x - 30, y + cao + 30, width, height);
                 stringFormatFooter.LineAlignment = StringAlignment.Center;
                 stringFormatFooter.Alignment = StringAlignment.Center;
-                Font printFontFooter = new Font("Arial", 10, FontStyle.Bold);
+                Font printFontFooter = new Font("Arial", 10, FontStyle.Regular);
 
                 e.Graphics.DrawString("----------\nThành tiền: " + ThanhTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
             }

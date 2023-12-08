@@ -183,7 +183,11 @@ namespace DUAN1
             //    MessageBox.Show("Vui lòng thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
         }
-
+        //Print HoaDon
+        private readonly PrintDocument docToPrint = new PrintDocument();
+        readonly int y = 0;
+        readonly int height = 300;
+        readonly int width = 220;
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
@@ -212,11 +216,6 @@ namespace DUAN1
                 MessageBox.Show("Lỗi không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //Print HoaDon
-        private readonly PrintDocument docToPrint = new PrintDocument();
-        readonly int y = 0;
-        readonly int height = 300;
-        readonly int width = 228;
         private void document_PrintPage(object sender, PrintPageEventArgs e)
         {
             string title = "HÓA ĐƠN BÁN HÀNG\nShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\n\nTên hàng   Giá   Số lượng";
