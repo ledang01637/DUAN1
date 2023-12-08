@@ -45,7 +45,7 @@ namespace DUAN1
                         DateTime.Parse(HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                         CTHoaDon.thanh_tien,
                         CTHoaDon.so_luong,
-                        CTHD != null ? KHHH.so_luong - CTHoaDon.so_luong : 0
+                        CTHD != null ? KHHH.so_luong : 0
                     ); ;
                 }
             }

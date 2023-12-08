@@ -125,18 +125,33 @@ namespace DUAN1
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
                     chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
-
                     khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cbbmakhohangchitiet.Text));
                     hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
                     cthd.ma_hd = cbbmahoadon.Text;
                     cthd.makho_hangchitiet = cbbmakhohangchitiet.Text;
-                    cthd.so_luong = int.Parse(tbsoluong.Text);
-                    cthd.thanh_tien = cthd.so_luong * hanghoa.gia_ban;
-                    db.chi_tiet_hoa_don.Add(cthd);
-                    db.SaveChanges();
-                    MessageBox.Show("Thêm thành công");
-                    ThongKe();
-                    UpdateDGV();
+                    if(int.Parse(tbsoluong.Text) > 0)
+                    {
+                        if((khhh.so_luong - int.Parse(tbsoluong.Text)) < 0)
+                        {
+                            MessageBox.Show("Số lượng phải bé hơn hoặc bằng số lượng trong kho", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            cthd.so_luong = int.Parse(tbsoluong.Text);
+                            cthd.thanh_tien = cthd.so_luong * hanghoa.gia_ban;
+                            db.chi_tiet_hoa_don.Add(cthd);
+                            db.SaveChanges();
+                            MessageBox.Show("Thêm thành công");
+                            ThongKe();
+                            UpdateDGV();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    } 
                 }
             }
             catch (Exception)
@@ -179,9 +194,15 @@ namespace DUAN1
                     edit.macthd = int.Parse(tbmachitiethoadon.Text);
                     edit.ma_hd = cbbmahoadon.Text;
                     edit.makho_hangchitiet = cbbmakhohangchitiet.Text;
+                    if(int.Parse(tbsoluong.Text) <= 0)
+                    {
+                        MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     edit.so_luong = int.Parse(tbsoluong.Text);
                     edit.thanh_tien = edit.so_luong * hanghoa.gia_ban;
                     db.SaveChanges();
+                    ThongKe();
                     MessageBox.Show("Sửa thành công");
                 }
                 else
