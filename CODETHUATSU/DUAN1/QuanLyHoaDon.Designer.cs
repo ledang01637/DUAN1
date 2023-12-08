@@ -29,6 +29,7 @@ namespace DUAN1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyHoaDon));
             this.lbhansudung = new System.Windows.Forms.Label();
             this.lbngaysx = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@ namespace DUAN1
             this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv2)).BeginInit();
@@ -164,6 +166,7 @@ namespace DUAN1
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(120, 52);
             this.btnthoat.TabIndex = 103;
+            this.toolTip1.SetToolTip(this.btnthoat, "Thoát ");
             this.btnthoat.UseVisualStyleBackColor = true;
             // 
             // btnhoadon
@@ -177,6 +180,7 @@ namespace DUAN1
             this.btnhoadon.Name = "btnhoadon";
             this.btnhoadon.Size = new System.Drawing.Size(120, 52);
             this.btnhoadon.TabIndex = 100;
+            this.toolTip1.SetToolTip(this.btnhoadon, "Quản lý hóa đơn");
             this.btnhoadon.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -254,6 +258,7 @@ namespace DUAN1
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(120, 52);
             this.btnhuy.TabIndex = 139;
+            this.toolTip1.SetToolTip(this.btnhuy, "Hủy");
             this.btnhuy.UseVisualStyleBackColor = true;
             this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
             // 
@@ -267,6 +272,7 @@ namespace DUAN1
             this.btnxoa.Name = "btnxoa";
             this.btnxoa.Size = new System.Drawing.Size(120, 52);
             this.btnxoa.TabIndex = 138;
+            this.toolTip1.SetToolTip(this.btnxoa, "Xóa");
             this.btnxoa.UseVisualStyleBackColor = true;
             this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
@@ -280,6 +286,7 @@ namespace DUAN1
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(120, 52);
             this.btnsua.TabIndex = 137;
+            this.toolTip1.SetToolTip(this.btnsua, "Sửa");
             this.btnsua.UseVisualStyleBackColor = true;
             this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
             // 
@@ -293,6 +300,7 @@ namespace DUAN1
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(120, 52);
             this.btntimkiem.TabIndex = 136;
+            this.toolTip1.SetToolTip(this.btntimkiem, "Tìm kiếm");
             this.btntimkiem.UseVisualStyleBackColor = true;
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
@@ -315,6 +323,7 @@ namespace DUAN1
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(120, 52);
             this.btnluu.TabIndex = 134;
+            this.toolTip1.SetToolTip(this.btnluu, "Lưu");
             this.btnluu.UseVisualStyleBackColor = true;
             this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
             // 
@@ -328,6 +337,7 @@ namespace DUAN1
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(120, 52);
             this.btnthem.TabIndex = 133;
+            this.toolTip1.SetToolTip(this.btnthem, "Thêm");
             this.btnthem.UseVisualStyleBackColor = true;
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
             // 
@@ -341,6 +351,7 @@ namespace DUAN1
             this.btnkhachhang.Name = "btnkhachhang";
             this.btnkhachhang.Size = new System.Drawing.Size(120, 52);
             this.btnkhachhang.TabIndex = 144;
+            this.toolTip1.SetToolTip(this.btnkhachhang, "Quản lý khách hàng");
             this.btnkhachhang.UseVisualStyleBackColor = true;
             this.btnkhachhang.Click += new System.EventHandler(this.btnkhachhang_Click);
             // 
@@ -354,6 +365,7 @@ namespace DUAN1
             this.btnnhanvien.Name = "btnnhanvien";
             this.btnnhanvien.Size = new System.Drawing.Size(120, 52);
             this.btnnhanvien.TabIndex = 143;
+            this.toolTip1.SetToolTip(this.btnnhanvien, "Quản lý nhân viên");
             this.btnnhanvien.UseVisualStyleBackColor = true;
             this.btnnhanvien.Click += new System.EventHandler(this.btnnhanvien_Click);
             // 
@@ -368,6 +380,7 @@ namespace DUAN1
             this.btnkhohang.Name = "btnkhohang";
             this.btnkhohang.Size = new System.Drawing.Size(120, 52);
             this.btnkhohang.TabIndex = 142;
+            this.toolTip1.SetToolTip(this.btnkhohang, "Quản lý kho hàng");
             this.btnkhohang.UseVisualStyleBackColor = false;
             this.btnkhohang.Click += new System.EventHandler(this.btnkhohang_Click);
             // 
@@ -382,6 +395,7 @@ namespace DUAN1
             this.btnhanghoa.Name = "btnhanghoa";
             this.btnhanghoa.Size = new System.Drawing.Size(120, 52);
             this.btnhanghoa.TabIndex = 141;
+            this.toolTip1.SetToolTip(this.btnhanghoa, "Quản lý hàng hóa");
             this.btnhanghoa.UseVisualStyleBackColor = false;
             this.btnhanghoa.Click += new System.EventHandler(this.btnhanghoa_Click);
             // 
@@ -396,6 +410,7 @@ namespace DUAN1
             this.btnthongtinnv.Name = "btnthongtinnv";
             this.btnthongtinnv.Size = new System.Drawing.Size(120, 52);
             this.btnthongtinnv.TabIndex = 140;
+            this.toolTip1.SetToolTip(this.btnthongtinnv, "Thông tin nhân viên");
             this.btnthongtinnv.UseVisualStyleBackColor = false;
             this.btnthongtinnv.Click += new System.EventHandler(this.btnthongtinnv_Click);
             // 
@@ -428,6 +443,7 @@ namespace DUAN1
             this.btnthongke.Name = "btnthongke";
             this.btnthongke.Size = new System.Drawing.Size(120, 52);
             this.btnthongke.TabIndex = 190;
+            this.toolTip1.SetToolTip(this.btnthongke, "Thống kê");
             this.btnthongke.UseVisualStyleBackColor = false;
             this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
@@ -642,6 +658,7 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
         private System.Windows.Forms.Button QuetMaQR;
         private System.Windows.Forms.Label tbusername;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnchitiethoadon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_hd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_kh;

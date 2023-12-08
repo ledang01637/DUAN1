@@ -148,5 +148,27 @@ namespace DUAN1
                 return null;
             }
         }
+
+        public static String CheckTK(String username)
+        {
+
+            using (DUAN1Entities csharpDB = new DUAN1Entities())
+            {
+                if (string.IsNullOrWhiteSpace(username))
+                {
+                    return null;
+                }
+
+                dang_nhap found = csharpDB.dang_nhap
+                    .FirstOrDefault(row => row.tai_khoan.Equals(username.Trim()));
+
+                if (found != null )
+                {
+                    string phanquyen = found.role.Trim();
+                    return phanquyen;
+                }
+                return null;
+            }
+        }
     }
 }
