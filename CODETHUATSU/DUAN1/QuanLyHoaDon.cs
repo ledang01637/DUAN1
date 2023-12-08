@@ -34,9 +34,6 @@ namespace DUAN1
                 //mã nhân viên
                 cbbmanv.Items.Clear();
                 db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ma_nv));
-                //mã hàng hóa
-                cbbmahanghoa.Items.Clear();
-                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
 
                 dataGridView1.Rows.Clear();
                 
@@ -60,10 +57,6 @@ namespace DUAN1
                 tbmahoadon.ReadOnly = true;
                 cbbmakhachhang.Enabled = false;
                 cbbmanv.Enabled = false;
-                cbbmahanghoa.Enabled = false;
-                tbthanhtien.ReadOnly = true;
-                tbsoluong.ReadOnly = true;
-                tbtrangthai.ReadOnly = true;
                 dtpngaylap.Enabled = false;
             }
         }
@@ -119,9 +112,6 @@ namespace DUAN1
             tbmahoadon.ReadOnly = true;
             cbbmakhachhang.Enabled = true;
             cbbmanv.Enabled = true;
-            cbbmahanghoa.Enabled = true;
-            tbthanhtien.ReadOnly = false;
-            tbsoluong.ReadOnly = false;
             tbtrangthai.ReadOnly = false;
             dtpngaylap.Enabled = true;
             if(tbmahoadon.Text != null || tbmahoadon.Text != "")
@@ -142,8 +132,6 @@ namespace DUAN1
             tbmahoadon.ReadOnly = false;
             cbbmakhachhang.Enabled = true;
             cbbmanv.Enabled = true;
-            cbbmahanghoa.Enabled = true;
-            tbsoluong.ReadOnly = false;
             tbtrangthai.ReadOnly = false;
             dtpngaylap.Enabled = true;
             UpdateDGV();
@@ -154,31 +142,21 @@ namespace DUAN1
         {
             try
             {
-                String maHH = cbbmahanghoa.Text;
-                int soLuong = int.Parse(tbsoluong.Text);
 
+                hoa_don addhd = new hoa_don();
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
-                    hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
-                    if (hangHoa != null)
-                    {
-                        hoa_don addhd = new hoa_don();
-                        addhd.ma_hd = tbmahoadon.Text;
-                        addhd.ma_kh = cbbmakhachhang.Text;
-                        addhd.ma_nv = cbbmanv.Text;
-                        addhd.ngay_lap = dtpngaylap.Value;
-                        addhd.trang_thai = tbtrangthai.Text;
+                    addhd.ma_hd = tbmahoadon.Text;
+                    addhd.ma_kh = cbbmakhachhang.Text;
+                    addhd.ma_nv = cbbmanv.Text;
+                    addhd.ngay_lap = dtpngaylap.Value;
+                    addhd.trang_thai = tbtrangthai.Text;
 
-                        db.hoa_don.Add(addhd);
-                        db.SaveChanges();
+                    db.hoa_don.Add(addhd);
+                    db.SaveChanges();
 
-                        MessageBox.Show("Thêm thành công");
-                        UpdateDGV();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy hàng hóa");
-                    }
+                    MessageBox.Show("Thêm thành công");
+                    UpdateDGV();
                 }
             }
             catch (Exception)
@@ -212,11 +190,8 @@ namespace DUAN1
         private void btnhuy_Click(object sender, EventArgs e)
         {
             tbmahoadon.Text = "";
-            cbbmahanghoa.Text = "";
             cbbmakhachhang.Text = "";
             cbbmanv.Text = "";
-            tbsoluong.Text = "";
-            tbthanhtien.Text = "";
             dtpngaylap.Text = "";
             tbtrangthai.Text = "";
 
@@ -228,8 +203,6 @@ namespace DUAN1
             tbmahoadon.ReadOnly = true;
             cbbmakhachhang.Enabled = false;
             cbbmanv.Enabled = false;
-            cbbmahanghoa.Enabled = false;
-            tbsoluong.ReadOnly = true;
             tbtrangthai.ReadOnly = true;
             dtpngaylap.Enabled = false;
         }
@@ -271,15 +244,15 @@ namespace DUAN1
         {
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                string maHH = cbbmahanghoa.Text;
-                int soLuong = int.Parse(tbsoluong.Text);
+                string maHD = tbmahoadon.Text;
 
-                hang_hoa hangHoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa == maHH);
-                if (hangHoa != null)
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == maHD);
+                if (hd != null)
                 {
-                    hoa_don edit = db.hoa_don.FirstOrDefault(hd => hd.ma_hd == tbmahoadon.Text);
+                    hoa_don edit = db.hoa_don.FirstOrDefault(x => x.ma_hd == tbmahoadon.Text);
                     if (edit != null)
                     {
+                        edit.ma_hd = tbmahoadon.Text;
                         edit.ma_kh = cbbmakhachhang.Text;
                         edit.ma_nv = cbbmanv.Text;
                         edit.ngay_lap = dtpngaylap.Value;
@@ -491,9 +464,17 @@ namespace DUAN1
         }
         private void btnthongtinnv_Click(object sender, EventArgs e)
         {
-            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
             this.Hide();
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
             tinNhanVien.ShowDialog();
+            this.Close();
+        }
+
+        private void btnchitiethoadon_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChiTietHoaDon cthd = new ChiTietHoaDon(tbusername.Text);
+            cthd.ShowDialog();
             this.Close();
         }
     }
