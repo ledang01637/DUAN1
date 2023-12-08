@@ -543,5 +543,13 @@ namespace DUAN1
             tk.ShowDialog();
             this.Close();
         }
+
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChiTietHoaDon tk = new ChiTietHoaDon(tbusername.Text);
+            tk.ShowDialog();
+            this.Close();
+        }
     }
 }

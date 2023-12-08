@@ -114,5 +114,13 @@ namespace DUAN1
             tinNhanVien.ShowDialog();
             this.Close();
         }
+
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            ChiTietHoaDon tinNhanVien = new ChiTietHoaDon(tbtaikhoan.Text);
+            this.Hide();
+            tinNhanVien.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -200,7 +200,12 @@ namespace DUAN1
             this.Close();
         }
 
-
-
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChiTietHoaDon ttnv = new ChiTietHoaDon(tbusername.Text);
+            ttnv.ShowDialog();
+            this.Close();
+        }
     }
 }

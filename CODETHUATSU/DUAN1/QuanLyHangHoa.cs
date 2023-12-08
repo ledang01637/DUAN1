@@ -646,14 +646,6 @@ namespace DUAN1
             this.Refresh();
         }
 
-        private void btnthongtinnv_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ThongTinNhanVien thong = new ThongTinNhanVien(tbusername.Text);
-            thong.ShowDialog();
-            this.Close();
-        }
-
         //GiaNhap
         private void tbgianhap_Enter(object sender, EventArgs e)
         {
@@ -733,6 +725,20 @@ namespace DUAN1
             this.Hide();
             ThongKe tk = new ThongKe(tbusername.Text);
             tk.ShowDialog();
+            this.Close();
+        }
+        private void btnthongtinnv_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ThongTinNhanVien thong = new ThongTinNhanVien(tbusername.Text);
+            thong.ShowDialog();
+            this.Close();
+        }
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChiTietHoaDon thong = new ChiTietHoaDon(tbusername.Text);
+            thong.ShowDialog();
             this.Close();
         }
     }

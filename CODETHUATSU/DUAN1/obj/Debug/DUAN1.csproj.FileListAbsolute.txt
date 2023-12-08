@@ -90,3 +90,4 @@ D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuetQR.resources
 D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ThongKe.resources
 D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CopyComplete
 D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ChiTietHoaDon.resources
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ChiTietHoaDon.resources
