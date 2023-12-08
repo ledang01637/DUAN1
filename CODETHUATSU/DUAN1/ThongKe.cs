@@ -35,15 +35,18 @@ namespace DUAN1
 
                 foreach (var CTHoaDon in hoaDonList)
                 {
-                    var khoHang = db.chi_tiet_hoa_don.FirstOrDefault(kh => kh.makho_hangchitiet == CTHoaDon.makho_hangchitiet);
+                    var CTHD = db.chi_tiet_hoa_don.FirstOrDefault(kh => kh.makho_hangchitiet == CTHoaDon.makho_hangchitiet);
                     var HoaDon = db.hoa_don.FirstOrDefault(kh => kh.ma_hd == CTHoaDon.ma_hd);
+
+                    var KHHH = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(CTHD.makho_hangchitiet));
+                    var hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(KHHH.ma_hang_hoa));
 
                     dataGridView1.Rows.Add(
                         HoaDon.ma_hd,
                         DateTime.Parse(HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                         CTHoaDon.thanh_tien,
                         CTHoaDon.so_luong,
-                        khoHang != null ? khoHang.so_luong - CTHoaDon.so_luong : 0
+                        CTHD != null ? KHHH.so_luong - CTHoaDon.so_luong : 0
                     ); ;
                 }
             }
@@ -57,19 +60,21 @@ namespace DUAN1
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
 
-            string MaKH = rowData.Cells[0].Value.ToString();
+            string MaHD = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == MaKH);
-                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaKH);
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == MaHD);
+                chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.FirstOrDefault(x => x.ma_hd.Equals(hd.ma_hd));
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cthd.makho_hangchitiet));
+                hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
 
                 if (hd != null && khhh != null)
                 {
                     cbbmahanghoa.Text = hd.ma_hd;
                     dtpngaylap.Value = hd.ngay_lap.Value;
-                    //tbgia.Text = hd.thanh_tien.ToString();
-                    //tbsoluongdaban.Text = hd.so_luong.ToString();
-                    //tbsltrongkho.Text = (khhh.so_luong - hd.so_luong).ToString();
+                    tbgia.Text = cthd.thanh_tien.ToString();
+                    tbsoluongdaban.Text = cthd.so_luong.ToString();
+                    tbsltrongkho.Text = (khhh.so_luong).ToString();
                 }
             }
 

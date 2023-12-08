@@ -109,33 +109,31 @@ namespace DUAN1
 
         private void btnluu_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            using (DUAN1Entities db = new DUAN1Entities())
+            try
             {
-                khohang_hanghoa khhh = new khohang_hanghoa();
-                chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
+                using (DUAN1Entities db = new DUAN1Entities())
+                {
+                    chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
 
-                chi_tiet_hoa_don cthoadon = db.chi_tiet_hoa_don.FirstOrDefault(x => x.makho_hangchitiet.Equals(khhh.makho_hangchitiet));
-                hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
+                    khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cbbmakhohangchitiet.Text));
+                    hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
 
+                    cthd.ma_hd = cbbmahoadon.Text;
+                    cthd.makho_hangchitiet = cbbmakhohangchitiet.Text;
+                    cthd.so_luong = int.Parse(tbsoluong.Text);
+                    cthd.thanh_tien = cthd.so_luong * hanghoa.gia_ban;
 
-                cthd.ma_hd = cbbmahoadon.Text;
-                cthd.makho_hangchitiet = cbbmakhohangchitiet.Text;
-                cthd.so_luong = int.Parse(tbsoluong.Text);
-                cthd.thanh_tien = cthd.so_luong * khhh.hang_hoa.gia_ban;
+                    db.chi_tiet_hoa_don.Add(cthd);
+                    db.SaveChanges();
 
-                db.chi_tiet_hoa_don.Add(cthd);
-                db.SaveChanges();
-
-                MessageBox.Show("Thêm thành công");
-                UpdateDGV();
+                    MessageBox.Show("Thêm thành công");
+                    UpdateDGV();
+                }
             }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Không được để trống");
-            //}
-        }
+            catch (Exception)
+            {
+                MessageBox.Show("Không được để trống");
+            }
+}
     }
 }
