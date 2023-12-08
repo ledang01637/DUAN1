@@ -39,8 +39,6 @@ namespace DUAN1
                 db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
 
                 dataGridView1.Rows.Clear();
-                dataGridView2.Rows.Clear();
-
                 db.khohang_hanghoa.ToList().ForEach(khhh =>
                 {
                     dataGridView1.Rows.Add(
@@ -53,6 +51,8 @@ namespace DUAN1
                     );
                 }
                 );
+
+                dataGridView2.Rows.Clear();
                 db.kho_hang.ToList().ForEach(kh =>
                 {
                     dataGridView2.Rows.Add(

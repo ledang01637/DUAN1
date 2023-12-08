@@ -37,7 +37,6 @@ namespace DUAN1
                 {
                     var CTHD = db.chi_tiet_hoa_don.FirstOrDefault(kh => kh.makho_hangchitiet == CTHoaDon.makho_hangchitiet);
                     var HoaDon = db.hoa_don.FirstOrDefault(kh => kh.ma_hd == CTHoaDon.ma_hd);
-
                     var KHHH = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(CTHD.makho_hangchitiet));
                     var hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(KHHH.ma_hang_hoa));
 
@@ -71,7 +70,6 @@ namespace DUAN1
                 tbgia.Text = cthd.thanh_tien.ToString();
                 tbsoluongdaban.Text = cthd.so_luong.ToString();
                 tbsltrongkho.Text = (khhh.so_luong - cthd.so_luong).ToString();
-
 
             }
         }

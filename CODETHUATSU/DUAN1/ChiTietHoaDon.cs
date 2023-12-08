@@ -22,7 +22,6 @@ namespace DUAN1
         {
             using (DUAN1Entities db = new DUAN1Entities())
             {
-
                 //mã háo đơn
                 cbbmahoadon.Items.Clear();
                 db.hoa_don.ToList().ForEach(row => cbbmahoadon.Items.Add(row.ma_hd));
@@ -68,9 +67,8 @@ namespace DUAN1
                 //mã chi tiết kho hàng hàng hóa
                 cbbmakhohangchitiet.Items.Clear();
                 db.khohang_hanghoa.ToList().ForEach(row => cbbmakhohangchitiet.Items.Add(row.makho_hangchitiet));
-
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cbbmakhohangchitiet.Text));
                 dataGridView1.Rows.Clear();
-
                 db.chi_tiet_hoa_don.ToList().ForEach(cthd =>
                 {
                     dataGridView1.Rows.Add(
@@ -82,9 +80,22 @@ namespace DUAN1
                     );
                 }
                 );
+                
             }
         }
+        private void ThongKe()
+        {
+            using (DUAN1Entities db = new DUAN1Entities())
+            {
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cbbmakhohangchitiet.Text));
+                if(khhh != null)
+                {
+                    khhh.so_luong -= int.Parse(tbsoluong.Text);
+                    db.SaveChanges();
+                }
+            }
 
+        }
         private void btnhoadon_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -117,16 +128,14 @@ namespace DUAN1
 
                     khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cbbmakhohangchitiet.Text));
                     hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
-
                     cthd.ma_hd = cbbmahoadon.Text;
                     cthd.makho_hangchitiet = cbbmakhohangchitiet.Text;
                     cthd.so_luong = int.Parse(tbsoluong.Text);
                     cthd.thanh_tien = cthd.so_luong * hanghoa.gia_ban;
-
                     db.chi_tiet_hoa_don.Add(cthd);
                     db.SaveChanges();
-
                     MessageBox.Show("Thêm thành công");
+                    ThongKe();
                     UpdateDGV();
                 }
             }
@@ -134,7 +143,7 @@ namespace DUAN1
             {
                 MessageBox.Show("Không được để trống");
             }
-}
+        }
         //btn xóa
         private void btnxoa_Click(object sender, EventArgs e)
         {

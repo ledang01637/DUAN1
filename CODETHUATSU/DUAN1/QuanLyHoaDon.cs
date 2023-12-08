@@ -363,7 +363,7 @@ namespace DUAN1
         {
             string title = "HÓA ĐƠN BÁN HÀNG";
             StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
-            Rectangle rectangle = new Rectangle(x-30,y,width,height);
+            Rectangle rectangle = new Rectangle(x + 1, y,width,height);
             stringFormat.LineAlignment = StringAlignment.Center;
             stringFormat.Alignment = StringAlignment.Center;
             Font printFont = new Font("Arial", 11, FontStyle.Bold);
@@ -371,9 +371,9 @@ namespace DUAN1
                
             string head = "ShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\nTên hàng   Giá   Số lượng";
             StringFormat stringFormat2 = new StringFormat(StringFormatFlags.NoClip);
-            Rectangle rectangle2 = new Rectangle(x, y + height,width + 30,height + 30);
-            stringFormat.LineAlignment = StringAlignment.Center;
-            stringFormat.Alignment = StringAlignment.Center;
+            Rectangle rectangle2 = new Rectangle(x + 1, y + height,width,height + 30);
+            stringFormat2.LineAlignment = StringAlignment.Center;
+            stringFormat2.Alignment = StringAlignment.Center;
             Font printFont2 = new Font("Arial", 10, FontStyle.Regular);
             e.Graphics.DrawString(head, printFont2, Brushes.Black, rectangle2, stringFormat2);
 
@@ -389,7 +389,7 @@ namespace DUAN1
                 foreach (var item in cthd)
                 {
                     StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
-                    Rectangle rectangleBody = new Rectangle(x - 30, y + cao + 30, width,height);
+                    Rectangle rectangleBody = new Rectangle(x + 1, y + cao + 30, width,height);
                     stringFormatBody.LineAlignment = StringAlignment.Center;
                     stringFormatBody.Alignment = StringAlignment.Center;
                     Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
@@ -402,7 +402,7 @@ namespace DUAN1
                     cao += 20;
                 }
                 StringFormat stringFormatFooter = new StringFormat(StringFormatFlags.NoClip);
-                Rectangle rectangleFooter = new Rectangle(x - 30, y + cao + 30, width, height);
+                Rectangle rectangleFooter = new Rectangle(x + 1, y + cao + 30, width, height);
                 stringFormatFooter.LineAlignment = StringAlignment.Center;
                 stringFormatFooter.Alignment = StringAlignment.Center;
                 Font printFontFooter = new Font("Arial", 10, FontStyle.Regular);
@@ -450,7 +450,7 @@ namespace DUAN1
                     cthd.ToList().ForEach(row => dtgv2.Rows.Add(
                     row.khohang_hanghoa.hang_hoa.ten,
                     row.khohang_hanghoa.hang_hoa.gia_ban.ToString(),
-                    row.khohang_hanghoa.so_luong.ToString()
+                    row.so_luong.ToString()
                     ));
                 }
             }

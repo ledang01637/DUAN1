@@ -112,6 +112,24 @@ namespace DUAN1
             }
         }
         #endregion
+        public static bool updateCTKH(khohang_hanghoa updateKHHH)
+        {
+            using (DUAN1Entities KHHH = new DUAN1Entities())
+            {
+                try
+                {
+                    khohang_hanghoa found = KHHH.khohang_hanghoa
+                        .FirstOrDefault(sp => sp.makho_hangchitiet.Equals(updateKHHH.makho_hangchitiet));
+                    found.so_luong = updateKHHH.so_luong;
+                    KHHH.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
         public static hang_hoa timMaTen(string MaTen)
         {
             using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
