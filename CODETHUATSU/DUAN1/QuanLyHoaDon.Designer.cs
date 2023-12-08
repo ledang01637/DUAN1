@@ -203,6 +203,7 @@ namespace DUAN1
             this.btnthoat.TabIndex = 103;
             this.toolTip1.SetToolTip(this.btnthoat, "Thoát ");
             this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // btnhoadon
             // 
@@ -492,7 +493,7 @@ namespace DUAN1
             this.Gia,
             this.SL});
             this.dtgv2.Location = new System.Drawing.Point(892, 126);
-            this.dtgv2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv2.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv2.Name = "dtgv2";
             this.dtgv2.RowHeadersWidth = 51;
             this.dtgv2.RowTemplate.Height = 24;
