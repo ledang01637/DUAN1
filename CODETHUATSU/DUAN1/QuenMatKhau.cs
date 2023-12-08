@@ -311,6 +311,12 @@ namespace DUAN1
             focusPw2 = true;
             this.Refresh();
         }
+
+        private void QuenMatKhau_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void tbpassword2_Leave(object sender, EventArgs e)
         {
             focusPw2 = false;
