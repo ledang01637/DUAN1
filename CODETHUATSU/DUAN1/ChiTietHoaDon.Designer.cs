@@ -49,6 +49,11 @@ namespace DUAN1
             this.tbsoluong = new System.Windows.Forms.TextBox();
             this.button15 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.macthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mahd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.makhohangchitiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thnahtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbthanhtien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lbmahanghoa = new System.Windows.Forms.Label();
@@ -57,11 +62,6 @@ namespace DUAN1
             this.btnhoadon = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.macthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mahd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makhohangchitiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thnahtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbmakhohangchitiet = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -177,6 +177,7 @@ namespace DUAN1
             this.btnhuy.Size = new System.Drawing.Size(120, 52);
             this.btnhuy.TabIndex = 279;
             this.btnhuy.UseVisualStyleBackColor = true;
+            this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
             // 
             // btnxoa
             // 
@@ -189,6 +190,7 @@ namespace DUAN1
             this.btnxoa.Size = new System.Drawing.Size(120, 52);
             this.btnxoa.TabIndex = 278;
             this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
             // btnsua
             // 
@@ -201,6 +203,7 @@ namespace DUAN1
             this.btnsua.Size = new System.Drawing.Size(120, 52);
             this.btnsua.TabIndex = 277;
             this.btnsua.UseVisualStyleBackColor = true;
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
             // 
             // btntimkiem
             // 
@@ -213,6 +216,7 @@ namespace DUAN1
             this.btntimkiem.Size = new System.Drawing.Size(120, 52);
             this.btntimkiem.TabIndex = 276;
             this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // tbtimkiem
             // 
@@ -299,6 +303,37 @@ namespace DUAN1
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(624, 195);
             this.dataGridView1.TabIndex = 259;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // macthd
+            // 
+            this.macthd.HeaderText = "Mã chi tiết hóa đơn";
+            this.macthd.Name = "macthd";
+            this.macthd.ReadOnly = true;
+            // 
+            // mahd
+            // 
+            this.mahd.HeaderText = "Mã hóa đơn";
+            this.mahd.Name = "mahd";
+            this.mahd.ReadOnly = true;
+            // 
+            // makhohangchitiet
+            // 
+            this.makhohangchitiet.HeaderText = "Mã khi hàng chi tiết";
+            this.makhohangchitiet.Name = "makhohangchitiet";
+            this.makhohangchitiet.ReadOnly = true;
+            // 
+            // soluong
+            // 
+            this.soluong.HeaderText = "Số lượng";
+            this.soluong.Name = "soluong";
+            this.soluong.ReadOnly = true;
+            // 
+            // thnahtien
+            // 
+            this.thnahtien.HeaderText = "Thành tiền";
+            this.thnahtien.Name = "thnahtien";
+            this.thnahtien.ReadOnly = true;
             // 
             // tbthanhtien
             // 
@@ -387,36 +422,6 @@ namespace DUAN1
             this.pictureBox1.Size = new System.Drawing.Size(120, 657);
             this.pictureBox1.TabIndex = 253;
             this.pictureBox1.TabStop = false;
-            // 
-            // macthd
-            // 
-            this.macthd.HeaderText = "Mã chi tiết hóa đơn";
-            this.macthd.Name = "macthd";
-            this.macthd.ReadOnly = true;
-            // 
-            // mahd
-            // 
-            this.mahd.HeaderText = "Mã hóa đơn";
-            this.mahd.Name = "mahd";
-            this.mahd.ReadOnly = true;
-            // 
-            // makhohangchitiet
-            // 
-            this.makhohangchitiet.HeaderText = "Mã khi hàng chi tiết";
-            this.makhohangchitiet.Name = "makhohangchitiet";
-            this.makhohangchitiet.ReadOnly = true;
-            // 
-            // soluong
-            // 
-            this.soluong.HeaderText = "Số lượng";
-            this.soluong.Name = "soluong";
-            this.soluong.ReadOnly = true;
-            // 
-            // thnahtien
-            // 
-            this.thnahtien.HeaderText = "Thành tiền";
-            this.thnahtien.Name = "thnahtien";
-            this.thnahtien.ReadOnly = true;
             // 
             // cbbmakhohangchitiet
             // 

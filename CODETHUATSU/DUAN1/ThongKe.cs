@@ -42,7 +42,7 @@ namespace DUAN1
                     var hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(KHHH.ma_hang_hoa));
 
                     dataGridView1.Rows.Add(
-                        HoaDon.ma_hd,
+                        CTHD.makho_hangchitiet,
                         DateTime.Parse(HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                         CTHoaDon.thanh_tien,
                         CTHoaDon.so_luong,
@@ -53,32 +53,27 @@ namespace DUAN1
 
         }
 
-
         //hiển thị
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
 
-            string MaHD = rowData.Cells[0].Value.ToString();
+            string MaKHCT = rowData.Cells[0].Value.ToString();
             using (DUAN1Entities db = new DUAN1Entities())
             {
-                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == MaHD);
-                chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.FirstOrDefault(x => x.ma_hd.Equals(hd.ma_hd));
-                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cthd.makho_hangchitiet));
-                hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
+                khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaKHCT);
+                chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.FirstOrDefault(x => x.makho_hangchitiet.Equals(khhh.makho_hangchitiet));
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd.Equals(cthd.ma_hd));
 
-                if (hd != null && khhh != null)
-                {
-                    cbbmahanghoa.Text = hd.ma_hd;
-                    dtpngaylap.Value = hd.ngay_lap.Value;
-                    tbgia.Text = cthd.thanh_tien.ToString();
-                    tbsoluongdaban.Text = cthd.so_luong.ToString();
-                    tbsltrongkho.Text = (khhh.so_luong).ToString();
-                }
+                tbmakhohangchitiet.Text = khhh.makho_hangchitiet;
+                dtpngaylap.Text = hd.ngay_lap.ToString();
+                tbgia.Text = cthd.thanh_tien.ToString();
+                tbsoluongdaban.Text = cthd.so_luong.ToString();
+                tbsltrongkho.Text = (khhh.so_luong - cthd.so_luong).ToString();
+
+
             }
-
-
         }
 
         //tìm kiếm theo ngày và mã
@@ -86,39 +81,33 @@ namespace DUAN1
         {
             try
             {
-                if (tbtimkiem.Text.Equals(""))
+                if (string.IsNullOrEmpty(tbtimkiem.Text))
                 {
                     tbtimkiem.Text = "";
                 }
                 else
                 {
                     DateTime fromDate = dtptungay.Value.Date;
-                    DateTime toDate = dtpdenngay.Value.Date.AddDays(1); // Bổ sung 1 ngày để bao gồm cả ngày kết thúc
+                    DateTime toDate = dtpdenngay.Value.Date.AddDays(1); // Add 1 day to include the end date
+
 
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
-                        List<hoa_don> listhd = db.hoa_don
-                            .Where(x => x.ma_hd.Equals(tbtimkiem.Text) && x.ngay_lap >= fromDate && x.ngay_lap < toDate)
-                            .ToList();
-
-                        List<khohang_hanghoa> listkhhh = db.khohang_hanghoa
-                            .Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text))
-                            .ToList();
-
+                        List<chi_tiet_hoa_don> listhd = db.chi_tiet_hoa_don.Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text) &&
+                        (x.hoa_don.ngay_lap >= fromDate && x.hoa_don.ngay_lap <= toDate)).ToList();
                         dataGridView1.Rows.Clear();
-
-                        listhd.ForEach(hd =>
+                        listhd.ToList().ForEach(cthd =>
                         {
-                            khohang_hanghoa khhh = listkhhh.FirstOrDefault(x => x.chi_tiet_hoa_don == hd.chi_tiet_hoa_don);
-                            if (khhh != null)
-                            {
-                                dataGridView1.Rows.Add(
-                                    hd.chi_tiet_hoa_don,
-                                    hd.ngay_lap,
-                                    khhh.so_luong);
-                            }
-                        });
+                            dataGridView1.Rows.Add(
+                            cthd.makho_hangchitiet,
+                            cthd.hoa_don.ngay_lap,
+                            cthd.thanh_tien,
+                            cthd.so_luong,
+                            cthd.khohang_hanghoa.so_luong);
+                        }
+                        );
                     }
+
                 }
             }
             catch (Exception)
@@ -126,9 +115,11 @@ namespace DUAN1
                 MessageBox.Show("Không để trống");
             }
         }
+    
 
         private void btnhuy_Click(object sender, EventArgs e)
         {
+            tbtimkiem.Text = " ";
             ThongKe_Load(null, EventArgs.Empty);
         }
 
