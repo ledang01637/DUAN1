@@ -70,6 +70,8 @@ namespace DUAN1
             hinhanh.Enabled = true;
             btnsua.Enabled = false;
             btnxoa.Enabled = false;
+            btnluu.Enabled = true;
+            btnLuuQR.Enabled = false;
             upDateDataGridView1();
         }
 
@@ -77,6 +79,8 @@ namespace DUAN1
         {
             try
             {
+                btnLuuQR.Enabled = false;
+                btnluu.Enabled = false;
                 var cell = (sender as DataGridView).CurrentCell;
                 var row = dataGridView1.Rows[cell.RowIndex];
 
@@ -109,7 +113,7 @@ namespace DUAN1
             }
             catch
             {
-                MessageBox.Show("Lỗi");
+                MessageBox.Show("Lỗi","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
         }
@@ -350,6 +354,7 @@ namespace DUAN1
         private void btnTaoQR_Click(object sender, EventArgs e)
         {
             btnsua.Enabled = false;
+            btnLuuQR.Enabled = true;
             var options = new QrCodeEncodingOptions
             {
                 DisableECI = true,

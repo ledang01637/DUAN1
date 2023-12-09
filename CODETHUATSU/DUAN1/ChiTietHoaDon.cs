@@ -53,7 +53,6 @@ namespace DUAN1
                 cbbmakhohangchitiet.Enabled = false;
                 tbthanhtien.ReadOnly = true;
                 tbsoluong.ReadOnly = true;
-
             }
         }
         private void UpdateDGV()
@@ -127,11 +126,12 @@ namespace DUAN1
                     chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
                     khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet.Equals(cbbmakhohangchitiet.Text));
                     hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
+
                     cthd.ma_hd = cbbmahoadon.Text;
                     cthd.makho_hangchitiet = cbbmakhohangchitiet.Text;
-                    if(int.Parse(tbsoluong.Text) > 0)
+                    if (int.Parse(tbsoluong.Text) > 0)
                     {
-                        if((khhh.so_luong - int.Parse(tbsoluong.Text)) < 0)
+                        if ((khhh.so_luong - int.Parse(tbsoluong.Text)) < 0)
                         {
                             MessageBox.Show("Số lượng phải bé hơn hoặc bằng số lượng trong kho", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
@@ -151,7 +151,7 @@ namespace DUAN1
                     {
                         MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
-                    } 
+                    }
                 }
             }
             catch (Exception)
