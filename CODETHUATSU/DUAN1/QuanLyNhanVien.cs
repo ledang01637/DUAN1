@@ -281,5 +281,15 @@ namespace DUAN1
             tinNhanVien.ShowDialog();
             this.Close();
         }
+
+        private void lbmanhanvien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbmanhanvien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

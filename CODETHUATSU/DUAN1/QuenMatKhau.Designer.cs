@@ -35,8 +35,6 @@ namespace DUAN1
             this.lbpassword1 = new System.Windows.Forms.Label();
             this.tbusername = new System.Windows.Forms.TextBox();
             this.lbusername = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbpassword2 = new System.Windows.Forms.Label();
             this.tbemail = new System.Windows.Forms.TextBox();
             this.lbemail = new System.Windows.Forms.Label();
@@ -47,9 +45,8 @@ namespace DUAN1
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnthoat = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnsubmit
@@ -62,7 +59,7 @@ namespace DUAN1
             this.btnsubmit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsubmit.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnsubmit.Location = new System.Drawing.Point(791, 525);
+            this.btnsubmit.Location = new System.Drawing.Point(32, 439);
             this.btnsubmit.Name = "btnsubmit";
             this.btnsubmit.Size = new System.Drawing.Size(342, 49);
             this.btnsubmit.TabIndex = 19;
@@ -77,7 +74,7 @@ namespace DUAN1
             // 
             this.tbpassword1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbpassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpassword1.Location = new System.Drawing.Point(791, 260);
+            this.tbpassword1.Location = new System.Drawing.Point(32, 174);
             this.tbpassword1.Multiline = true;
             this.tbpassword1.Name = "tbpassword1";
             this.tbpassword1.PasswordChar = '*';
@@ -92,7 +89,7 @@ namespace DUAN1
             this.lbpassword1.AutoSize = true;
             this.lbpassword1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbpassword1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpassword1.Location = new System.Drawing.Point(784, 213);
+            this.lbpassword1.Location = new System.Drawing.Point(25, 127);
             this.lbpassword1.Name = "lbpassword1";
             this.lbpassword1.Size = new System.Drawing.Size(191, 36);
             this.lbpassword1.TabIndex = 17;
@@ -105,7 +102,7 @@ namespace DUAN1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbusername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbusername.Location = new System.Drawing.Point(791, 164);
+            this.tbusername.Location = new System.Drawing.Point(32, 78);
             this.tbusername.Multiline = true;
             this.tbusername.Name = "tbusername";
             this.tbusername.Size = new System.Drawing.Size(342, 30);
@@ -119,40 +116,18 @@ namespace DUAN1
             this.lbusername.AutoSize = true;
             this.lbusername.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbusername.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbusername.Location = new System.Drawing.Point(784, 113);
+            this.lbusername.Location = new System.Drawing.Point(25, 27);
             this.lbusername.Name = "lbusername";
             this.lbusername.Size = new System.Drawing.Size(199, 36);
             this.lbusername.TabIndex = 15;
             this.lbusername.Text = "Tên đăng nhập";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(92, 40);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1080, 600);
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(92, 40);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1080, 600);
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
             // 
             // lbpassword2
             // 
             this.lbpassword2.AutoSize = true;
             this.lbpassword2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbpassword2.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpassword2.Location = new System.Drawing.Point(784, 315);
+            this.lbpassword2.Location = new System.Drawing.Point(25, 229);
             this.lbpassword2.Name = "lbpassword2";
             this.lbpassword2.Size = new System.Drawing.Size(245, 36);
             this.lbpassword2.TabIndex = 22;
@@ -162,10 +137,10 @@ namespace DUAN1
             // 
             this.tbemail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbemail.Location = new System.Drawing.Point(147, 422);
+            this.tbemail.Location = new System.Drawing.Point(24, 57);
             this.tbemail.Multiline = true;
             this.tbemail.Name = "tbemail";
-            this.tbemail.Size = new System.Drawing.Size(570, 30);
+            this.tbemail.Size = new System.Drawing.Size(350, 30);
             this.tbemail.TabIndex = 25;
             // 
             // lbemail
@@ -173,7 +148,7 @@ namespace DUAN1
             this.lbemail.AutoSize = true;
             this.lbemail.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbemail.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbemail.Location = new System.Drawing.Point(140, 375);
+            this.lbemail.Location = new System.Drawing.Point(18, 18);
             this.lbemail.Name = "lbemail";
             this.lbemail.Size = new System.Drawing.Size(90, 36);
             this.lbemail.TabIndex = 24;
@@ -183,7 +158,7 @@ namespace DUAN1
             // 
             this.tbpassword2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbpassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpassword2.Location = new System.Drawing.Point(791, 362);
+            this.tbpassword2.Location = new System.Drawing.Point(32, 276);
             this.tbpassword2.Multiline = true;
             this.tbpassword2.Name = "tbpassword2";
             this.tbpassword2.PasswordChar = '*';
@@ -203,9 +178,9 @@ namespace DUAN1
             this.btngui.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btngui.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btngui.ForeColor = System.Drawing.Color.Black;
-            this.btngui.Location = new System.Drawing.Point(141, 146);
+            this.btngui.Location = new System.Drawing.Point(24, 93);
             this.btngui.Name = "btngui";
-            this.btngui.Size = new System.Drawing.Size(342, 49);
+            this.btngui.Size = new System.Drawing.Size(116, 45);
             this.btngui.TabIndex = 27;
             this.btngui.Text = "Gửi";
             this.btngui.UseMnemonic = false;
@@ -219,7 +194,7 @@ namespace DUAN1
             // 
             this.tbxacnhan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxacnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxacnhan.Location = new System.Drawing.Point(791, 465);
+            this.tbxacnhan.Location = new System.Drawing.Point(32, 379);
             this.tbxacnhan.Multiline = true;
             this.tbxacnhan.Name = "tbxacnhan";
             this.tbxacnhan.Size = new System.Drawing.Size(342, 30);
@@ -233,7 +208,7 @@ namespace DUAN1
             this.lbxacnhan.AutoSize = true;
             this.lbxacnhan.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbxacnhan.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbxacnhan.Location = new System.Drawing.Point(784, 418);
+            this.lbxacnhan.Location = new System.Drawing.Point(25, 332);
             this.lbxacnhan.Name = "lbxacnhan";
             this.lbxacnhan.Size = new System.Drawing.Size(175, 36);
             this.lbxacnhan.TabIndex = 28;
@@ -242,13 +217,16 @@ namespace DUAN1
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.btnthoat);
             this.groupBox1.Controls.Add(this.btngui);
+            this.groupBox1.Controls.Add(this.tbemail);
+            this.groupBox1.Controls.Add(this.lbemail);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(122, 362);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(11, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(614, 230);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(394, 153);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lấy code";
@@ -256,10 +234,19 @@ namespace DUAN1
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBox2.Location = new System.Drawing.Point(758, 92);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Controls.Add(this.lbusername);
+            this.groupBox2.Controls.Add(this.tbxacnhan);
+            this.groupBox2.Controls.Add(this.tbusername);
+            this.groupBox2.Controls.Add(this.lbxacnhan);
+            this.groupBox2.Controls.Add(this.lbpassword1);
+            this.groupBox2.Controls.Add(this.tbpassword1);
+            this.groupBox2.Controls.Add(this.tbpassword2);
+            this.groupBox2.Controls.Add(this.btnsubmit);
+            this.groupBox2.Controls.Add(this.lbpassword2);
+            this.groupBox2.Location = new System.Drawing.Point(11, 168);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(394, 500);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
@@ -273,9 +260,9 @@ namespace DUAN1
             this.btnthoat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnthoat.FlatAppearance.BorderSize = 0;
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnthoat.Location = new System.Drawing.Point(1032, 40);
+            this.btnthoat.Location = new System.Drawing.Point(254, 93);
             this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(120, 52);
+            this.btnthoat.Size = new System.Drawing.Size(120, 45);
             this.btnthoat.TabIndex = 154;
             this.btnthoat.UseVisualStyleBackColor = false;
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
@@ -284,35 +271,21 @@ namespace DUAN1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 679);
-            this.Controls.Add(this.btnthoat);
-            this.Controls.Add(this.tbxacnhan);
-            this.Controls.Add(this.lbxacnhan);
-            this.Controls.Add(this.tbpassword2);
-            this.Controls.Add(this.lbpassword2);
-            this.Controls.Add(this.btnsubmit);
-            this.Controls.Add(this.tbpassword1);
-            this.Controls.Add(this.lbpassword1);
-            this.Controls.Add(this.tbusername);
-            this.Controls.Add(this.lbusername);
+            this.ClientSize = new System.Drawing.Size(414, 681);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.tbemail);
-            this.Controls.Add(this.lbemail);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1280, 718);
-            this.MinimumSize = new System.Drawing.Size(1280, 718);
+            this.MaximumSize = new System.Drawing.Size(430, 720);
+            this.MinimumSize = new System.Drawing.Size(430, 720);
             this.Name = "QuenMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuenMatKhau";
             this.Load += new System.EventHandler(this.QuenMatKhau_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -322,8 +295,6 @@ namespace DUAN1
         private System.Windows.Forms.Label lbpassword1;
         private System.Windows.Forms.TextBox tbusername;
         private System.Windows.Forms.Label lbusername;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbpassword2;
         private System.Windows.Forms.TextBox tbemail;
         private System.Windows.Forms.Label lbemail;

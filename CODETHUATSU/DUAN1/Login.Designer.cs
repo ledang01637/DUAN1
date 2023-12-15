@@ -30,52 +30,22 @@ namespace DUAN1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbusername = new System.Windows.Forms.Label();
             this.tbusername = new System.Windows.Forms.TextBox();
             this.tbpassword = new System.Windows.Forms.TextBox();
             this.lbpassword = new System.Windows.Forms.Label();
             this.btnsubmit = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.cbghinhodn = new System.Windows.Forms.CheckBox();
             this.cbhienmatkhau = new System.Windows.Forms.CheckBox();
             this.quenmatkhau = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(750, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(401, 500);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(90, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1080, 600);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // lbusername
             // 
             this.lbusername.AutoSize = true;
-            this.lbusername.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbusername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbusername.Location = new System.Drawing.Point(776, 130);
+            this.lbusername.Location = new System.Drawing.Point(124, 321);
             this.lbusername.Name = "lbusername";
             this.lbusername.Size = new System.Drawing.Size(235, 37);
             this.lbusername.TabIndex = 4;
@@ -83,31 +53,31 @@ namespace DUAN1
             // 
             // tbusername
             // 
-            this.tbusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbusername.Location = new System.Drawing.Point(783, 177);
+            this.tbusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbusername.Location = new System.Drawing.Point(131, 368);
             this.tbusername.Multiline = true;
             this.tbusername.Name = "tbusername";
-            this.tbusername.Size = new System.Drawing.Size(342, 30);
+            this.tbusername.Size = new System.Drawing.Size(342, 48);
             this.tbusername.TabIndex = 5;
             this.tbusername.TextChanged += new System.EventHandler(this.tbusername_TextChanged);
             // 
             // tbpassword
             // 
-            this.tbpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpassword.Location = new System.Drawing.Point(783, 275);
+            this.tbpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpassword.Location = new System.Drawing.Point(131, 466);
             this.tbpassword.Multiline = true;
             this.tbpassword.Name = "tbpassword";
             this.tbpassword.PasswordChar = '*';
-            this.tbpassword.Size = new System.Drawing.Size(342, 30);
+            this.tbpassword.Size = new System.Drawing.Size(342, 48);
             this.tbpassword.TabIndex = 7;
             this.tbpassword.TextChanged += new System.EventHandler(this.tbpassword_TextChanged);
             // 
             // lbpassword
             // 
             this.lbpassword.AutoSize = true;
-            this.lbpassword.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbpassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpassword.Location = new System.Drawing.Point(776, 228);
+            this.lbpassword.Location = new System.Drawing.Point(124, 419);
             this.lbpassword.Name = "lbpassword";
             this.lbpassword.Size = new System.Drawing.Size(149, 37);
             this.lbpassword.TabIndex = 6;
@@ -115,13 +85,11 @@ namespace DUAN1
             // 
             // btnsubmit
             // 
-            this.btnsubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnsubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnsubmit.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnsubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnsubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsubmit.Location = new System.Drawing.Point(783, 399);
+            this.btnsubmit.Location = new System.Drawing.Point(123, 633);
             this.btnsubmit.Name = "btnsubmit";
             this.btnsubmit.Size = new System.Drawing.Size(342, 49);
             this.btnsubmit.TabIndex = 8;
@@ -129,35 +97,13 @@ namespace DUAN1
             this.btnsubmit.UseVisualStyleBackColor = false;
             this.btnsubmit.Click += new System.EventHandler(this.btnsubmit_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(783, 454);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(342, 109);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(90, 45);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1080, 600);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
             // cbghinhodn
             // 
             this.cbghinhodn.AutoSize = true;
-            this.cbghinhodn.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.cbghinhodn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cbghinhodn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.cbghinhodn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbghinhodn.Location = new System.Drawing.Point(783, 351);
+            this.cbghinhodn.Location = new System.Drawing.Point(131, 577);
             this.cbghinhodn.Name = "cbghinhodn";
             this.cbghinhodn.Size = new System.Drawing.Size(164, 24);
             this.cbghinhodn.TabIndex = 11;
@@ -168,10 +114,10 @@ namespace DUAN1
             // cbhienmatkhau
             // 
             this.cbhienmatkhau.AutoSize = true;
-            this.cbhienmatkhau.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.cbhienmatkhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cbhienmatkhau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.cbhienmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbhienmatkhau.Location = new System.Drawing.Point(783, 321);
+            this.cbhienmatkhau.Location = new System.Drawing.Point(131, 547);
             this.cbhienmatkhau.Name = "cbhienmatkhau";
             this.cbhienmatkhau.Size = new System.Drawing.Size(131, 24);
             this.cbhienmatkhau.TabIndex = 12;
@@ -182,12 +128,12 @@ namespace DUAN1
             // quenmatkhau
             // 
             this.quenmatkhau.AutoSize = true;
-            this.quenmatkhau.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.quenmatkhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.quenmatkhau.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.quenmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quenmatkhau.Location = new System.Drawing.Point(1007, 566);
+            this.quenmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quenmatkhau.Location = new System.Drawing.Point(411, 726);
             this.quenmatkhau.Name = "quenmatkhau";
-            this.quenmatkhau.Size = new System.Drawing.Size(118, 20);
+            this.quenmatkhau.Size = new System.Drawing.Size(161, 26);
             this.quenmatkhau.TabIndex = 10;
             this.quenmatkhau.Text = "Quên mật khẩu";
             this.quenmatkhau.Click += new System.EventHandler(this.quenmatkhau_Click);
@@ -196,9 +142,11 @@ namespace DUAN1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1264, 678);
-            this.Controls.Add(this.pictureBox4);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(584, 761);
             this.Controls.Add(this.cbghinhodn);
             this.Controls.Add(this.cbhienmatkhau);
             this.Controls.Add(this.tbpassword);
@@ -207,35 +155,23 @@ namespace DUAN1
             this.Controls.Add(this.lbusername);
             this.Controls.Add(this.quenmatkhau);
             this.Controls.Add(this.btnsubmit);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox3);
-            this.MaximumSize = new System.Drawing.Size(1280, 717);
-            this.MinimumSize = new System.Drawing.Size(1280, 717);
+            this.MaximumSize = new System.Drawing.Size(600, 800);
+            this.MinimumSize = new System.Drawing.Size(600, 800);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbusername;
         private System.Windows.Forms.TextBox tbusername;
         private System.Windows.Forms.TextBox tbpassword;
         private System.Windows.Forms.Label lbpassword;
         private System.Windows.Forms.Button btnsubmit;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.CheckBox cbghinhodn;
         private System.Windows.Forms.CheckBox cbhienmatkhau;
         private System.Windows.Forms.Label quenmatkhau;
