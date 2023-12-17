@@ -21,9 +21,6 @@ namespace DUAN1
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            dtpngaylap.Format = DateTimePickerFormat.Short;
-            dtpngaylap.CustomFormat = "dd/MM/yyyy";
-
             using (DUAN1Entities db = new DUAN1Entities())
             {
                 dataGridView1.Rows.Clear();
@@ -46,36 +43,6 @@ namespace DUAN1
             }
 
         }
- 
-        //hiển thị
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var cell = (sender as DataGridView).CurrentCell;
-            var row = dataGridView1.Rows[cell.RowIndex];
-
-            tbmakhohangchitiet.Text = row.Cells[0].Value?.ToString();
-            //tbtenhanghoa.Text = row.Cells[1].Value?.ToString();
-            tbgia.Text = row.Cells[2].Value?.ToString();
-            tbsoluongdaban.Text = row.Cells[3].Value?.ToString();
-            tbsltrongkho.Text = row.Cells[4].Value?.ToString();
-            //int row = dataGridView1.SelectedCells[0].RowIndex;
-            //var rowData = dataGridView1.Rows[row];
-
-            //string MaKHCT = rowData.Cells[0].Value.ToString();
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    khohang_hanghoa khhh = db.khohang_hanghoa.FirstOrDefault(x => x.makho_hangchitiet == MaKHCT);
-            //    chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.FirstOrDefault(x => x.makho_hangchitiet.Equals(khhh.makho_hangchitiet));
-            //    hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd.Equals(cthd.ma_hd));
-
-            //    tbmakhohangchitiet.Text = khhh.makho_hangchitiet;
-            //    dtpngaylap.Text = hd.ngay_lap.ToString();
-            //    tbgia.Text = cthd.thanh_tien.ToString();
-            //    tbsoluongdaban.Text = cthd.so_luong.ToString();
-            //    tbsltrongkho.Text = khhh.so_luong.ToString();
-            //}
-        }
-
         //tìm kiếm theo ngày và mã
         private void btntimkiem_Click(object sender, EventArgs e)
         {

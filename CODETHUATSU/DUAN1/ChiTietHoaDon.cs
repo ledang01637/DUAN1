@@ -36,7 +36,7 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                     cthd.macthd,
                     cthd.ma_hd,
-                    cthd.makho_hangchitiet,
+                    cthd.khohang_hanghoa.hang_hoa.ten,
                     cthd.so_luong,
                     cthd.thanh_tien
                     );
@@ -73,7 +73,7 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                     cthd.macthd,
                     cthd.ma_hd,
-                    cthd.makho_hangchitiet,
+                    cthd.khohang_hanghoa.hang_hoa.ten,
                     cthd.so_luong,
                     cthd.thanh_tien
                     );

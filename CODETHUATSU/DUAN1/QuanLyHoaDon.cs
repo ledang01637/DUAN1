@@ -41,9 +41,9 @@ namespace DUAN1
                 {
                     dataGridView1.Rows.Add(
                     hd.ma_hd,
-                    hd.ma_kh,
-                    hd.ma_nv,
-                    DateTime.Parse(hd.ngay_lap.ToString(),CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                    hd.khach_hang.ten_kh,
+                    hd.nhan_vien.ten_nv,
+                    DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.trang_thai
                     );
                 }
@@ -73,8 +73,8 @@ namespace DUAN1
                 {
                     dataGridView1.Rows.Add(
                     hd.ma_hd,
-                    hd.ma_kh,
-                    hd.ma_nv,
+                    hd.khach_hang.ten_kh,
+                    hd.nhan_vien.ten_nv,
                     DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     hd.trang_thai
                     );
