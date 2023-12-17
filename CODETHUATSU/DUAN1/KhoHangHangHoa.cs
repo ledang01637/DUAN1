@@ -36,7 +36,7 @@ namespace DUAN1
                 db.kho_hang.ToList().ForEach(row => cbbmakhohang.Items.Add(row.ma_kho_hang));
                 //mã hàng hóa
                 cbbmahanghoa.Items.Clear();
-                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
+                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ten));
 
                 dataGridView1.Rows.Clear();
                 db.khohang_hanghoa.ToList().ForEach(khhh =>
@@ -44,7 +44,7 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                     khhh.makho_hangchitiet,
                     khhh.kho_hang.ma_kho_hang,
-                    khhh.ma_hang_hoa,
+                    khhh.hang_hoa.ten,
                     DateTime.Parse(khhh.ngay_nhap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     DateTime.Parse(khhh.ngay_xuat.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     khhh.so_luong
@@ -93,7 +93,7 @@ namespace DUAN1
                 db.kho_hang.ToList().ForEach(row => cbbmakhohang.Items.Add(row.ma_kho_hang));
                 //mã hàng hóa
                 cbbmahanghoa.Items.Clear();
-                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ma_hang_hoa));
+                db.hang_hoa.ToList().ForEach(row => cbbmahanghoa.Items.Add(row.ten));
 
                 dataGridView1.Rows.Clear();
                 dataGridView2.Rows.Clear();
@@ -103,7 +103,7 @@ namespace DUAN1
                     dataGridView1.Rows.Add(
                     khhh.makho_hangchitiet,
                     khhh.kho_hang.ma_kho_hang,
-                    khhh.ma_hang_hoa,
+                    khhh.hang_hoa.ten,
                     DateTime.Parse(khhh.ngay_nhap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     DateTime.Parse(khhh.ngay_xuat.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
                     khhh.so_luong
@@ -135,7 +135,7 @@ namespace DUAN1
                 khohang_hanghoa sv = db.khohang_hanghoa.Where(x => x.makho_hangchitiet == MaCTHH).FirstOrDefault();
                 tbmachitietkhohang.Text = sv.makho_hangchitiet;
                 cbbmakhohang.Text = sv.ma_kho_hang;
-                cbbmahanghoa.Text = sv.ma_hang_hoa;
+                cbbmahanghoa.Text = sv.hang_hoa.ten;
                 dtpngaynhapkho.Text = sv.ngay_nhap.ToString();
                 dtpngayxuatkho.Text = sv.ngay_xuat.ToString();
                 tbsoluong.Text = sv.so_luong.ToString();
@@ -221,9 +221,11 @@ namespace DUAN1
 
                     using (DUAN1Entities db = new DUAN1Entities())
                     {
+                        var mahh = db.hang_hoa.FirstOrDefault(a => a.ten.Equals(cbbmahanghoa.Text));
+                        
                         addkhhh.makho_hangchitiet = tbmachitietkhohang.Text;
                         addkhhh.ma_kho_hang = addkh.ma_kho_hang = cbbmakhohang.Text;
-                        addkhhh.ma_hang_hoa = cbbmahanghoa.Text;
+                        addkhhh.ma_hang_hoa = mahh.ma_hang_hoa;
                         addkhhh.ngay_nhap = dtpngaynhapkho.Value;
                         addkhhh.ngay_xuat = dtpngayxuatkho.Value;
                         int quantity;

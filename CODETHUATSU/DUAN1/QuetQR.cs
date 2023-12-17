@@ -74,8 +74,8 @@ namespace DUAN1
                                 foreach (var ytem in hang)
                                 {
                                     dataGridView1.Rows.Add(
-                                        ytem.ma_hang_hoa,
-                                        ytem.ten
+                                        ytem.ten,
+                                        ytem.gia_ban
                                         );
                                 }
                             }

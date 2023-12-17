@@ -166,6 +166,9 @@
     <Compile Include="QuetQR.Designer.cs">
       <DependentUpon>QuetQR.cs</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
