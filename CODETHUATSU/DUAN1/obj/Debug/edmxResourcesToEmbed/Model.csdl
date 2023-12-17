@@ -90,16 +90,6 @@
     <NavigationProperty Name="dang_nhap" Relationship="Self.FK__nhan_vien__tai_k__4316F928" FromRole="nhan_vien" ToRole="dang_nhap" />
     <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_nv__48CFD27E" FromRole="nhan_vien" ToRole="hoa_don" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <Association Name="FK__chi_tiet___ma_hd__4BAC3F29">
     <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
     <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
@@ -193,7 +183,6 @@
     <EntitySet Name="kho_hang" EntityType="Self.kho_hang" />
     <EntitySet Name="khohang_hanghoa" EntityType="Self.khohang_hanghoa" />
     <EntitySet Name="nhan_vien" EntityType="Self.nhan_vien" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK__chi_tiet___ma_hd__4BAC3F29" Association="Self.FK__chi_tiet___ma_hd__4BAC3F29">
       <End Role="hoa_don" EntitySet="hoa_don" />
       <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
