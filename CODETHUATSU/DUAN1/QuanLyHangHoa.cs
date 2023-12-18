@@ -41,9 +41,9 @@ namespace DUAN1
                 row.ten,
                 DateTime.Parse(row.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
                 DateTime.Parse(row.hsd.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
-                row.gia_ban,
+                row.gia_ban.Value.ToString("#,##0"),
                 row.hinh,
-                row.gia_nhap
+                row.gia_nhap.Value.ToString("#,##0")
 
             ));
             dataGridView1.Update();
@@ -86,8 +86,6 @@ namespace DUAN1
 
                 tbmahanghoa.Text = row.Cells[0].Value?.ToString();
                 tbtenhanghoa.Text = row.Cells[1].Value?.ToString();
-                //dtpngaysanxuat.Value = DateTime.Parse(row.Cells[2].Value?.ToString(), CultureInfo.InvariantCulture);
-                //dtphansudung.Value = DateTime.Parse(row.Cells[3].Value?.ToString(), CultureInfo.InvariantCulture);
                 tbgia.Text = row.Cells[4].Value?.ToString();
                 tbgianhap.Text = row.Cells[6].Value?.ToString();
 
@@ -136,7 +134,7 @@ namespace DUAN1
         {
             float giaBan;
             float giaNhap;
-            if (float.TryParse(tbgia.Text, out giaBan) && float.TryParse(tbgianhap.Text, out giaNhap))
+            if (float.TryParse(tbgia.Text.Replace(",",""), out giaBan) && float.TryParse(tbgianhap.Text.Replace(",", ""), out giaNhap))
             {
                 if (hinhanh == null || hinhanh.Image == null)
                 {
@@ -201,7 +199,7 @@ namespace DUAN1
         {
             float giaBan;
             float giaNhap;
-            if (float.TryParse(tbgia.Text, out giaBan) && float.TryParse(tbgianhap.Text, out giaNhap))
+            if (float.TryParse(tbgia.Text.Replace(",", ""), out giaBan) && float.TryParse(tbgianhap.Text.Replace(",", ""), out giaNhap))
             {
                 if (hinhanh == null || hinhanh.Image == null)
                 {
@@ -235,6 +233,7 @@ namespace DUAN1
                 selectedHH.gia_nhap = giaNhap;
                 selectedHH.ngay_sx = dtpngaysanxuat.Value;
                 selectedHH.hsd = dtphansudung.Value;
+                selectedHH.hinh = imagePath;
                 if (hinhanh != null && hinhanh.Image != null)
                 {
                     selectedHH.hinh = imagePath;

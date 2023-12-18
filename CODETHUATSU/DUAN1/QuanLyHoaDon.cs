@@ -30,10 +30,10 @@ namespace DUAN1
 
                 //mã khách hàng
                 cbbmakhachhang.Items.Clear();
-                db.khach_hang.ToList().ForEach(row => cbbmakhachhang.Items.Add(row.ma_kh));
+                db.khach_hang.ToList().ForEach(row => cbbmakhachhang.Items.Add(row.ten_kh));
                 //mã nhân viên
                 cbbmanv.Items.Clear();
-                db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ma_nv));
+                db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ten_nv));
 
                 dataGridView1.Rows.Clear();
                 
@@ -97,8 +97,8 @@ namespace DUAN1
                 hoa_don hd = db.hoa_don.Where(x => x.ma_hd == MaHD).FirstOrDefault();
 
                 tbmahoadon.Text = hd.ma_hd;
-                cbbmakhachhang.Text = hd.ma_kh;
-                cbbmanv.Text = hd.ma_nv;
+                cbbmakhachhang.Text = hd.khach_hang.ten_kh;
+                cbbmanv.Text = hd.nhan_vien.ten_nv;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
                 tbtrangthai.Text = hd.trang_thai; 
 
@@ -146,9 +146,11 @@ namespace DUAN1
                 hoa_don addhd = new hoa_don();
                 using (DUAN1Entities db = new DUAN1Entities())
                 {
+                    var kh = db.khach_hang.FirstOrDefault(a => a.ten_kh.Equals(cbbmakhachhang.Text));
+                    var nv = db.nhan_vien.FirstOrDefault(a => a.ten_nv.Equals(cbbmanv.Text));
                     addhd.ma_hd = tbmahoadon.Text;
-                    addhd.ma_kh = cbbmakhachhang.Text;
-                    addhd.ma_nv = cbbmanv.Text;
+                    addhd.ma_kh = kh.ma_kh;
+                    addhd.ma_nv = nv.ma_nv;
                     addhd.ngay_lap = dtpngaylap.Value;
                     addhd.trang_thai = tbtrangthai.Text;
 
