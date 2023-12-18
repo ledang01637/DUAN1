@@ -137,9 +137,9 @@ namespace DUAN1
 
         private void quenmatkhau_Click(object sender, EventArgs e)
         {
-            QuenMatKhau quenMatKhau = new QuenMatKhau();
+            LayCode layCode = new LayCode();
             this.Hide();
-            quenMatKhau.Show();
+            layCode.Show();
         }
 
         private void Login_Load_1(object sender, EventArgs e)

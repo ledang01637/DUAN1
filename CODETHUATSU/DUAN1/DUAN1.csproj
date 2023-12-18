@@ -83,6 +83,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DBHandler.cs" />
+    <Compile Include="GetCode.cs" />
     <Compile Include="hang_hoa.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -103,6 +104,12 @@
     </Compile>
     <Compile Include="kho_hang.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LayCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LayCode.Designer.cs">
+      <DependentUpon>LayCode.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -186,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KhoHangHangHoa.resx">
       <DependentUpon>KhoHangHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LayCode.resx">
+      <DependentUpon>LayCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
