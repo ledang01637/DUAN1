@@ -44,66 +44,41 @@ namespace DUAN1
         #region Btn
         private void btnsubmit_Click(object sender, EventArgs e)
         {
-            int xacNhan;
-            if (int.TryParse(tbxacnhan.Text, out xacNhan))
+            if (tbpassword1.Text.Trim().Equals(tbpassword2.Text.Trim()))
             {
-                if (tbemail.Text.ToLower().Equals(GetCode.Email))
+                if (tbpassword2.Text.Trim().Length >= 5 && tbpassword1.Text.Trim().Length >= 5)
                 {
-                    if (xacNhan == code)
+                    using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
                     {
-                        if (tbpassword1.Text.Trim().Equals(tbpassword2.Text.Trim()) && getTK(tbemail.Text.Trim()))
+                        //Mã hóa
+                        DBHandler dBHanler = new DBHandler();
+                        String Hash = dBHanler.GetMD5(tbpassword1.Text);
+                        dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.nhan_vien.email.Trim().ToLower().Equals(GetCode.Email));
+                        dang_.mat_khau = Hash;
+                        try
                         {
-                            if (tbpassword2.Text.Trim().Length >= 5 && tbpassword1.Text.Trim().Length >= 5)
-                            {
-                                using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-                                {
-                                    //Mã hóa
-                                    DBHandler dBHanler = new DBHandler();
-                                    String Hash = dBHanler.GetMD5(tbpassword1.Text);
-                                    dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.email.Equals(tbemail.Text.Trim()));
-                                    dang_.mat_khau = Hash;
-                                    try
-                                    {
-                                        dUAN1Entities.SaveChanges();
-                                    }
-                                    catch (Exception excpt)
-                                    {
-                                        Console.WriteLine(excpt.Message);
-                                    }
-                                    MessageBox.Show("Cập nhật mật khẩu mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    this.Hide();
-                                    Login login = new Login();
-                                    login.ShowDialog();
-                                    this.Close();
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Mật khẩu phải lớn hơn 4 kí tự ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            dUAN1Entities.SaveChanges();
                         }
-                        else
+                        catch (Exception excpt)
                         {
-                            MessageBox.Show("Tài khoản hoặc mật khẩu không khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            Console.WriteLine(excpt.Message);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("OTP không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        MessageBox.Show("Cập nhật mật khẩu mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        Login login = new Login();
+                        login.ShowDialog();
+                        this.Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Email được gửi và email nhập vào không khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show("Mật khẩu phải lớn hơn 4 kí tự ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
             else
             {
-                MessageBox.Show("Lỗi nhập dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tài khoản hoặc mật khẩu không khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
         private void btnthoat_Click(object sender, EventArgs e)
@@ -113,39 +88,27 @@ namespace DUAN1
             qmk.ShowDialog();
             this.Close();
         }
-        public bool getTK(string email)
-        {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-            {
-                dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.email.Equals(email));
-                if (dang_ != null)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
         #endregion
         private void groupBox2_Paint(object sender, PaintEventArgs e)
         {
             //User
-            if (focusUser)
-            {
-                if (string.IsNullOrEmpty(tbemail.Text))
-                {
-                    Pen p = new Pen(Color.Red);
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbemail.Location.X - 1, tbemail.Location.Y - 1, tbemail.Width + 1, tbemail.Height + 1));
-                }
-                else if (isTextUser)
-                {
-                    Pen p = new Pen(Color.LawnGreen);
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbemail.Location.X - 1, tbemail.Location.Y - 1, tbemail.Width + 1, tbemail.Height + 1));
-                }
-            }
-            else
-            {
-                tbemail.BorderStyle = BorderStyle.FixedSingle;
-            }
+            //if (focusUser)
+            //{
+            //    if (string.IsNullOrEmpty(tbemail.Text))
+            //    {
+            //        Pen p = new Pen(Color.Red);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbemail.Location.X - 1, tbemail.Location.Y - 1, tbemail.Width + 1, tbemail.Height + 1));
+            //    }
+            //    else if (isTextUser)
+            //    {
+            //        Pen p = new Pen(Color.LawnGreen);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbemail.Location.X - 1, tbemail.Location.Y - 1, tbemail.Width + 1, tbemail.Height + 1));
+            //    }
+            //}
+            //else
+            //{
+            //    tbemail.BorderStyle = BorderStyle.FixedSingle;
+            //}
             //Pw1
             if (focusPw1)
             {
@@ -183,23 +146,23 @@ namespace DUAN1
                 tbpassword2.BorderStyle = BorderStyle.FixedSingle;
             }
             //XN
-            if (focusXN)
-            {
-                if (string.IsNullOrEmpty(tbxacnhan.Text))
-                {
-                    Pen p = new Pen(Color.Red);
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X  - 1, tbxacnhan.Location.Y - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
-                }
-                else if (isTextXN)
-                {
-                    Pen p = new Pen(Color.LawnGreen);
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X  - 1, tbxacnhan.Location.Y - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
-                }
-            }
-            else
-            {
-                tbxacnhan.BorderStyle = BorderStyle.FixedSingle;
-            }
+            //if (focusXN)
+            //{
+            //    if (string.IsNullOrEmpty(tbxacnhan.Text))
+            //    {
+            //        Pen p = new Pen(Color.Red);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X  - 1, tbxacnhan.Location.Y - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
+            //    }
+            //    else if (isTextXN)
+            //    {
+            //        Pen p = new Pen(Color.LawnGreen);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X  - 1, tbxacnhan.Location.Y - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
+            //    }
+            //}
+            //else
+            //{
+            //    tbxacnhan.BorderStyle = BorderStyle.FixedSingle;
+            //}
         }
         #region eventTextBox
         private void tbusername_Enter(object sender, EventArgs e)

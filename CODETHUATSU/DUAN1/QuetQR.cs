@@ -54,7 +54,7 @@ namespace DUAN1
                 if (result != null )
                 {
                     tbShowQR.Text = result.ToString();
-                    using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+                    using (DAXuongEntities HangHoa_ = new DAXuongEntities())
                     {
                         hang_hoa hh = new hang_hoa();
                         if (String.IsNullOrWhiteSpace(tbShowQR.Text))
@@ -67,15 +67,14 @@ namespace DUAN1
                         dsHang.Add(hh);
                         foreach (var item in dsHang)
                         {
-                            using (DUAN1Entities du = new DUAN1Entities())
+                            using (DAXuongEntities du = new DAXuongEntities())
                             {
                                 var hang = du.hang_hoa.Where(a => a.ma_hang_hoa.Equals(item.ma_hang_hoa));
 
                                 foreach (var ytem in hang)
                                 {
                                     dataGridView1.Rows.Add(
-                                        ytem.ten,
-                                        ytem.gia_ban
+                                        ytem.ten
                                         );
                                 }
                             }
@@ -226,7 +225,7 @@ namespace DUAN1
             Font printFont = new Font("Arial", 11, FontStyle.Bold);
             e.Graphics.DrawString(title, printFont, Brushes.Black, rectangle, stringFormat);
 
-            using (DUAN1Entities entities = new DUAN1Entities())
+            using (DAXuongEntities entities = new DAXuongEntities())
             {
                 string TenHang = "";
                 double Gia = 0;
@@ -245,8 +244,8 @@ namespace DUAN1
                         stringFormatBody.Alignment = StringAlignment.Center;
                         Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
                         TenHang = item.ten;
-                        Gia = (double)item.gia_ban;
-                        TongTien = (double)item.gia_ban * SL;
+                        Gia = 4;
+                        TongTien = 5;
                         ThanhTien += TongTien;
                         e.Graphics.DrawString(TenHang + "     " + Gia.ToString("#,##0") + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
                         cao += 20;

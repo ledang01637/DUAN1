@@ -35,7 +35,7 @@ namespace DUAN1
         //Form
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
         {
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 updatedgv();
                 tbmakhachhang.Enabled = false;
@@ -53,7 +53,7 @@ namespace DUAN1
         //Update
         private void updatedgv()
         {
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 dataGridView1.Rows.Clear();
 
@@ -83,7 +83,7 @@ namespace DUAN1
             }
 
             // Thêm khách hàng vào cơ sở dữ liệu
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 khach_hang KH = new khach_hang();
                 KH.ma_kh = maKH;
@@ -107,7 +107,7 @@ namespace DUAN1
         //sửa thông tin khách hàng
         private void btnsua_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 khach_hang them = db.khach_hang
                     .Where(x => x.ma_kh == tbmakhachhang.Text)
@@ -133,7 +133,7 @@ namespace DUAN1
             }
             else
             {
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DAXuongEntities db = new DAXuongEntities())
                 {
                     khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
                     db.khach_hang.Remove(xoa);
@@ -153,7 +153,7 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-                using (DUAN1Entities db = new DUAN1Entities())
+                using (DAXuongEntities db = new DAXuongEntities())
                 {
                     List<khach_hang> listhd = db.khach_hang.Where(x => x.ma_kh.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
@@ -201,7 +201,7 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             String MaKH = rowData.Cells[0].Value.ToString();
-            using (DUAN1Entities db = new DUAN1Entities())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 khach_hang kh = db.khach_hang.Where(x => x.ma_kh == MaKH).FirstOrDefault();
                 tbmakhachhang.Text = kh.ma_kh;

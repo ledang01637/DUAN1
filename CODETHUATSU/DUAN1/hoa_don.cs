@@ -25,10 +25,11 @@ namespace DUAN1
         public string ma_nv { get; set; }
         public Nullable<System.DateTime> ngay_lap { get; set; }
         public string trang_thai { get; set; }
+        public Nullable<double> tongtien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<chi_tiet_hoa_don> chi_tiet_hoa_don { get; set; }
-        public virtual nhan_vien nhan_vien { get; set; }
         public virtual khach_hang khach_hang { get; set; }
+        public virtual nhan_vien nhan_vien { get; set; }
     }
 }

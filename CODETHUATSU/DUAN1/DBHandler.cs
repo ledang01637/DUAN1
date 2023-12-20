@@ -12,7 +12,7 @@ namespace DUAN1
         public static String Login(String username, String password)
         {
 
-            using (DUAN1Entities csharpDB = new DUAN1Entities())
+            using (DAXuongEntities csharpDB = new DAXuongEntities())
             {
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 {
@@ -30,7 +30,6 @@ namespace DUAN1
                 return null;
             }
         }
-
         public string GetMD5(String chuoi)
         {
             String str_Md5 = "";
@@ -48,7 +47,7 @@ namespace DUAN1
         public static List<hang_hoa> getListHang_hoa()
         {
             List<hang_hoa> dsHang = new List<hang_hoa>();
-            using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+            using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
                 dsHang = HangHoa_.hang_hoa.ToList();
             }
@@ -56,7 +55,7 @@ namespace DUAN1
         }
         public static bool addHangHoa(hang_hoa hhAdd)
         {
-            using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+            using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
                 try
                 {
@@ -72,7 +71,7 @@ namespace DUAN1
         }
         public static bool deleteHangHoa(string MaHH)
         {
-            using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+            using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
                 try
                 {
@@ -90,18 +89,15 @@ namespace DUAN1
         }
         public static bool updateHangHoa(hang_hoa hangHoaUpdate)
         {
-            using (DUAN1Entities HangHoa_ = new DUAN1Entities())
+            using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
                 try
                 {
                     hang_hoa found = HangHoa_.hang_hoa
                         .FirstOrDefault(sp => sp.ma_hang_hoa.Equals(hangHoaUpdate.ma_hang_hoa));
                     found.ten = hangHoaUpdate.ten;
-                    found.ngay_sx = hangHoaUpdate.ngay_sx;
-                    found.hsd = hangHoaUpdate.hsd;
-                    found.gia_ban = hangHoaUpdate.gia_ban;
-                    found.gia_nhap = hangHoaUpdate.gia_nhap;
-                    found.hinh = hangHoaUpdate.hinh;
+                    found.mota = hangHoaUpdate.mota;
+                    found.noisx = hangHoaUpdate.noisx;
                     HangHoa_.SaveChanges();
                     return true;
                 }
@@ -112,53 +108,29 @@ namespace DUAN1
             }
         }
         #endregion
-        public static bool updateCTKH(khohang_hanghoa updateKHHH)
-        {
-            using (DUAN1Entities KHHH = new DUAN1Entities())
-            {
-                try
-                {
-                    khohang_hanghoa found = KHHH.khohang_hanghoa
-                        .FirstOrDefault(sp => sp.makho_hangchitiet.Equals(updateKHHH.makho_hangchitiet));
-                    found.so_luong = updateKHHH.so_luong;
-                    KHHH.SaveChanges();
-                    return true;
-                }
-                catch
-                {
-                    return false;
-                }
-            }
-        }
+        //public static bool updateCTKH(khohang_hanghoa updateKHHH)
+        //{
+        //    //using (DUAN1Entities KHHH = new DUAN1Entities())
+        //    //{
+        //    //    try
+        //    //    {
+        //    //        khohang_hanghoa found = KHHH.khohang_hanghoa
+        //    //            .FirstOrDefault(sp => sp.makho_hangchitiet.Equals(updateKHHH.makho_hangchitiet));
+        //    //        found.so_luong = updateKHHH.so_luong;
+        //    //        KHHH.SaveChanges();
+        //    //        return true;
+        //    //    }
+        //    //    catch
+        //    //    {
+        //    //        return false;
+        //    //    }
+        //    //}
+        //}
         public static hang_hoa timMaTen(string MaTen)
         {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
+            using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
             {
                 hang_hoa hang_Hoa = dUAN1Entities.hang_hoa.FirstOrDefault(a => a.ma_hang_hoa.Equals(MaTen) || a.ten.Equals(MaTen));
-                if (hang_Hoa != null)
-                {
-                    return hang_Hoa;
-                }
-                return null;
-            }
-        }
-        public static hang_hoa timGia(float GiaHH)
-        {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-            {
-                hang_hoa hang_Hoa = dUAN1Entities.hang_hoa.FirstOrDefault(a => a.gia_ban == (GiaHH) || a.gia_nhap == (GiaHH));
-                if (hang_Hoa != null)
-                {
-                    return hang_Hoa;
-                }
-                return null;
-            }
-        }
-        public static hang_hoa timNSXHSD(DateTime NSXHSD)
-        {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-            {
-                hang_hoa hang_Hoa = dUAN1Entities.hang_hoa.FirstOrDefault(a => a.ngay_sx == NSXHSD || a.hsd == NSXHSD);
                 if (hang_Hoa != null)
                 {
                     return hang_Hoa;
@@ -170,7 +142,7 @@ namespace DUAN1
         public static String CheckTK(String username)
         {
 
-            using (DUAN1Entities csharpDB = new DUAN1Entities())
+            using (DAXuongEntities csharpDB = new DAXuongEntities())
             {
                 if (string.IsNullOrWhiteSpace(username))
                 {

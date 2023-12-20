@@ -37,13 +37,13 @@ namespace DUAN1
             dsHang = DBHandler.getListHang_hoa();
             dataGridView1.Rows.Clear();
             dsHang.ForEach(row => dataGridView1.Rows.Add(
-                row.ma_hang_hoa,
-                row.ten,
-                DateTime.Parse(row.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
-                DateTime.Parse(row.hsd.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
-                row.gia_ban.Value.ToString("#,##0"),
-                row.hinh,
-                row.gia_nhap.Value.ToString("#,##0")
+                //row.ma_hang_hoa,
+                //row.ten,
+                //DateTime.Parse(row.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
+                //DateTime.Parse(row.hsd.ToString(), CultureInfo.InvariantCulture).ToString("dd/MM/yyyy"),
+                //row.gia_ban.Value.ToString("#,##0"),
+                //row.hinh,
+                //row.gia_nhap.Value.ToString("#,##0")
 
             ));
             dataGridView1.Update();
@@ -91,14 +91,14 @@ namespace DUAN1
 
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
                 hang_hoa selectedSP = dsHang[selectedRowIndex];
-                if (!String.IsNullOrEmpty(selectedSP.hinh))
-                {
-                    hinhanh.Image = Image.FromFile(@"" + selectedSP.hinh);
-                }
-                else
-                {
-                    hinhanh.Image = null;
-                }
+                //if (!String.IsNullOrEmpty(selectedSP.hinh))
+                //{
+                //    hinhanh.Image = Image.FromFile(@"" + selectedSP.hinh);
+                //}
+                //else
+                //{
+                //    hinhanh.Image = null;
+                //}
                 tbmahanghoa.Enabled = false;
                 tbtenhanghoa.Enabled = true;
                 tbgia.Enabled = true;
@@ -162,13 +162,13 @@ namespace DUAN1
                     return;
                 }
                 hang_hoa hangHoaAdd = new hang_hoa();
-                hangHoaAdd.ma_hang_hoa = tbmahanghoa.Text;
-                hangHoaAdd.ten = tbtenhanghoa.Text;
-                hangHoaAdd.gia_ban = giaBan;
-                hangHoaAdd.gia_nhap = giaNhap;
-                hangHoaAdd.ngay_sx = dtpngaysanxuat.Value;
-                hangHoaAdd.hsd = dtphansudung.Value;
-                hangHoaAdd.hinh = imagePath;
+                //hangHoaAdd.ma_hang_hoa = tbmahanghoa.Text;
+                //hangHoaAdd.ten = tbtenhanghoa.Text;
+                //hangHoaAdd.gia_ban = giaBan;
+                //hangHoaAdd.gia_nhap = giaNhap;
+                //hangHoaAdd.ngay_sx = dtpngaysanxuat.Value;
+                //hangHoaAdd.hsd = dtphansudung.Value;
+                //hangHoaAdd.hinh = imagePath;
 
                 if (DBHandler.addHangHoa(hangHoaAdd))
                 {
@@ -228,16 +228,16 @@ namespace DUAN1
                 }
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
                 hang_hoa selectedHH = dsHang[selectedRowIndex];
-                selectedHH.ten = tbtenhanghoa.Text;
-                selectedHH.gia_ban = giaBan;
-                selectedHH.gia_nhap = giaNhap;
-                selectedHH.ngay_sx = dtpngaysanxuat.Value;
-                selectedHH.hsd = dtphansudung.Value;
-                selectedHH.hinh = imagePath;
-                if (hinhanh != null && hinhanh.Image != null)
-                {
-                    selectedHH.hinh = imagePath;
-                }
+                //selectedHH.ten = tbtenhanghoa.Text;
+                //selectedHH.gia_ban = giaBan;
+                //selectedHH.gia_nhap = giaNhap;
+                //selectedHH.ngay_sx = dtpngaysanxuat.Value;
+                //selectedHH.hsd = dtphansudung.Value;
+                //selectedHH.hinh = imagePath;
+                //if (hinhanh != null && hinhanh.Image != null)
+                //{
+                //    selectedHH.hinh = imagePath;
+                //}
                 if (DBHandler.updateHangHoa(selectedHH))
                 {
                     MessageBox.Show("Đã cập nhật");
@@ -296,59 +296,59 @@ namespace DUAN1
         }
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-            {
-                float giaBan;
-                float giaNhap;
-                DateTime nsxhsd;
-                try
-                {
-                    if (DBHandler.timMaTen(tbtimkiem.Text) != null)
-                    {
-                        hang_hoa hang = DBHandler.timMaTen(tbtimkiem.Text);
-                        dataGridView1.Rows.Clear();
-                        dataGridView1.Rows.Add(
-                            hang.ma_hang_hoa,
-                            hang.ten,
-                            DateTime.Parse(hang.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                            DateTime.Parse(hang.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                            hang.gia_ban,
-                            hang.hinh,
-                            hang.gia_nhap
-                        );
-                        dataGridView1.Update();
-                    }
-                    else if (float.TryParse(tbtimkiem.Text, out giaBan) && (float.TryParse(tbtimkiem.Text, out giaNhap) && DBHandler.timGia(giaNhap) != null))
-                    {
-                        hang_hoa hang = DBHandler.timGia(int.Parse(tbtimkiem.Text));
-                        dataGridView1.Rows.Clear();
-                        dataGridView1.Rows.Add(
-                            hang.ma_hang_hoa,
-                            hang.ten,
-                            DateTime.Parse(hang.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                            DateTime.Parse(hang.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
-                            hang.gia_ban,
-                            hang.hinh,
-                            hang.gia_nhap
-                        );
-                        dataGridView1.Update();
-                    }
-                    else if (DateTime.TryParse(tbtimkiem.Text, out nsxhsd) && DBHandler.timNSXHSD(nsxhsd) != null)
-                    {
-                        Reset();
-                        hang_hoa hang = DBHandler.timNSXHSD(DateTime.Parse(tbtimkiem.Text));
+            //using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
+            //{
+            //    float giaBan;
+            //    float giaNhap;
+            //    DateTime nsxhsd;
+            //    try
+            //    {
+            //        if (DBHandler.timMaTen(tbtimkiem.Text) != null)
+            //        {
+            //            hang_hoa hang = DBHandler.timMaTen(tbtimkiem.Text);
+            //            dataGridView1.Rows.Clear();
+            //            dataGridView1.Rows.Add(
+            //                hang.ma_hang_hoa,
+            //                hang.ten,
+            //                DateTime.Parse(hang.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
+            //                DateTime.Parse(hang.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
+            //                hang.gia_ban,
+            //                hang.hinh,
+            //                hang.gia_nhap
+            //            );
+            //            dataGridView1.Update();
+            //        }
+            //        else if (float.TryParse(tbtimkiem.Text, out giaBan) && (float.TryParse(tbtimkiem.Text, out giaNhap) && DBHandler.timGia(giaNhap) != null))
+            //        {
+            //            hang_hoa hang = DBHandler.timGia(int.Parse(tbtimkiem.Text));
+            //            dataGridView1.Rows.Clear();
+            //            dataGridView1.Rows.Add(
+            //                hang.ma_hang_hoa,
+            //                hang.ten,
+            //                DateTime.Parse(hang.ngay_sx.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
+            //                DateTime.Parse(hang.hsd.ToString(), CultureInfo.InvariantCulture).ToShortDateString(),
+            //                hang.gia_ban,
+            //                hang.hinh,
+            //                hang.gia_nhap
+            //            );
+            //            dataGridView1.Update();
+            //        }
+            //        else if (DateTime.TryParse(tbtimkiem.Text, out nsxhsd) && DBHandler.timNSXHSD(nsxhsd) != null)
+            //        {
+            //            Reset();
+            //            hang_hoa hang = DBHandler.timNSXHSD(DateTime.Parse(tbtimkiem.Text));
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK);
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Tìm không thấy", "Thông báo", MessageBoxButtons.OK);
-                }
-            }
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK);
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        MessageBox.Show("Tìm không thấy", "Thông báo", MessageBoxButtons.OK);
+            //    }
+            //}
         }
         private void btnTaoQR_Click(object sender, EventArgs e)
         {

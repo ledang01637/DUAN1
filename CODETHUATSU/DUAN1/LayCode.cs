@@ -19,10 +19,12 @@ namespace DUAN1
 {
     public partial class LayCode : Form
     {
+        DateTime tgGui;
         public LayCode()
         {
             InitializeComponent();
         }
+
         private void btnthoat_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -68,10 +70,10 @@ namespace DUAN1
                     {
                         smtpClient.Send(mail);
                         MessageBox.Show("Đã gửi OTP vui lòng kiểm tra email của bạn");
-                        QuenMatKhau qmk = new QuenMatKhau();
-                        this.Hide();
-                        qmk.ShowDialog();
-                        this.Close();
+                        tgGui = DateTime.Now;
+                        tbxacnhan.Enabled = true;
+                        btnXacNhanCode.Enabled = true;
+
 
                     }
                     catch
@@ -93,9 +95,9 @@ namespace DUAN1
         }
         public bool getEmail(string email)
         {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
+            using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
             {
-                dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.email.Equals(email));
+                dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.nhan_vien.email.Equals(email));
                 if (dang_ != null)
                 {
                     return true;
@@ -115,6 +117,40 @@ namespace DUAN1
         private void btngui_MouseMove(object sender, MouseEventArgs e)
         {
             btngui.BackColor = Color.CadetBlue;
+        }
+
+        private void btnXacNhanCode_Click(object sender, EventArgs e)
+        {
+            DateTime tgNhap = DateTime.Now;
+            double tg = (tgNhap - tgGui).TotalSeconds;
+            if (tg > 30)
+            {
+                MessageBox.Show("Thời gian quá hạn", "Thông báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+                int xacNhan;
+                if (int.TryParse(tbxacnhan.Text, out xacNhan))
+                {
+                    if (xacNhan == GetCode.Code)
+                    {
+                        QuenMatKhau qmk = new QuenMatKhau();
+                        this.Hide();
+                        qmk.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("OTP không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi nhập dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

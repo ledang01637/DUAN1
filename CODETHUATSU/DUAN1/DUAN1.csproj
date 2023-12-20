@@ -76,6 +76,9 @@
     <Compile Include="ChiTietHoaDon.Designer.cs">
       <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="chitiet_hanghoa.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="chi_tiet_hoa_don.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -98,12 +101,6 @@
     </Compile>
     <Compile Include="KhoHangHangHoa.Designer.cs">
       <DependentUpon>KhoHangHangHoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="khohang_hanghoa.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="kho_hang.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="LayCode.cs">
       <SubType>Form</SubType>
@@ -172,9 +169,6 @@
     </Compile>
     <Compile Include="QuetQR.Designer.cs">
       <DependentUpon>QuetQR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ThongKe.cs">
       <SubType>Form</SubType>

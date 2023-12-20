@@ -74,6 +74,7 @@ namespace DUAN1
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button15 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cmbTrangThai = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -636,6 +637,14 @@ namespace DUAN1
             this.pictureBox2.TabIndex = 95;
             this.pictureBox2.TabStop = false;
             // 
+            // cmbTrangThai
+            // 
+            this.cmbTrangThai.FormattingEnabled = true;
+            this.cmbTrangThai.Location = new System.Drawing.Point(1000, 268);
+            this.cmbTrangThai.Name = "cmbTrangThai";
+            this.cmbTrangThai.Size = new System.Drawing.Size(121, 24);
+            this.cmbTrangThai.TabIndex = 321;
+            // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -643,6 +652,7 @@ namespace DUAN1
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1683, 823);
+            this.Controls.Add(this.cmbTrangThai);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.btnChiTietHoaDon);
             this.Controls.Add(this.btnthongke);
@@ -738,5 +748,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_nv;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_lap;
         private System.Windows.Forms.DataGridViewTextBoxColumn trang_thai;
+        private System.Windows.Forms.ComboBox cmbTrangThai;
     }
 }
