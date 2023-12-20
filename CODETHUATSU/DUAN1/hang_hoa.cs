@@ -17,20 +17,15 @@ namespace DUAN1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public hang_hoa()
         {
-            this.hoa_don = new HashSet<hoa_don>();
-            this.khohang_hanghoa = new HashSet<khohang_hanghoa>();
+            this.chitiet_hanghoa = new HashSet<chitiet_hanghoa>();
         }
     
         public string ma_hang_hoa { get; set; }
         public string ten { get; set; }
-        public Nullable<System.DateTime> ngay_sx { get; set; }
-        public Nullable<System.DateTime> hsd { get; set; }
-        public Nullable<double> gia { get; set; }
-        public string hinh { get; set; }
+        public string mota { get; set; }
+        public string noisx { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hoa_don> hoa_don { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<khohang_hanghoa> khohang_hanghoa { get; set; }
+        public virtual ICollection<chitiet_hanghoa> chitiet_hanghoa { get; set; }
     }
 }

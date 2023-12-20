@@ -17,5 +17,8 @@ namespace DUAN1
         public string tai_khoan { get; set; }
         public string mat_khau { get; set; }
         public string role { get; set; }
+        public string ma_nv { get; set; }
+    
+        public virtual nhan_vien nhan_vien { get; set; }
     }
 }

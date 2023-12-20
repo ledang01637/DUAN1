@@ -12,12 +12,13 @@ using System.Net.Mail;
 using System.Data.Entity.Validation;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace DUAN1
 {
     public partial class QuenMatKhau : Form
     {
-        int code = new Random().Next(10000,99999);
+        readonly int code = GetCode.Code;
         bool focusUser, focusPw1, focusPw2, focusXN;
         bool isTextUser, isTextPw1, isTextPw2, isTextXN;
         public QuenMatKhau()
@@ -25,19 +26,6 @@ namespace DUAN1
             InitializeComponent();
         }
         #region Mouse
-        private void btngui_MouseHover(object sender, EventArgs e)
-        {
-            btngui.BackColor = Color.CadetBlue; 
-        }
-        private void btngui_MouseLeave(object sender, EventArgs e)
-        {
-            btngui.BackColor = Color.PaleTurquoise;
-        }
-
-        private void btngui_MouseMove(object sender, MouseEventArgs e)
-        {
-            btngui.BackColor = Color.CadetBlue;
-        }
         private void btnsubmit_MouseHover(object sender, EventArgs e)
         {
             btnsubmit.BackColor = Color.CadetBlue;
@@ -53,159 +41,86 @@ namespace DUAN1
             btnsubmit.BackColor = Color.PaleTurquoise;
         }
         #endregion
-        private void btngui_Click(object sender, EventArgs e)
-        {
-            SendEmail();
-        }
-        protected void SendEmail()
-        {
-            string from = "danglhpc06254@fpt.edu.vn";
-            string pw = "nkpbolujrxlizknl";
-            string context = "Code của bạn là: " + code;
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress(from);
-            if(tbemail.Text == null || tbemail.Text == "")
-            {
-                MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                string strRegex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-                Regex regex = new Regex(strRegex);
-                if (regex.IsMatch(tbemail.Text))
-                {
-                    mail.To.Add(tbemail.Text);
-                    mail.Subject = "Code quên mật khẩu";
-                    mail.Body = context;
-
-                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-                    smtpClient.UseDefaultCredentials = false;
-                    smtpClient.Credentials = new NetworkCredential(from, pw);
-                    smtpClient.EnableSsl = true;
-                    smtpClient.Port = 587;
-                    try
-                    {
-                        smtpClient.Send(mail);
-                        MessageBox.Show("Email send Succesfull");
-                        
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Email send Error", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                
-            }
-        }
+        #region Btn
         private void btnsubmit_Click(object sender, EventArgs e)
         {
-            int xacNhan;
-            if(int.TryParse(tbxacnhan.Text,out xacNhan))
+            if (tbpassword1.Text.Trim().Equals(tbpassword2.Text.Trim()))
             {
-                if (xacNhan == code)
+                if (tbpassword2.Text.Trim().Length >= 5 && tbpassword1.Text.Trim().Length >= 5)
                 {
-                    if (tbpassword1.Text.Trim().Equals(tbpassword2.Text.Trim()) && getTK(tbusername.Text.Trim()))
+                    using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
                     {
-                        if (tbpassword2.Text.Trim().Length >= 5 && tbpassword1.Text.Trim().Length >= 5)
+                        //Mã hóa
+                        DBHandler dBHanler = new DBHandler();
+                        String Hash = dBHanler.GetMD5(tbpassword1.Text);
+                        dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.nhan_vien.email.Trim().ToLower().Equals(GetCode.Email));
+                        dang_.mat_khau = Hash;
+                        try
                         {
-                            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-                            {
-                                //Mã hóa
-                                DBHanler dBHanler = new DBHanler();
-                                String Hash = dBHanler.GetMD5(tbpassword1.Text);
-                                dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.tai_khoan.Equals(tbusername.Text.Trim()));
-                                dang_.mat_khau = Hash;
-                                try
-                                {
-                                    dUAN1Entities.SaveChanges();
-                                }
-                                catch (Exception excpt)
-                                {
-                                    Console.WriteLine(excpt.Message);
-                                }
-                                MessageBox.Show("Cập nhật mật khẩu mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
+                            dUAN1Entities.SaveChanges();
                         }
-                        else
+                        catch (Exception excpt)
                         {
-                            MessageBox.Show("Mật khẩu phải lớn hơn 4 kí tự ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }  
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tài khoản hoặc mật khẩu không khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                            Console.WriteLine(excpt.Message);
+                        }
+                        MessageBox.Show("Cập nhật mật khẩu mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        Login login = new Login();
+                        login.ShowDialog();
+                        this.Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Code không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show("Mật khẩu phải lớn hơn 4 kí tự ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Lỗi nhập dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+                MessageBox.Show("Tài khoản hoặc mật khẩu không khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
-        public bool getTK(string tk)
+        private void btnthoat_Click(object sender, EventArgs e)
         {
-            using (DUAN1Entities dUAN1Entities = new DUAN1Entities())
-            {
-                dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.tai_khoan.Equals(tk));
-                if(dang_ != null)
-                {
-                    return true;
-                }
-                return false;
-            } 
+            this.Hide();
+            LayCode qmk = new LayCode();
+            qmk.ShowDialog();
+            this.Close();
         }
+        #endregion
         private void groupBox2_Paint(object sender, PaintEventArgs e)
         {
             //User
-            if (focusUser)
-            {
-                if (tbusername.Text.Trim() == "" || tbusername.Text.Trim() == null)
-                {
-                    Pen p = new Pen(Color.Red);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbusername.Location.X - GrX - 1, tbusername.Location.Y - GrY - 1, tbusername.Width + 1, tbusername.Height + 1));
-                }
-                else if (isTextUser)
-                {
-                    Pen p = new Pen(Color.LawnGreen);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbusername.Location.X - GrX - 1, tbusername.Location.Y - GrY - 1, tbusername.Width + 1, tbusername.Height + 1));
-                }
-            }
-            else
-            {
-                tbusername.BorderStyle = BorderStyle.FixedSingle;
-            }
+            //if (focusUser)
+            //{
+            //    if (string.IsNullOrEmpty(tbemail.Text))
+            //    {
+            //        Pen p = new Pen(Color.Red);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbemail.Location.X - 1, tbemail.Location.Y - 1, tbemail.Width + 1, tbemail.Height + 1));
+            //    }
+            //    else if (isTextUser)
+            //    {
+            //        Pen p = new Pen(Color.LawnGreen);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbemail.Location.X - 1, tbemail.Location.Y - 1, tbemail.Width + 1, tbemail.Height + 1));
+            //    }
+            //}
+            //else
+            //{
+            //    tbemail.BorderStyle = BorderStyle.FixedSingle;
+            //}
             //Pw1
             if (focusPw1)
             {
-                if (tbpassword1.Text.Trim() == "" || tbpassword1.Text.Trim() == null || tbpassword1.Text.Length < 5)
+                if (string.IsNullOrEmpty(tbpassword1.Text) || tbpassword1.Text.Length < 5)
                 {
                     Pen p = new Pen(Color.Red);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword1.Location.X - GrX - 1, tbpassword1.Location.Y - GrY - 1, tbpassword1.Width + 1, tbpassword1.Height + 1));
+                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword1.Location.X  - 1, tbpassword1.Location.Y - 1, tbpassword1.Width + 1, tbpassword1.Height + 1));
                 }
                 else if (isTextPw1)
                 {
                     Pen p = new Pen(Color.LawnGreen);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword1.Location.X - GrX - 1, tbpassword1.Location.Y - GrY - 1, tbpassword1.Width + 1, tbpassword1.Height + 1));
+                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword1.Location.X  - 1, tbpassword1.Location.Y - 1, tbpassword1.Width + 1, tbpassword1.Height + 1));
                 }
             }
             else
@@ -215,19 +130,15 @@ namespace DUAN1
             //Pw2
             if (focusPw2)
             {
-                if (tbpassword2.Text.Trim() == "" || tbpassword2.Text.Trim() == null || tbpassword2.Text.Length < 5)
+                if (string.IsNullOrEmpty(tbpassword2.Text) || tbpassword2.Text.Length < 5)
                 {
                     Pen p = new Pen(Color.Red);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword2.Location.X - GrX - 1, tbpassword2.Location.Y - GrY - 1, tbpassword2.Width + 1, tbpassword2.Height + 1));
+                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword2.Location.X  - 1, tbpassword2.Location.Y - 1, tbpassword2.Width + 1, tbpassword2.Height + 1));
                 }
                 else if (isTextPw2)
                 {
                     Pen p = new Pen(Color.LawnGreen);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword2.Location.X - GrX - 1, tbpassword2.Location.Y - GrY - 1, tbpassword2.Width + 1, tbpassword2.Height + 1));
+                    e.Graphics.DrawRectangle(p, new Rectangle(tbpassword2.Location.X  - 1, tbpassword2.Location.Y - 1, tbpassword2.Width + 1, tbpassword2.Height + 1));
                 }
             }
             else
@@ -235,27 +146,23 @@ namespace DUAN1
                 tbpassword2.BorderStyle = BorderStyle.FixedSingle;
             }
             //XN
-            if (focusXN)
-            {
-                if (tbxacnhan.Text.Trim() == "" || tbxacnhan.Text.Trim() == null)
-                {
-                    Pen p = new Pen(Color.Red);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X - GrX - 1, tbxacnhan.Location.Y - GrY - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
-                }
-                else if (isTextXN)
-                {
-                    Pen p = new Pen(Color.LawnGreen);
-                    int GrX = groupBox2.Location.X;
-                    int GrY = groupBox2.Location.Y;
-                    e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X - GrX - 1, tbxacnhan.Location.Y - GrY - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
-                }
-            }
-            else
-            {
-                tbxacnhan.BorderStyle = BorderStyle.FixedSingle;
-            }
+            //if (focusXN)
+            //{
+            //    if (string.IsNullOrEmpty(tbxacnhan.Text))
+            //    {
+            //        Pen p = new Pen(Color.Red);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X  - 1, tbxacnhan.Location.Y - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
+            //    }
+            //    else if (isTextXN)
+            //    {
+            //        Pen p = new Pen(Color.LawnGreen);
+            //        e.Graphics.DrawRectangle(p, new Rectangle(tbxacnhan.Location.X  - 1, tbxacnhan.Location.Y - 1, tbxacnhan.Width + 1, tbxacnhan.Height + 1));
+            //    }
+            //}
+            //else
+            //{
+            //    tbxacnhan.BorderStyle = BorderStyle.FixedSingle;
+            //}
         }
         #region eventTextBox
         private void tbusername_Enter(object sender, EventArgs e)
@@ -293,6 +200,12 @@ namespace DUAN1
             focusPw2 = true;
             this.Refresh();
         }
+
+        private void QuenMatKhau_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void tbpassword2_Leave(object sender, EventArgs e)
         {
             focusPw2 = false;
@@ -319,5 +232,6 @@ namespace DUAN1
             this.Refresh();
         }
         #endregion
+        
     }
 }
