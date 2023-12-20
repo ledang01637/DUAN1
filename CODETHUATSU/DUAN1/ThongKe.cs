@@ -21,21 +21,20 @@ namespace DUAN1
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    var Key = db.chi_tiet_hoa_don.GroupBy(a => a.khohang_hanghoa.hang_hoa.ten);
-            //    dataGridView1.Rows.Clear();
-            //    foreach (var item in Key)
-            //    {
-            //        dataGridView1.Rows.Add(
-            //            item.Key,
-            //            item.Sum(a => a.khohang_hanghoa.hang_hoa.gia_ban).Value.ToString("#,##0"),
-            //            item.Sum(a => a.so_luong).Value.ToString("#,##0"),
-            //            item.Sum(a => a.khohang_hanghoa.so_luong).Value.ToString("#,##0")
-            //            );
-            //    }
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                var Key = db.chi_tiet_hoa_don.GroupBy(a => a.chitiet_hanghoa.hang_hoa.ten);
+                dataGridView1.Rows.Clear();
+                foreach (var item in Key)
+                {
+                    dataGridView1.Rows.Add(
+                        item.Key,
+                        item.Sum(a => a.so_luong * a.dongia).Value.ToString("#,##0"),
+                        item.Sum(a => a.so_luong).Value.ToString("#,##0")
+                        );
+                }
 
-            //}
+            }
 
         }
 

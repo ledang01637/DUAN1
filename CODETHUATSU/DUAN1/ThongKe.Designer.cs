@@ -51,7 +51,6 @@ namespace DUAN1
             this.mahoadon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giasanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soluongdaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluongcontrongkho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -90,8 +89,7 @@ namespace DUAN1
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.mahoadon,
             this.giasanpham,
-            this.soluongdaban,
-            this.soluongcontrongkho});
+            this.soluongdaban});
             this.dataGridView1.Location = new System.Drawing.Point(284, 147);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
@@ -321,7 +319,7 @@ namespace DUAN1
             // 
             // giasanpham
             // 
-            this.giasanpham.HeaderText = "Tổng giá";
+            this.giasanpham.HeaderText = "Tổng tiền";
             this.giasanpham.MinimumWidth = 6;
             this.giasanpham.Name = "giasanpham";
             this.giasanpham.ReadOnly = true;
@@ -332,13 +330,6 @@ namespace DUAN1
             this.soluongdaban.MinimumWidth = 6;
             this.soluongdaban.Name = "soluongdaban";
             this.soluongdaban.ReadOnly = true;
-            // 
-            // soluongcontrongkho
-            // 
-            this.soluongcontrongkho.HeaderText = "Số lượng còn trong kho";
-            this.soluongcontrongkho.MinimumWidth = 6;
-            this.soluongcontrongkho.Name = "soluongcontrongkho";
-            this.soluongcontrongkho.ReadOnly = true;
             // 
             // ThongKe
             // 
@@ -400,6 +391,5 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn mahoadon;
         private System.Windows.Forms.DataGridViewTextBoxColumn giasanpham;
         private System.Windows.Forms.DataGridViewTextBoxColumn soluongdaban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soluongcontrongkho;
     }
 }
