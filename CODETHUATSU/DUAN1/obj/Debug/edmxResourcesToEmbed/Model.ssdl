@@ -69,6 +69,16 @@
     <Property Name="sdt" Type="varchar" MaxLength="12" />
     <Property Name="email" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <Association Name="FK__chi_tiet___ma_ch__48CFD27E">
     <End Role="chitiet_hanghoa" Type="Self.chitiet_hanghoa" Multiplicity="1" />
     <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
@@ -149,6 +159,7 @@
     <EntitySet Name="hoa_don" EntityType="Self.hoa_don" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="khach_hang" EntityType="Self.khach_hang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="nhan_vien" EntityType="Self.nhan_vien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__chi_tiet___ma_ch__48CFD27E" Association="Self.FK__chi_tiet___ma_ch__48CFD27E">
       <End Role="chitiet_hanghoa" EntitySet="chitiet_hanghoa" />
       <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />

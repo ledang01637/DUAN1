@@ -32,5 +32,6 @@ namespace DUAN1
         public virtual DbSet<hoa_don> hoa_don { get; set; }
         public virtual DbSet<khach_hang> khach_hang { get; set; }
         public virtual DbSet<nhan_vien> nhan_vien { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

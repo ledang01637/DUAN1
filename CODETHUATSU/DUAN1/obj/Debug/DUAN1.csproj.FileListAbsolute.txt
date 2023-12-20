@@ -127,3 +127,39 @@ D:\FPT POLY TEACHNIC\DuAn1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\zxing.xml
 D:\FPT POLY TEACHNIC\DuAn1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\zxing.presentation.xml
 D:\FPT POLY TEACHNIC\DuAn1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CopyComplete
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.LayCode.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\DUAN1.exe.config
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\DUAN1.exe
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\DUAN1.pdb
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\AForge.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\AForge.Video.DirectShow.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\AForge.Video.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.SqlServer.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\zxing.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\zxing.presentation.dll
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\AForge.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\AForge.Video.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\AForge.Video.DirectShow.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.SqlServer.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\zxing.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\bin\Debug\zxing.presentation.xml
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.AssemblyReference.cache
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ChiTietHoaDon.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.KhoHangHangHoa.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.LayCode.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Login.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Properties.Resources.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyHangHoa.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyHoaDon.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyKhachHang.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyNhanVien.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuenMatKhau.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuetQR.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ThongKe.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ThongTinNhanVien.resources
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.GenerateResource.cache
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CoreCompileInputs.cache
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CopyComplete
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.exe
+D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.pdb

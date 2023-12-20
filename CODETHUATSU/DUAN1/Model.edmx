@@ -74,6 +74,16 @@
           <Property Name="sdt" Type="varchar" MaxLength="12" />
           <Property Name="email" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <Association Name="FK__chi_tiet___ma_ch__48CFD27E">
           <End Role="chitiet_hanghoa" Type="Self.chitiet_hanghoa" Multiplicity="1" />
           <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
@@ -154,6 +164,7 @@
           <EntitySet Name="hoa_don" EntityType="Self.hoa_don" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="khach_hang" EntityType="Self.khach_hang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nhan_vien" EntityType="Self.nhan_vien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__chi_tiet___ma_ch__48CFD27E" Association="Self.FK__chi_tiet___ma_ch__48CFD27E">
             <End Role="chitiet_hanghoa" EntitySet="chitiet_hanghoa" />
             <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
@@ -265,6 +276,16 @@
           <NavigationProperty Name="dang_nhap" Relationship="Self.FK__dang_nhap__ma_nv__3A81B327" FromRole="nhan_vien" ToRole="dang_nhap" />
           <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_nv__44FF419A" FromRole="nhan_vien" ToRole="hoa_don" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <Association Name="FK__chi_tiet___ma_ch__48CFD27E">
           <End Role="chitiet_hanghoa" Type="Self.chitiet_hanghoa" Multiplicity="1" />
           <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
@@ -345,6 +366,7 @@
           <EntitySet Name="hoa_don" EntityType="Self.hoa_don" />
           <EntitySet Name="khach_hang" EntityType="Self.khach_hang" />
           <EntitySet Name="nhan_vien" EntityType="Self.nhan_vien" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK__chi_tiet___ma_ch__48CFD27E" Association="Self.FK__chi_tiet___ma_ch__48CFD27E">
             <End Role="chitiet_hanghoa" EntitySet="chitiet_hanghoa" />
             <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
@@ -449,6 +471,17 @@
                 <ScalarProperty Name="ten_nv" ColumnName="ten_nv" />
                 <ScalarProperty Name="sdt" ColumnName="sdt" />
                 <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DAXuongModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
