@@ -31,14 +31,15 @@ namespace DUAN1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManHinhChinh));
             this.Header = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogout = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTenForm = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
+            this.btnConnSetting = new System.Windows.Forms.Button();
             this.btnChiTietHoaDon = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
             this.btnkhachhang = new System.Windows.Forms.Button();
@@ -48,10 +49,10 @@ namespace DUAN1
             this.btnthongtinnv = new System.Windows.Forms.Button();
             this.btnhoadon = new System.Windows.Forms.Button();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,11 +66,23 @@ namespace DUAN1
             this.Header.Controls.Add(this.pnlLogout);
             this.Header.Controls.Add(this.lblTenForm);
             this.Header.Controls.Add(this.panel2);
-            this.Header.Location = new System.Drawing.Point(3, -1);
-            this.Header.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Header.Location = new System.Drawing.Point(4, -1);
+            this.Header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1403, 68);
+            this.Header.Size = new System.Drawing.Size(1870, 83);
             this.Header.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImage = global::DUAN1.Properties.Resources.icons8_user_48;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(1669, -1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 71);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // pnlLogout
             // 
@@ -77,10 +90,10 @@ namespace DUAN1
             this.pnlLogout.Controls.Add(this.label1);
             this.pnlLogout.Controls.Add(this.pictureBox2);
             this.pnlLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlLogout.Location = new System.Drawing.Point(1309, 40);
-            this.pnlLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLogout.Location = new System.Drawing.Point(1745, 49);
+            this.pnlLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLogout.Name = "pnlLogout";
-            this.pnlLogout.Size = new System.Drawing.Size(90, 24);
+            this.pnlLogout.Size = new System.Drawing.Size(120, 30);
             this.pnlLogout.TabIndex = 4;
             this.pnlLogout.Click += new System.EventHandler(this.Logout_Click);
             // 
@@ -88,10 +101,9 @@ namespace DUAN1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(36, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 15);
+            this.label1.Size = new System.Drawing.Size(74, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Đăng xuất";
             // 
@@ -100,9 +112,9 @@ namespace DUAN1
             this.pictureBox2.BackgroundImage = global::DUAN1.Properties.Resources.icons8_logout_48;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 24);
+            this.pictureBox2.Size = new System.Drawing.Size(29, 30);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -110,10 +122,9 @@ namespace DUAN1
             // 
             this.lblTenForm.AutoSize = true;
             this.lblTenForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenForm.Location = new System.Drawing.Point(178, 20);
-            this.lblTenForm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTenForm.Location = new System.Drawing.Point(237, 25);
             this.lblTenForm.Name = "lblTenForm";
-            this.lblTenForm.Size = new System.Drawing.Size(105, 25);
+            this.lblTenForm.Size = new System.Drawing.Size(130, 29);
             this.lblTenForm.TabIndex = 3;
             this.lblTenForm.Text = "Tên Form";
             // 
@@ -122,34 +133,21 @@ namespace DUAN1
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.lblUsername);
-            this.panel2.Location = new System.Drawing.Point(1264, -1);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(1685, -1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(134, 39);
+            this.panel2.Size = new System.Drawing.Size(179, 48);
             this.panel2.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::DUAN1.Properties.Resources.icons8_user_48;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(1252, -1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 58);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // lblUsername
             // 
             this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(46, 12);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUsername.MaximumSize = new System.Drawing.Size(90, 24);
+            this.lblUsername.Location = new System.Drawing.Point(61, 15);
+            this.lblUsername.MaximumSize = new System.Drawing.Size(120, 30);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(83, 24);
+            this.lblUsername.Size = new System.Drawing.Size(113, 30);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Usernameeeeeeeee";
             // 
@@ -159,6 +157,7 @@ namespace DUAN1
             | System.Windows.Forms.AnchorStyles.Left)));
             this.SideBar.BackColor = System.Drawing.Color.White;
             this.SideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SideBar.Controls.Add(this.btnConnSetting);
             this.SideBar.Controls.Add(this.btnChiTietHoaDon);
             this.SideBar.Controls.Add(this.btnthongke);
             this.SideBar.Controls.Add(this.btnkhachhang);
@@ -168,11 +167,30 @@ namespace DUAN1
             this.SideBar.Controls.Add(this.btnthongtinnv);
             this.SideBar.Controls.Add(this.btnhoadon);
             this.SideBar.Location = new System.Drawing.Point(0, -1);
-            this.SideBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SideBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SideBar.Name = "SideBar";
-            this.SideBar.Size = new System.Drawing.Size(177, 753);
+            this.SideBar.Size = new System.Drawing.Size(235, 926);
             this.SideBar.TabIndex = 1;
             this.SideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.SideBar_Paint);
+            // 
+            // btnConnSetting
+            // 
+            this.btnConnSetting.AutoSize = true;
+            this.btnConnSetting.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnConnSetting.BackgroundImage = global::DUAN1.Properties.Resources.icons8_setting_48;
+            this.btnConnSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnConnSetting.FlatAppearance.BorderSize = 0;
+            this.btnConnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnSetting.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConnSetting.Location = new System.Drawing.Point(-1, 851);
+            this.btnConnSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConnSetting.Name = "btnConnSetting";
+            this.btnConnSetting.Size = new System.Drawing.Size(236, 62);
+            this.btnConnSetting.TabIndex = 354;
+            this.btnConnSetting.Text = "Cấu hình kết nối";
+            this.btnConnSetting.UseVisualStyleBackColor = false;
+            this.btnConnSetting.Click += new System.EventHandler(this.btnConnSetting_Click);
             // 
             // btnChiTietHoaDon
             // 
@@ -184,9 +202,10 @@ namespace DUAN1
             this.btnChiTietHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChiTietHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTietHoaDon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnChiTietHoaDon.Location = new System.Drawing.Point(-1, 290);
+            this.btnChiTietHoaDon.Location = new System.Drawing.Point(-1, 357);
+            this.btnChiTietHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnChiTietHoaDon.Name = "btnChiTietHoaDon";
-            this.btnChiTietHoaDon.Size = new System.Drawing.Size(177, 50);
+            this.btnChiTietHoaDon.Size = new System.Drawing.Size(236, 62);
             this.btnChiTietHoaDon.TabIndex = 353;
             this.btnChiTietHoaDon.Text = "Chi Tiết HD";
             this.btnChiTietHoaDon.UseVisualStyleBackColor = false;
@@ -201,10 +220,10 @@ namespace DUAN1
             this.btnthongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthongke.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnthongke.Location = new System.Drawing.Point(-1, 457);
-            this.btnthongke.Margin = new System.Windows.Forms.Padding(2);
+            this.btnthongke.Location = new System.Drawing.Point(-1, 562);
+            this.btnthongke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnthongke.Name = "btnthongke";
-            this.btnthongke.Size = new System.Drawing.Size(177, 50);
+            this.btnthongke.Size = new System.Drawing.Size(236, 62);
             this.btnthongke.TabIndex = 352;
             this.btnthongke.Text = "Thống Kê";
             this.btnthongke.UseVisualStyleBackColor = false;
@@ -219,12 +238,14 @@ namespace DUAN1
             this.btnkhachhang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnkhachhang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnkhachhang.Location = new System.Drawing.Point(-1, 402);
+            this.btnkhachhang.Location = new System.Drawing.Point(-1, 495);
+            this.btnkhachhang.Margin = new System.Windows.Forms.Padding(4);
             this.btnkhachhang.Name = "btnkhachhang";
-            this.btnkhachhang.Size = new System.Drawing.Size(177, 50);
+            this.btnkhachhang.Size = new System.Drawing.Size(236, 62);
             this.btnkhachhang.TabIndex = 351;
             this.btnkhachhang.Text = "Khách Hàng";
             this.btnkhachhang.UseVisualStyleBackColor = false;
+            this.btnkhachhang.Click += new System.EventHandler(this.btnkhachhang_Click);
             // 
             // btnnhanvien
             // 
@@ -236,9 +257,10 @@ namespace DUAN1
             this.btnnhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnnhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnnhanvien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnnhanvien.Location = new System.Drawing.Point(-1, 346);
+            this.btnnhanvien.Location = new System.Drawing.Point(-1, 426);
+            this.btnnhanvien.Margin = new System.Windows.Forms.Padding(4);
             this.btnnhanvien.Name = "btnnhanvien";
-            this.btnnhanvien.Size = new System.Drawing.Size(177, 50);
+            this.btnnhanvien.Size = new System.Drawing.Size(236, 62);
             this.btnnhanvien.TabIndex = 350;
             this.btnnhanvien.Text = "Nhân Viên";
             this.btnnhanvien.UseVisualStyleBackColor = false;
@@ -253,9 +275,10 @@ namespace DUAN1
             this.btnchitiethanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnchitiethanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnchitiethanghoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnchitiethanghoa.Location = new System.Drawing.Point(-1, 178);
+            this.btnchitiethanghoa.Location = new System.Drawing.Point(-1, 219);
+            this.btnchitiethanghoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnchitiethanghoa.Name = "btnchitiethanghoa";
-            this.btnchitiethanghoa.Size = new System.Drawing.Size(177, 50);
+            this.btnchitiethanghoa.Size = new System.Drawing.Size(236, 62);
             this.btnchitiethanghoa.TabIndex = 349;
             this.btnchitiethanghoa.Text = "Chi Tiết Hàng Hóa";
             this.btnchitiethanghoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -272,9 +295,10 @@ namespace DUAN1
             this.btnhanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhanghoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnhanghoa.Location = new System.Drawing.Point(-1, 122);
+            this.btnhanghoa.Location = new System.Drawing.Point(-1, 150);
+            this.btnhanghoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnhanghoa.Name = "btnhanghoa";
-            this.btnhanghoa.Size = new System.Drawing.Size(177, 50);
+            this.btnhanghoa.Size = new System.Drawing.Size(236, 62);
             this.btnhanghoa.TabIndex = 348;
             this.btnhanghoa.Text = "Hàng Hóa";
             this.btnhanghoa.UseVisualStyleBackColor = false;
@@ -291,9 +315,10 @@ namespace DUAN1
             this.btnthongtinnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthongtinnv.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnthongtinnv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthongtinnv.Location = new System.Drawing.Point(-1, 66);
+            this.btnthongtinnv.Location = new System.Drawing.Point(-1, 81);
+            this.btnthongtinnv.Margin = new System.Windows.Forms.Padding(4);
             this.btnthongtinnv.Name = "btnthongtinnv";
-            this.btnthongtinnv.Size = new System.Drawing.Size(177, 50);
+            this.btnthongtinnv.Size = new System.Drawing.Size(236, 62);
             this.btnthongtinnv.TabIndex = 347;
             this.btnthongtinnv.Text = "Trang Chủ";
             this.btnthongtinnv.UseVisualStyleBackColor = false;
@@ -308,34 +333,35 @@ namespace DUAN1
             this.btnhoadon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhoadon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnhoadon.Location = new System.Drawing.Point(-1, 234);
+            this.btnhoadon.Location = new System.Drawing.Point(-1, 288);
+            this.btnhoadon.Margin = new System.Windows.Forms.Padding(4);
             this.btnhoadon.Name = "btnhoadon";
-            this.btnhoadon.Size = new System.Drawing.Size(177, 50);
+            this.btnhoadon.Size = new System.Drawing.Size(236, 62);
             this.btnhoadon.TabIndex = 345;
             this.btnhoadon.Text = "Hóa Đơn";
             this.btnhoadon.UseVisualStyleBackColor = false;
             // 
             // ManHinhChinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1405, 751);
+            this.ClientSize = new System.Drawing.Size(1873, 924);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.Header);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManHinhChinh";
             this.Text = "Màn hình chính";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManHinhChinh_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlLogout.ResumeLayout(false);
             this.pnlLogout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBar.ResumeLayout(false);
             this.SideBar.PerformLayout();
             this.ResumeLayout(false);
@@ -361,5 +387,6 @@ namespace DUAN1
         private System.Windows.Forms.Button btnhanghoa;
         private System.Windows.Forms.Button btnthongtinnv;
         private System.Windows.Forms.Button btnhoadon;
+        private System.Windows.Forms.Button btnConnSetting;
     }
 }

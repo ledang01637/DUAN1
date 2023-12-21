@@ -6,22 +6,20 @@ namespace DUAN1
 {
     public partial class ManHinhChinh : Form
     {
+        private Form activeForm;
         public ManHinhChinh()
         {
             InitializeComponent();
             Header.BackColor = Constant.redColor;
-            SideBar.BackColor = Constant.blueColor;           
+            SideBar.BackColor = Constant.blueColor;
+            this.IsMdiContainer = true;
         }
 
         private void ManHinhChinh_Load(object sender, System.EventArgs e)
         {
-            this.IsMdiContainer = true;
-            Login formDangNhap = new Login();
-            //formDangNhap.TopLevel = false;
-            //this.Controls.Add(formDangNhap);
-            //formDangNhap.Dock = DockStyle.Bottom;
-            formDangNhap.MdiParent = this;
-            formDangNhap.Show();
+            activeForm = new Login();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void Logout_Click(object sender, System.EventArgs e)
@@ -76,6 +74,30 @@ namespace DUAN1
             formQLHH.Hide();
             formCTHH.MdiParent = this;
             formCTHH.Show();
+        }
+
+        private void btnConnSetting_Click(object sender, System.EventArgs e)
+        {
+            if(activeForm != null)
+            {
+                activeForm.Hide();
+                //activeForm.Dispose();
+            }
+            activeForm = new CauHinhDB();
+            activeForm.MdiParent = this;
+            activeForm.Show();
+        }
+
+        private void btnkhachhang_Click(object sender, System.EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Hide();
+                //activeForm.Dispose();
+            }
+            activeForm = new QuanLyKhachHang("");
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
     }
 }

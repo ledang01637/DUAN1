@@ -37,6 +37,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                db.ChangeDatabase();
                 updatedgv();
                 tbmakhachhang.Enabled = false;
             }
@@ -55,6 +56,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                db.ChangeDatabase();
                 dataGridView1.Rows.Clear();
 
                 db.khach_hang.ToList().ForEach(kh =>
