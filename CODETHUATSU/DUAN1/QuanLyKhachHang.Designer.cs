@@ -32,6 +32,9 @@ namespace DUAN1
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyKhachHang));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ten_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbsdt = new System.Windows.Forms.Label();
             this.tbsdt = new System.Windows.Forms.TextBox();
             this.lbtenkhachhang = new System.Windows.Forms.Label();
@@ -60,9 +63,6 @@ namespace DUAN1
             this.btnhoadon = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ten_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -87,6 +87,27 @@ namespace DUAN1
             this.dataGridView1.Size = new System.Drawing.Size(1649, 329);
             this.dataGridView1.TabIndex = 132;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ma_kh
+            // 
+            this.ma_kh.HeaderText = "Mã KH";
+            this.ma_kh.MinimumWidth = 6;
+            this.ma_kh.Name = "ma_kh";
+            this.ma_kh.ReadOnly = true;
+            // 
+            // ten_kh
+            // 
+            this.ten_kh.HeaderText = "Tên KH";
+            this.ten_kh.MinimumWidth = 6;
+            this.ten_kh.Name = "ten_kh";
+            this.ten_kh.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.HeaderText = "Số điện thoại";
+            this.sdt.MinimumWidth = 8;
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
             // 
             // lbsdt
             // 
@@ -231,7 +252,7 @@ namespace DUAN1
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
-            this.btntimkiem.Location = new System.Drawing.Point(1678, 618);
+            this.btntimkiem.Location = new System.Drawing.Point(1678, 616);
             this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(180, 80);
@@ -312,8 +333,9 @@ namespace DUAN1
             this.qlkh.Name = "qlkh";
             this.qlkh.Size = new System.Drawing.Size(1648, 140);
             this.qlkh.TabIndex = 356;
-            this.qlkh.Text = "QUẢN LÝ NHÂN VIÊN";
+            this.qlkh.Text = "QUẢN LÝ KHÁCH HÀNG";
             this.qlkh.UseVisualStyleBackColor = false;
+            this.qlkh.Click += new System.EventHandler(this.qlkh_Click);
             // 
             // btnChiTietHoaDon
             // 
@@ -479,27 +501,6 @@ namespace DUAN1
             this.pictureBox4.Size = new System.Drawing.Size(257, 1054);
             this.pictureBox4.TabIndex = 355;
             this.pictureBox4.TabStop = false;
-            // 
-            // ma_kh
-            // 
-            this.ma_kh.HeaderText = "Mã KH";
-            this.ma_kh.MinimumWidth = 6;
-            this.ma_kh.Name = "ma_kh";
-            this.ma_kh.ReadOnly = true;
-            // 
-            // ten_kh
-            // 
-            this.ten_kh.HeaderText = "Tên KH";
-            this.ten_kh.MinimumWidth = 6;
-            this.ten_kh.Name = "ten_kh";
-            this.ten_kh.ReadOnly = true;
-            // 
-            // sdt
-            // 
-            this.sdt.HeaderText = "Số điện thoại";
-            this.sdt.MinimumWidth = 8;
-            this.sdt.Name = "sdt";
-            this.sdt.ReadOnly = true;
             // 
             // QuanLyKhachHang
             // 

@@ -360,5 +360,10 @@ namespace DUAN1
             tinNhanVien.ShowDialog();
             this.Close();
         }
+
+        private void qlkh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
