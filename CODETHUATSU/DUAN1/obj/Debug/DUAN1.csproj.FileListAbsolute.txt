@@ -163,3 +163,4 @@ D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CoreCompileInput
 D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CopyComplete
 D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.exe
 D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.pdb
+D:\DuAnMau_1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.LayCode.resources

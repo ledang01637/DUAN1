@@ -22,11 +22,11 @@ namespace DUAN1
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    updatedgv();
-            //    tbmanhanvien.Enabled = false;
-            //}
+            using (DAXuongEntities1 db = new DAXuongEntities1())
+            {
+                updatedgv();
+                tbmanhanvien.Enabled = false;
+            }
             btnxoa.Enabled = false;
             btnsua.Enabled = false;
             btnluu.Enabled = false;
@@ -39,19 +39,19 @@ namespace DUAN1
 
         private void updatedgv()
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    dataGridView1.Rows.Clear();
+            using (DAXuongEntities1 db = new DAXuongEntities1())
+            {
+                dataGridView1.Rows.Clear();
 
-            //    db.nhan_vien.ToList().ForEach(nv =>
-            //        dataGridView1.Rows.Add(
-            //            nv.ma_nv,
-            //            nv.ten_nv,
-            //            nv.sdt,
-            //            nv.tai_khoan_dangnhap
-            //       )
-            //    );
-            //}
+                db.nhan_vien.ToList().ForEach(nv =>
+                    dataGridView1.Rows.Add(
+                        nv.ma_nv,
+                        nv.ten_nv,
+                        nv.sdt,
+                        nv.email
+                   )
+                );
+            }
         }
 
         private void btnthem_Click(object sender, EventArgs e)
@@ -79,23 +79,23 @@ namespace DUAN1
                 them.ma_nv = tbmanhanvien.Text;
                 them.ten_nv = tbtennhanvien.Text;
                 them.sdt = tbsdt.Text;
-                //using (DUAN1Entities db = new DUAN1Entities())
-                //{
-                //    nhan_vien nv = db.nhan_vien
-                //        .Where(x => x.ma_nv == tbmanhanvien.Text)
-                //        .FirstOrDefault();
+                using (DAXuongEntities1 db = new DAXuongEntities1())
+                {
+                    nhan_vien nv = db.nhan_vien
+                        .Where(x => x.ma_nv == tbmanhanvien.Text)
+                        .FirstOrDefault();
 
-                //    if (nv == null) // Check if the record doesn't exist
-                //    {
-                //        db.nhan_vien.Add(them);
-                //        db.SaveChanges();
-                //        updatedgv();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Mã nhân viên đã tồn tại");
-                //    }
-                //}
+                    if (nv == null) // Check if the record doesn't exist
+                    {
+                        db.nhan_vien.Add(them);
+                        db.SaveChanges();
+                        updatedgv();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã nhân viên đã tồn tại");
+                    }
+                }
 
             }
             updatedgv();
@@ -103,34 +103,34 @@ namespace DUAN1
 
         private void btnsua_Click(object sender, EventArgs e)
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    nhan_vien them = db.nhan_vien
-            //        .Where(x => x.ma_nv == tbmanhanvien.Text)
-            //        .FirstOrDefault();
+            using (DAXuongEntities1 db = new DAXuongEntities1())
+            {
+                nhan_vien them = db.nhan_vien
+                    .Where(x => x.ma_nv == tbmanhanvien.Text)
+                    .FirstOrDefault();
 
-            //    if (them != null)
-            //    {
-            //        them.ma_nv = tbmanhanvien.Text;
-            //        them.ten_nv = tbtennhanvien.Text;
-            //        them.sdt = tbsdt.Text;
-            //        them.tai_khoan_dangnhap = tbcv.Text;
+                if (them != null)
+                {
+                    them.ma_nv = tbmanhanvien.Text;
+                    them.ten_nv = tbtennhanvien.Text;
+                    them.sdt = tbsdt.Text;
+                    them.email = tbcv.Text;
 
-            //        db.SaveChanges();
-            //    }
-            //}
-            //MessageBox.Show("Sửa thành công");
+                    db.SaveChanges();
+                }
+            }
+            MessageBox.Show("Sửa thành công");
             updatedgv();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
-            //    db.nhan_vien.Remove(xoa);
-            //    db.SaveChanges();
-            //}
+            using (DAXuongEntities1 db = new DAXuongEntities1())
+            {
+                nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
+                db.nhan_vien.Remove(xoa);
+                db.SaveChanges();
+            }
             updatedgv();
         }
 
@@ -163,21 +163,21 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-                //using (DUAN1Entities db = new DUAN1Entities())
-                //{
-                //    List<nhan_vien> listhd = db.nhan_vien.Where(x => x.ma_nv.Equals(tbtimkiem.Text)).ToList();
-                //    dataGridView1.Rows.Clear();
-                //    listhd.ToList().ForEach(hd =>
-                //    {
-                //        dataGridView1.Rows.Add(
-                //        hd.ma_nv,
-                //        hd.ten_nv,
-                //        hd.sdt,
-                //        hd.tai_khoan_dangnhap
-                //       );
-                //    }
-                //    );
-                //}
+                using (DAXuongEntities1 db = new DAXuongEntities1())
+                {
+                    List<nhan_vien> listhd = db.nhan_vien.Where(x => x.ma_nv.Equals(tbtimkiem.Text)).ToList();
+                    dataGridView1.Rows.Clear();
+                    listhd.ToList().ForEach(hd =>
+                    {
+                        dataGridView1.Rows.Add(
+                        hd.ma_nv,
+                        hd.ten_nv,
+                        hd.sdt,
+                        hd.email
+                       );
+                    }
+                    );
+                }
             }
             catch (Exception)
             {
@@ -192,14 +192,14 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             String Manv = rowData.Cells[0].Value.ToString();
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv == Manv).FirstOrDefault();
-            //    tbmanhanvien.Text = nv.ma_nv;
-            //    tbtennhanvien.Text = nv.ten_nv;
-            //    tbsdt.Text = nv.sdt;
-            //    tbcv.Text = nv.tai_khoan_dangnhap;
-            //}
+            using (DAXuongEntities1 db = new DAXuongEntities1())
+            {
+                nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv == Manv).FirstOrDefault();
+                tbmanhanvien.Text = nv.ma_nv;
+                tbtennhanvien.Text = nv.ten_nv;
+                tbsdt.Text = nv.sdt;
+                tbcv.Text = nv.email;
+            }
 
             btnthem.Enabled = false;
             btnluu.Enabled = false;

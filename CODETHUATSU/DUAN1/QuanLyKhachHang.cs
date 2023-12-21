@@ -58,13 +58,13 @@ namespace DUAN1
                 dataGridView1.Rows.Clear();
 
                 db.khach_hang.ToList().ForEach(kh =>
-                {
+
                     dataGridView1.Rows.Add(
                         kh.ma_kh,
                         kh.ten_kh,
                         kh.sdt
-                   );
-                }
+                   )
+
                 );
             }
         }

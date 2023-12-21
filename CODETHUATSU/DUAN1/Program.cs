@@ -8,7 +8,8 @@ namespace DUAN1
 {
     static class Program
     {
-        /// <summary>
+        /// <summary>The underlying provider failed on Open.'
+
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
@@ -16,7 +17,7 @@ namespace DUAN1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChiTietHoaDon("as"));
+            Application.Run(new QuanLyKhachHang("as"));
         }
     }
 }
