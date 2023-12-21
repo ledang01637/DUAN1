@@ -129,15 +129,15 @@ namespace DUAN1
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
-                    nhan_vien nv = db.nhan_vien
-                        .Where(x => x.ma_nv == maKH)
+                    khach_hang nv = db.khach_hang
+                        .Where(x => x.ma_kh == maKH)
                         .FirstOrDefault();
 
                     if (nv == null) // Check if the record doesn't exist
                     {
                         khach_hang them = new khach_hang();
                         them.ma_kh = maKH;
-                        them.ma_kh = tenKH;
+                        them.ten_kh = tenKH;
                         them.sdt = sdt;
                         
 
