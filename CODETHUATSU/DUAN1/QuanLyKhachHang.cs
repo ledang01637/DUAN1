@@ -17,6 +17,7 @@ namespace DUAN1
         {
             InitializeComponent();
             tbusername.Text = username;
+            tbtimkiem.KeyDown += tbtimkiem_KeyDown;
         }
         //Thêm 
         private void btnthem_Click(object sender, EventArgs e)
@@ -108,9 +109,9 @@ namespace DUAN1
                 return false;
             }
 
-            if (!IsValidPhoneNumber(sdt))
+            if (sdt.Length != 10 || !IsValidPhoneNumber(sdt))
             {
-                MessageBox.Show("Số điện thoại không hợp lệ");
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại có độ dài 10 chữ số và chỉ chứa các ký tự số.");
                 return false;
             }
 
@@ -229,6 +230,16 @@ namespace DUAN1
             catch (Exception)
             {
                 MessageBox.Show("Không để trống");
+            }
+        }
+
+        private void tbtimkiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btntimkiem_Click(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 

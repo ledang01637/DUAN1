@@ -18,6 +18,7 @@ namespace DUAN1
         {
             InitializeComponent();
             usernamenv.Text = username;
+            tbtimkiem.KeyDown += tbtimkiem_KeyDown;
         }
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
@@ -232,8 +233,8 @@ namespace DUAN1
             using (DAXuongEntities db = new DAXuongEntities())
             {
                 nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv.Equals(tbmanhanvien.Text)).FirstOrDefault();
-                dang_nhap xoa2 = db.dang_nhap.Where(x => x.ma_nv.Equals(xoa.ma_nv)).FirstOrDefault();
-                db.dang_nhap.Remove(xoa2);
+                //dang_nhap xoa2 = db.dang_nhap.Where(x => x.ma_nv.Equals(xoa.ma_nv)).FirstOrDefault();
+                //db.dang_nhap.Remove(xoa2);
                 db.nhan_vien.Remove(xoa);
                 db.SaveChanges();
 
@@ -292,6 +293,16 @@ namespace DUAN1
                 MessageBox.Show("Không để trống");
             }
            
+        }
+
+        private void tbtimkiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btntimkiem_Click(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
