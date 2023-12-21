@@ -96,11 +96,11 @@
     <Compile Include="khach_hang.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="KhoHangHangHoa.cs">
+    <Compile Include="ChiTietHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KhoHangHangHoa.Designer.cs">
-      <DependentUpon>KhoHangHangHoa.cs</DependentUpon>
+    <Compile Include="ChiTietHangHoa.Designer.cs">
+      <DependentUpon>ChiTietHangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="LayCode.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="ChiTietHoaDon.resx">
       <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KhoHangHangHoa.resx">
-      <DependentUpon>KhoHangHangHoa.cs</DependentUpon>
+    <EmbeddedResource Include="ChiTietHangHoa.resx">
+      <DependentUpon>ChiTietHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LayCode.resx">
       <DependentUpon>LayCode.cs</DependentUpon>

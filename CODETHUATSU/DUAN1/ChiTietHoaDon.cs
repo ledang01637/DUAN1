@@ -26,8 +26,8 @@ namespace DUAN1
                 cbbmahoadon.Items.Clear();
                 db.hoa_don.ToList().ForEach(row => cbbmahoadon.Items.Add(row.ma_hd));
                 //mã chi tiết kho hàng hàng hóa
-                cbbmahanghoachitiet.Items.Clear();
-                db.chitiet_hanghoa.ToList().ForEach(row => cbbmahanghoachitiet.Items.Add(row.hang_hoa.ten));
+                cbbtensp.Items.Clear();
+                db.chitiet_hanghoa.ToList().ForEach(row => cbbtensp.Items.Add(row.hang_hoa.ten));
 
                 dataGridView1.Rows.Clear();
 
@@ -50,7 +50,7 @@ namespace DUAN1
 
                 tbmachitiethoadon.ReadOnly = true;
                 cbbmahoadon.Enabled = false;
-                cbbmahanghoachitiet.Enabled = false;
+                cbbtensp.Enabled = false;
                 tbdongia.ReadOnly = true;
                 tbsoluong.ReadOnly = true;
             }
@@ -64,11 +64,11 @@ namespace DUAN1
                 cbbmahoadon.Items.Clear();
                 db.hoa_don.ToList().ForEach(row => cbbmahoadon.Items.Add(row.ma_hd));
                 //mã chi tiết kho hàng hàng hóa
-                cbbmahanghoachitiet.Items.Clear();
-                db.chitiet_hanghoa.ToList().ForEach(row => cbbmahanghoachitiet.Items.Add(row.id));
+                cbbtensp.Items.Clear();
+                db.chitiet_hanghoa.ToList().ForEach(row => cbbtensp.Items.Add(row.id));
 
 
-                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.id.Equals(cbbmahanghoachitiet.Text));
+                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbtensp.Text));
                 dataGridView1.Rows.Clear();
                 db.chi_tiet_hoa_don.ToList().ForEach(cthd =>
                 {
@@ -115,8 +115,8 @@ namespace DUAN1
 
             tbmachitiethoadon.ReadOnly = true;
             cbbmahoadon.Enabled = true;
-            cbbmahanghoachitiet.Enabled = true;
-            tbdongia.ReadOnly = true;
+            cbbtensp.Enabled = true;
+            tbdongia.ReadOnly = false;
             tbsoluong.ReadOnly = false;
         }
         //btn lưu
@@ -128,14 +128,12 @@ namespace DUAN1
                 {
                     chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
 
-                    chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text));
-
-
+                    chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbtensp.Text));
 
                     
                     cthd.ma_hd = cbbmahoadon.Text;
 
-                    cthd.chitiet_hanghoa.hang_hoa.ten = cbbmahanghoachitiet.Text;
+                    cthd.ma_chitiet_hanghoa = cthh.id;
 
                     if (int.Parse(tbsoluong.Text) > 0)
                     {
@@ -196,14 +194,14 @@ namespace DUAN1
             {
                 chi_tiet_hoa_don edit = db.chi_tiet_hoa_don.FirstOrDefault(x => x.macthd == maCTHD);
 
-                chitiet_hanghoa khhh = db.chitiet_hanghoa.FirstOrDefault(x => x.id.Equals(cbbmahanghoachitiet.Text));
+                chitiet_hanghoa khhh = db.chitiet_hanghoa.FirstOrDefault(x => x.id.Equals(cbbtensp.Text));
 
                 hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
                 if (edit != null)
                 {
                     edit.macthd = int.Parse(tbmachitiethoadon.Text);
                     edit.ma_hd = cbbmahoadon.Text;
-                    edit.ma_chitiet_hanghoa = int.Parse(cbbmahanghoachitiet.Text);
+                    edit.ma_chitiet_hanghoa = int.Parse(cbbtensp.Text);
                     if (int.Parse(tbsoluong.Text) <= 0)
                     {
                         MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -263,13 +261,13 @@ namespace DUAN1
 
             tbmachitiethoadon.ReadOnly = true;
             cbbmahoadon.Enabled = false;
-            cbbmahanghoachitiet.Enabled = false;
+            cbbtensp.Enabled = false;
             tbdongia.ReadOnly = true;
             tbsoluong.ReadOnly = true;
 
             tbmachitiethoadon.Text = " ";
             cbbmahoadon.Text = " ";
-            cbbmahanghoachitiet.Text = " ";
+            cbbtensp.Text = " ";
             tbsoluong.Text = " ";
             tbdongia.Text = " ";
             tbtimkiem.Text = " ";
@@ -331,7 +329,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
+            ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }

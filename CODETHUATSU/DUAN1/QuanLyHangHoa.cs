@@ -75,8 +75,6 @@ namespace DUAN1
                 tbmota.Text = row.Cells[2].Value?.ToString();
                 tbnsx.Text = row.Cells[3].Value?.ToString();
 
-                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                hang_hoa selectedSP = dsHang[selectedRowIndex];
                 tbmahanghoa.Enabled = false;
                 tbtenhanghoa.Enabled = true;
                 tbmota.Enabled = true;
@@ -425,7 +423,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
+            ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }
