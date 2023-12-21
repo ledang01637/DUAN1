@@ -68,40 +68,83 @@ namespace DUAN1
                 );
             }
         }
-        //Lưu
-        private void btnluu_Click(object sender, EventArgs e)
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // Kiểm tra số điện thoại theo các quy tắc hợp lệ
+            // Ví dụ: Độ dài phải là 10 chữ số, chỉ chứa các ký tự số, vv.
+            // Bạn có thể tùy chỉnh quy tắc theo yêu cầu của mình.
+
+            // Xóa khoảng trắng và dấu gạch ngang trong số điện thoại
+            string cleanedNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
+
+            // Kiểm tra độ dài số điện thoại (ví dụ: 10 chữ số)
+            if (cleanedNumber.Length != 10)
+            {
+                return false;
+            }
+
+            // Kiểm tra xem tất cả các ký tự là số
+            foreach (char c in cleanedNumber)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool ValidateFields()
         {
             string maKH = tbmakhachhang.Text;
             string tenKH = tbtenkhachhang.Text;
             string sdt = tbsdt.Text;
 
-            // Kiểm tra xem các trường thông tin đã được nhập đầy đủ
             if (string.IsNullOrEmpty(maKH) || string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(sdt))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin khách hàng");
-                return;
+                return false;
             }
 
-            // Thêm khách hàng vào cơ sở dữ liệu
-            using (DAXuongEntities db = new DAXuongEntities())
+            if (!IsValidPhoneNumber(sdt))
             {
-                khach_hang KH = new khach_hang();
-                KH.ma_kh = maKH;
-                KH.ten_kh = tenKH;
-                KH.sdt = sdt;
-
-                db.khach_hang.Add(KH);
-                db.SaveChanges();
+                MessageBox.Show("Số điện thoại không hợp lệ");
+                return false;
             }
 
-            MessageBox.Show("Thêm khách hàng thành công");
+            return true;
+        }
 
-            // Xóa nội dung trong TextBox sau khi lưu thành công
-            tbmakhachhang.Text = "";
-            tbtenkhachhang.Text = "";
-            tbsdt.Text = "";
+        //Lưu
+        private void btnluu_Click(object sender, EventArgs e)
+        {
+            if (ValidateFields())
+            {
+                string maKH = tbmakhachhang.Text;
+                string tenKH = tbtenkhachhang.Text;
+                string sdt = tbsdt.Text;
 
-            updatedgv();
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
+                    khach_hang KH = new khach_hang();
+                    KH.ma_kh = maKH;
+                    KH.ten_kh = tenKH;
+                    KH.sdt = sdt;
+
+                    db.khach_hang.Add(KH);
+                    db.SaveChanges();
+                }
+
+                MessageBox.Show("Thêm khách hàng thành công");
+
+                tbmakhachhang.Text = "";
+                tbtenkhachhang.Text = "";
+                tbsdt.Text = "";
+
+                updatedgv();
+            }
         }
 
         //sửa thông tin khách hàng

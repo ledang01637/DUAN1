@@ -22,7 +22,7 @@ namespace DUAN1
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
-            using (DAXuongEntities1 db = new DAXuongEntities1())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 updatedgv();
                 tbmanhanvien.Enabled = false;
@@ -39,7 +39,7 @@ namespace DUAN1
 
         private void updatedgv()
         {
-            using (DAXuongEntities1 db = new DAXuongEntities1())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 dataGridView1.Rows.Clear();
 
@@ -67,29 +67,112 @@ namespace DUAN1
             tbmanhanvien.Enabled = true;
         }
 
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return false;
+            }
+
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // Kiểm tra số điện thoại theo các quy tắc hợp lệ
+            // Ví dụ: Độ dài phải là 10 chữ số, chỉ chứa các ký tự số, vv.
+            // Bạn có thể tùy chỉnh quy tắc theo yêu cầu của mình.
+
+            // Xóa khoảng trắng và dấu gạch ngang trong số điện thoại
+            string cleanedNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
+
+            // Kiểm tra độ dài số điện thoại (ví dụ: 10 chữ số)
+            if (cleanedNumber.Length != 10)
+            {
+                return false;
+            }
+
+            // Kiểm tra xem tất cả các ký tự là số
+            foreach (char c in cleanedNumber)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool ValidateFields()
+        {
+            string maNV = tbmanhanvien.Text;
+            string tenNV = tbtennhanvien.Text;
+            string sdt = tbsdt.Text;
+            string email = tbcv.Text;
+
+            if (string.IsNullOrEmpty(maNV) || string.IsNullOrEmpty(tenNV) || string.IsNullOrEmpty(sdt) || string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên");
+                return false;
+            }
+
+            if (!IsValidPhoneNumber(sdt))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ");
+                return false;
+            }
+
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Email không hợp lệ");
+                return false;
+            }if(!IsValidPhoneNumber(sdt) & !IsValidEmail(email))
+            {
+                MessageBox.Show("Email và số điện thoại không hợp lệ");
+                return false;
+            }    
+
+            return true;
+        }
+
         private void btnluu_Click(object sender, EventArgs e)
         {
-            if (tbmanhanvien.Text == "")
+
+            if (ValidateFields())
             {
-                MessageBox.Show("Không được để trống");
-            }
-            else
-            {
-                nhan_vien them = new nhan_vien();
-                them.ma_nv = tbmanhanvien.Text;
-                them.ten_nv = tbtennhanvien.Text;
-                them.sdt = tbsdt.Text;
-                using (DAXuongEntities1 db = new DAXuongEntities1())
+                string maNV = tbmanhanvien.Text;
+                string tenNV = tbtennhanvien.Text;
+                string sdt = tbsdt.Text;
+                string email = tbcv.Text;
+
+                using (DAXuongEntities db = new DAXuongEntities())
                 {
                     nhan_vien nv = db.nhan_vien
-                        .Where(x => x.ma_nv == tbmanhanvien.Text)
+                        .Where(x => x.ma_nv == maNV)
                         .FirstOrDefault();
 
                     if (nv == null) // Check if the record doesn't exist
                     {
+                        nhan_vien them = new nhan_vien();
+                        them.ma_nv = maNV;
+                        them.ten_nv = tenNV;
+                        them.sdt = sdt;
+                        them.email = email;
+
                         db.nhan_vien.Add(them);
                         db.SaveChanges();
                         updatedgv();
+
+                        MessageBox.Show("Thêm nhân viên thành công");
                     }
                     else
                     {
@@ -97,13 +180,18 @@ namespace DUAN1
                     }
                 }
 
+                tbmanhanvien.Text = "";
+                tbtennhanvien.Text = "";
+                tbsdt.Text = "";
+                tbcv.Text = "";
+
+                updatedgv();
             }
-            updatedgv();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
         {
-            using (DAXuongEntities1 db = new DAXuongEntities1())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 nhan_vien them = db.nhan_vien
                     .Where(x => x.ma_nv == tbmanhanvien.Text)
@@ -125,7 +213,7 @@ namespace DUAN1
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            using (DAXuongEntities1 db = new DAXuongEntities1())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
                 db.nhan_vien.Remove(xoa);
@@ -163,7 +251,7 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-                using (DAXuongEntities1 db = new DAXuongEntities1())
+                using (DAXuongEntities db = new DAXuongEntities())
                 {
                     List<nhan_vien> listhd = db.nhan_vien.Where(x => x.ma_nv.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
@@ -183,7 +271,7 @@ namespace DUAN1
             {
                 MessageBox.Show("Không để trống");
             }
-            updatedgv();
+           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -192,7 +280,7 @@ namespace DUAN1
             var rowData = dataGridView1.Rows[row];
 
             String Manv = rowData.Cells[0].Value.ToString();
-            using (DAXuongEntities1 db = new DAXuongEntities1())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv == Manv).FirstOrDefault();
                 tbmanhanvien.Text = nv.ma_nv;
@@ -287,6 +375,11 @@ namespace DUAN1
         }
 
         private void tbmanhanvien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
