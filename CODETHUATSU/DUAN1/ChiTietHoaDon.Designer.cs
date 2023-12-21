@@ -42,6 +42,11 @@ namespace DUAN1
             this.label1 = new System.Windows.Forms.Label();
             this.tbsoluong = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.macthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mahd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.makhohangchitiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thnahtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbdongia = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lbmahanghoa = new System.Windows.Forms.Label();
@@ -63,11 +68,6 @@ namespace DUAN1
             this.btnhoadon = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.macthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mahd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makhohangchitiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thnahtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -136,7 +136,7 @@ namespace DUAN1
             // 
             // tbtimkiem
             // 
-            this.tbtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbtimkiem.Location = new System.Drawing.Point(180, 404);
             this.tbtimkiem.Multiline = true;
             this.tbtimkiem.Name = "tbtimkiem";
@@ -211,8 +211,44 @@ namespace DUAN1
             this.dataGridView1.TabIndex = 259;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // macthd
+            // 
+            this.macthd.HeaderText = "Mã chi tiết hóa đơn";
+            this.macthd.MinimumWidth = 6;
+            this.macthd.Name = "macthd";
+            this.macthd.ReadOnly = true;
+            // 
+            // mahd
+            // 
+            this.mahd.HeaderText = "Mã hóa đơn";
+            this.mahd.MinimumWidth = 6;
+            this.mahd.Name = "mahd";
+            this.mahd.ReadOnly = true;
+            // 
+            // makhohangchitiet
+            // 
+            this.makhohangchitiet.HeaderText = "Tên SP";
+            this.makhohangchitiet.MinimumWidth = 6;
+            this.makhohangchitiet.Name = "makhohangchitiet";
+            this.makhohangchitiet.ReadOnly = true;
+            // 
+            // soluong
+            // 
+            this.soluong.HeaderText = "Số lượng";
+            this.soluong.MinimumWidth = 6;
+            this.soluong.Name = "soluong";
+            this.soluong.ReadOnly = true;
+            // 
+            // thnahtien
+            // 
+            this.thnahtien.HeaderText = "Thành tiền";
+            this.thnahtien.MinimumWidth = 6;
+            this.thnahtien.Name = "thnahtien";
+            this.thnahtien.ReadOnly = true;
+            // 
             // tbdongia
             // 
+            this.tbdongia.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbdongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbdongia.Location = new System.Drawing.Point(438, 354);
             this.tbdongia.Multiline = true;
@@ -248,6 +284,7 @@ namespace DUAN1
             // 
             // tbmachitiethoadon
             // 
+            this.tbmachitiethoadon.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbmachitiethoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbmachitiethoadon.Location = new System.Drawing.Point(438, 122);
             this.tbmachitiethoadon.Multiline = true;
@@ -360,7 +397,7 @@ namespace DUAN1
             this.btnthongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthongke.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnthongke.Location = new System.Drawing.Point(-3, 475);
-            this.btnthongke.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnthongke.Margin = new System.Windows.Forms.Padding(2);
             this.btnthongke.Name = "btnthongke";
             this.btnthongke.Size = new System.Drawing.Size(172, 50);
             this.btnthongke.TabIndex = 365;
@@ -489,41 +526,6 @@ namespace DUAN1
             this.pictureBox4.Size = new System.Drawing.Size(172, 678);
             this.pictureBox4.TabIndex = 367;
             this.pictureBox4.TabStop = false;
-            // 
-            // macthd
-            // 
-            this.macthd.HeaderText = "Mã chi tiết hóa đơn";
-            this.macthd.MinimumWidth = 6;
-            this.macthd.Name = "macthd";
-            this.macthd.ReadOnly = true;
-            // 
-            // mahd
-            // 
-            this.mahd.HeaderText = "Mã hóa đơn";
-            this.mahd.MinimumWidth = 6;
-            this.mahd.Name = "mahd";
-            this.mahd.ReadOnly = true;
-            // 
-            // makhohangchitiet
-            // 
-            this.makhohangchitiet.HeaderText = "Tên SP";
-            this.makhohangchitiet.MinimumWidth = 6;
-            this.makhohangchitiet.Name = "makhohangchitiet";
-            this.makhohangchitiet.ReadOnly = true;
-            // 
-            // soluong
-            // 
-            this.soluong.HeaderText = "Số lượng";
-            this.soluong.MinimumWidth = 6;
-            this.soluong.Name = "soluong";
-            this.soluong.ReadOnly = true;
-            // 
-            // thnahtien
-            // 
-            this.thnahtien.HeaderText = "Thành tiền";
-            this.thnahtien.MinimumWidth = 6;
-            this.thnahtien.Name = "thnahtien";
-            this.thnahtien.ReadOnly = true;
             // 
             // ChiTietHoaDon
             // 

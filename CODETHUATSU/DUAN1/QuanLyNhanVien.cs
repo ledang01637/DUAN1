@@ -228,7 +228,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa(usernamenv.Text);
+            ChiTietHangHoa khhh = new ChiTietHangHoa(usernamenv.Text);
             khhh.ShowDialog();
             this.Close();
         }

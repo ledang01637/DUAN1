@@ -70,7 +70,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa(tbtaikhoan.Text);
+            ChiTietHangHoa khhh = new ChiTietHangHoa(tbtaikhoan.Text);
             khhh.ShowDialog();
             this.Close();
         }

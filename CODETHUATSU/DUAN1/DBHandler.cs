@@ -108,24 +108,73 @@ namespace DUAN1
             }
         }
         #endregion
-        //public static bool updateCTKH(khohang_hanghoa updateKHHH)
+        #region ChiThietHangHoa
+        public static List<chitiet_hanghoa> getListChiTietHangHoa()
+        {
+            List<chitiet_hanghoa> dsCTHang = new List<chitiet_hanghoa>();
+            using (DAXuongEntities CTHangHoa_ = new DAXuongEntities())
+            {
+                dsCTHang = CTHangHoa_.chitiet_hanghoa.ToList();
+            }
+            return dsCTHang;
+        }
+        public static bool addChiTietHangHoa(chitiet_hanghoa CThhAdd)
+        {
+            using (DAXuongEntities CTHangHoa_ = new DAXuongEntities())
+            {
+                try
+                {
+                    CTHangHoa_.chitiet_hanghoa.Add(CThhAdd);
+                    CTHangHoa_.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+        //public static bool deleteChiTietHangHoa(string MaHH)
         //{
-        //    //using (DUAN1Entities KHHH = new DUAN1Entities())
-        //    //{
-        //    //    try
-        //    //    {
-        //    //        khohang_hanghoa found = KHHH.khohang_hanghoa
-        //    //            .FirstOrDefault(sp => sp.makho_hangchitiet.Equals(updateKHHH.makho_hangchitiet));
-        //    //        found.so_luong = updateKHHH.so_luong;
-        //    //        KHHH.SaveChanges();
-        //    //        return true;
-        //    //    }
-        //    //    catch
-        //    //    {
-        //    //        return false;
-        //    //    }
-        //    //}
+        //    using (DAXuongEntities HangHoa_ = new DAXuongEntities())
+        //    {
+        //        try
+        //        {
+        //            hang_hoa found = HangHoa_.hang_hoa
+        //                .FirstOrDefault(sp => sp.ma_hang_hoa.Equals(MaHH));
+        //            HangHoa_.hang_hoa.Remove(found);
+        //            HangHoa_.SaveChanges();
+        //            return true;
+        //        }
+        //        catch
+        //        {
+        //            return false;
+        //        }
+        //    }
         //}
+        public static bool updateChiTietHangHoa(chitiet_hanghoa CThangHoaUpdate)
+        {
+            using (DAXuongEntities CTHangHoa_ = new DAXuongEntities())
+            {
+                try
+                {
+                    chitiet_hanghoa found = CTHangHoa_.chitiet_hanghoa
+                        .FirstOrDefault(sp => sp.id.Equals(CThangHoaUpdate.id));
+                    found.ma_hang_hoa = CThangHoaUpdate.ma_hang_hoa;
+                    found.size = CThangHoaUpdate.size;
+                    found.mau_sac = CThangHoaUpdate.mau_sac;
+                    found.soluong = CThangHoaUpdate.soluong;
+                    found.hinh = CThangHoaUpdate.hinh;
+                    CTHangHoa_.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+        #endregion
         public static hang_hoa timMaTen(string MaTen)
         {
             using (DAXuongEntities dUAN1Entities = new DAXuongEntities())

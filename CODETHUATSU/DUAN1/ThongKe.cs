@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 
@@ -23,17 +19,28 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
-                var Key = db.chi_tiet_hoa_don.GroupBy(a => a.chitiet_hanghoa.hang_hoa.ten);
-                dataGridView1.Rows.Clear();
-                foreach (var item in Key)
-                {
-                    dataGridView1.Rows.Add(
-                        item.Key,
-                        item.Sum(a => a.so_luong * a.dongia).Value.ToString("#,##0"),
-                        item.Sum(a => a.so_luong).Value.ToString("#,##0")
-                        );
-                }
 
+                dataGridView1.Rows.Clear();
+
+                DateTime today = DateTime.Today;
+                var lateday = today.AddDays(-10);
+
+                var hoaDonList = db.hoa_don.Where(cthd => cthd.ngay_lap <= today && cthd.ngay_lap >= lateday);
+                var Key = db.chi_tiet_hoa_don.GroupBy(a => a.chitiet_hanghoa.hang_hoa.ten);
+
+                foreach (var hoaDon in hoaDonList)
+                {
+                    var ChiTietHoaDon = db.chi_tiet_hoa_don.FirstOrDefault(cthd => cthd.ma_hd == hoaDon.ma_hd);
+                    
+                    dataGridView1.Rows.Add(
+                        hoaDon.ma_hd,
+                        DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                        ChiTietHoaDon.dongia,
+                        ChiTietHoaDon.so_luong,
+                        hoaDon.chi_tiet_hoa_don.Count(),
+                        hoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
+                    ); ;
+                }
             }
 
         }
@@ -70,7 +77,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            KhoHangHangHoa khhh = new KhoHangHangHoa(tbusername.Text);
+            ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
             khhh.ShowDialog();
             this.Close();
         }
@@ -117,6 +124,55 @@ namespace DUAN1
             ChiTietHoaDon ttnv = new ChiTietHoaDon(tbusername.Text);
             ttnv.ShowDialog();
             this.Close();
+        }
+
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fromDate = dtptungay.Value.Date;
+                DateTime toDate = dtpdenngay.Value.Date;
+
+                if (dtptungay.Value.Year <= 1990 || dtpdenngay.Value.Year > DateTime.Today.Year)
+                {
+                    MessageBox.Show("Năm không nhỏ hơn 1990 và lớn hơn năm hiện tại ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    using (DAXuongEntities db = new DAXuongEntities())
+                    {
+                        List<hoa_don> listhd = db.hoa_don
+                            .Where(x => x.ngay_lap >= fromDate && x.ngay_lap < toDate)
+                            .ToList();
+
+                        dataGridView1.Rows.Clear();
+
+                        listhd.ForEach(hd =>
+                        {
+                            var CTHD = db.chi_tiet_hoa_don.FirstOrDefault(cthd => cthd.ma_hd == hd.ma_hd);
+
+                            chi_tiet_hoa_don cthh = db.chi_tiet_hoa_don.FirstOrDefault(x => x.ma_hd == hd.ma_hd);
+                            
+
+                            if (hd != null)
+                            {
+                                dataGridView1.Rows.Add(
+                                        hd.ma_hd,
+                                        hd.ngay_lap,
+                                        cthh.chitiet_hanghoa.gia_ban,
+                                        cthh.so_luong,
+                                        listhd.Count(),
+                                        cthh.dongia);
+                            }
+                        });
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không để trống");
+            }
         }
     }
 }

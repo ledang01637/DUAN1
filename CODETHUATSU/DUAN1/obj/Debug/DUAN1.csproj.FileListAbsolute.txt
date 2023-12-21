@@ -45,7 +45,6 @@ D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.xml
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\bin\Debug\EntityFramework.SqlServer.xml
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.AssemblyReference.cache
-D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.KhoHangHangHoa.resources
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Login.resources
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.Properties.Resources.resources
 D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.QuanLyHangHoa.resources
@@ -163,3 +162,4 @@ D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CoreCompileInput
 D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.csproj.CopyComplete
 D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.exe
 D:\DuAnMau_1\DuanXuong\CODETHUATSU\DUAN1\obj\Debug\DUAN1.pdb
+D:\FPT Poytechnic\DUAN1\DUAN1\DUAN1\CODETHUATSU\DUAN1\obj\Debug\DUAN1.ChiTietHangHoa.resources
