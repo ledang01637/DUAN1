@@ -125,20 +125,33 @@ namespace DUAN1
             {
                 string maKH = tbmakhachhang.Text;
                 string tenKH = tbtenkhachhang.Text;
-                string sdt = tbsdt.Text;
+                string sdt = tbsdt.Text;              
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
-                    khach_hang KH = new khach_hang();
-                    KH.ma_kh = maKH;
-                    KH.ten_kh = tenKH;
-                    KH.sdt = sdt;
+                    nhan_vien nv = db.nhan_vien
+                        .Where(x => x.ma_nv == maKH)
+                        .FirstOrDefault();
 
-                    db.khach_hang.Add(KH);
-                    db.SaveChanges();
+                    if (nv == null) // Check if the record doesn't exist
+                    {
+                        khach_hang them = new khach_hang();
+                        them.ma_kh = maKH;
+                        them.ma_kh = tenKH;
+                        them.sdt = sdt;
+                        
+
+                        db.khach_hang.Add(them);
+                        db.SaveChanges();
+                        updatedgv();
+
+                        MessageBox.Show("Thêm nhân viên thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã nhân viên đã tồn tại");
+                    }
                 }
-
-                MessageBox.Show("Thêm khách hàng thành công");
 
                 tbmakhachhang.Text = "";
                 tbtenkhachhang.Text = "";
