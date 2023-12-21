@@ -59,17 +59,15 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
-
                 //mã háo đơn
                 cbbmahoadon.Items.Clear();
                 db.hoa_don.ToList().ForEach(row => cbbmahoadon.Items.Add(row.ma_hd));
                 //mã chi tiết kho hàng hàng hóa
                 cbbmahanghoachitiet.Items.Clear();
-                db.chitiet_hanghoa.ToList().ForEach(row => cbbmahanghoachitiet.Items.Add(row.id));
+                db.chitiet_hanghoa.ToList().ForEach(row => cbbmahanghoachitiet.Items.Add(row.hang_hoa.ten));
 
-
-                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.id.Equals(cbbmahanghoachitiet.Text));
                 dataGridView1.Rows.Clear();
+
                 db.chi_tiet_hoa_don.ToList().ForEach(cthd =>
                 {
                     dataGridView1.Rows.Add(
@@ -81,7 +79,6 @@ namespace DUAN1
                     );
                 }
                 );
-
             }
         }
         private void ThongKe()
@@ -122,8 +119,8 @@ namespace DUAN1
         //btn lưu
         private void btnluu_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
                     chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
@@ -135,7 +132,7 @@ namespace DUAN1
                     
                     cthd.ma_hd = cbbmahoadon.Text;
 
-                    cthd.chitiet_hanghoa.hang_hoa.ten = cbbmahanghoachitiet.Text;
+                    cthd.ma_chitiet_hanghoa = cthh.id;
 
                     if (int.Parse(tbsoluong.Text) > 0)
                     {
@@ -147,7 +144,7 @@ namespace DUAN1
                         else
                         {
                             cthd.so_luong = int.Parse(tbsoluong.Text);
-                            cthd.dongia = cthd.so_luong * cthd.dongia;
+                            cthd.dongia = cthh.gia_ban * cthd.so_luong;
                         }
                     }
                     else
@@ -161,11 +158,11 @@ namespace DUAN1
                     ThongKe();
                     UpdateDGV();
             }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Không được để trống");
-            //}
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không được để trống");
+            }
         }
         //btn xóa
         private void btnxoa_Click(object sender, EventArgs e)
@@ -196,21 +193,20 @@ namespace DUAN1
             {
                 chi_tiet_hoa_don edit = db.chi_tiet_hoa_don.FirstOrDefault(x => x.macthd == maCTHD);
 
-                chitiet_hanghoa khhh = db.chitiet_hanghoa.FirstOrDefault(x => x.id.Equals(cbbmahanghoachitiet.Text));
+                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text)) ;
 
-                hang_hoa hanghoa = db.hang_hoa.FirstOrDefault(x => x.ma_hang_hoa.Equals(khhh.ma_hang_hoa));
                 if (edit != null)
                 {
                     edit.macthd = int.Parse(tbmachitiethoadon.Text);
                     edit.ma_hd = cbbmahoadon.Text;
-                    edit.ma_chitiet_hanghoa = int.Parse(cbbmahanghoachitiet.Text);
+                    edit.ma_chitiet_hanghoa = cthh.id;
                     if (int.Parse(tbsoluong.Text) <= 0)
                     {
                         MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     edit.so_luong = int.Parse(tbsoluong.Text);
-                    edit.dongia = edit.so_luong * edit.dongia;
+                    edit.dongia = edit.so_luong * cthh.gia_ban;
                     db.SaveChanges();
                     ThongKe();
                     MessageBox.Show("Sửa thành công");
@@ -229,29 +225,30 @@ namespace DUAN1
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
             int MaCTHD = int.Parse(rowData.Cells[0].Value.ToString());
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.Where(x => x.macthd == MaCTHD).FirstOrDefault();
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.Where(x => x.macthd == MaCTHD).FirstOrDefault();
 
-            //    if (cthd != null)
-            //    {
-            //        tbmachitiethoadon.Text = cthd.macthd.ToString();
-            //        cbbmahoadon.Text = cthd.ma_hd;
-            //        cbbmakhohangchitiet.Text = cthd.makho_hangchitiet;
-            //        tbsoluong.Text = cthd.so_luong.ToString();
-            //        tbthanhtien.Text = cthd.thanh_tien.ToString();
-            //    }
-            //    btnxoa.Enabled = true;
-            //    btnsua.Enabled = true;
-            //    btnhuy.Enabled = true;
-            //    btnluu.Enabled = false;
+                if (cthd != null)
+                {
+                    tbmachitiethoadon.Text = cthd.macthd.ToString();
+                    cbbmahoadon.Text = cthd.ma_hd;
+                    cbbmahanghoachitiet.Text = cthd.chitiet_hanghoa.hang_hoa.ten;
+                    tbsoluong.Text = cthd.so_luong.ToString();
+                    tbdongia.Text = cthd.dongia.ToString();
+                }
 
-            //    tbmachitiethoadon.ReadOnly = true;
-            //    cbbmahoadon.Enabled = true;
-            //    cbbmakhohangchitiet.Enabled = true;
-            //    tbsoluong.ReadOnly = false;
-            //    tbthanhtien.ReadOnly = true;
-            //}
+                btnxoa.Enabled = true;
+                btnsua.Enabled = true;
+                btnhuy.Enabled = true;
+                btnluu.Enabled = false;
+
+                tbmachitiethoadon.ReadOnly = false;
+                cbbmahoadon.Enabled = true;
+                cbbmahanghoachitiet.Enabled = true;
+                tbdongia.ReadOnly = false;
+                tbsoluong.ReadOnly = false;
+            }
         }
         //btn hủy
         private void btnhuy_Click(object sender, EventArgs e)
@@ -272,7 +269,6 @@ namespace DUAN1
             cbbmahanghoachitiet.Text = " ";
             tbsoluong.Text = " ";
             tbdongia.Text = " ";
-            tbtimkiem.Text = " ";
             UpdateDGV();
 
         }
@@ -295,7 +291,7 @@ namespace DUAN1
                         dataGridView1.Rows.Add(
                         cthd.macthd,
                         cthd.ma_hd,
-                        cthd.chitiet_hanghoa.id,
+                        cthd.chitiet_hanghoa.hang_hoa.ten,
                         cthd.so_luong,
                         cthd.dongia);
                     }
