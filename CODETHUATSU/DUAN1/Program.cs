@@ -13,7 +13,7 @@ namespace DUAN1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChiTietHoaDon("tttt"));
+            Application.Run(new ManHinhChinh());
         }
     }
 }

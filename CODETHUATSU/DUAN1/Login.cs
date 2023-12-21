@@ -14,6 +14,7 @@ namespace DUAN1
         {
             InitializeComponent();
             btnsubmit.BackColor = Constant.cyanColor;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Login_Load(object sender, EventArgs e)
