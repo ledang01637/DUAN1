@@ -153,32 +153,33 @@ namespace DUAN1
         {
             if (ValidateFields())
             {
-                string maNV = tbmakhachhang.Text;
-                string tenNV = tbtenkhachhang.Text;
+                string maKH = tbmakhachhang.Text;
+                string tenKH = tbtenkhachhang.Text;
                 string sdt = tbsdt.Text;
                
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
-                    nhan_vien them = db.nhan_vien
-                        .Where(x => x.ma_nv == maNV)
+                    khach_hang them = db.khach_hang
+                        .Where(x => x.ma_kh == maKH)
                         .FirstOrDefault();
 
                     if (them != null)
                     {
-                        them.ma_nv = maNV;
-                        them.ten_nv = tenNV;
+                        them.ma_kh = maKH;
+                        them.ten_kh = tenKH;
                         them.sdt = sdt;                      
 
                         db.SaveChanges();
 
                         MessageBox.Show("Sửa thành công");
-                        updatedgv();
+                      
                     }
                     else
                     {
                         MessageBox.Show("Không tìm thấy nhân viên với mã nhân viên này");
                     }
+                    updatedgv();
                 }
             }
         }

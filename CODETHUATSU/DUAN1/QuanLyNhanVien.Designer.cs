@@ -39,6 +39,10 @@ namespace DUAN1
             this.lbsdt = new System.Windows.Forms.Label();
             this.tbsdt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnhuy = new System.Windows.Forms.Button();
             this.btnxoa = new System.Windows.Forms.Button();
@@ -63,10 +67,6 @@ namespace DUAN1
             this.btnhoadon = new System.Windows.Forms.Button();
             this.usernamenv = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -177,6 +177,30 @@ namespace DUAN1
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // Ma
+            // 
+            this.Ma.HeaderText = "Mã nhân viên";
+            this.Ma.MinimumWidth = 6;
+            this.Ma.Name = "Ma";
+            // 
+            // Ten
+            // 
+            this.Ten.HeaderText = "Tên ";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số điện thoại";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
@@ -239,7 +263,7 @@ namespace DUAN1
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
-            this.btntimkiem.Location = new System.Drawing.Point(1678, 618);
+            this.btntimkiem.Location = new System.Drawing.Point(1678, 616);
             this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(180, 80);
@@ -521,30 +545,6 @@ namespace DUAN1
             this.pictureBox4.Size = new System.Drawing.Size(257, 992);
             this.pictureBox4.TabIndex = 343;
             this.pictureBox4.TabStop = false;
-            // 
-            // Ma
-            // 
-            this.Ma.HeaderText = "Mã nhân viên";
-            this.Ma.MinimumWidth = 6;
-            this.Ma.Name = "Ma";
-            // 
-            // Ten
-            // 
-            this.Ten.HeaderText = "Tên ";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
-            // 
-            // SDT
-            // 
-            this.SDT.HeaderText = "Số điện thoại";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
             // 
             // QuanLyNhanVien
             // 

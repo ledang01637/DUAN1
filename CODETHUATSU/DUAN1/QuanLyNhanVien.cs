@@ -218,12 +218,13 @@ namespace DUAN1
                         db.SaveChanges();
 
                         MessageBox.Show("Sửa thành công");
-                        updatedgv();
+                        
                     }
                     else
                     {
                         MessageBox.Show("Không tìm thấy nhân viên với mã nhân viên này");
                     }
+                    updatedgv();
                 }
             }
         }
