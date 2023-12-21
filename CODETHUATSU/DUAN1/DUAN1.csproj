@@ -170,6 +170,7 @@
     <Compile Include="QuetQR.Designer.cs">
       <DependentUpon>QuetQR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shared\Constant.cs" />
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -269,6 +270,10 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-logout-48.png" />
+    <None Include="Resources\icons8-return-48.png" />
+    <None Include="Resources\icons8-eye-24.png" />
+    <None Include="Resources\icons8-eyeclose-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

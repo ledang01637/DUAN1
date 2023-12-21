@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using DUAN1.Properties;
 
 namespace DUAN1
 {
     public partial class Login : Form
     {
+        private bool viewPass = false;
         public Login()
         {
             InitializeComponent();
+            btnsubmit.BackColor = Constant.cyanColor;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -88,19 +86,6 @@ namespace DUAN1
             }
         }
 
-        private void cbhienmatkhau_CheckedChanged(object sender, EventArgs e)
-        {
-            //check box hiển thị và ẩn mật khẩu
-            if (cbhienmatkhau.Checked)
-            {
-                tbpassword.PasswordChar = '\0';
-            }
-            else
-            {
-                tbpassword.PasswordChar = '*';
-            }
-        }
-
         private void cbghinhodn_CheckedChanged(object sender, EventArgs e)
         {
             //check box ghi nhớ tài khoản
@@ -165,6 +150,35 @@ namespace DUAN1
             tbpassword.Text = tbpassword.Text.ToLower();
             tbpassword.SelectionStart = tbpassword.Left;
             tbpassword.SelectionLength = 0;
+        }
+
+        private void btnViewPass_Click(object sender, EventArgs e)
+        {
+            if(viewPass)
+            {
+                btnViewPass.Image = Resources.icons8_eyeclose_24;
+                tbpassword.PasswordChar = '*';
+            } else
+            {
+                btnViewPass.Image = Resources.icons8_eye_24;
+                tbpassword.PasswordChar = '\0';
+            }
+            viewPass = !viewPass;
+        }
+
+        private void btnsubmit_MouseHover(object sender, EventArgs e)
+        {
+            btnsubmit.BackColor = Color.LightCyan;
+        }
+
+        private void btnsubmit_MouseLeave(object sender, EventArgs e)
+        {
+            btnsubmit.BackColor = Constant.cyanColor;
+        }
+
+        private void btnsubmit_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnsubmit.BackColor = Color.LightCyan;
         }
     }
 }

@@ -48,12 +48,12 @@ namespace DUAN1
             this.btnsubmit.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnsubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnsubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsubmit.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsubmit.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnsubmit.Location = new System.Drawing.Point(43, 301);
+            this.btnsubmit.Location = new System.Drawing.Point(184, 246);
             this.btnsubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnsubmit.Name = "btnsubmit";
-            this.btnsubmit.Size = new System.Drawing.Size(455, 55);
+            this.btnsubmit.Size = new System.Drawing.Size(169, 52);
             this.btnsubmit.TabIndex = 19;
             this.btnsubmit.Text = "Xác nhận";
             this.btnsubmit.UseVisualStyleBackColor = false;
@@ -64,9 +64,9 @@ namespace DUAN1
             // 
             // tbpassword1
             // 
-            this.tbpassword1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbpassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpassword1.Location = new System.Drawing.Point(45, 111);
+            this.tbpassword1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbpassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpassword1.Location = new System.Drawing.Point(37, 72);
             this.tbpassword1.Margin = new System.Windows.Forms.Padding(4);
             this.tbpassword1.Multiline = true;
             this.tbpassword1.Name = "tbpassword1";
@@ -80,32 +80,32 @@ namespace DUAN1
             // lbpassword1
             // 
             this.lbpassword1.AutoSize = true;
-            this.lbpassword1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lbpassword1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpassword1.Location = new System.Drawing.Point(35, 53);
+            this.lbpassword1.BackColor = System.Drawing.Color.Transparent;
+            this.lbpassword1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpassword1.Location = new System.Drawing.Point(33, 24);
             this.lbpassword1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbpassword1.Name = "lbpassword1";
-            this.lbpassword1.Size = new System.Drawing.Size(246, 46);
+            this.lbpassword1.Size = new System.Drawing.Size(182, 34);
             this.lbpassword1.TabIndex = 17;
             this.lbpassword1.Text = "Mật khẩu mới";
             // 
             // lbpassword2
             // 
             this.lbpassword2.AutoSize = true;
-            this.lbpassword2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lbpassword2.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpassword2.Location = new System.Drawing.Point(35, 179);
+            this.lbpassword2.BackColor = System.Drawing.Color.Transparent;
+            this.lbpassword2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpassword2.Location = new System.Drawing.Point(33, 140);
             this.lbpassword2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbpassword2.Name = "lbpassword2";
-            this.lbpassword2.Size = new System.Drawing.Size(315, 46);
+            this.lbpassword2.Size = new System.Drawing.Size(232, 34);
             this.lbpassword2.TabIndex = 22;
             this.lbpassword2.Text = "Nhập lại mật khẩu";
             // 
             // tbpassword2
             // 
-            this.tbpassword2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbpassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpassword2.Location = new System.Drawing.Point(45, 237);
+            this.tbpassword2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbpassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpassword2.Location = new System.Drawing.Point(37, 187);
             this.tbpassword2.Margin = new System.Windows.Forms.Padding(4);
             this.tbpassword2.Multiline = true;
             this.tbpassword2.Name = "tbpassword2";
@@ -118,35 +118,40 @@ namespace DUAN1
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBox2.Controls.Add(this.btnthoat);
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.btnsubmit);
             this.groupBox2.Controls.Add(this.lbpassword1);
             this.groupBox2.Controls.Add(this.tbpassword1);
             this.groupBox2.Controls.Add(this.tbpassword2);
             this.groupBox2.Controls.Add(this.lbpassword2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 25);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(12, 55);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(525, 399);
+            this.groupBox2.Size = new System.Drawing.Size(525, 321);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
             // btnthoat
             // 
-            this.btnthoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnthoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnthoat.BackgroundImage")));
-            this.btnthoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnthoat.BackColor = System.Drawing.Color.Transparent;
             this.btnthoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnthoat.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnthoat.FlatAppearance.BorderSize = 0;
-            this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnthoat.Location = new System.Drawing.Point(412, 0);
-            this.btnthoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnthoat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnthoat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthoat.Image = ((System.Drawing.Image)(resources.GetObject("btnthoat.Image")));
+            this.btnthoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnthoat.Location = new System.Drawing.Point(399, 12);
             this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(113, 42);
-            this.btnthoat.TabIndex = 155;
+            this.btnthoat.Size = new System.Drawing.Size(132, 38);
+            this.btnthoat.TabIndex = 156;
+            this.btnthoat.Text = "Quay lại";
+            this.btnthoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnthoat.UseVisualStyleBackColor = false;
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
@@ -154,14 +159,15 @@ namespace DUAN1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 446);
+            this.ClientSize = new System.Drawing.Size(549, 389);
+            this.Controls.Add(this.btnthoat);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(567, 875);
             this.Name = "QuenMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QuenMatKhau";
+            this.Text = "Quên mật khẩu";
             this.Load += new System.EventHandler(this.QuenMatKhau_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

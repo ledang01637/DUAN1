@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
-using System.Net.Mail;
-using System.Data.Entity.Validation;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Security.Cryptography;
 
 namespace DUAN1
 {
@@ -24,21 +13,24 @@ namespace DUAN1
         public QuenMatKhau()
         {
             InitializeComponent();
+            this.BackColor = Constant.greyColor;
+            btnsubmit.BackColor = Constant.cyanColor;
+            btnthoat.BackColor = Color.Transparent;
         }
         #region Mouse
         private void btnsubmit_MouseHover(object sender, EventArgs e)
         {
-            btnsubmit.BackColor = Color.CadetBlue;
+            btnsubmit.BackColor = Color.LightCyan;
         }
 
         private void btnsubmit_MouseMove(object sender, MouseEventArgs e)
         {
-            btnsubmit.BackColor = Color.CadetBlue;
+            btnsubmit.BackColor = Color.LightCyan;
         }
 
         private void btnsubmit_MouseLeave(object sender, EventArgs e)
         {
-            btnsubmit.BackColor = Color.PaleTurquoise;
+            btnsubmit.BackColor = Constant.cyanColor;
         }
         #endregion
         #region Btn
@@ -114,7 +106,7 @@ namespace DUAN1
             {
                 if (string.IsNullOrEmpty(tbpassword1.Text) || tbpassword1.Text.Length < 5)
                 {
-                    Pen p = new Pen(Color.Red);
+                    Pen p = new Pen(Color.Blue);
                     e.Graphics.DrawRectangle(p, new Rectangle(tbpassword1.Location.X  - 1, tbpassword1.Location.Y - 1, tbpassword1.Width + 1, tbpassword1.Height + 1));
                 }
                 else if (isTextPw1)
@@ -132,7 +124,7 @@ namespace DUAN1
             {
                 if (string.IsNullOrEmpty(tbpassword2.Text) || tbpassword2.Text.Length < 5)
                 {
-                    Pen p = new Pen(Color.Red);
+                    Pen p = new Pen(Color.Blue);
                     e.Graphics.DrawRectangle(p, new Rectangle(tbpassword2.Location.X  - 1, tbpassword2.Location.Y - 1, tbpassword2.Width + 1, tbpassword2.Height + 1));
                 }
                 else if (isTextPw2)
