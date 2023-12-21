@@ -70,6 +70,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CauHinhDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CauHinhDB.Designer.cs">
+      <DependentUpon>CauHinhDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,7 +275,6 @@
     <None Include="Resources\z4878305853332_ad13e9ab43c5bc0125d7a78c29906310.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-user-48.png" />
     <None Include="Resources\main-background.jpg" />
     <None Include="Resources\main-background2.jpg" />
     <None Include="Resources\icons8-logout-48.png" />
@@ -288,6 +293,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-user-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
