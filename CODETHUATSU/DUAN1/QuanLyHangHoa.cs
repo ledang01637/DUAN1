@@ -27,7 +27,18 @@ namespace DUAN1
         }
         private void QuanLyHangHoa_Load(object sender, EventArgs e)
         {
+            SelectHang();
             upDateDataGridView1();
+        }
+        private void SelectHang()
+        {
+            using(DAXuongEntities db = new DAXuongEntities())
+            {
+                cbbTenHH.Items.Clear();
+                db.hang_hoa.ToList().ForEach(item => cbbTenHH.Items.Add(item.ten));
+                cbbNsx.Items.Clear();
+                db.hang_hoa.ToList().ForEach(item => cbbNsx.Items.Add(item.noisx));
+            }
         }
         private void upDateDataGridView1()
         {
@@ -48,7 +59,8 @@ namespace DUAN1
             tbtenhanghoa.Text = "";
             tbmota.Text = "";
             tbnsx.Text = "";
-
+            cbbTenHH.Text = "";
+            cbbNsx.Text = "";
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
@@ -151,6 +163,7 @@ namespace DUAN1
         private void btnhuy_Click(object sender, EventArgs e)
         {
             Reset();
+            upDateDataGridView1();
         }
         private void btnxoa_Click(object sender, EventArgs e)
         {
@@ -399,6 +412,43 @@ namespace DUAN1
                 this.Refresh();
             }
         }
+
+        private void cbbTenHH_SelectedValueChanged(object sender, EventArgs e)
+        {
+            using(DAXuongEntities db = new DAXuongEntities())
+            {
+                var HH = db.hang_hoa.ToList().Where(a => a.ten.Equals(cbbTenHH.Text));
+                dataGridView1.Rows.Clear();
+                foreach (var item in HH)
+                {
+                    dataGridView1.Rows.Add(
+                        item.ma_hang_hoa,
+                        item.ten,
+                        item.mota,
+                        item.noisx
+                        );
+                }
+            }  
+        }
+
+        private void cbbNsx_SelectedValueChanged(object sender, EventArgs e)
+        {
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                var HH = db.hang_hoa.ToList().Where(a => a.noisx.Equals(cbbNsx.Text));
+                dataGridView1.Rows.Clear();
+                foreach (var item in HH)
+                {
+                    dataGridView1.Rows.Add(
+                        item.ma_hang_hoa,
+                        item.ten,
+                        item.mota,
+                        item.noisx
+                        );
+                }
+            }
+        }
+
         private void tbtenhanghoa_TextChanged(object sender, EventArgs e)
         {
             isTextTenHH = true;

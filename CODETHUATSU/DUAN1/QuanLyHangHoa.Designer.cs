@@ -31,10 +31,10 @@ namespace DUAN1
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyHangHoa));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.tbmahanghoa = new System.Windows.Forms.TextBox();
             this.lbtenhanghoa = new System.Windows.Forms.Label();
@@ -45,6 +45,10 @@ namespace DUAN1
             this.btnluu = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MaHH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbusername = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnthongtinnv = new System.Windows.Forms.Button();
@@ -65,15 +69,13 @@ namespace DUAN1
             this.toolTip9 = new System.Windows.Forms.ToolTip(this.components);
             this.btnChiTietHoaDon = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.MaHH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbnsx = new System.Windows.Forms.TextBox();
             this.tbmota = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbbTenHH = new System.Windows.Forms.ComboBox();
+            this.cbbNsx = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +116,7 @@ namespace DUAN1
             this.lbtenhanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbtenhanghoa.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtenhanghoa.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbtenhanghoa.Location = new System.Drawing.Point(435, 227);
+            this.lbtenhanghoa.Location = new System.Drawing.Point(435, 220);
             this.lbtenhanghoa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbtenhanghoa.Name = "lbtenhanghoa";
             this.lbtenhanghoa.Size = new System.Drawing.Size(195, 32);
@@ -126,7 +128,7 @@ namespace DUAN1
             this.tbtenhanghoa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbtenhanghoa.Enabled = false;
             this.tbtenhanghoa.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbtenhanghoa.Location = new System.Drawing.Point(680, 227);
+            this.tbtenhanghoa.Location = new System.Drawing.Point(680, 220);
             this.tbtenhanghoa.Margin = new System.Windows.Forms.Padding(4);
             this.tbtenhanghoa.Multiline = true;
             this.tbtenhanghoa.Name = "tbtenhanghoa";
@@ -235,6 +237,42 @@ namespace DUAN1
             this.dataGridView1.Size = new System.Drawing.Size(1463, 229);
             this.dataGridView1.TabIndex = 160;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // MaHH
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaHH.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MaHH.HeaderText = "Mã hàng hóa";
+            this.MaHH.MinimumWidth = 6;
+            this.MaHH.Name = "MaHH";
+            this.MaHH.ReadOnly = true;
+            // 
+            // Ten
+            // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Ten.HeaderText = "Tên hàng hóa";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // NgaySX
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgaySX.DefaultCellStyle = dataGridViewCellStyle7;
+            this.NgaySX.HeaderText = "Mô tả";
+            this.NgaySX.MinimumWidth = 6;
+            this.NgaySX.Name = "NgaySX";
+            this.NgaySX.ReadOnly = true;
+            // 
+            // HSD
+            // 
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSD.DefaultCellStyle = dataGridViewCellStyle8;
+            this.HSD.HeaderText = "Nơi sản xuất";
+            this.HSD.MinimumWidth = 6;
+            this.HSD.Name = "HSD";
+            this.HSD.ReadOnly = true;
             // 
             // tbusername
             // 
@@ -436,42 +474,6 @@ namespace DUAN1
             this.groupBox1.TabIndex = 311;
             this.groupBox1.TabStop = false;
             // 
-            // MaHH
-            // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaHH.DefaultCellStyle = dataGridViewCellStyle1;
-            this.MaHH.HeaderText = "Mã hàng hóa";
-            this.MaHH.MinimumWidth = 6;
-            this.MaHH.Name = "MaHH";
-            this.MaHH.ReadOnly = true;
-            // 
-            // Ten
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ten.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Ten.HeaderText = "Tên hàng hóa";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            // 
-            // NgaySX
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgaySX.DefaultCellStyle = dataGridViewCellStyle3;
-            this.NgaySX.HeaderText = "Mô tả";
-            this.NgaySX.MinimumWidth = 6;
-            this.NgaySX.Name = "NgaySX";
-            this.NgaySX.ReadOnly = true;
-            // 
-            // HSD
-            // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HSD.DefaultCellStyle = dataGridViewCellStyle4;
-            this.HSD.HeaderText = "Nơi sản xuất";
-            this.HSD.MinimumWidth = 6;
-            this.HSD.Name = "HSD";
-            this.HSD.ReadOnly = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -479,7 +481,7 @@ namespace DUAN1
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(436, 376);
+            this.label1.Location = new System.Drawing.Point(436, 405);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 32);
@@ -493,7 +495,7 @@ namespace DUAN1
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(437, 293);
+            this.label2.Location = new System.Drawing.Point(437, 343);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 32);
@@ -505,7 +507,7 @@ namespace DUAN1
             this.tbnsx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbnsx.Enabled = false;
             this.tbnsx.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbnsx.Location = new System.Drawing.Point(680, 380);
+            this.tbnsx.Location = new System.Drawing.Point(680, 409);
             this.tbnsx.Margin = new System.Windows.Forms.Padding(4);
             this.tbnsx.Multiline = true;
             this.tbnsx.Name = "tbnsx";
@@ -517,7 +519,7 @@ namespace DUAN1
             this.tbmota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbmota.Enabled = false;
             this.tbmota.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbmota.Location = new System.Drawing.Point(680, 300);
+            this.tbmota.Location = new System.Drawing.Point(680, 350);
             this.tbmota.Margin = new System.Windows.Forms.Padding(4);
             this.tbmota.Multiline = true;
             this.tbmota.Name = "tbmota";
@@ -533,9 +535,29 @@ namespace DUAN1
             this.label3.Location = new System.Drawing.Point(580, 2);
             this.label3.MaximumSize = new System.Drawing.Size(1454, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(587, 62);
+            this.label3.Size = new System.Drawing.Size(572, 61);
             this.label3.TabIndex = 317;
             this.label3.Text = "QUẢN LÝ HÀNG HÓA";
+            // 
+            // cbbTenHH
+            // 
+            this.cbbTenHH.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTenHH.FormattingEnabled = true;
+            this.cbbTenHH.Location = new System.Drawing.Point(680, 282);
+            this.cbbTenHH.Name = "cbbTenHH";
+            this.cbbTenHH.Size = new System.Drawing.Size(287, 34);
+            this.cbbTenHH.TabIndex = 318;
+            this.cbbTenHH.SelectedValueChanged += new System.EventHandler(this.cbbTenHH_SelectedValueChanged);
+            // 
+            // cbbNsx
+            // 
+            this.cbbNsx.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbNsx.FormattingEnabled = true;
+            this.cbbNsx.Location = new System.Drawing.Point(994, 282);
+            this.cbbNsx.Name = "cbbNsx";
+            this.cbbNsx.Size = new System.Drawing.Size(276, 34);
+            this.cbbNsx.TabIndex = 319;
+            this.cbbNsx.SelectedValueChanged += new System.EventHandler(this.cbbNsx_SelectedValueChanged);
             // 
             // QuanLyHangHoa
             // 
@@ -544,6 +566,8 @@ namespace DUAN1
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1683, 823);
+            this.Controls.Add(this.cbbNsx);
+            this.Controls.Add(this.cbbTenHH);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbnsx);
             this.Controls.Add(this.tbmota);
@@ -625,5 +649,7 @@ namespace DUAN1
         private System.Windows.Forms.TextBox tbnsx;
         private System.Windows.Forms.TextBox tbmota;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbbTenHH;
+        private System.Windows.Forms.ComboBox cbbNsx;
     }
 }

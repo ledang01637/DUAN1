@@ -108,7 +108,6 @@ namespace DUAN1
                 ptbHinh.Image = null;
                 imagePath = "";
             }
-            btnxoa.Enabled = true;
             btnsua.Enabled = true;
             btnhuy.Enabled = true;
             cbbTenHang.Enabled = true;
@@ -208,7 +207,6 @@ namespace DUAN1
             tbGiaban.Text = "";
 
 
-            btnxoa.Enabled = false;
             btnsua.Enabled = false;
             btnhuy.Enabled = false;
             btnluu.Enabled = false;
@@ -283,22 +281,24 @@ namespace DUAN1
                     tbtimkiem.Text = "";
                 }
 
-                //using (DUAN1Entities db = new DUAN1Entities())
-                //{
-                //    List<khohang_hanghoa> listsv = db.khohang_hanghoa.Where(x => x.makho_hangchitiet.Equals(tbtimkiem.Text)).ToList();
-                //    dataGridView1.Rows.Clear();
-                //    listsv.ToList().ForEach(sv =>
-                //    {
-                //        dataGridView1.Rows.Add(
-                //            sv.makho_hangchitiet,
-                //        sv.ma_kho_hang,
-                //        sv.ma_hang_hoa,
-                //        sv.ngay_nhap,
-                //        sv.ngay_xuat,
-                //        sv.so_luong);
-                //    }
-                //    );
-                //}
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
+                    List<chitiet_hanghoa> listsv = db.chitiet_hanghoa.Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text)).ToList();
+                    dataGridView1.Rows.Clear();
+                    listsv.ToList().ForEach(row =>
+                    {
+                        dataGridView1.Rows.Add(
+                        row.id,
+                        row.ma_hang_hoa,
+                        row.size,
+                        row.mau_sac,
+                        row.gia_nhap,
+                        row.gia_ban,
+                        row.hinh,
+                        row.soluong
+                    );
+                    });
+                }
             }
             catch (Exception)
             {

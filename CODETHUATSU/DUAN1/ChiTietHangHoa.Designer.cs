@@ -32,7 +32,6 @@ namespace DUAN1
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietHangHoa));
             this.btnhuy = new System.Windows.Forms.Button();
-            this.btnxoa = new System.Windows.Forms.Button();
             this.btnsua = new System.Windows.Forms.Button();
             this.btntimkiem = new System.Windows.Forms.Button();
             this.tbtimkiem = new System.Windows.Forms.TextBox();
@@ -91,26 +90,11 @@ namespace DUAN1
             this.btnhuy.Location = new System.Drawing.Point(901, 496);
             this.btnhuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnhuy.Name = "btnhuy";
-            this.btnhuy.Size = new System.Drawing.Size(160, 64);
+            this.btnhuy.Size = new System.Drawing.Size(160, 62);
             this.btnhuy.TabIndex = 81;
             this.toolTip1.SetToolTip(this.btnhuy, "Hủy");
             this.btnhuy.UseVisualStyleBackColor = true;
             this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
-            // 
-            // btnxoa
-            // 
-            this.btnxoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnxoa.FlatAppearance.BorderSize = 0;
-            this.btnxoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnxoa.Image = ((System.Drawing.Image)(resources.GetObject("btnxoa.Image")));
-            this.btnxoa.Location = new System.Drawing.Point(733, 496);
-            this.btnxoa.Margin = new System.Windows.Forms.Padding(4);
-            this.btnxoa.Name = "btnxoa";
-            this.btnxoa.Size = new System.Drawing.Size(160, 64);
-            this.btnxoa.TabIndex = 80;
-            this.toolTip1.SetToolTip(this.btnxoa, "Xóa");
-            this.btnxoa.UseVisualStyleBackColor = true;
-            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
             // btnsua
             // 
@@ -118,7 +102,7 @@ namespace DUAN1
             this.btnsua.FlatAppearance.BorderSize = 0;
             this.btnsua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnsua.Image = ((System.Drawing.Image)(resources.GetObject("btnsua.Image")));
-            this.btnsua.Location = new System.Drawing.Point(569, 496);
+            this.btnsua.Location = new System.Drawing.Point(656, 496);
             this.btnsua.Margin = new System.Windows.Forms.Padding(4);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(160, 64);
@@ -144,6 +128,7 @@ namespace DUAN1
             // 
             // tbtimkiem
             // 
+            this.tbtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbtimkiem.Location = new System.Drawing.Point(1069, 496);
             this.tbtimkiem.Margin = new System.Windows.Forms.Padding(4);
             this.tbtimkiem.Multiline = true;
@@ -157,7 +142,7 @@ namespace DUAN1
             this.btnluu.FlatAppearance.BorderSize = 0;
             this.btnluu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnluu.Image = ((System.Drawing.Image)(resources.GetObject("btnluu.Image")));
-            this.btnluu.Location = new System.Drawing.Point(401, 496);
+            this.btnluu.Location = new System.Drawing.Point(488, 496);
             this.btnluu.Margin = new System.Windows.Forms.Padding(4);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(160, 64);
@@ -172,7 +157,7 @@ namespace DUAN1
             this.btnthem.FlatAppearance.BorderSize = 0;
             this.btnthem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnthem.Image = ((System.Drawing.Image)(resources.GetObject("btnthem.Image")));
-            this.btnthem.Location = new System.Drawing.Point(232, 496);
+            this.btnthem.Location = new System.Drawing.Point(319, 496);
             this.btnthem.Margin = new System.Windows.Forms.Padding(4);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(160, 64);
@@ -692,7 +677,6 @@ namespace DUAN1
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnhuy);
-            this.Controls.Add(this.btnxoa);
             this.Controls.Add(this.btnsua);
             this.Controls.Add(this.btntimkiem);
             this.Controls.Add(this.tbtimkiem);
@@ -719,7 +703,6 @@ namespace DUAN1
 
         #endregion
         private System.Windows.Forms.Button btnhuy;
-        private System.Windows.Forms.Button btnxoa;
         private System.Windows.Forms.Button btnsua;
         private System.Windows.Forms.Button btntimkiem;
         private System.Windows.Forms.TextBox tbtimkiem;
