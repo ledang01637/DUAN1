@@ -67,6 +67,53 @@ namespace DUAN1
             tbmanhanvien.Enabled = true;
         }
 
+        
+
+        private void btnluu_Click(object sender, EventArgs e)
+        {
+
+            if (ValidateFields())
+            {
+                string maNV = tbmanhanvien.Text;
+                string tenNV = tbtennhanvien.Text;
+                string sdt = tbsdt.Text;
+                string email = tbcv.Text;
+
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
+                    nhan_vien nv = db.nhan_vien
+                        .Where(x => x.ma_nv == maNV)
+                        .FirstOrDefault();
+
+                    if (nv == null) // Check if the record doesn't exist
+                    {
+                        nhan_vien them = new nhan_vien();
+                        them.ma_nv = maNV;
+                        them.ten_nv = tenNV;
+                        them.sdt = sdt;
+                        them.email = email;
+
+                        db.nhan_vien.Add(them);
+                        db.SaveChanges();
+                        updatedgv();
+
+                        MessageBox.Show("Thêm nhân viên thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã nhân viên đã tồn tại");
+                    }
+                }
+
+                tbmanhanvien.Text = "";
+                tbtennhanvien.Text = "";
+                tbsdt.Text = "";
+                tbcv.Text = "";
+
+                updatedgv();
+            }
+        }
+
         private bool IsValidEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
@@ -135,20 +182,20 @@ namespace DUAN1
             {
                 MessageBox.Show("Email không hợp lệ");
                 return false;
-            }if(!IsValidPhoneNumber(sdt) & !IsValidEmail(email))
+            }
+            if (!IsValidPhoneNumber(sdt) & !IsValidEmail(email))
             {
                 MessageBox.Show("Email và số điện thoại không hợp lệ");
                 return false;
-            }    
+            }
 
             return true;
         }
 
-        private void btnluu_Click(object sender, EventArgs e)
+        private void btnsua_Click(object sender, EventArgs e)
         {
-
-            if (ValidateFields())
-            {
+            if(ValidateFields())
+    {
                 string maNV = tbmanhanvien.Text;
                 string tenNV = tbtennhanvien.Text;
                 string sdt = tbsdt.Text;
@@ -156,68 +203,41 @@ namespace DUAN1
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
-                    nhan_vien nv = db.nhan_vien
+                    nhan_vien them = db.nhan_vien
                         .Where(x => x.ma_nv == maNV)
                         .FirstOrDefault();
 
-                    if (nv == null) // Check if the record doesn't exist
+                    if (them != null)
                     {
-                        nhan_vien them = new nhan_vien();
                         them.ma_nv = maNV;
                         them.ten_nv = tenNV;
                         them.sdt = sdt;
                         them.email = email;
 
-                        db.nhan_vien.Add(them);
                         db.SaveChanges();
-                        updatedgv();
 
-                        MessageBox.Show("Thêm nhân viên thành công");
+                        MessageBox.Show("Sửa thành công");
+                        updatedgv();
                     }
                     else
                     {
-                        MessageBox.Show("Mã nhân viên đã tồn tại");
+                        MessageBox.Show("Không tìm thấy nhân viên với mã nhân viên này");
                     }
                 }
-
-                tbmanhanvien.Text = "";
-                tbtennhanvien.Text = "";
-                tbsdt.Text = "";
-                tbcv.Text = "";
-
-                updatedgv();
             }
-        }
-
-        private void btnsua_Click(object sender, EventArgs e)
-        {
-            using (DAXuongEntities db = new DAXuongEntities())
-            {
-                nhan_vien them = db.nhan_vien
-                    .Where(x => x.ma_nv == tbmanhanvien.Text)
-                    .FirstOrDefault();
-
-                if (them != null)
-                {
-                    them.ma_nv = tbmanhanvien.Text;
-                    them.ten_nv = tbtennhanvien.Text;
-                    them.sdt = tbsdt.Text;
-                    them.email = tbcv.Text;
-
-                    db.SaveChanges();
-                }
-            }
-            MessageBox.Show("Sửa thành công");
-            updatedgv();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
-                nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv == tbmanhanvien.Text).FirstOrDefault();
+                nhan_vien xoa = db.nhan_vien.Where(x => x.ma_nv.Equals(tbmanhanvien.Text)).FirstOrDefault();
+                dang_nhap xoa2 = db.dang_nhap.Where(x => x.ma_nv.Equals(xoa.ma_nv)).FirstOrDefault();
+                db.dang_nhap.Remove(xoa2);
                 db.nhan_vien.Remove(xoa);
                 db.SaveChanges();
+
+                MessageBox.Show("Xóa thành công");
             }
             updatedgv();
         }

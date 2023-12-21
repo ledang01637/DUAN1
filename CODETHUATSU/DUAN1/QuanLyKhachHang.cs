@@ -150,22 +150,36 @@ namespace DUAN1
         //sửa thông tin khách hàng
         private void btnsua_Click(object sender, EventArgs e)
         {
-            using (DAXuongEntities db = new DAXuongEntities())
+            if (ValidateFields())
             {
-                khach_hang them = db.khach_hang
-                    .Where(x => x.ma_kh == tbmakhachhang.Text)
-                    .FirstOrDefault();
+                string maNV = tbmakhachhang.Text;
+                string tenNV = tbtenkhachhang.Text;
+                string sdt = tbsdt.Text;
+               
 
-                if (them != null)
+                using (DAXuongEntities db = new DAXuongEntities())
                 {
-                    them.ten_kh = tbtenkhachhang.Text;
-                    them.sdt = tbsdt.Text;
+                    nhan_vien them = db.nhan_vien
+                        .Where(x => x.ma_nv == maNV)
+                        .FirstOrDefault();
 
-                    db.SaveChanges();
+                    if (them != null)
+                    {
+                        them.ma_nv = maNV;
+                        them.ten_nv = tenNV;
+                        them.sdt = sdt;                      
+
+                        db.SaveChanges();
+
+                        MessageBox.Show("Sửa thành công");
+                        updatedgv();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên với mã nhân viên này");
+                    }
                 }
-                MessageBox.Show("Sửa thành công");
             }
-            updatedgv();
         }
         //Xóa khách hàng
         private void btnxoa_Click(object sender, EventArgs e)

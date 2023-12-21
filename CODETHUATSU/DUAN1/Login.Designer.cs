@@ -93,7 +93,7 @@ namespace DUAN1
             this.btnsubmit.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnsubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnsubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsubmit.Location = new System.Drawing.Point(177, 1026);
+            this.btnsubmit.Location = new System.Drawing.Point(164, 1078);
             this.btnsubmit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsubmit.Name = "btnsubmit";
             this.btnsubmit.Size = new System.Drawing.Size(513, 75);
