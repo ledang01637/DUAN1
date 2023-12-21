@@ -87,6 +87,12 @@
     </Compile>
     <Compile Include="DBHandler.cs" />
     <Compile Include="GetCode.cs" />
+    <Compile Include="ChiTietHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietHangHoa.Designer.cs">
+      <DependentUpon>ChiTietHangHoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="hang_hoa.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -95,12 +101,6 @@
     </Compile>
     <Compile Include="khach_hang.cs">
       <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ChiTietHangHoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietHangHoa.Designer.cs">
-      <DependentUpon>ChiTietHangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="LayCode.cs">
       <SubType>Form</SubType>
@@ -269,6 +269,15 @@
     <None Include="Resources\z4878305853332_ad13e9ab43c5bc0125d7a78c29906310.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-user-48.png" />
+    <None Include="Resources\main-background.jpg" />
+    <None Include="Resources\main-background2.jpg" />
+    <None Include="Resources\icons8-logout-48.png" />
+    <None Include="Resources\icons8-return-48.png" />
+    <None Include="Resources\icons8-eye-24.png" />
+    <None Include="Resources\icons8-eyeclose-24.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -279,13 +288,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\icons8-user-48.png" />
-    <None Include="Resources\main-background.jpg" />
-    <None Include="Resources\main-background2.jpg" />
-    <None Include="Resources\icons8-logout-48.png" />
-    <None Include="Resources\icons8-return-48.png" />
-    <None Include="Resources\icons8-eye-24.png" />
-    <None Include="Resources\icons8-eyeclose-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
