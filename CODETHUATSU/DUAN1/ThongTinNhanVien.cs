@@ -21,6 +21,7 @@ namespace DUAN1
 
         private void ThongTinNhanVien_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             //Hiển thị thông tin nhân viên
             //using (DUAN1Entities db = new DUAN1Entities())
             //{

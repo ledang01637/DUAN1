@@ -17,11 +17,12 @@ namespace DUAN1
         public QuanLyHoaDon(String username)
         {
             InitializeComponent();
-            tbusername.Text = username;
+            //tbusername.Text = username;
         }
 
         private void QuanLyHoaDon_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             dtpngaylap.Format = DateTimePickerFormat.Short;
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
 
@@ -275,61 +276,61 @@ namespace DUAN1
             //    UpdateDGV();
             //} 
         }
-        private void btnthoat_Click(object sender, EventArgs e)
-        {
-            //Nút thoát ra ngoài form Đăng nhập
-            this.Hide();
-            Login form = new Login();
-            form.ShowDialog();
-            this.Close();
-        }
-        private void btnhanghoa_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
-            quanLyHangHoa.ShowDialog();
-            this.Close();
-        }
+        //private void btnthoat_Click(object sender, EventArgs e)
+        //{
+        //    //Nút thoát ra ngoài form Đăng nhập
+        //    this.Hide();
+        //    Login form = new Login();
+        //    form.ShowDialog();
+        //    this.Close();
+        //}
+        //private void btnhanghoa_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
+        //    quanLyHangHoa.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnkhohang_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
-            khhh.ShowDialog();
-            this.Close();
-        }
+        //private void btnkhohang_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
+        //    khhh.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnhoadon_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyHoaDon qlhd = new QuanLyHoaDon(tbusername.Text);
-            qlhd.ShowDialog();
-            this.Close();
-        }
+        //private void btnhoadon_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyHoaDon qlhd = new QuanLyHoaDon(tbusername.Text);
+        //    qlhd.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnnhanvien_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
-            qlnv.ShowDialog();
-            this.Close();
-        }
+        //private void btnnhanvien_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
+        //    qlnv.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnkhachhang_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
-            qlkh.ShowDialog();
-            this.Close();
-        }
+        //private void btnkhachhang_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
+        //    qlkh.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnthongke_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ThongKe tk = new ThongKe(tbusername.Text);
-            tk.ShowDialog();
-            this.Close();
-        }
+        //private void btnthongke_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ThongKe tk = new ThongKe(tbusername.Text);
+        //    tk.ShowDialog();
+        //    this.Close();
+        //}
         //Print HoaDon
         private readonly PrintDocument docToPrint = new PrintDocument();
         readonly int x = 0;
@@ -460,24 +461,24 @@ namespace DUAN1
         private void QuetMaQR_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuetQR quetQR = new QuetQR(tbusername.Text);
+            QuetQR quetQR = new QuetQR("a");
             quetQR.ShowDialog();
             this.Close();
         }
-        private void btnthongtinnv_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
-            tinNhanVien.ShowDialog();
-            this.Close();
-        }
+        //private void btnthongtinnv_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
+        //    tinNhanVien.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnchitiethoadon_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            ChiTietHoaDon cthd = new ChiTietHoaDon(tbusername.Text);
-            cthd.ShowDialog();
-            this.Close();
-        }
+        //private void btnchitiethoadon_Click_1(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ChiTietHoaDon cthd = new ChiTietHoaDon(tbusername.Text);
+        //    cthd.ShowDialog();
+        //    this.Close();
+        //}
     }
 }

@@ -232,7 +232,7 @@ namespace DUAN1
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Font = new System.Drawing.Font("Times New Roman", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(510, 8);
+            this.label3.Location = new System.Drawing.Point(514, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.MaximumSize = new System.Drawing.Size(1090, 54);
             this.label3.Name = "label3";
@@ -395,7 +395,7 @@ namespace DUAN1
             // ptbHinh
             // 
             this.ptbHinh.Location = new System.Drawing.Point(1086, 112);
-            this.ptbHinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbHinh.Margin = new System.Windows.Forms.Padding(2);
             this.ptbHinh.MaximumSize = new System.Drawing.Size(225, 244);
             this.ptbHinh.MinimumSize = new System.Drawing.Size(225, 244);
             this.ptbHinh.Name = "ptbHinh";
@@ -409,7 +409,7 @@ namespace DUAN1
             this.cbbTenHang.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTenHang.FormattingEnabled = true;
             this.cbbTenHang.Location = new System.Drawing.Point(472, 172);
-            this.cbbTenHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbTenHang.Margin = new System.Windows.Forms.Padding(2);
             this.cbbTenHang.Name = "cbbTenHang";
             this.cbbTenHang.Size = new System.Drawing.Size(140, 28);
             this.cbbTenHang.TabIndex = 349;

@@ -17,11 +17,12 @@ namespace DUAN1
         public QuanLyNhanVien(String username)
         {
             InitializeComponent();
-            usernamenv.Text = username;
+            //usernamenv.Text = username;
         }
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             //using (DUAN1Entities db = new DUAN1Entities())
             //{
             //    updatedgv();
@@ -209,77 +210,77 @@ namespace DUAN1
             tbmanhanvien.ReadOnly = true;
 
         }
-        private void btnthoat_Click(object sender, EventArgs e)
-        {
-            //Nút thoát ra ngoài form Đăng nhập
-            this.Hide();
-            Login form = new Login();
-            form.ShowDialog();
-            this.Close();
-        }
-        private void btnhanghoa_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(usernamenv.Text);
-            quanLyHangHoa.ShowDialog();
-            this.Close();
-        }
+        //private void btnthoat_Click(object sender, EventArgs e)
+        //{
+        //    //Nút thoát ra ngoài form Đăng nhập
+        //    this.Hide();
+        //    Login form = new Login();
+        //    form.ShowDialog();
+        //    this.Close();
+        //}
+        //private void btnhanghoa_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(usernamenv.Text);
+        //    quanLyHangHoa.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnkhohang_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ChiTietHangHoa khhh = new ChiTietHangHoa(usernamenv.Text);
-            khhh.ShowDialog();
-            this.Close();
-        }
+        //private void btnkhohang_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ChiTietHangHoa khhh = new ChiTietHangHoa(usernamenv.Text);
+        //    khhh.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnhoadon_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyHoaDon qlhd = new QuanLyHoaDon(usernamenv.Text);
-            qlhd.ShowDialog();
-            this.Close();
-        }
+        //private void btnhoadon_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyHoaDon qlhd = new QuanLyHoaDon(usernamenv.Text);
+        //    qlhd.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnnhanvien_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyNhanVien qlnv = new QuanLyNhanVien(usernamenv.Text);
-            qlnv.ShowDialog();
-            this.Close();
-        }
+        //private void btnnhanvien_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyNhanVien qlnv = new QuanLyNhanVien(usernamenv.Text);
+        //    qlnv.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnkhachhang_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyKhachHang qlkh = new QuanLyKhachHang(usernamenv.Text);
-            qlkh.ShowDialog();
-            this.Close();
-        }
+        //private void btnkhachhang_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyKhachHang qlkh = new QuanLyKhachHang(usernamenv.Text);
+        //    qlkh.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnthongke_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ThongKe tk = new ThongKe(usernamenv.Text);
-            tk.ShowDialog();
-            this.Close();
-        }
+        //private void btnthongke_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ThongKe tk = new ThongKe(usernamenv.Text);
+        //    tk.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnthongtinnv_Click(object sender, EventArgs e)
-        {
-            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(usernamenv.Text);
-            this.Hide();
-            tinNhanVien.ShowDialog();
-            this.Close();
-        }
+        //private void btnthongtinnv_Click(object sender, EventArgs e)
+        //{
+        //    ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(usernamenv.Text);
+        //    this.Hide();
+        //    tinNhanVien.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
-        {
-            ChiTietHoaDon tinNhanVien = new ChiTietHoaDon(usernamenv.Text);
-            this.Hide();
-            tinNhanVien.ShowDialog();
-            this.Close();
-        }
+        //private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        //{
+        //    ChiTietHoaDon tinNhanVien = new ChiTietHoaDon(usernamenv.Text);
+        //    this.Hide();
+        //    tinNhanVien.ShowDialog();
+        //    this.Close();
+        //}
 
         private void lbmanhanvien_Click(object sender, EventArgs e)
         {

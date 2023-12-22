@@ -12,7 +12,7 @@ namespace DUAN1
         public ThongKe(String username)
         {
             InitializeComponent();
-            tbusername.Text = username;
+            //tbusername.Text = username;
         }
 
         private void ThongKe_Load(object sender, EventArgs e)
@@ -45,86 +45,86 @@ namespace DUAN1
 
         }
 
-        //btn hóa đơn
-        private void btnhoadon_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyHoaDon form = new QuanLyHoaDon(tbusername.Text);
-            form.ShowDialog();
-            this.Close();
-        }
+        ////btn hóa đơn
+        //private void btnhoadon_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyHoaDon form = new QuanLyHoaDon(tbusername.Text);
+        //    form.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn thoát
-        private void btnthoat_Click(object sender, EventArgs e)
-        {
-            //Nút thoát ra ngoài form Đăng nhập
-            this.Hide();
-            Login form = new Login();
-            form.ShowDialog();
-            this.Close();
-        }
+        ////btn thoát
+        //private void btnthoat_Click(object sender, EventArgs e)
+        //{
+        //    //Nút thoát ra ngoài form Đăng nhập
+        //    this.Hide();
+        //    Login form = new Login();
+        //    form.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn hàng hóa
-        private void btnhanghoa_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
-            quanLyHangHoa.ShowDialog();
-            this.Close();
-        }
+        ////btn hàng hóa
+        //private void btnhanghoa_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
+        //    quanLyHangHoa.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn kho hàng
-        private void btnkhohang_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
-            khhh.ShowDialog();
-            this.Close();
-        }
+        ////btn kho hàng
+        //private void btnkhohang_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
+        //    khhh.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn nhân viên
-        private void btnnhanvien_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
-            qlnv.ShowDialog();
-            this.Close();
-        }
+        ////btn nhân viên
+        //private void btnnhanvien_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
+        //    qlnv.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn nhân viên
-        private void btnkhachhang_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
-            qlkh.ShowDialog();
-            this.Close();
-        }
+        ////btn nhân viên
+        //private void btnkhachhang_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
+        //    qlkh.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn thống kê
-        private void btnthongke_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ThongKe tk = new ThongKe(tbusername.Text);
-            tk.ShowDialog();
-            this.Close();
-        }
+        ////btn thống kê
+        //private void btnthongke_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ThongKe tk = new ThongKe(tbusername.Text);
+        //    tk.ShowDialog();
+        //    this.Close();
+        //}
 
-        //btn thông tin nhân viên
-        private void btnthongtinnv_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ThongTinNhanVien ttnv = new ThongTinNhanVien(tbusername.Text);
-            ttnv.ShowDialog();
-            this.Close();
-        }
+        ////btn thông tin nhân viên
+        //private void btnthongtinnv_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ThongTinNhanVien ttnv = new ThongTinNhanVien(tbusername.Text);
+        //    ttnv.ShowDialog();
+        //    this.Close();
+        //}
 
-        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ChiTietHoaDon ttnv = new ChiTietHoaDon(tbusername.Text);
-            ttnv.ShowDialog();
-            this.Close();
-        }
+        //private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    ChiTietHoaDon ttnv = new ChiTietHoaDon(tbusername.Text);
+        //    ttnv.ShowDialog();
+        //    this.Close();
+        //}
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
