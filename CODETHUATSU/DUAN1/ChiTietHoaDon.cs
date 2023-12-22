@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -377,6 +378,87 @@ namespace DUAN1
             QuetQR quetQR = new QuetQR(tbusername.Text);
             quetQR.ShowDialog();
             this.Close();
+        }
+
+        private readonly PrintDocument docToPrint = new PrintDocument();
+        readonly int x = 0;
+        readonly int y = 0;
+        readonly int height = 30;
+        readonly int width = 220;
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            string a = tbmachitiethoadon.Text;
+            if (string.IsNullOrEmpty(tbmachitiethoadon.Text))
+            {
+                MessageBox.Show("Lỗi không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                PrintDialog PrintDialog1 = new PrintDialog();
+                docToPrint.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", width, height + 200);
+                PrintDialog1.AllowSomePages = true;
+                PrintDialog1.ShowHelp = true;
+                PrintDialog1.Document = docToPrint;
+
+                DialogResult result = PrintDialog1.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    docToPrint.PrintPage += new PrintPageEventHandler(document_PrintPage);
+                    docToPrint.Print();
+                }
+            }
+        }
+        private void document_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            string title = "HÓA ĐƠN BÁN HÀNG";
+            StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
+            Rectangle rectangle = new Rectangle(x + 1, y, width, height);
+            stringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat.Alignment = StringAlignment.Center;
+            Font printFont = new Font("Arial", 11, FontStyle.Bold);
+            e.Graphics.DrawString(title, printFont, Brushes.Black, rectangle, stringFormat);
+
+            string head = "ShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\nTên   Giá   SL  Thành tiền";
+            StringFormat stringFormat2 = new StringFormat(StringFormatFlags.NoClip);
+            Rectangle rectangle2 = new Rectangle(x + 1, y + height, width, height + 30);
+            stringFormat2.LineAlignment = StringAlignment.Center;
+            stringFormat2.Alignment = StringAlignment.Center;
+            Font printFont2 = new Font("Arial", 10, FontStyle.Regular);
+            e.Graphics.DrawString(head, printFont2, Brushes.Black, rectangle2, stringFormat2);
+
+            using (DAXuongEntities entities = new DAXuongEntities())
+            {
+                string TenHang = "";
+                double Gia = 0;
+                int SL = 0;
+                int cao = 50;
+                double TongTien = 0;
+                double ThanhTien = 0;
+                var cthd = entities.chi_tiet_hoa_don.ToList().Where(a => a.ma_hd.Equals(cbbmahoadon.Text));
+                foreach (var item in cthd)
+                {
+                    StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+                    Rectangle rectangleBody = new Rectangle(x + 1, y + cao + 30, width, height);
+                    stringFormatBody.LineAlignment = StringAlignment.Center;
+                    stringFormatBody.Alignment = StringAlignment.Center;
+                    Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
+                    TenHang = item.chitiet_hanghoa.hang_hoa.ten;
+                    Gia = (double)item.chitiet_hanghoa.gia_ban / 1000;
+                    SL = (int)item.so_luong;
+                    ThanhTien = (double)item.dongia / 1000;
+                    TongTien += ThanhTien;
+                    e.Graphics.DrawString(TenHang + "  " + Gia.ToString("#,##0") + "  " + SL + "  " + ThanhTien.ToString("#,##0"), printFontBody, Brushes.Black, rectangleBody, stringFormatBody);   
+                    cao += 20;
+                }
+                StringFormat stringFormatFooter = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangleFooter = new Rectangle(x + 1, y + cao + 30, width, height);
+                stringFormatFooter.LineAlignment = StringAlignment.Center;
+                stringFormatFooter.Alignment = StringAlignment.Center;
+                Font printFontFooter = new Font("Arial", 10, FontStyle.Regular);
+
+                e.Graphics.DrawString("----------\nThành tiền: " + TongTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
+            }
         }
     }
 }

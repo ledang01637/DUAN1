@@ -69,6 +69,7 @@ namespace DUAN1
             this.tbusername = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.QuetMaQR = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -79,7 +80,7 @@ namespace DUAN1
             this.cbbmahoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmahoadon.FormattingEnabled = true;
             this.cbbmahoadon.Location = new System.Drawing.Point(584, 218);
-            this.cbbmahoadon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbmahoadon.Margin = new System.Windows.Forms.Padding(4);
             this.cbbmahoadon.Name = "cbbmahoadon";
             this.cbbmahoadon.Size = new System.Drawing.Size(265, 33);
             this.cbbmahoadon.TabIndex = 286;
@@ -91,7 +92,7 @@ namespace DUAN1
             this.btnhuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnhuy.Image = ((System.Drawing.Image)(resources.GetObject("btnhuy.Image")));
             this.btnhuy.Location = new System.Drawing.Point(871, 426);
-            this.btnhuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnhuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(160, 64);
             this.btnhuy.TabIndex = 279;
@@ -105,7 +106,7 @@ namespace DUAN1
             this.btnxoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnxoa.Image = ((System.Drawing.Image)(resources.GetObject("btnxoa.Image")));
             this.btnxoa.Location = new System.Drawing.Point(871, 354);
-            this.btnxoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnxoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnxoa.Name = "btnxoa";
             this.btnxoa.Size = new System.Drawing.Size(160, 64);
             this.btnxoa.TabIndex = 278;
@@ -119,7 +120,7 @@ namespace DUAN1
             this.btnsua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnsua.Image = ((System.Drawing.Image)(resources.GetObject("btnsua.Image")));
             this.btnsua.Location = new System.Drawing.Point(871, 279);
-            this.btnsua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnsua.Margin = new System.Windows.Forms.Padding(4);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(160, 64);
             this.btnsua.TabIndex = 277;
@@ -132,10 +133,10 @@ namespace DUAN1
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
-            this.btntimkiem.Location = new System.Drawing.Point(871, 497);
-            this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btntimkiem.Location = new System.Drawing.Point(584, 497);
+            this.btntimkiem.Margin = new System.Windows.Forms.Padding(4);
             this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(160, 64);
+            this.btntimkiem.Size = new System.Drawing.Size(160, 63);
             this.btntimkiem.TabIndex = 276;
             this.btntimkiem.UseVisualStyleBackColor = true;
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
@@ -144,10 +145,10 @@ namespace DUAN1
             // 
             this.tbtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbtimkiem.Location = new System.Drawing.Point(240, 497);
-            this.tbtimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbtimkiem.Margin = new System.Windows.Forms.Padding(4);
             this.tbtimkiem.Multiline = true;
             this.tbtimkiem.Name = "tbtimkiem";
-            this.tbtimkiem.Size = new System.Drawing.Size(789, 63);
+            this.tbtimkiem.Size = new System.Drawing.Size(328, 63);
             this.tbtimkiem.TabIndex = 275;
             // 
             // btnluu
@@ -157,7 +158,7 @@ namespace DUAN1
             this.btnluu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnluu.Image = ((System.Drawing.Image)(resources.GetObject("btnluu.Image")));
             this.btnluu.Location = new System.Drawing.Point(871, 208);
-            this.btnluu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnluu.Margin = new System.Windows.Forms.Padding(4);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(160, 64);
             this.btnluu.TabIndex = 274;
@@ -171,7 +172,7 @@ namespace DUAN1
             this.btnthem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnthem.Image = ((System.Drawing.Image)(resources.GetObject("btnthem.Image")));
             this.btnthem.Location = new System.Drawing.Point(871, 140);
-            this.btnthem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnthem.Margin = new System.Windows.Forms.Padding(4);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(160, 64);
             this.btnthem.TabIndex = 273;
@@ -196,7 +197,7 @@ namespace DUAN1
             // 
             this.tbsoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbsoluong.Location = new System.Drawing.Point(584, 364);
-            this.tbsoluong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbsoluong.Margin = new System.Windows.Forms.Padding(4);
             this.tbsoluong.Multiline = true;
             this.tbsoluong.Name = "tbsoluong";
             this.tbsoluong.Size = new System.Drawing.Size(265, 34);
@@ -215,7 +216,7 @@ namespace DUAN1
             this.soluong,
             this.thnahtien});
             this.dataGridView1.Location = new System.Drawing.Point(239, 597);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -263,7 +264,7 @@ namespace DUAN1
             this.tbdongia.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbdongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbdongia.Location = new System.Drawing.Point(584, 436);
-            this.tbdongia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbdongia.Margin = new System.Windows.Forms.Padding(4);
             this.tbdongia.Multiline = true;
             this.tbdongia.Name = "tbdongia";
             this.tbdongia.Size = new System.Drawing.Size(265, 34);
@@ -302,7 +303,7 @@ namespace DUAN1
             this.tbmachitiethoadon.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbmachitiethoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbmachitiethoadon.Location = new System.Drawing.Point(584, 150);
-            this.tbmachitiethoadon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbmachitiethoadon.Margin = new System.Windows.Forms.Padding(4);
             this.tbmachitiethoadon.Multiline = true;
             this.tbmachitiethoadon.Name = "tbmachitiethoadon";
             this.tbmachitiethoadon.Size = new System.Drawing.Size(265, 34);
@@ -312,7 +313,7 @@ namespace DUAN1
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox2.Location = new System.Drawing.Point(225, 103);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(829, 718);
             this.pictureBox2.TabIndex = 254;
@@ -323,7 +324,7 @@ namespace DUAN1
             this.cbbmahanghoachitiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmahanghoachitiet.FormattingEnabled = true;
             this.cbbmahanghoachitiet.Location = new System.Drawing.Point(584, 294);
-            this.cbbmahanghoachitiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbmahanghoachitiet.Margin = new System.Windows.Forms.Padding(4);
             this.cbbmahanghoachitiet.Name = "cbbmahanghoachitiet";
             this.cbbmahanghoachitiet.Size = new System.Drawing.Size(265, 33);
             this.cbbmahanghoachitiet.TabIndex = 293;
@@ -368,7 +369,7 @@ namespace DUAN1
             this.btnthongtinnv.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnthongtinnv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnthongtinnv.Location = new System.Drawing.Point(-4, 103);
-            this.btnthongtinnv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnthongtinnv.Margin = new System.Windows.Forms.Padding(4);
             this.btnthongtinnv.Name = "btnthongtinnv";
             this.btnthongtinnv.Size = new System.Drawing.Size(229, 62);
             this.btnthongtinnv.TabIndex = 360;
@@ -386,7 +387,7 @@ namespace DUAN1
             this.cthd.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cthd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cthd.Location = new System.Drawing.Point(225, -7);
-            this.cthd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cthd.Margin = new System.Windows.Forms.Padding(4);
             this.cthd.Name = "cthd";
             this.cthd.Size = new System.Drawing.Size(829, 112);
             this.cthd.TabIndex = 368;
@@ -403,7 +404,7 @@ namespace DUAN1
             this.btnChiTietHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTietHoaDon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnChiTietHoaDon.Location = new System.Drawing.Point(-4, 379);
-            this.btnChiTietHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChiTietHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnChiTietHoaDon.Name = "btnChiTietHoaDon";
             this.btnChiTietHoaDon.Size = new System.Drawing.Size(229, 62);
             this.btnChiTietHoaDon.TabIndex = 366;
@@ -438,7 +439,7 @@ namespace DUAN1
             this.btnkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnkhachhang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnkhachhang.Location = new System.Drawing.Point(-4, 517);
-            this.btnkhachhang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnkhachhang.Margin = new System.Windows.Forms.Padding(4);
             this.btnkhachhang.Name = "btnkhachhang";
             this.btnkhachhang.Size = new System.Drawing.Size(229, 62);
             this.btnkhachhang.TabIndex = 364;
@@ -456,7 +457,7 @@ namespace DUAN1
             this.btnnhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnnhanvien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnnhanvien.Location = new System.Drawing.Point(-4, 448);
-            this.btnnhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnnhanvien.Margin = new System.Windows.Forms.Padding(4);
             this.btnnhanvien.Name = "btnnhanvien";
             this.btnnhanvien.Size = new System.Drawing.Size(229, 62);
             this.btnnhanvien.TabIndex = 363;
@@ -474,7 +475,7 @@ namespace DUAN1
             this.btnkhohang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnkhohang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnkhohang.Location = new System.Drawing.Point(-4, 241);
-            this.btnkhohang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnkhohang.Margin = new System.Windows.Forms.Padding(4);
             this.btnkhohang.Name = "btnkhohang";
             this.btnkhohang.Size = new System.Drawing.Size(229, 62);
             this.btnkhohang.TabIndex = 362;
@@ -492,7 +493,7 @@ namespace DUAN1
             this.btnhanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhanghoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnhanghoa.Location = new System.Drawing.Point(-4, 172);
-            this.btnhanghoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnhanghoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnhanghoa.Name = "btnhanghoa";
             this.btnhanghoa.Size = new System.Drawing.Size(229, 62);
             this.btnhanghoa.TabIndex = 361;
@@ -509,7 +510,7 @@ namespace DUAN1
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnthoat.Location = new System.Drawing.Point(-4, 740);
-            this.btnthoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnthoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(229, 71);
             this.btnthoat.TabIndex = 359;
@@ -526,7 +527,7 @@ namespace DUAN1
             this.btnhoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhoadon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnhoadon.Location = new System.Drawing.Point(-4, 310);
-            this.btnhoadon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnhoadon.Margin = new System.Windows.Forms.Padding(4);
             this.btnhoadon.Name = "btnhoadon";
             this.btnhoadon.Size = new System.Drawing.Size(229, 62);
             this.btnhoadon.TabIndex = 358;
@@ -552,7 +553,7 @@ namespace DUAN1
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Location = new System.Drawing.Point(-4, -7);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(229, 834);
             this.pictureBox4.TabIndex = 367;
@@ -573,6 +574,17 @@ namespace DUAN1
             this.QuetMaQR.UseVisualStyleBackColor = true;
             this.QuetMaQR.Click += new System.EventHandler(this.QuetMaQR_Click);
             // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.Location = new System.Drawing.Point(871, 497);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(160, 63);
+            this.btnThanhToan.TabIndex = 370;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
             // ChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -580,6 +592,7 @@ namespace DUAN1
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1055, 821);
+            this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.QuetMaQR);
             this.Controls.Add(this.cthd);
             this.Controls.Add(this.btnChiTietHoaDon);
@@ -613,7 +626,7 @@ namespace DUAN1
             this.Controls.Add(this.tbmachitiethoadon);
             this.Controls.Add(this.pictureBox2);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1073, 868);
             this.MinimumSize = new System.Drawing.Size(1073, 868);
             this.Name = "ChiTietHoaDon";
@@ -667,5 +680,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
         private System.Windows.Forms.DataGridViewTextBoxColumn thnahtien;
         private System.Windows.Forms.Button QuetMaQR;
+        private System.Windows.Forms.Button btnThanhToan;
     }
 }

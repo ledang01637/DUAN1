@@ -223,24 +223,24 @@ namespace DUAN1
                 int SL = 1;
                 int cao = 50;
                 double TongTien = 0;
-                double ThanhTien = 0;
-                foreach(var ds in dsCTHang)
+                double ThanhTien = 0; 
+                foreach(var item in dsCTHang)
                 {
-                    var cthd = entities.hang_hoa.Where(a => a.ma_hang_hoa.Equals(ds.ma_hang_hoa));
-                    foreach (var item in cthd)
+                    var cthh = entities.chitiet_hanghoa.Where(a => a.id == item.id).ToList();
+                    StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+                    Rectangle rectangleBody = new Rectangle(new Point(height, y + cao), new Size(width, height));
+                    stringFormatBody.LineAlignment = StringAlignment.Center;
+                    stringFormatBody.Alignment = StringAlignment.Center;
+                    Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
+                    foreach(var hh in cthh)
                     {
-                        StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
-                        Rectangle rectangleBody = new Rectangle(new Point(height, y + cao), new Size(width, height));
-                        stringFormatBody.LineAlignment = StringAlignment.Center;
-                        stringFormatBody.Alignment = StringAlignment.Center;
-                        Font printFontBody = new Font("Arial", 10, FontStyle.Regular);
-                        TenHang = item.ten;
-                        Gia = 4;
+                        TenHang = hh.hang_hoa.ten;
+                        Gia = (double)hh.gia_ban;
                         TongTien = 5;
                         ThanhTien += TongTien;
                         e.Graphics.DrawString(TenHang + "     " + Gia.ToString("#,##0") + "     " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
                         cao += 20;
-                    }
+                    }   
                 }
                 StringFormat stringFormatFooter = new StringFormat(StringFormatFlags.NoClip);
                 Rectangle rectangleFooter = new Rectangle(new Point(height, y + cao + 30), new Size(width, height));
