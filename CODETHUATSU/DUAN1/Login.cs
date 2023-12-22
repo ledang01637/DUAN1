@@ -48,17 +48,17 @@ namespace DUAN1
                     {
                         //Nếu tìm được tài khoản có phân quyền là nhanvien
                         this.Hide();
-                        ThongTinNhanVien form = new ThongTinNhanVien(tbusername.Text);
+                        ManHinhChinh form = new ManHinhChinh();
+                        form.NhanGiaTri(tbusername.Text);
                         form.ShowDialog();
-                        this.Close();
                     }
                     else if (role.Trim().ToLower().Equals("admin"))
                     {
                         //Nếu tìm được tài khoản có phân quyền là admin
                         this.Hide();
-                        ThongTinNhanVien form = new ThongTinNhanVien(tbusername.Text);
-                        form.ShowDialog();
-                        this.Close();
+                        ManHinhChinh form = new ManHinhChinh();
+                        form.NhanGiaTri(tbusername.Text);
+                        form.Show();
                     }
                     else
                     {

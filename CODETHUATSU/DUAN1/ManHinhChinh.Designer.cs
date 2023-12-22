@@ -37,7 +37,7 @@ namespace DUAN1
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTenForm = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.tbusername = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
             this.btnChiTietHoaDon = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
@@ -134,25 +134,25 @@ namespace DUAN1
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.lblUsername);
+            this.panel2.Controls.Add(this.tbusername);
             this.panel2.Location = new System.Drawing.Point(1264, -1);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 39);
             this.panel2.TabIndex = 2;
             // 
-            // lblUsername
+            // tbusername
             // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(46, 12);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUsername.MaximumSize = new System.Drawing.Size(90, 24);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(83, 24);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Usernameeeeeeeee";
+            this.tbusername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbusername.AutoSize = true;
+            this.tbusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbusername.Location = new System.Drawing.Point(46, 12);
+            this.tbusername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tbusername.MaximumSize = new System.Drawing.Size(90, 24);
+            this.tbusername.Name = "tbusername";
+            this.tbusername.Size = new System.Drawing.Size(83, 24);
+            this.tbusername.TabIndex = 0;
+            this.tbusername.Text = "Usernameeeeeeeee";
             // 
             // SideBar
             // 
@@ -356,7 +356,7 @@ namespace DUAN1
         private System.Windows.Forms.Label lblTenForm;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label tbusername;
         private System.Windows.Forms.Panel pnlLogout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;

@@ -10,19 +10,40 @@ namespace DUAN1
         public ManHinhChinh()
         {
             InitializeComponent();
+
             Header.BackColor = Constant.redColor;
             SideBar.BackColor = Constant.blueColor;           
+        }
+
+        public void NhanGiaTri(string username)
+        {
+            tbusername.Text = username;
         }
 
         private void ManHinhChinh_Load(object sender, System.EventArgs e)
         {
             this.IsMdiContainer = true;
-            Login formDangNhap = new Login();
-            //formDangNhap.TopLevel = false;
-            //this.Controls.Add(formDangNhap);
-            //formDangNhap.Dock = DockStyle.Bottom;
-            formDangNhap.MdiParent = this;
-            formDangNhap.Show();
+            //Login formDangNhap = new Login();
+
+            ////formDangNhap.TopLevel = false;
+            ////this.Controls.Add(formDangNhap);
+            ////formDangNhap.Dock = DockStyle.Bottom;
+
+            //formDangNhap.MdiParent = this;
+            //formDangNhap.Show();
+
+            btnthongtinnv.BackColor = Color.FromArgb(176, 224, 230);
+            btnthongtinnv.ForeColor = Color.Black;
+            if (activeForm != null)
+            {
+                activeForm.Hide();
+                activeForm.Dispose();
+            }
+            ThongTinNhanVien formTTNV = new ThongTinNhanVien("a");
+            formTTNV.MdiParent = this;
+            formTTNV.Show();
+
+
         }
 
         private void Logout_Click(object sender, System.EventArgs e)
@@ -194,8 +215,9 @@ namespace DUAN1
 
         private void label1_Click(object sender, System.EventArgs e)
         {
-
-            this.InitializeComponent();
+            this.Hide();
+            Login login = new Login();
+            login.Show();
 
         }
     }

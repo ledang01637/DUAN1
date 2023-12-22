@@ -22,8 +22,8 @@ namespace DUAN1
         private void ThongTinNhanVien_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
-            //Hiển thị thông tin nhân viên
-            //using (DUAN1Entities db = new DUAN1Entities())
+            ////Hiển thị thông tin nhân viên
+            //using (DAXuongEntities db = new DAXuongEntities())
             //{
             //    nhan_vien nv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).FirstOrDefault();
             //    List<nhan_vien> lnv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).ToList();
@@ -36,7 +36,7 @@ namespace DUAN1
             //        tbsdt.Text = nv.sdt;
             //        btnnhanvien.Enabled = false;
             //    }
-            //    else if(RoleTK.Equals("admin"))
+            //    else if (RoleTK.Equals("admin"))
             //    {
             //        //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
             //        tbmanhanvien.Text = nv.ma_nv;
@@ -46,10 +46,10 @@ namespace DUAN1
             //    }
             //}
 
-            tbmanhanvien.Enabled = false;
-            tbtennhanvien.Enabled = false;
-            tbsdt.Enabled = false;
-            tbtaikhoan.Enabled = false;
+            //tbmanhanvien.Enabled = false;
+            //tbtennhanvien.Enabled = false;
+            //tbsdt.Enabled = false;
+            //tbtaikhoan.Enabled = false;
         }
 
         private void btnthoat_Click(object sender, EventArgs e)
