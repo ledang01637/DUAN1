@@ -457,13 +457,6 @@ namespace DUAN1
             //    }
             //}
         }
-        private void QuetMaQR_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            QuetQR quetQR = new QuetQR(tbusername.Text);
-            quetQR.ShowDialog();
-            this.Close();
-        }
         private void btnthongtinnv_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -31,7 +31,6 @@ namespace DUAN1
         {
             this.components = new System.ComponentModel.Container();
             this.ptbCamera = new System.Windows.Forms.PictureBox();
-            this.ptbQR = new System.Windows.Forms.PictureBox();
             this.btnTaoQR = new System.Windows.Forms.Button();
             this.cbbChonCamera = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,14 +43,16 @@ namespace DUAN1
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnThoatQR = new System.Windows.Forms.Button();
             this.tbusername = new System.Windows.Forms.Label();
-            this.btnThemHang = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sizw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ptbQR = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCamera)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbQR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbQR)).BeginInit();
             this.SuspendLayout();
             // 
             // ptbCamera
@@ -63,16 +64,6 @@ namespace DUAN1
             this.ptbCamera.Size = new System.Drawing.Size(510, 300);
             this.ptbCamera.TabIndex = 0;
             this.ptbCamera.TabStop = false;
-            // 
-            // ptbQR
-            // 
-            this.ptbQR.BackColor = System.Drawing.Color.White;
-            this.ptbQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbQR.Location = new System.Drawing.Point(27, 349);
-            this.ptbQR.Name = "ptbQR";
-            this.ptbQR.Size = new System.Drawing.Size(300, 300);
-            this.ptbQR.TabIndex = 1;
-            this.ptbQR.TabStop = false;
             // 
             // btnTaoQR
             // 
@@ -145,7 +136,7 @@ namespace DUAN1
             this.tbShowQR.Location = new System.Drawing.Point(553, 12);
             this.tbShowQR.Multiline = true;
             this.tbShowQR.Name = "tbShowQR";
-            this.tbShowQR.Size = new System.Drawing.Size(305, 223);
+            this.tbShowQR.Size = new System.Drawing.Size(305, 235);
             this.tbShowQR.TabIndex = 8;
             // 
             // label3
@@ -197,20 +188,9 @@ namespace DUAN1
             this.tbusername.TabIndex = 251;
             this.tbusername.Text = "username";
             // 
-            // btnThemHang
-            // 
-            this.btnThemHang.Enabled = false;
-            this.btnThemHang.Location = new System.Drawing.Point(553, 263);
-            this.btnThemHang.Name = "btnThemHang";
-            this.btnThemHang.Size = new System.Drawing.Size(96, 48);
-            this.btnThemHang.TabIndex = 252;
-            this.btnThemHang.Text = "Thêm hàng";
-            this.btnThemHang.UseVisualStyleBackColor = true;
-            this.btnThemHang.Click += new System.EventHandler(this.btnThemHang_Click);
-            // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(671, 264);
+            this.btnThanhToan.Location = new System.Drawing.Point(553, 264);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(102, 48);
             this.btnThanhToan.TabIndex = 253;
@@ -225,7 +205,9 @@ namespace DUAN1
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ten,
-            this.Gia});
+            this.Gia,
+            this.Sizw,
+            this.Mau});
             this.dataGridView1.Location = new System.Drawing.Point(553, 459);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -248,6 +230,30 @@ namespace DUAN1
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
             // 
+            // Sizw
+            // 
+            this.Sizw.HeaderText = "Size";
+            this.Sizw.MinimumWidth = 6;
+            this.Sizw.Name = "Sizw";
+            this.Sizw.ReadOnly = true;
+            // 
+            // Mau
+            // 
+            this.Mau.HeaderText = "Màu";
+            this.Mau.MinimumWidth = 6;
+            this.Mau.Name = "Mau";
+            this.Mau.ReadOnly = true;
+            // 
+            // ptbQR
+            // 
+            this.ptbQR.BackColor = System.Drawing.Color.White;
+            this.ptbQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbQR.Location = new System.Drawing.Point(27, 349);
+            this.ptbQR.Name = "ptbQR";
+            this.ptbQR.Size = new System.Drawing.Size(300, 300);
+            this.ptbQR.TabIndex = 1;
+            this.ptbQR.TabStop = false;
+            // 
             // QuetQR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -255,7 +261,6 @@ namespace DUAN1
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(882, 658);
             this.Controls.Add(this.btnThanhToan);
-            this.Controls.Add(this.btnThemHang);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.btnThoatQR);
             this.Controls.Add(this.btnStarQuetQr);
@@ -278,8 +283,8 @@ namespace DUAN1
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuetQR_FormClosing);
             this.Load += new System.EventHandler(this.QuetQR_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbCamera)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbQR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbQR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +293,6 @@ namespace DUAN1
         #endregion
 
         private System.Windows.Forms.PictureBox ptbCamera;
-        private System.Windows.Forms.PictureBox ptbQR;
         private System.Windows.Forms.Button btnTaoQR;
         private System.Windows.Forms.ComboBox cbbChonCamera;
         private System.Windows.Forms.Label label1;
@@ -301,10 +305,12 @@ namespace DUAN1
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnThoatQR;
         private System.Windows.Forms.Label tbusername;
-        private System.Windows.Forms.Button btnThemHang;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox ptbQR;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sizw;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mau;
     }
 }

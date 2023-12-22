@@ -59,7 +59,6 @@ namespace DUAN1
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuetMaQR = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnthongtinnv = new System.Windows.Forms.Button();
             this.btnChiTietHoaDon = new System.Windows.Forms.Button();
@@ -410,21 +409,6 @@ namespace DUAN1
             this.SL.Name = "SL";
             this.SL.ReadOnly = true;
             // 
-            // QuetMaQR
-            // 
-            this.QuetMaQR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.QuetMaQR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QuetMaQR.FlatAppearance.BorderSize = 0;
-            this.QuetMaQR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.QuetMaQR.Location = new System.Drawing.Point(1072, 431);
-            this.QuetMaQR.Margin = new System.Windows.Forms.Padding(4);
-            this.QuetMaQR.Name = "QuetMaQR";
-            this.QuetMaQR.Size = new System.Drawing.Size(99, 50);
-            this.QuetMaQR.TabIndex = 251;
-            this.QuetMaQR.Text = "Quét QR";
-            this.QuetMaQR.UseVisualStyleBackColor = true;
-            this.QuetMaQR.Click += new System.EventHandler(this.QuetMaQR_Click);
-            // 
             // btnthongtinnv
             // 
             this.btnthongtinnv.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -665,7 +649,6 @@ namespace DUAN1
             this.Controls.Add(this.btnhoadon);
             this.Controls.Add(this.tbusername);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.QuetMaQR);
             this.Controls.Add(this.dtgv2);
             this.Controls.Add(this.cbbmanv);
             this.Controls.Add(this.cbbmakhachhang);
@@ -728,7 +711,6 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
-        private System.Windows.Forms.Button QuetMaQR;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnChiTietHoaDon;
         private System.Windows.Forms.Button btnthongke;

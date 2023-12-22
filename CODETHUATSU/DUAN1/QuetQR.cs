@@ -20,7 +20,7 @@ namespace DUAN1
     {
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
-        List<hang_hoa> dsHang = new List<hang_hoa>();
+        List<chitiet_hanghoa> dsCTHang = new List<chitiet_hanghoa>();
         public QuetQR(string userName)
         {
             InitializeComponent();
@@ -56,28 +56,19 @@ namespace DUAN1
                     tbShowQR.Text = result.ToString();
                     using (DAXuongEntities HangHoa_ = new DAXuongEntities())
                     {
-                        hang_hoa hh = new hang_hoa();
+                        chitiet_hanghoa hh = new chitiet_hanghoa();
                         if (String.IsNullOrWhiteSpace(tbShowQR.Text))
                         {
                             MessageBox.Show("Vui lòng thêm hàng hóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        hh.ma_hang_hoa = result.ToString();
+                        hh.id = int.Parse(result.Text);
                         dataGridView1.Rows.Clear();
-                        dsHang.Add(hh);
-                        foreach (var item in dsHang)
+                        dsCTHang.Add(hh);
+                        var CThang = HangHoa_.chitiet_hanghoa.Where(a => a.id.Equals(hh.id)).ToList();
+                        foreach (var item in CThang)
                         {
-                            using (DAXuongEntities du = new DAXuongEntities())
-                            {
-                                var hang = du.hang_hoa.Where(a => a.ma_hang_hoa.Equals(item.ma_hang_hoa));
-
-                                foreach (var ytem in hang)
-                                {
-                                    dataGridView1.Rows.Add(
-                                        ytem.ten
-                                        );
-                                }
-                            }
+                            dataGridView1.Rows.Add(item.hang_hoa.ten,item.gia_ban,item.size,item.mau_sac);
                         } 
                     }
                     timer1.Stop();
@@ -193,7 +184,7 @@ namespace DUAN1
             {
                 videoCaptureDevice.Stop();
             }
-            int ds = dsHang.Count;
+            int ds = dsCTHang.Count;
             if (ds > 0)
             {
                 PrintDialog PrintDialog1 = new PrintDialog();
@@ -233,7 +224,7 @@ namespace DUAN1
                 int cao = 50;
                 double TongTien = 0;
                 double ThanhTien = 0;
-                foreach(var ds in dsHang)
+                foreach(var ds in dsCTHang)
                 {
                     var cthd = entities.hang_hoa.Where(a => a.ma_hang_hoa.Equals(ds.ma_hang_hoa));
                     foreach (var item in cthd)

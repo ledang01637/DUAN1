@@ -16,9 +16,8 @@ namespace DUAN1
     public partial class QuanLyHangHoa : Form
     {
         List<hang_hoa> dsHang;
-        String imagePath = "";
-        bool focus, focusTenHH, focusNSX, focusGia, focusHSD, foucusGiaNhap;
-        bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD, isTextGiaNhap;
+        //bool focus, focusTenHH, focusNSX, focusGia, focusHSD, foucusGiaNhap;
+        //bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD, isTextGiaNhap;
 
         public QuanLyHangHoa(String username)
         {
@@ -192,230 +191,9 @@ namespace DUAN1
                 }
             }
         }
-        //private void btnTaoQR_Click(object sender, EventArgs e)
-        //{
-        //    btnsua.Enabled = false;
-        //    btnLuuQR.Enabled = true;
-        //    var options = new QrCodeEncodingOptions
-        //    {
-        //        DisableECI = true,
-        //        CharacterSet = "UTF-8",
-        //        Width = 333,
-        //        Height = 333,
-        //    };
-        //    BarcodeWriter barcodeWriter = new BarcodeWriter();
-        //    barcodeWriter.Format = BarcodeFormat.QR_CODE;
-        //    barcodeWriter.Options = options;
-        //    if (!string.IsNullOrEmpty(tbmahanghoa.Text))
-        //    {
-        //        Bitmap result = barcodeWriter.Write(tbmahanghoa.Text);
-        //        hinhanh.Image = result;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Vui lòng thêm mã hàng để tạo","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnLuuQR_Click(object sender, EventArgs e)
-        //{
-        //    if (hinhanh.Image != null)
-        //    {
-        //        Bitmap myBitmap = (Bitmap)hinhanh.Image;
-        //        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-        //        saveFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
-        //        saveFileDialog1.FilterIndex = 2;
-        //        saveFileDialog1.RestoreDirectory = true;
-        //        saveFileDialog1.FileName = hinhanh.Text + ".jpg";
-        //        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-        //        {
-        //            myBitmap.Save(saveFileDialog1.FileName);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Không có ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-        //private void pictureBox2_Paint(object sender, PaintEventArgs e)
-        //{
-        //    //MaHH
-        //    if (focus)
-        //    {
-        //        if (tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null)
-        //        {
-        //            Pen pen = new Pen(Color.Red);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbmahanghoa.Location.X - LoX - 2, tbmahanghoa.Location.Y - LoY - 2, tbmahanghoa.Width + 1, tbmahanghoa.Height + 1));
-        //        }
-        //        else if (isText)
-        //        {
-        //            Pen pen = new Pen(Color.LawnGreen);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbmahanghoa.Location.X - LoX - 2, tbmahanghoa.Location.Y - LoY - 2, tbmahanghoa.Width + 1, tbmahanghoa.Height + 1));
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tbmahanghoa.BorderStyle = BorderStyle.FixedSingle;
-        //    }
-        //    //TenHH
-        //    if (focusTenHH)
-        //    {
-        //        if (tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
-        //        {
-        //            Pen pen = new Pen(Color.Red);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbtenhanghoa.Location.X - LoX - 2, tbtenhanghoa.Location.Y - LoY - 2, tbtenhanghoa.Width + 1, tbtenhanghoa.Height + 1));
-        //        }
-        //        else if (isTextTenHH)
-        //        {
-        //            Pen pen = new Pen(Color.LawnGreen);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbtenhanghoa.Location.X - LoX - 2, tbtenhanghoa.Location.Y - LoY - 2, tbtenhanghoa.Width + 1, tbtenhanghoa.Height + 1));
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tbtenhanghoa.BorderStyle = BorderStyle.FixedSingle;
-        //    }
-        //    //NgaySX
-        //    if (focusNSX)
-        //    {
-        //        if (dtpngaysanxuat.Value > DateTime.Now)
-        //        {
-        //            Pen pen = new Pen(Color.Red);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(dtpngaysanxuat.Location.X - LoX - 2, dtpngaysanxuat.Location.Y - LoY - 2, dtpngaysanxuat.Width + 1, dtpngaysanxuat.Height + 1));
-        //        }
-        //        else if (isTextNSX)
-        //        {
-        //            Pen pen = new Pen(Color.LawnGreen);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(dtpngaysanxuat.Location.X - LoX - 2, dtpngaysanxuat.Location.Y - LoY - 2, dtpngaysanxuat.Width + 1, dtpngaysanxuat.Height + 1));
-        //        }
-        //    }
-        //    //HSD
-        //    if (focusHSD)
-        //    {
-        //        if (dtphansudung.Value < dtpngaysanxuat.Value)
-        //        {
-        //            Pen pen = new Pen(Color.Red);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(dtphansudung.Location.X - LoX - 2, dtphansudung.Location.Y - LoY - 2, dtphansudung.Width + 1, dtphansudung.Height + 1));
-        //        }
-        //        else if (isTextHSD)
-        //        {
-        //            Pen pen = new Pen(Color.LawnGreen);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(dtphansudung.Location.X - LoX - 2, dtphansudung.Location.Y - LoY - 2, dtphansudung.Width + 1, dtphansudung.Height + 1));
-        //        }
-        //    }
-        //    //Gia
-        //    if (focusGia)
-        //    {
-        //        float Gia;
-        //        var isNumber = float.TryParse(tbgia.Text, out Gia);
-        //        if (isNumber == false || Gia < 0)
-        //        {
-        //            Pen pen = new Pen(Color.Red);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbgia.Location.X - LoX - 2, tbgia.Location.Y - LoY - 2, tbgia.Width + 1, tbgia.Height + 1));
-        //        }
-        //        else if (isTextGia)
-        //        {
-        //            Pen pen = new Pen(Color.LawnGreen);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbgia.Location.X - LoX - 2, tbgia.Location.Y - LoY - 2, tbgia.Width + 1, tbgia.Height + 1));
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tbgia.BorderStyle = BorderStyle.FixedSingle;
-        //    }
-        //    //GiaNhap
-        //    if (foucusGiaNhap)
-        //    {
-        //        float Gia;
-        //        var isNumber = float.TryParse(tbgianhap.Text, out Gia);
-        //        if (isNumber == false || Gia < 0)
-        //        {
-        //            Pen pen = new Pen(Color.Red);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbgianhap.Location.X - LoX - 2, tbgianhap.Location.Y - LoY - 2, tbgianhap.Width + 1, tbgianhap.Height + 1));
-        //        }
-        //        else if (isTextGiaNhap)
-        //        {
-        //            Pen pen = new Pen(Color.LawnGreen);
-        //            int LoX = pictureBox2.Location.X;
-        //            int LoY = pictureBox2.Location.Y;
-        //            e.Graphics.DrawRectangle(pen, new Rectangle(tbgianhap.Location.X - LoX - 2, tbgianhap.Location.Y - LoY - 2, tbgianhap.Width + 1, tbgianhap.Height + 1));
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tbgianhap.BorderStyle = BorderStyle.FixedSingle;
-        //    }
-        //}
-
-        //MaHH
-        private void tbmahanghoa_Enter(object sender, EventArgs e)
-        {
-            focus = true;
-            this.Refresh();
-        }
-        private void tbmahanghoa_Leave(object sender, EventArgs e)
-        {
-            if (tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null)
-            {
-                focus = true;
-                this.Refresh();
-            }
-            else
-            {
-                focus = false;
-                this.Refresh();
-            }
-        }
-        private void tbmahanghoa_TextChanged(object sender, EventArgs e)
-        {
-            isText = true;
-            this.Refresh();
-        }
-        //TenHH
-        private void tbtenhanghoa_Enter(object sender, EventArgs e)
-        {
-            focusTenHH = true;
-            this.Refresh();
-        }
-        private void tbtenhanghoa_Leave(object sender, EventArgs e)
-        {
-            if (tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
-            {
-                focusTenHH = true;
-                this.Refresh();
-            }
-            else
-            {
-                focusTenHH = false;
-                this.Refresh();
-            }
-        }
-
         private void cbbTenHH_SelectedValueChanged(object sender, EventArgs e)
         {
-            using(DAXuongEntities db = new DAXuongEntities())
+            using (DAXuongEntities db = new DAXuongEntities())
             {
                 var HH = db.hang_hoa.ToList().Where(a => a.ten.Equals(cbbTenHH.Text));
                 dataGridView1.Rows.Clear();
@@ -428,7 +206,7 @@ namespace DUAN1
                         item.noisx
                         );
                 }
-            }  
+            }
         }
 
         private void cbbNsx_SelectedValueChanged(object sender, EventArgs e)
@@ -447,13 +225,57 @@ namespace DUAN1
                         );
                 }
             }
-        }
+        }  
+        //#region
+        //private void tbmahanghoa_Enter(object sender, EventArgs e)
+        //{
+        //    focus = true;
+        //    this.Refresh();
+        //}
+        //private void tbmahanghoa_Leave(object sender, EventArgs e)
+        //{
+        //    if (tbmahanghoa.Text.Trim() == "" || tbmahanghoa.Text.Trim() == null)
+        //    {
+        //        focus = true;
+        //        this.Refresh();
+        //    }
+        //    else
+        //    {
+        //        focus = false;
+        //        this.Refresh();
+        //    }
+        //}
+        //private void tbmahanghoa_TextChanged(object sender, EventArgs e)
+        //{
+        //    isText = true;
+        //    this.Refresh();
+        //}
+        ////TenHH
+        //private void tbtenhanghoa_Enter(object sender, EventArgs e)
+        //{
+        //    focusTenHH = true;
+        //    this.Refresh();
+        //}
+        //private void tbtenhanghoa_Leave(object sender, EventArgs e)
+        //{
+        //    if (tbtenhanghoa.Text.Trim() == "" || tbtenhanghoa.Text.Trim() == null)
+        //    {
+        //        focusTenHH = true;
+        //        this.Refresh();
+        //    }
+        //    else
+        //    {
+        //        focusTenHH = false;
+        //        this.Refresh();
+        //    }
+        //}
+        //private void tbtenhanghoa_TextChanged(object sender, EventArgs e)
+        //{
+        //    isTextTenHH = true;
+        //    this.Refresh();
+        //}
+        //#endregion
 
-        private void tbtenhanghoa_TextChanged(object sender, EventArgs e)
-        {
-            isTextTenHH = true;
-            this.Refresh();
-        }
         private void btnthoat_Click(object sender, EventArgs e)
         {
             //Nút thoát ra ngoài form Đăng nhập

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using ZXing.QrCode;
+using ZXing;
 
 namespace DUAN1
 {
@@ -31,16 +33,6 @@ namespace DUAN1
                     cbbTenHang.Items.Add(item.hang_hoa.ten);
                 }
             }
-
-            btnluu.Enabled = false;
-
-            cbbTenHang.Enabled = false;
-            tbMau.ReadOnly = true;
-            tbSize.ReadOnly = true;
-            tbGiaban.ReadOnly = true;
-            tbGianhap.ReadOnly = true;
-            tbSL.ReadOnly = true;
-
             UpdateDGV();
         }
 
@@ -108,27 +100,18 @@ namespace DUAN1
                 ptbHinh.Image = null;
                 imagePath = "";
             }
-            btnsua.Enabled = true;
-            btnhuy.Enabled = true;
-            cbbTenHang.Enabled = true;
             btnluu.Enabled = false;
-
-            cbbTenHang.Enabled = true;
-            tbMau.Enabled = true;
-            tbSize.Enabled = true;
-            tbSL.Enabled = true;
-            tbGianhap.ReadOnly = false;
-            tbGiaban.ReadOnly = false;
-            tbGiaban.Enabled = true;
-            tbID.ReadOnly = true;
-
+            btnsua.Enabled = true;
+           
         }
 
         // Chức năng thêm
         private void btnthem_Click(object sender, EventArgs e)
         {
+            Reset();
             btnluu.Enabled = true;
-            btnhuy.Enabled = true;
+            btnsua.Enabled = false;
+            
 
             cbbTenHang.Enabled = true;
             tbMau.ReadOnly = false;
@@ -136,6 +119,7 @@ namespace DUAN1
             tbGiaban.ReadOnly = false;
             tbGianhap.ReadOnly = false;
             tbSL.ReadOnly = false;
+            
             UpdateDGV();
         }
 
@@ -190,13 +174,9 @@ namespace DUAN1
         }
 
         //Chức năng xóa
-        private void btnxoa_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         // Chức năng hủy reload lại form
-        private void btnhuy_Click(object sender, EventArgs e)
+        private void Reset()
         {
             tbID.Text = "";
             cbbTenHang.Text = "";
@@ -207,17 +187,13 @@ namespace DUAN1
             tbGiaban.Text = "";
 
 
-            btnsua.Enabled = false;
-            btnhuy.Enabled = false;
-            btnluu.Enabled = false;
-
-            cbbTenHang.Enabled = false;
-            tbMau.Enabled = false;
-            tbSize.Enabled = false;
-            tbSL.Enabled = false;
-            tbGianhap.ReadOnly = true;
-            tbGiaban.Enabled = false;
-            tbID.ReadOnly = true;
+            ptbHinh.Image = null;
+            ptbQR.Image = null;
+            UpdateDGV();
+        }
+        private void btnhuy_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
 
         // Chức năng sửa
@@ -399,6 +375,50 @@ namespace DUAN1
             {
                 imagePath = openFileDialog.FileName;
                 ptbHinh.Image = Image.FromFile(@"" + imagePath);
+            }
+        }
+
+        private void btnLuuQR_Click(object sender, EventArgs e)
+        {
+            if (ptbQR.Image != null)
+            {
+                Bitmap myBitmap = (Bitmap)ptbQR.Image;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
+                saveFileDialog1.FilterIndex = 2;
+                saveFileDialog1.RestoreDirectory = true;
+                saveFileDialog1.FileName = ptbQR.Text + ".jpg";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    myBitmap.Save(saveFileDialog1.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng tạo mã QR", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnTaoQR_Click(object sender, EventArgs e)
+        {
+            var options = new QrCodeEncodingOptions
+            {
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = 150,
+                Height = 150,
+            };
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+            barcodeWriter.Options = options;
+            if (!string.IsNullOrEmpty(tbID.Text))
+            {
+                Bitmap result = barcodeWriter.Write(tbID.Text);
+                ptbQR.Image = result;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm", "Thông báo", MessageBoxButtons.OK);
             }
         }
     }
