@@ -9,7 +9,7 @@ namespace DUAN1
 {
     public partial class ThongKe : Form
     {
-        public ThongKe(String username)
+        public ThongKe()
         {
             InitializeComponent();
             //tbusername.Text = username;
@@ -17,6 +17,7 @@ namespace DUAN1
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
 

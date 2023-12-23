@@ -14,7 +14,7 @@ namespace DUAN1
 {
     public partial class QuanLyHoaDon : Form
     {
-        public QuanLyHoaDon(String username)
+        public QuanLyHoaDon()
         {
             InitializeComponent();
             //tbusername.Text = username;
@@ -26,62 +26,64 @@ namespace DUAN1
             dtpngaylap.Format = DateTimePickerFormat.Short;
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
 
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
 
-            //    //mã khách hàng
-            //    cbbmakhachhang.Items.Clear();
-            //    db.khach_hang.ToList().ForEach(row => cbbmakhachhang.Items.Add(row.ten_kh));
-            //    //mã nhân viên
-            //    cbbmanv.Items.Clear();
-            //    db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ten_nv));
+                //mã khách hàng
+                cbbmakhachhang.Items.Clear();
+                db.khach_hang.ToList().ForEach(row => cbbmakhachhang.Items.Add(row.ten_kh));
+                //mã nhân viên
+                cbbmanv.Items.Clear();
+                db.nhan_vien.ToList().ForEach(row => cbbmanv.Items.Add(row.ten_nv));
 
-            //    dataGridView1.Rows.Clear();
-                
-            //    db.hoa_don.ToList().ForEach(hd =>
-            //    {
-            //        dataGridView1.Rows.Add(
-            //        hd.ma_hd,
-            //        hd.khach_hang.ten_kh,
-            //        hd.nhan_vien.ten_nv,
-            //        DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-            //        hd.trang_thai
-            //        );
-            //    }
-            //    );
+                dataGridView1.Rows.Clear();
 
-            //    btnxoa.Enabled = false;
-            //    btnsua.Enabled = false;
-            //    btnhuy.Enabled = false;
-            //    btnluu.Enabled = false;
+                db.hoa_don.ToList().ForEach(hd =>
+                {
+                    dataGridView1.Rows.Add(
+                    hd.ma_hd,
+                    hd.khach_hang.ten_kh,
+                    hd.nhan_vien.ten_nv,
+                    DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                    hd.trang_thai,
+                    hd.tongtien
 
-            //    tbmahoadon.ReadOnly = true;
-            //    cbbmakhachhang.Enabled = false;
-            //    cbbmanv.Enabled = false;
-            //    dtpngaylap.Enabled = false;
-            //}
+                    );
+                }
+                );
+
+                btnxoa.Enabled = false;
+                btnsua.Enabled = false;
+                btnhuy.Enabled = false;
+                btnluu.Enabled = false;
+
+                tbmahoadon.ReadOnly = true;
+                cbbmakhachhang.Enabled = false;
+                cbbmanv.Enabled = false;
+                dtpngaylap.Enabled = false;
+            }
         }
 
         // Cập nhật  DGV
         private void UpdateDGV()
         {
             dataGridView1.Rows.Clear();
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    dataGridView1.Rows.Clear();
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                dataGridView1.Rows.Clear();
 
-            //    db.hoa_don.ToList().ForEach(hd =>
-            //    {
-            //        dataGridView1.Rows.Add(
-            //        hd.ma_hd,
-            //        hd.khach_hang.ten_kh,
-            //        hd.nhan_vien.ten_nv,
-            //        DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-            //        hd.trang_thai
-            //        );
-            //    }
-            //    );
-            //}
+                db.hoa_don.ToList().ForEach(hd =>
+                {
+                    dataGridView1.Rows.Add(
+                    hd.ma_hd,
+                    hd.khach_hang.ten_kh,
+                    hd.nhan_vien.ten_nv,
+                    DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                    hd.trang_thai
+                    );
+                }
+                );
+            }
 
 
         }
@@ -93,17 +95,17 @@ namespace DUAN1
             int row = dataGridView1.SelectedCells[0].RowIndex;
             var rowData = dataGridView1.Rows[row];
             String MaHD = rowData.Cells[0].Value.ToString();
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    hoa_don hd = db.hoa_don.Where(x => x.ma_hd == MaHD).FirstOrDefault();
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                hoa_don hd = db.hoa_don.Where(x => x.ma_hd == MaHD).FirstOrDefault();
 
-            //    tbmahoadon.Text = hd.ma_hd;
-            //    cbbmakhachhang.Text = hd.khach_hang.ten_kh;
-            //    cbbmanv.Text = hd.nhan_vien.ten_nv;
-            //    dtpngaylap.Text = hd.ngay_lap.ToString();
-            //    tbtrangthai.Text = hd.trang_thai; 
+                tbmahoadon.Text = hd.ma_hd;
+                cbbmakhachhang.Text = hd.khach_hang.ten_kh;
+                cbbmanv.Text = hd.nhan_vien.ten_nv;
+                dtpngaylap.Text = hd.ngay_lap.ToString();
+                tbtrangthai.Text = hd.trang_thai;
 
-            //}
+            }
 
             btnxoa.Enabled = true;
             btnsua.Enabled = true;

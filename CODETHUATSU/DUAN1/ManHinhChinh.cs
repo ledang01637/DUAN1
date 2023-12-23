@@ -39,7 +39,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongTinNhanVien formTTNV = new ThongTinNhanVien("a");
+            ThongTinNhanVien formTTNV = new ThongTinNhanVien();
             formTTNV.MdiParent = this;
             formTTNV.Show();
 
@@ -95,7 +95,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongTinNhanVien formTTNV = new ThongTinNhanVien("a");
+            ThongTinNhanVien formTTNV = new ThongTinNhanVien();
             formTTNV.MdiParent = this;
             formTTNV.Show();
         }
@@ -112,7 +112,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyHangHoa formQLHH= new QuanLyHangHoa("a");
+            QuanLyHangHoa formQLHH= new QuanLyHangHoa();
             formQLHH.MdiParent = this;
             formQLHH.Show();
         }
@@ -128,7 +128,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ChiTietHangHoa formCTHH = new ChiTietHangHoa("a");
+            ChiTietHangHoa formCTHH = new ChiTietHangHoa();
             formCTHH.MdiParent = this;
             formCTHH.Show();
         }
@@ -144,7 +144,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyHoaDon formQLHD = new QuanLyHoaDon("a");
+            QuanLyHoaDon formQLHD = new QuanLyHoaDon();
             formQLHD.MdiParent = this;
             formQLHD.Show();
         }
@@ -160,7 +160,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ChiTietHoaDon formCTHD = new ChiTietHoaDon("a");
+            ChiTietHoaDon formCTHD = new ChiTietHoaDon();
             formCTHD.MdiParent = this;
             formCTHD.Show();
         }
@@ -176,7 +176,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyNhanVien formQLNV = new QuanLyNhanVien("a");
+            QuanLyNhanVien formQLNV = new QuanLyNhanVien();
             formQLNV.MdiParent = this;
             formQLNV.Show();
         }
@@ -192,7 +192,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyKhachHang formQLKH = new QuanLyKhachHang("a");
+            QuanLyKhachHang formQLKH = new QuanLyKhachHang();
             formQLKH.MdiParent = this;
             formQLKH.Show();
         }
@@ -208,7 +208,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongKe formTK = new ThongKe("a");
+            ThongKe formTK = new ThongKe();
             formTK.MdiParent = this;
             formTK.Show();
         }

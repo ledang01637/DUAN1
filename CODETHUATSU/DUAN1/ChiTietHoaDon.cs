@@ -12,10 +12,9 @@ namespace DUAN1
 {
     public partial class ChiTietHoaDon : Form
     {
-        public ChiTietHoaDon(String username)
+        public ChiTietHoaDon()
         {
             InitializeComponent();
-            //tbusername.Text = username;
         }
 
         private void ChiTietHoaDon_Load(object sender, EventArgs e)

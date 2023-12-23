@@ -13,7 +13,7 @@ namespace DUAN1
 {
     public partial class QuanLyKhachHang : Form
     {
-        public QuanLyKhachHang(String username)
+        public QuanLyKhachHang()
         {
             InitializeComponent();
             //tbusername.Text = username;

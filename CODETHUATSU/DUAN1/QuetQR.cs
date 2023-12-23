@@ -144,7 +144,7 @@ namespace DUAN1
                 videoCaptureDevice.Stop();
             }
             this.Hide();
-            QuanLyHoaDon ql = new QuanLyHoaDon("nhanvien");
+            QuanLyHoaDon ql = new QuanLyHoaDon();
             ql.ShowDialog();
             this.Close();
         }

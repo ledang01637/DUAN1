@@ -14,7 +14,7 @@ namespace DUAN1
 {
     public partial class QuanLyNhanVien : Form
     {
-        public QuanLyNhanVien(String username)
+        public QuanLyNhanVien()
         {
             InitializeComponent();
             //usernamenv.Text = username;
@@ -23,11 +23,11 @@ namespace DUAN1
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    updatedgv();
-            //    tbmanhanvien.Enabled = false;
-            //}
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                updatedgv();
+                tbmanhanvien.Enabled = false;
+            }
             btnxoa.Enabled = false;
             btnsua.Enabled = false;
             btnluu.Enabled = false;
@@ -40,19 +40,19 @@ namespace DUAN1
 
         private void updatedgv()
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    dataGridView1.Rows.Clear();
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                dataGridView1.Rows.Clear();
 
-            //    db.nhan_vien.ToList().ForEach(nv =>
-            //        dataGridView1.Rows.Add(
-            //            nv.ma_nv,
-            //            nv.ten_nv,
-            //            nv.sdt,
-            //            nv.tai_khoan_dangnhap
-            //       )
-            //    );
-            //}
+                db.nhan_vien.ToList().ForEach(nv =>
+                    dataGridView1.Rows.Add(
+                        nv.ma_nv,
+                        nv.ten_nv,
+                        nv.sdt,
+                        nv.email
+                   )
+                );
+            }
         }
 
         private void btnthem_Click(object sender, EventArgs e)

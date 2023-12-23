@@ -15,7 +15,7 @@ namespace DUAN1
     {
         List<chitiet_hanghoa> dsChiTietHH;
         String imagePath = "";
-        public ChiTietHangHoa(String username)
+        public ChiTietHangHoa()
         {
             InitializeComponent();
             //tbusername.Text = username;
@@ -330,7 +330,7 @@ namespace DUAN1
         private void btnhanghoa_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa("a");
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
             quanLyHangHoa.ShowDialog();
             this.Close();
         }
@@ -339,7 +339,7 @@ namespace DUAN1
         private void btnkhohang_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ChiTietHangHoa khhh = new ChiTietHangHoa("a");
+            ChiTietHangHoa khhh = new ChiTietHangHoa();
             khhh.ShowDialog();
             this.Close();
         }

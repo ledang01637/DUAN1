@@ -34,11 +34,6 @@ namespace DUAN1
             this.lbhansudung = new System.Windows.Forms.Label();
             this.lbngaysx = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.tbmahoadon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,6 +58,12 @@ namespace DUAN1
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cmbTrangThai = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv2)).BeginInit();
             this.SuspendLayout();
@@ -104,7 +105,8 @@ namespace DUAN1
             this.ma_kh,
             this.ma_nv,
             this.ngay_lap,
-            this.trang_thai});
+            this.trang_thai,
+            this.tongtien});
             this.dataGridView1.Location = new System.Drawing.Point(12, 461);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -112,41 +114,6 @@ namespace DUAN1
             this.dataGridView1.Size = new System.Drawing.Size(1715, 467);
             this.dataGridView1.TabIndex = 106;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // ma_hd
-            // 
-            this.ma_hd.HeaderText = "Mã hóa đơn";
-            this.ma_hd.MinimumWidth = 6;
-            this.ma_hd.Name = "ma_hd";
-            this.ma_hd.ReadOnly = true;
-            // 
-            // ma_kh
-            // 
-            this.ma_kh.HeaderText = "Tên khách hàng";
-            this.ma_kh.MinimumWidth = 6;
-            this.ma_kh.Name = "ma_kh";
-            this.ma_kh.ReadOnly = true;
-            // 
-            // ma_nv
-            // 
-            this.ma_nv.HeaderText = "Tên nhân viên";
-            this.ma_nv.MinimumWidth = 6;
-            this.ma_nv.Name = "ma_nv";
-            this.ma_nv.ReadOnly = true;
-            // 
-            // ngay_lap
-            // 
-            this.ngay_lap.HeaderText = "Ngày lập";
-            this.ngay_lap.MinimumWidth = 6;
-            this.ngay_lap.Name = "ngay_lap";
-            this.ngay_lap.ReadOnly = true;
-            // 
-            // trang_thai
-            // 
-            this.trang_thai.HeaderText = "Trạng thái";
-            this.trang_thai.MinimumWidth = 6;
-            this.trang_thai.Name = "trang_thai";
-            this.trang_thai.ReadOnly = true;
             // 
             // lbmahanghoa
             // 
@@ -414,6 +381,47 @@ namespace DUAN1
             this.label1.TabIndex = 333;
             this.label1.Text = "QUẢN LÝ HÓA ĐƠN";
             // 
+            // ma_hd
+            // 
+            this.ma_hd.HeaderText = "Mã hóa đơn";
+            this.ma_hd.MinimumWidth = 6;
+            this.ma_hd.Name = "ma_hd";
+            this.ma_hd.ReadOnly = true;
+            // 
+            // ma_kh
+            // 
+            this.ma_kh.HeaderText = "Tên khách hàng";
+            this.ma_kh.MinimumWidth = 6;
+            this.ma_kh.Name = "ma_kh";
+            this.ma_kh.ReadOnly = true;
+            // 
+            // ma_nv
+            // 
+            this.ma_nv.HeaderText = "Tên nhân viên";
+            this.ma_nv.MinimumWidth = 6;
+            this.ma_nv.Name = "ma_nv";
+            this.ma_nv.ReadOnly = true;
+            // 
+            // ngay_lap
+            // 
+            this.ngay_lap.HeaderText = "Ngày lập";
+            this.ngay_lap.MinimumWidth = 6;
+            this.ngay_lap.Name = "ngay_lap";
+            this.ngay_lap.ReadOnly = true;
+            // 
+            // trang_thai
+            // 
+            this.trang_thai.HeaderText = "Trạng thái";
+            this.trang_thai.MinimumWidth = 6;
+            this.trang_thai.Name = "trang_thai";
+            this.trang_thai.ReadOnly = true;
+            // 
+            // tongtien
+            // 
+            this.tongtien.HeaderText = "Tổng tiền";
+            this.tongtien.Name = "tongtien";
+            this.tongtien.ReadOnly = true;
+            // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,12 +493,13 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
         private System.Windows.Forms.Button QuetMaQR;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox cmbTrangThai;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_hd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_kh;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma_nv;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_lap;
         private System.Windows.Forms.DataGridViewTextBoxColumn trang_thai;
-        private System.Windows.Forms.ComboBox cmbTrangThai;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongtien;
     }
 }

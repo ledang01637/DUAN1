@@ -20,7 +20,7 @@ namespace DUAN1
         bool focus, focusTenHH, focusNSX, focusGia, focusHSD, foucusGiaNhap;
         bool isText, isTextTenHH, isTextNSX, isTextGia, isTextHSD, isTextGiaNhap;
 
-        public QuanLyHangHoa(String username)
+        public QuanLyHangHoa()
         {
             InitializeComponent();
             //tbusername.Text = username;
@@ -466,7 +466,7 @@ namespace DUAN1
         private void btnhanghoa_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa("a");
+            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
             quanLyHangHoa.ShowDialog();
             this.Close();
         }
