@@ -13,6 +13,7 @@ namespace DUAN1
 {
     public partial class ChiTietHoaDon : Form
     {
+        public static int MaCTHH = 0;
         public ChiTietHoaDon(String username)
         {
             InitializeComponent();
@@ -29,21 +30,28 @@ namespace DUAN1
                 //mã chi tiết kho hàng hàng hóa
                 cbbmahanghoachitiet.Items.Clear();
                 db.chitiet_hanghoa.ToList().ForEach(row => cbbmahanghoachitiet.Items.Add(row.hang_hoa.ten));
+                cbbIDSP.Items.Clear();
+                db.chitiet_hanghoa.ToList().ForEach(row => cbbIDSP.Items.Add(row.id));
 
                 dataGridView1.Rows.Clear();
-
-                db.chi_tiet_hoa_don.ToList().ForEach(cthd =>
+                var cthh = db.chitiet_hanghoa.ToList();
+                foreach (var item in cthh)
                 {
-                    dataGridView1.Rows.Add(
-                    cthd.macthd,
-                    cthd.ma_hd,
-                    cthd.chitiet_hanghoa.hang_hoa.ten,
-                    cthd.so_luong,
-                    cthd.dongia
+                    var cthd = db.chi_tiet_hoa_don.Where(a => a.ma_chitiet_hanghoa == item.id);
+                    cthd.ToList().ForEach(row =>
+                    {
+                        dataGridView1.Rows.Add(
+                        row.macthd,
+                        row.ma_hd,
+                        row.chitiet_hanghoa.hang_hoa.ten,
+                        row.so_luong,
+                        row.dongia,
+                        row.chitiet_hanghoa.size,
+                        row.chitiet_hanghoa.mau_sac
+                        );
+                    }
                     );
                 }
-                );
-
                 btnxoa.Enabled = false;
                 btnsua.Enabled = false;
                 btnhuy.Enabled = true;
@@ -66,36 +74,45 @@ namespace DUAN1
                 //mã chi tiết kho hàng hàng hóa
                 cbbmahanghoachitiet.Items.Clear();
                 db.chitiet_hanghoa.ToList().ForEach(row => cbbmahanghoachitiet.Items.Add(row.hang_hoa.ten));
+                cbbIDSP.Items.Clear();
+                db.chitiet_hanghoa.ToList().ForEach(row => cbbIDSP.Items.Add(row.id));
 
                 dataGridView1.Rows.Clear();
-
-                db.chi_tiet_hoa_don.ToList().ForEach(cthd =>
+                var cthh = db.chitiet_hanghoa.ToList();
+                foreach (var item in cthh)
                 {
-                    dataGridView1.Rows.Add(
-                    cthd.macthd,
-                    cthd.ma_hd,
-                    cthd.chitiet_hanghoa.hang_hoa.ten,
-                    cthd.so_luong,
-                    cthd.dongia
+                    var cthd = db.chi_tiet_hoa_don.Where(a => a.ma_chitiet_hanghoa == item.id);
+                    cthd.ToList().ForEach(row =>
+                    {
+                        dataGridView1.Rows.Add(
+                        row.macthd,
+                        row.ma_hd,
+                        row.chitiet_hanghoa.hang_hoa.ten,
+                        row.so_luong,
+                        row.dongia,
+                        row.chitiet_hanghoa.size,
+                        row.chitiet_hanghoa.mau_sac
+                        );
+                    }
                     );
                 }
-                );
             }
         }
-        private void ThongKe()
-        {
-            //using (DAXuongEntities db = new DAXuongEntities())
-            //{
-            //    chitiet_hanghoa khhh = db.chitiet_hanghoa.FirstOrDefault(x => x.id.Equals(cbbmahanghoachitiet.Text));
-            //    if (khhh != null)
-            //    {
-            //        khhh.soluong -= int.Parse(tbsoluong.Text);
-            //        db.SaveChanges();
-            //    }
-            //}
-
-
-        }
+        //private void ThongKe()
+        //{
+        //    using (DAXuongEntities db = new DAXuongEntities())
+        //    {
+        //        var cthh = db.chitiet_hanghoa.Where(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text)).ToList();
+        //        foreach(var item in cthh)
+        //        {
+        //            if (cthh != null)
+        //            {
+        //                item.soluong -= int.Parse(tbsoluong.Text);
+        //                db.SaveChanges();
+        //            }
+        //        }  
+        //    }
+        //}
         private void btnhoadon_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -128,9 +145,6 @@ namespace DUAN1
 
                     chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text));
 
-
-
-                    
                     cthd.ma_hd = cbbmahoadon.Text;
 
                     cthd.ma_chitiet_hanghoa = cthh.id;
@@ -156,9 +170,9 @@ namespace DUAN1
                     db.chi_tiet_hoa_don.Add(cthd);
                     db.SaveChanges();
                     MessageBox.Show("Thêm thành công");
-                    ThongKe();
+                    //ThongKe();
                     UpdateDGV();
-            }
+                }
             }
             catch (Exception)
             {
@@ -194,7 +208,7 @@ namespace DUAN1
             {
                 chi_tiet_hoa_don edit = db.chi_tiet_hoa_don.FirstOrDefault(x => x.macthd == maCTHD);
 
-                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text)) ;
+                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text));
 
                 if (edit != null)
                 {
@@ -209,7 +223,7 @@ namespace DUAN1
                     edit.so_luong = int.Parse(tbsoluong.Text);
                     edit.dongia = edit.so_luong * cthh.gia_ban;
                     db.SaveChanges();
-                    ThongKe();
+                    //ThongKe();
                     MessageBox.Show("Sửa thành công");
                 }
                 else
@@ -270,6 +284,7 @@ namespace DUAN1
             cbbmahanghoachitiet.Text = " ";
             tbsoluong.Text = " ";
             tbdongia.Text = " ";
+            tbtimkiem.Text = "";
             UpdateDGV();
 
         }
@@ -294,7 +309,10 @@ namespace DUAN1
                         cthd.ma_hd,
                         cthd.chitiet_hanghoa.hang_hoa.ten,
                         cthd.so_luong,
-                        cthd.dongia);
+                        cthd.dongia,
+                        cthd.chitiet_hanghoa.size,
+                        cthd.chitiet_hanghoa.mau_sac
+                        );
                     }
                     );
                 }
@@ -374,12 +392,29 @@ namespace DUAN1
         }
         private void QuetMaQR_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            QuetQR quetQR = new QuetQR(tbusername.Text);
+            QuetQR quetQR = new QuetQR();
+            quetQR.FormClosing += new FormClosingEventHandler(ChiTietHoaDon_FormClosing);
             quetQR.ShowDialog();
-            this.Close();
         }
-
+        private void ChiTietHoaDon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MaCTHH > 0)
+            {
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
+                    chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(a => a.id == MaCTHH);
+                    chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
+                    cthd.ma_hd = "HD001";
+                    cthd.ma_chitiet_hanghoa = cthh.id;
+                    cthd.so_luong = 1;
+                    cthd.dongia = cthh.gia_ban * cthd.so_luong;
+                    db.chi_tiet_hoa_don.Add(cthd);
+                    db.SaveChanges();
+                    UpdateDGV();
+                    //ThongKe(); 
+                }
+            }
+        }
         private readonly PrintDocument docToPrint = new PrintDocument();
         readonly int x = 0;
         readonly int y = 0;
@@ -411,53 +446,140 @@ namespace DUAN1
         }
         private void document_PrintPage(object sender, PrintPageEventArgs e)
         {
-            string title = "HÓA ĐƠN BÁN HÀNG";
-            StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
-            Rectangle rectangle = new Rectangle(x + 1, y, width, height);
-            stringFormat.LineAlignment = StringAlignment.Center;
-            stringFormat.Alignment = StringAlignment.Center;
-            Font printFont = new Font("Arial", 11, FontStyle.Bold);
-            e.Graphics.DrawString(title, printFont, Brushes.Black, rectangle, stringFormat);
-
-            string head = "ShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\nTên   Giá   SL  Thành tiền";
-            StringFormat stringFormat2 = new StringFormat(StringFormatFlags.NoClip);
-            Rectangle rectangle2 = new Rectangle(x + 1, y + height, width, height + 30);
-            stringFormat2.LineAlignment = StringAlignment.Center;
-            stringFormat2.Alignment = StringAlignment.Center;
-            Font printFont2 = new Font("Arial", 10, FontStyle.Regular);
-            e.Graphics.DrawString(head, printFont2, Brushes.Black, rectangle2, stringFormat2);
-
             using (DAXuongEntities entities = new DAXuongEntities())
             {
-                string TenHang = "";
-                double Gia = 0;
-                int SL = 0;
-                int cao = 50;
-                double TongTien = 0;
-                double ThanhTien = 0;
+                
+                string title = "HÓA ĐƠN BÁN HÀNG";
+                StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangle = new Rectangle(x + 1, y, width, height);
+                stringFormat.LineAlignment = StringAlignment.Center;
+                stringFormat.Alignment = StringAlignment.Center;
+                Font printFont = new Font("Arial", 11, FontStyle.Bold);
+                e.Graphics.DrawString(title, printFont, Brushes.Black, rectangle, stringFormat);
+
+                string head = "ShopQuanAoCodeThuatSu\nĐịa chỉ: Cần Thơ\n\n\n";
+                StringFormat stringFormat2 = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangle2 = new Rectangle(x + 1, y + height, width, height + 30);
+                stringFormat2.LineAlignment = StringAlignment.Center;
+                stringFormat2.Alignment = StringAlignment.Center;
+                Font printFont2 = new Font("Arial", 10, FontStyle.Regular);
+                e.Graphics.DrawString(head, printFont2, Brushes.Black, rectangle2, stringFormat2);
+
+
                 var cthd = entities.chi_tiet_hoa_don.ToList().Where(a => a.ma_hd.Equals(cbbmahoadon.Text));
+                double TongTien = 0;
+                //Demo
+                //Ten
+                string Ten = "\n\nTên";
+                string TenHang = "";
+                StringFormat stringFormat3 = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangle3 = new Rectangle(x + 1, y + height, width, height + 30);
+                stringFormat3.LineAlignment = StringAlignment.Near;
+                stringFormat3.Alignment = StringAlignment.Near;
+                Font printFont3 = new Font("Arial", 10, FontStyle.Regular);
+                Pen pen = new Pen(Color.Red);
+                e.Graphics.DrawString(Ten, printFont3, Brushes.Black, rectangle3, stringFormat3);
+                int cao = 50;
                 foreach (var item in cthd)
                 {
                     StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
                     Rectangle rectangleBody = new Rectangle(x + 1, y + cao + 30, width, height);
+                    stringFormatBody.LineAlignment = StringAlignment.Near;
+                    stringFormatBody.Alignment = StringAlignment.Near;
+                    Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
+                    TenHang = item.chitiet_hanghoa.hang_hoa.ten;
+                    e.Graphics.DrawString(TenHang, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                    cao += 20;
+                }
+
+                //GiaSL
+                string GiaSL = "\n\nGiá   SL";
+                int SL = 0;
+                double Gia = 0;
+                StringFormat stringFormat4 = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangle4 = new Rectangle(x + 1, y + height - 5, width, height + 30);
+                stringFormat4.LineAlignment = StringAlignment.Center;
+                stringFormat4.Alignment = StringAlignment.Center;
+                Font printFont4 = new Font("Arial", 10, FontStyle.Regular);
+                e.Graphics.DrawString(GiaSL, printFont4, Brushes.Black, rectangle4, stringFormat4);
+                int cao1 = 50;
+                foreach (var item in cthd)
+                {
+                    StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+                    Rectangle rectangleBody = new Rectangle(x + 1, y + cao1 + 20, width, height);
                     stringFormatBody.LineAlignment = StringAlignment.Center;
                     stringFormatBody.Alignment = StringAlignment.Center;
                     Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
-                    TenHang = item.chitiet_hanghoa.hang_hoa.ten;
                     Gia = (double)item.chitiet_hanghoa.gia_ban / 1000;
                     SL = (int)item.so_luong;
+                    e.Graphics.DrawString(Gia.ToString("#,##0") + "  " + SL, printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                    cao1 += 20;
+                }
+
+
+                //TT
+                string TT = "\n\nThành tiền";
+                double ThanhTien = 0;
+                StringFormat stringFormat5 = new StringFormat(StringFormatFlags.NoClip);
+                Rectangle rectangle5 = new Rectangle(x + 1, y + height - 10, width, height + 30);
+                stringFormat5.LineAlignment = StringAlignment.Far;
+                stringFormat5.Alignment = StringAlignment.Far;
+                Font printFont5 = new Font("Arial", 10, FontStyle.Regular);
+                e.Graphics.DrawString(TT, printFont5, Brushes.Black, rectangle5, stringFormat5);
+                int cao2 = 50;
+                foreach (var item in cthd)
+                {
+                    StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+                    Rectangle rectangleBody = new Rectangle(x + 1, y + cao2 + 10, width, height);
+                    stringFormatBody.LineAlignment = StringAlignment.Far;
+                    stringFormatBody.Alignment = StringAlignment.Far;
+                    Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
                     ThanhTien = (double)item.dongia / 1000;
                     TongTien += ThanhTien;
-                    e.Graphics.DrawString(TenHang + "  " + Gia.ToString("#,##0") + "  " + SL + "  " + ThanhTien.ToString("#,##0"), printFontBody, Brushes.Black, rectangleBody, stringFormatBody);   
-                    cao += 20;
+                    e.Graphics.DrawString(ThanhTien.ToString("#,##0"), printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                    cao2 += 20;
                 }
+                #region Demo
+                //Demo
+                //string TenHang = "";
+                //double Gia = 0;
+                //int SL = 0;
+                //int cao = 50;
+                //double TongTien = 0;
+                //double ThanhTien = 0;
+                //var cthd = entities.chi_tiet_hoa_don.ToList().Where(a => a.ma_hd.Equals(cbbmahoadon.Text));
+                //foreach (var item in cthd)
+                //{
+                //    StringFormat stringFormatBody = new StringFormat(StringFormatFlags.NoClip);
+                //    Rectangle rectangleBody = new Rectangle(x + 1, y + cao + 30, width, height);
+                //    stringFormatBody.LineAlignment = StringAlignment.Center;
+                //    stringFormatBody.Alignment = StringAlignment.Center;
+                //    Font printFontBody = new Font("Arial", 9, FontStyle.Regular);
+                //    TenHang = item.chitiet_hanghoa.hang_hoa.ten;
+                //    Gia = (double)item.chitiet_hanghoa.gia_ban / 1000;
+                //    SL = (int)item.so_luong;
+                //    ThanhTien = (double)item.dongia / 1000;
+                //    TongTien += ThanhTien;
+                //    e.Graphics.DrawString(TenHang + "  " + Gia.ToString("#,##0") + "  " + SL + "  " + ThanhTien.ToString("#,##0"), printFontBody, Brushes.Black, rectangleBody, stringFormatBody);
+                //    cao += 20;
+                //}
+                #endregion
                 StringFormat stringFormatFooter = new StringFormat(StringFormatFlags.NoClip);
                 Rectangle rectangleFooter = new Rectangle(x + 1, y + cao + 30, width, height);
                 stringFormatFooter.LineAlignment = StringAlignment.Center;
                 stringFormatFooter.Alignment = StringAlignment.Center;
                 Font printFontFooter = new Font("Arial", 10, FontStyle.Regular);
+                e.Graphics.DrawString("----------\nTổng tiền: " + TongTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
+            }
+        }
 
-                e.Graphics.DrawString("----------\nThành tiền: " + TongTien.ToString("#,##0"), printFontFooter, Brushes.Black, rectangleFooter, stringFormatFooter);
+        private void cbbIDSP_TextChanged(object sender, EventArgs e)
+        {
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                int ID = int.Parse(cbbIDSP.Text);
+                chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(a => a.id == ID);
+                cbbmahanghoachitiet.Text = cthh.hang_hoa.ten;
             }
         }
     }

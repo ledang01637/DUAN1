@@ -27,10 +27,10 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
-                List<chitiet_hanghoa> cthh = db.chitiet_hanghoa.ToList();
+                List<hang_hoa> cthh = db.hang_hoa.ToList();
                 foreach(var item in cthh)
                 {
-                    cbbTenHang.Items.Add(item.hang_hoa.ten);
+                    cbbTenHang.Items.Add(item.ten);
                 }
             }
             UpdateDGV();
@@ -41,11 +41,11 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
-                List<chitiet_hanghoa> cthh = db.chitiet_hanghoa.ToList();
+                List<hang_hoa> cthh = db.hang_hoa.ToList();
                 cbbTenHang.Items.Clear();
                 foreach (var item in cthh)
                 {
-                    cbbTenHang.Items.Add(item.hang_hoa.ten);
+                    cbbTenHang.Items.Add(item.ten);
                 }
             }
             dataGridView1.Rows.Clear();
@@ -94,6 +94,7 @@ namespace DUAN1
             if (!String.IsNullOrEmpty(selectedSP.hinh))
             {
                 ptbHinh.Image = Image.FromFile(@"" + selectedSP.hinh);
+                imagePath = selectedSP.hinh;
             }
             else
             {
@@ -134,6 +135,16 @@ namespace DUAN1
             {
                 using(DAXuongEntities db = new DAXuongEntities())
                 {
+                    if(SL < 0)
+                    {
+                        MessageBox.Show("Số lượng phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if(GiaBan < 0 || GiaNhap < 0)
+                    {
+                        MessageBox.Show("Giá phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     chitiet_hanghoa spCTHH = new chitiet_hanghoa();
                     hang_hoa hh = db.hang_hoa.FirstOrDefault(a => a.ten.Equals(cbbTenHang.Text));
                     spCTHH.mau_sac = tbMau.Text;
@@ -142,7 +153,7 @@ namespace DUAN1
                     spCTHH.gia_ban = GiaBan;
                     spCTHH.soluong = SL;
                     spCTHH.ma_hang_hoa = hh.ma_hang_hoa;
-                    if (ptbHinh != null && ptbHinh.Image != null)
+                    if (ptbHinh != null || ptbHinh.Image != null)
                     {
                         spCTHH.hinh = imagePath;
                     }
@@ -205,6 +216,16 @@ namespace DUAN1
             if (int.TryParse(tbGianhap.Text, out GiaNhap)
                 && int.TryParse(tbGiaban.Text, out GiaBan) && int.TryParse(tbSL.Text, out SL))
             {
+                if (SL < 0)
+                {
+                    MessageBox.Show("Số lượng phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (GiaBan < 0 || GiaNhap < 0)
+                {
+                    MessageBox.Show("Giá phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
                     hang_hoa hh = db.hang_hoa.FirstOrDefault(a => a.ten.Equals(cbbTenHang.Text));
@@ -216,7 +237,7 @@ namespace DUAN1
                     selectedSP.gia_ban = GiaBan;
                     selectedSP.soluong = SL;
                     selectedSP.ma_hang_hoa = hh.ma_hang_hoa;
-                    if (ptbHinh != null && ptbHinh.Image != null)
+                    if (ptbHinh != null || ptbHinh.Image != null)
                     {
                         selectedSP.hinh = imagePath;
                     }
