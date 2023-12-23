@@ -25,6 +25,7 @@ namespace DUAN1
         }
         private void QuanLyHangHoa_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             SelectHang();
             upDateDataGridView1();
         }
