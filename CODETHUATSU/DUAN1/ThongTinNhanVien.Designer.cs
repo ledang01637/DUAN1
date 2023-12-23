@@ -39,7 +39,7 @@ namespace DUAN1
             this.tbmanhanvien = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbtaikhoan = new System.Windows.Forms.TextBox();
+            this.tbemail = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
@@ -50,6 +50,7 @@ namespace DUAN1
             this.toolTip8 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip9 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,20 +145,20 @@ namespace DUAN1
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(805, 576);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 42);
+            this.label1.Size = new System.Drawing.Size(137, 42);
             this.label1.TabIndex = 160;
-            this.label1.Text = "Tài khoản:";
+            this.label1.Text = "Email :";
             // 
-            // tbtaikhoan
+            // tbemail
             // 
-            this.tbtaikhoan.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tbtaikhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbtaikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbtaikhoan.Location = new System.Drawing.Point(1130, 576);
-            this.tbtaikhoan.Multiline = true;
-            this.tbtaikhoan.Name = "tbtaikhoan";
-            this.tbtaikhoan.Size = new System.Drawing.Size(394, 40);
-            this.tbtaikhoan.TabIndex = 159;
+            this.tbemail.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tbemail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbemail.Location = new System.Drawing.Point(1130, 576);
+            this.tbemail.Multiline = true;
+            this.tbemail.Name = "tbemail";
+            this.tbemail.Size = new System.Drawing.Size(394, 40);
+            this.tbemail.TabIndex = 159;
             // 
             // label3
             // 
@@ -173,6 +174,16 @@ namespace DUAN1
             this.label3.TabIndex = 333;
             this.label3.Text = "THÔNG TIN NHÂN VIÊN";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(178, 600);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 334;
+            this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // ThongTinNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,7 +195,7 @@ namespace DUAN1
             this.ClientSize = new System.Drawing.Size(1739, 940);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbtaikhoan);
+            this.Controls.Add(this.tbemail);
             this.Controls.Add(this.lbsdt);
             this.Controls.Add(this.tbsdt);
             this.Controls.Add(this.lbtennhanvien);
@@ -192,6 +203,7 @@ namespace DUAN1
             this.Controls.Add(this.lbmanhanvien);
             this.Controls.Add(this.tbmanhanvien);
             this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.label2);
             this.DoubleBuffered = true;
             this.Location = new System.Drawing.Point(175, 65);
             this.Name = "ThongTinNhanVien";
@@ -213,7 +225,7 @@ namespace DUAN1
         private System.Windows.Forms.TextBox tbmanhanvien;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbtaikhoan;
+        private System.Windows.Forms.TextBox tbemail;
         private System.Windows.Forms.ToolTip toolTip6;
         private System.Windows.Forms.ToolTip toolTip5;
         private System.Windows.Forms.ToolTip toolTip3;
@@ -224,5 +236,6 @@ namespace DUAN1
         private System.Windows.Forms.ToolTip toolTip8;
         private System.Windows.Forms.ToolTip toolTip9;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

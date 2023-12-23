@@ -153,6 +153,7 @@ namespace DUAN1
             this.tbusername.Size = new System.Drawing.Size(83, 24);
             this.tbusername.TabIndex = 0;
             this.tbusername.Text = "Usernameeeeeeeee";
+            this.tbusername.Click += new System.EventHandler(this.tbusername_Click);
             // 
             // SideBar
             // 

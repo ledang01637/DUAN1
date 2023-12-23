@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using System.Data.Entity;
+using System;
+using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using DUAN1.Properties;
 
@@ -39,11 +42,22 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongTinNhanVien formTTNV = new ThongTinNhanVien();
+            ThongTinNhanVien formTTNV = new ThongTinNhanVien(tbusername.Text) ;
             formTTNV.MdiParent = this;
             formTTNV.Show();
 
+            String RoleTK = DBHandler.CheckTK(tbusername.Text);
+            if (RoleTK.Equals("nhanvien"))
+            {
+                //Nếu nhân viên tồn tại, tên nhân viên và số điện thoại sẽ xuất ra trong text box dựa theo mã nhân viên ở tbmanhanvien
+                btnnhanvien.Enabled = false;
+            }
+            else if (RoleTK.Equals("admin"))
+            {
+                //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
+                btnnhanvien.Enabled = true;
 
+            }
         }
 
         private void Logout_Click(object sender, System.EventArgs e)
@@ -95,7 +109,7 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongTinNhanVien formTTNV = new ThongTinNhanVien();
+            ThongTinNhanVien formTTNV = new ThongTinNhanVien(tbusername.Text);
             formTTNV.MdiParent = this;
             formTTNV.Show();
         }
@@ -218,6 +232,11 @@ namespace DUAN1
             this.Hide();
             Login login = new Login();
             login.Show();
+
+        }
+
+        private void tbusername_Click(object sender, System.EventArgs e)
+        {
 
         }
     }

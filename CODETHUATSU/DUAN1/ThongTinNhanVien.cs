@@ -12,44 +12,50 @@ namespace DUAN1
 {
     public partial class ThongTinNhanVien : Form
     {
-        public ThongTinNhanVien()
+        public ThongTinNhanVien(String username)
         {
             //Mã nhân viên sẽ là tài khoản nhân viên nên khi đăng nhập vào tài khoản, username sẽ truyền vào textbox tbmanhanvien
             InitializeComponent();
-            //tbtaikhoan.Text = username;
+            label2.Text = username;
         }
 
         private void ThongTinNhanVien_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
             ////Hiển thị thông tin nhân viên
-            //using (DAXuongEntities db = new DAXuongEntities())
-            //{
-            //    nhan_vien nv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).FirstOrDefault();
-            //    List<nhan_vien> lnv = db.nhan_vien.Where(x => x.tai_khoan_dangnhap.Equals(tbtaikhoan.Text)).ToList();
-            //    String RoleTK = DBHandler.CheckTK(tbtaikhoan.Text);
-            //    if (RoleTK.Equals("nhanvien"))
-            //    {
-            //        //Nếu nhân viên tồn tại, tên nhân viên và số điện thoại sẽ xuất ra trong text box dựa theo mã nhân viên ở tbmanhanvien
-            //        tbmanhanvien.Text = nv.ma_nv;
-            //        tbtennhanvien.Text = nv.ten_nv;
-            //        tbsdt.Text = nv.sdt;
-            //        btnnhanvien.Enabled = false;
-            //    }
-            //    else if (RoleTK.Equals("admin"))
-            //    {
-            //        //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
-            //        tbmanhanvien.Text = nv.ma_nv;
-            //        tbtennhanvien.Text = nv.ten_nv;
-            //        tbsdt.Text = nv.sdt;
-            //        btnnhanvien.Enabled = true;
-            //    }
-            //}
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
 
-            //tbmanhanvien.Enabled = false;
-            //tbtennhanvien.Enabled = false;
-            //tbsdt.Enabled = false;
-            //tbtaikhoan.Enabled = false;
+                dang_nhap dn = db.dang_nhap.Where(x => x.tai_khoan.Equals(label2.Text)).FirstOrDefault();
+                nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv.Equals(dn.ma_nv)).FirstOrDefault();
+                String RoleTK = DBHandler.CheckTK(label2.Text);
+                if (RoleTK.Equals("nhanvien"))
+                {
+                    //Nếu nhân viên tồn tại, tên nhân viên và số điện thoại sẽ xuất ra trong text box dựa theo mã nhân viên ở tbmanhanvien
+                    tbmanhanvien.Text = nv.ma_nv;
+                    tbtennhanvien.Text = nv.ten_nv;
+                    tbsdt.Text = nv.sdt;
+                    tbemail.Text = nv.email;
+                }
+                else if (RoleTK.Equals("admin"))
+                {
+                    //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
+                    tbmanhanvien.Text = nv.ma_nv;
+                    tbtennhanvien.Text = nv.ten_nv;
+                    tbsdt.Text = nv.sdt;
+                    tbemail.Text = nv.email;
+                }
+            }
+            tbemail.ReadOnly = true; 
+            tbmanhanvien.ReadOnly = true;
+            tbtennhanvien.ReadOnly = true;
+            tbsdt.ReadOnly = true;
+
+        }
+
+        public void nhanmanv(String manv)
+        {
+            tbmanhanvien.Text = manv;
         }
 
         private void btnthoat_Click(object sender, EventArgs e)
@@ -110,7 +116,7 @@ namespace DUAN1
 
         private void btnthongtinnv_Click(object sender, EventArgs e)
         {
-            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien();
+            ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(label2.Text);
             this.Hide();
             tinNhanVien.ShowDialog();
             this.Close();
@@ -122,6 +128,11 @@ namespace DUAN1
             this.Hide();
             tinNhanVien.ShowDialog();
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
