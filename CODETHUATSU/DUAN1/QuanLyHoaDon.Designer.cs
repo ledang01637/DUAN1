@@ -34,6 +34,12 @@ namespace DUAN1
             this.lbhansudung = new System.Windows.Forms.Label();
             this.lbngaysx = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbmahanghoa = new System.Windows.Forms.Label();
             this.tbmahoadon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,12 +64,8 @@ namespace DUAN1
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cmbTrangThai = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ma_hd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngay_lap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trang_thai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbtongtien = new System.Windows.Forms.Label();
+            this.tbtongtien = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv2)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +77,7 @@ namespace DUAN1
             this.lbhansudung.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbhansudung.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbhansudung.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbhansudung.Location = new System.Drawing.Point(178, 243);
+            this.lbhansudung.Location = new System.Drawing.Point(177, 193);
             this.lbhansudung.Name = "lbhansudung";
             this.lbhansudung.Size = new System.Drawing.Size(212, 29);
             this.lbhansudung.TabIndex = 117;
@@ -88,7 +90,7 @@ namespace DUAN1
             this.lbngaysx.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbngaysx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbngaysx.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbngaysx.Location = new System.Drawing.Point(178, 301);
+            this.lbngaysx.Location = new System.Drawing.Point(177, 251);
             this.lbngaysx.Name = "lbngaysx";
             this.lbngaysx.Size = new System.Drawing.Size(130, 29);
             this.lbngaysx.TabIndex = 116;
@@ -115,6 +117,47 @@ namespace DUAN1
             this.dataGridView1.TabIndex = 106;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // ma_hd
+            // 
+            this.ma_hd.HeaderText = "Mã hóa đơn";
+            this.ma_hd.MinimumWidth = 6;
+            this.ma_hd.Name = "ma_hd";
+            this.ma_hd.ReadOnly = true;
+            // 
+            // ma_kh
+            // 
+            this.ma_kh.HeaderText = "Tên khách hàng";
+            this.ma_kh.MinimumWidth = 6;
+            this.ma_kh.Name = "ma_kh";
+            this.ma_kh.ReadOnly = true;
+            // 
+            // ma_nv
+            // 
+            this.ma_nv.HeaderText = "Tên nhân viên";
+            this.ma_nv.MinimumWidth = 6;
+            this.ma_nv.Name = "ma_nv";
+            this.ma_nv.ReadOnly = true;
+            // 
+            // ngay_lap
+            // 
+            this.ngay_lap.HeaderText = "Ngày lập";
+            this.ngay_lap.MinimumWidth = 6;
+            this.ngay_lap.Name = "ngay_lap";
+            this.ngay_lap.ReadOnly = true;
+            // 
+            // trang_thai
+            // 
+            this.trang_thai.HeaderText = "Trạng thái";
+            this.trang_thai.MinimumWidth = 6;
+            this.trang_thai.Name = "trang_thai";
+            this.trang_thai.ReadOnly = true;
+            // 
+            // tongtien
+            // 
+            this.tongtien.HeaderText = "Tổng tiền";
+            this.tongtien.Name = "tongtien";
+            this.tongtien.ReadOnly = true;
+            // 
             // lbmahanghoa
             // 
             this.lbmahanghoa.AutoSize = true;
@@ -122,7 +165,7 @@ namespace DUAN1
             this.lbmahanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbmahanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbmahanghoa.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbmahanghoa.Location = new System.Drawing.Point(178, 127);
+            this.lbmahanghoa.Location = new System.Drawing.Point(177, 77);
             this.lbmahanghoa.Name = "lbmahanghoa";
             this.lbmahanghoa.Size = new System.Drawing.Size(163, 29);
             this.lbmahanghoa.TabIndex = 105;
@@ -131,7 +174,7 @@ namespace DUAN1
             // tbmahoadon
             // 
             this.tbmahoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbmahoadon.Location = new System.Drawing.Point(517, 128);
+            this.tbmahoadon.Location = new System.Drawing.Point(516, 78);
             this.tbmahoadon.Multiline = true;
             this.tbmahoadon.Name = "tbmahoadon";
             this.tbmahoadon.Size = new System.Drawing.Size(381, 28);
@@ -144,7 +187,7 @@ namespace DUAN1
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(178, 183);
+            this.label3.Location = new System.Drawing.Point(177, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 29);
             this.label3.TabIndex = 123;
@@ -155,7 +198,7 @@ namespace DUAN1
             this.dtpngaylap.CustomFormat = "dd/MM/yyyy";
             this.dtpngaylap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpngaylap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpngaylap.Location = new System.Drawing.Point(517, 301);
+            this.dtpngaylap.Location = new System.Drawing.Point(516, 251);
             this.dtpngaylap.Name = "dtpngaylap";
             this.dtpngaylap.Size = new System.Drawing.Size(381, 29);
             this.dtpngaylap.TabIndex = 127;
@@ -167,7 +210,7 @@ namespace DUAN1
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(178, 354);
+            this.label5.Location = new System.Drawing.Point(177, 304);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 29);
             this.label5.TabIndex = 131;
@@ -176,7 +219,7 @@ namespace DUAN1
             // tbtrangthai
             // 
             this.tbtrangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbtrangthai.Location = new System.Drawing.Point(517, 363);
+            this.tbtrangthai.Location = new System.Drawing.Point(516, 313);
             this.tbtrangthai.Multiline = true;
             this.tbtrangthai.Name = "tbtrangthai";
             this.tbtrangthai.Size = new System.Drawing.Size(381, 28);
@@ -292,7 +335,7 @@ namespace DUAN1
             // 
             this.cbbmakhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmakhachhang.FormattingEnabled = true;
-            this.cbbmakhachhang.Location = new System.Drawing.Point(517, 247);
+            this.cbbmakhachhang.Location = new System.Drawing.Point(516, 197);
             this.cbbmakhachhang.Name = "cbbmakhachhang";
             this.cbbmakhachhang.Size = new System.Drawing.Size(381, 28);
             this.cbbmakhachhang.TabIndex = 145;
@@ -301,7 +344,7 @@ namespace DUAN1
             // 
             this.cbbmanv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmanv.FormattingEnabled = true;
-            this.cbbmanv.Location = new System.Drawing.Point(517, 187);
+            this.cbbmanv.Location = new System.Drawing.Point(516, 137);
             this.cbbmanv.Name = "cbbmanv";
             this.cbbmanv.Size = new System.Drawing.Size(381, 28);
             this.cbbmanv.TabIndex = 146;
@@ -315,12 +358,12 @@ namespace DUAN1
             this.Ten,
             this.Gia,
             this.SL});
-            this.dtgv2.Location = new System.Drawing.Point(1203, 119);
+            this.dtgv2.Location = new System.Drawing.Point(1203, 77);
             this.dtgv2.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv2.Name = "dtgv2";
             this.dtgv2.RowHeadersWidth = 51;
             this.dtgv2.RowTemplate.Height = 24;
-            this.dtgv2.Size = new System.Drawing.Size(347, 211);
+            this.dtgv2.Size = new System.Drawing.Size(347, 253);
             this.dtgv2.TabIndex = 250;
             // 
             // Ten
@@ -381,46 +424,27 @@ namespace DUAN1
             this.label1.TabIndex = 333;
             this.label1.Text = "QUẢN LÝ HÓA ĐƠN";
             // 
-            // ma_hd
+            // lbtongtien
             // 
-            this.ma_hd.HeaderText = "Mã hóa đơn";
-            this.ma_hd.MinimumWidth = 6;
-            this.ma_hd.Name = "ma_hd";
-            this.ma_hd.ReadOnly = true;
+            this.lbtongtien.AutoSize = true;
+            this.lbtongtien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbtongtien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbtongtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongtien.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbtongtien.Location = new System.Drawing.Point(177, 351);
+            this.lbtongtien.Name = "lbtongtien";
+            this.lbtongtien.Size = new System.Drawing.Size(138, 29);
+            this.lbtongtien.TabIndex = 335;
+            this.lbtongtien.Text = "Tổng tiền :";
             // 
-            // ma_kh
+            // tbtongtien
             // 
-            this.ma_kh.HeaderText = "Tên khách hàng";
-            this.ma_kh.MinimumWidth = 6;
-            this.ma_kh.Name = "ma_kh";
-            this.ma_kh.ReadOnly = true;
-            // 
-            // ma_nv
-            // 
-            this.ma_nv.HeaderText = "Tên nhân viên";
-            this.ma_nv.MinimumWidth = 6;
-            this.ma_nv.Name = "ma_nv";
-            this.ma_nv.ReadOnly = true;
-            // 
-            // ngay_lap
-            // 
-            this.ngay_lap.HeaderText = "Ngày lập";
-            this.ngay_lap.MinimumWidth = 6;
-            this.ngay_lap.Name = "ngay_lap";
-            this.ngay_lap.ReadOnly = true;
-            // 
-            // trang_thai
-            // 
-            this.trang_thai.HeaderText = "Trạng thái";
-            this.trang_thai.MinimumWidth = 6;
-            this.trang_thai.Name = "trang_thai";
-            this.trang_thai.ReadOnly = true;
-            // 
-            // tongtien
-            // 
-            this.tongtien.HeaderText = "Tổng tiền";
-            this.tongtien.Name = "tongtien";
-            this.tongtien.ReadOnly = true;
+            this.tbtongtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbtongtien.Location = new System.Drawing.Point(516, 360);
+            this.tbtongtien.Multiline = true;
+            this.tbtongtien.Name = "tbtongtien";
+            this.tbtongtien.Size = new System.Drawing.Size(381, 28);
+            this.tbtongtien.TabIndex = 334;
             // 
             // QuanLyHoaDon
             // 
@@ -431,6 +455,8 @@ namespace DUAN1
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1739, 940);
+            this.Controls.Add(this.lbtongtien);
+            this.Controls.Add(this.tbtongtien);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTrangThai);
             this.Controls.Add(this.QuetMaQR);
@@ -501,5 +527,7 @@ namespace DUAN1
         private System.Windows.Forms.DataGridViewTextBoxColumn ngay_lap;
         private System.Windows.Forms.DataGridViewTextBoxColumn trang_thai;
         private System.Windows.Forms.DataGridViewTextBoxColumn tongtien;
+        private System.Windows.Forms.Label lbtongtien;
+        private System.Windows.Forms.TextBox tbtongtien;
     }
 }

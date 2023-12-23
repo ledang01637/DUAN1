@@ -95,13 +95,7 @@ namespace DUAN1
 
 
         }
-        //private void btnhoadon_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyHoaDon hd = new QuanLyHoaDon(tbusername.Text);
-        //    hd.ShowDialog();
-        //    this.Close();
-        //}
+
         //btn thêm
         private void btnthem_Click(object sender, EventArgs e)
         {
