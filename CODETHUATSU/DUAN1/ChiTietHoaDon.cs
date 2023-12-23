@@ -21,6 +21,7 @@ namespace DUAN1
 
         private void ChiTietHoaDon_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
                 //mã háo đơn
