@@ -42,9 +42,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongTinNhanVien formTTNV = new ThongTinNhanVien(tbusername.Text) ;
-            formTTNV.MdiParent = this;
-            formTTNV.Show();
+            activeForm = new ThongTinNhanVien(tbusername.Text) ;
+            activeForm.MdiParent = this;
+            activeForm.Show();
 
             String RoleTK = DBHandler.CheckTK(tbusername.Text);
             if (RoleTK.Equals("nhanvien"))
@@ -109,15 +109,14 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongTinNhanVien formTTNV = new ThongTinNhanVien(tbusername.Text);
-            formTTNV.MdiParent = this;
-            formTTNV.Show();
+            activeForm = new ThongTinNhanVien(tbusername.Text);
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnhanghoa_Click(object sender, System.EventArgs e)
         {
             ResetColorButton();
-
             btnhanghoa.BackColor = Color.FromArgb(176, 224, 230);
             btnhanghoa.ForeColor = Color.Black;
             this.IsMdiContainer = true;
@@ -126,9 +125,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyHangHoa formQLHH= new QuanLyHangHoa();
-            formQLHH.MdiParent = this;
-            formQLHH.Show();
+            activeForm = new QuanLyHangHoa();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnkhohang_Click(object sender, System.EventArgs e)
@@ -142,9 +141,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ChiTietHangHoa formCTHH = new ChiTietHangHoa();
-            formCTHH.MdiParent = this;
-            formCTHH.Show();
+            activeForm = new ChiTietHangHoa();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnhoadon_Click(object sender, System.EventArgs e)
@@ -158,9 +157,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyHoaDon formQLHD = new QuanLyHoaDon();
-            formQLHD.MdiParent = this;
-            formQLHD.Show();
+            activeForm = new QuanLyHoaDon();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnChiTietHoaDon_Click(object sender, System.EventArgs e)
@@ -174,9 +173,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ChiTietHoaDon formCTHD = new ChiTietHoaDon();
-            formCTHD.MdiParent = this;
-            formCTHD.Show();
+            activeForm = new ChiTietHoaDon();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnnhanvien_Click(object sender, System.EventArgs e)
@@ -190,9 +189,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyNhanVien formQLNV = new QuanLyNhanVien();
-            formQLNV.MdiParent = this;
-            formQLNV.Show();
+            activeForm = new QuanLyNhanVien();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnkhachhang_Click(object sender, System.EventArgs e)
@@ -206,9 +205,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            QuanLyKhachHang formQLKH = new QuanLyKhachHang();
-            formQLKH.MdiParent = this;
-            formQLKH.Show();
+            activeForm = new QuanLyKhachHang();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void btnthongke_Click(object sender, System.EventArgs e)
@@ -222,9 +221,9 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            ThongKe formTK = new ThongKe();
-            formTK.MdiParent = this;
-            formTK.Show();
+            activeForm = new ThongKe();
+            activeForm.MdiParent = this;
+            activeForm.Show();
         }
 
         private void label1_Click(object sender, System.EventArgs e)

@@ -463,7 +463,7 @@ namespace DUAN1
         private void QuetMaQR_Click(object sender, EventArgs e)
         {
             this.Hide();
-            QuetQR quetQR = new QuetQR("a");
+            QuetQR quetQR = new QuetQR();
             quetQR.ShowDialog();
             this.Close();
         }

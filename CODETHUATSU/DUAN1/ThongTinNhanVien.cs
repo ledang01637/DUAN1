@@ -68,10 +68,10 @@ namespace DUAN1
         }
         private void btnhanghoa_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
-            quanLyHangHoa.ShowDialog();
-            this.Close();
+            //this.Hide();
+            //QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa();
+            //quanLyHangHoa.ShowDialog();
+            //this.Close();
         }
 
         private void btnkhohang_Click(object sender, EventArgs e)
@@ -124,10 +124,10 @@ namespace DUAN1
 
         private void btnChiTietHoaDon_Click(object sender, EventArgs e)
         {
-            ChiTietHoaDon tinNhanVien = new ChiTietHoaDon();
-            this.Hide();
-            tinNhanVien.ShowDialog();
-            this.Close();
+            //ChiTietHoaDon tinNhanVien = new ChiTietHoaDon();
+            //this.Hide();
+            //tinNhanVien.ShowDialog();
+            //this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
