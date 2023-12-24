@@ -149,32 +149,35 @@ namespace DUAN1
         //chức năng lưu
         private void btnluu_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
 
                 hoa_don addhd = new hoa_don();
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+
                     var kh = db.khach_hang.FirstOrDefault(a => a.ten_kh.Equals(cbbmakhachhang.Text));
                     var nv = db.nhan_vien.FirstOrDefault(a => a.ten_nv.Equals(cbbmanv.Text));
+
                     addhd.ma_hd = tbmahoadon.Text;
                     addhd.ma_kh = kh.ma_kh;
                     addhd.ma_nv = nv.ma_nv;
                     addhd.ngay_lap = dtpngaylap.Value;
                     addhd.trang_thai = tbtrangthai.Text;
                     addhd.tongtien = float.Parse(tbtongtien.Text);
+
                     db.hoa_don.Add(addhd);
                     db.SaveChanges();
 
                     MessageBox.Show("Thêm thành công");
                     UpdateDGV();
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Không được để trống");
-            }
-        }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Không được để trống");
+            //}
+}
 
         //chức năng xóa
         private void btnxoa_Click(object sender, EventArgs e)
