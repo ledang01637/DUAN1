@@ -14,6 +14,7 @@ namespace DUAN1
 
             using (DAXuongEntities csharpDB = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(csharpDB);
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 {
                     return null;
@@ -49,6 +50,7 @@ namespace DUAN1
             List<hang_hoa> dsHang = new List<hang_hoa>();
             using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(HangHoa_);
                 dsHang = HangHoa_.hang_hoa.ToList();
             }
             return dsHang;
@@ -57,6 +59,7 @@ namespace DUAN1
         {
             using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(HangHoa_);
                 try
                 {
                     HangHoa_.hang_hoa.Add(hhAdd);
@@ -73,6 +76,7 @@ namespace DUAN1
         {
             using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(HangHoa_);
                 try
                 {
                     hang_hoa found = HangHoa_.hang_hoa
@@ -91,6 +95,7 @@ namespace DUAN1
         {
             using (DAXuongEntities HangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(HangHoa_);
                 try
                 {
                     hang_hoa found = HangHoa_.hang_hoa
@@ -114,6 +119,7 @@ namespace DUAN1
             List<chitiet_hanghoa> dsCTHang = new List<chitiet_hanghoa>();
             using (DAXuongEntities CTHangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(CTHangHoa_);
                 dsCTHang = CTHangHoa_.chitiet_hanghoa.ToList();
             }
             return dsCTHang;
@@ -122,6 +128,7 @@ namespace DUAN1
         {
             using (DAXuongEntities CTHangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(CTHangHoa_);
                 try
                 {
                     CTHangHoa_.chitiet_hanghoa.Add(CThhAdd);
@@ -156,6 +163,7 @@ namespace DUAN1
         {
             using (DAXuongEntities CTHangHoa_ = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(CTHangHoa_);
                 try
                 {
                     chitiet_hanghoa found = CTHangHoa_.chitiet_hanghoa
@@ -179,6 +187,7 @@ namespace DUAN1
         {
             using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(dUAN1Entities);
                 hang_hoa hang_Hoa = dUAN1Entities.hang_hoa.FirstOrDefault(a => a.ma_hang_hoa.Equals(MaTen) || a.ten.Equals(MaTen));
                 if (hang_Hoa != null)
                 {
@@ -193,6 +202,7 @@ namespace DUAN1
 
             using (DAXuongEntities csharpDB = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(csharpDB);
                 if (string.IsNullOrWhiteSpace(username))
                 {
                     return null;

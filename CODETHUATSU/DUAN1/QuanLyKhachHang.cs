@@ -38,6 +38,7 @@ namespace DUAN1
             this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 updatedgv();
                 tbmakhachhang.Enabled = false;
             }
@@ -56,6 +57,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 dataGridView1.Rows.Clear();
 
                 db.khach_hang.ToList().ForEach(kh =>
@@ -86,6 +88,7 @@ namespace DUAN1
             // Thêm khách hàng vào cơ sở dữ liệu
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 khach_hang KH = new khach_hang();
                 KH.ma_kh = maKH;
                 KH.ten_kh = tenKH;
@@ -110,6 +113,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 khach_hang them = db.khach_hang
                     .Where(x => x.ma_kh == tbmakhachhang.Text)
                     .FirstOrDefault();
@@ -136,6 +140,7 @@ namespace DUAN1
             {
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     khach_hang xoa = db.khach_hang.Where(x => x.ma_kh == tbmakhachhang.Text).FirstOrDefault();
                     db.khach_hang.Remove(xoa);
                     db.SaveChanges();
@@ -156,6 +161,7 @@ namespace DUAN1
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     List<khach_hang> listhd = db.khach_hang.Where(x => x.ma_kh.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
                     listhd.ToList().ForEach(hd =>
@@ -204,6 +210,7 @@ namespace DUAN1
             String MaKH = rowData.Cells[0].Value.ToString();
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 khach_hang kh = db.khach_hang.Where(x => x.ma_kh == MaKH).FirstOrDefault();
                 tbmakhachhang.Text = kh.ma_kh;
                 tbtenkhachhang.Text = kh.ten_kh;
@@ -292,10 +299,5 @@ namespace DUAN1
         //    tinNhanVien.ShowDialog();
         //    this.Close();
         //}
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

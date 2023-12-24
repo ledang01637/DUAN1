@@ -20,7 +20,7 @@ namespace DUAN1
             this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
-
+                Constant.ChangeDatabase(db);
                 dataGridView1.Rows.Clear();
 
                 DateTime today = DateTime.Today;
@@ -143,6 +143,7 @@ namespace DUAN1
                 {
                     using (DAXuongEntities db = new DAXuongEntities())
                     {
+                        Constant.ChangeDatabase(db);
                         List<hoa_don> listhd = db.hoa_don
                             .Where(x => x.ngay_lap >= fromDate && x.ngay_lap < toDate)
                             .ToList();

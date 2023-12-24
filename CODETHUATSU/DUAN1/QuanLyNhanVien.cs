@@ -25,6 +25,7 @@ namespace DUAN1
             this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 updatedgv();
                 tbmanhanvien.Enabled = false;
             }
@@ -42,6 +43,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 dataGridView1.Rows.Clear();
 
                 db.nhan_vien.ToList().ForEach(nv =>

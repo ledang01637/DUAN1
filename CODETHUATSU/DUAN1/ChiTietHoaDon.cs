@@ -24,6 +24,7 @@ namespace DUAN1
             this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 //mã háo đơn
                 cbbmahoadon.Items.Clear();
                 db.hoa_don.ToList().ForEach(row => cbbmahoadon.Items.Add(row.ma_hd));
@@ -68,6 +69,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 //mã háo đơn
                 cbbmahoadon.Items.Clear();
                 db.hoa_don.ToList().ForEach(row => cbbmahoadon.Items.Add(row.ma_hd));
@@ -113,13 +115,6 @@ namespace DUAN1
         //        }  
         //    }
         //}
-        private void btnhoadon_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //QuanLyHoaDon hd = new QuanLyHoaDon(tbusername.Text);
-            //hd.ShowDialog();
-            //this.Close();
-        }
         //btn thêm
         private void btnthem_Click(object sender, EventArgs e)
         {
@@ -141,6 +136,7 @@ namespace DUAN1
             {
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
 
                     chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text));
@@ -187,6 +183,7 @@ namespace DUAN1
                 int maCTHD = int.Parse(tbmachitiethoadon.Text);
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     chi_tiet_hoa_don delete = db.chi_tiet_hoa_don.Where(x => x.macthd == maCTHD).FirstOrDefault();
 
                     db.chi_tiet_hoa_don.Remove(delete);
@@ -206,6 +203,7 @@ namespace DUAN1
             int maCTHD = int.Parse(tbmachitiethoadon.Text);
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 chi_tiet_hoa_don edit = db.chi_tiet_hoa_don.FirstOrDefault(x => x.macthd == maCTHD);
 
                 chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text));
@@ -242,6 +240,7 @@ namespace DUAN1
             int MaCTHD = int.Parse(rowData.Cells[0].Value.ToString());
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 chi_tiet_hoa_don cthd = db.chi_tiet_hoa_don.Where(x => x.macthd == MaCTHD).FirstOrDefault();
 
                 if (cthd != null)
@@ -300,6 +299,7 @@ namespace DUAN1
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     List<chi_tiet_hoa_don> listhd = db.chi_tiet_hoa_don.Where(x => x.ma_hd.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
                     listhd.ToList().ForEach(cthd =>
@@ -335,6 +335,7 @@ namespace DUAN1
             {
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(a => a.id == MaCTHH);
                     chi_tiet_hoa_don cthd = new chi_tiet_hoa_don();
                     cthd.ma_hd = "HD001";
@@ -381,7 +382,7 @@ namespace DUAN1
         {
             using (DAXuongEntities entities = new DAXuongEntities())
             {
-                
+                Constant.ChangeDatabase(entities);
                 string title = "HÓA ĐƠN BÁN HÀNG";
                 StringFormat stringFormat = new StringFormat(StringFormatFlags.NoClip);
                 Rectangle rectangle = new Rectangle(x + 1, y, width, height);
@@ -510,6 +511,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 int ID = int.Parse(cbbIDSP.Text);
                 chitiet_hanghoa cthh = db.chitiet_hanghoa.FirstOrDefault(a => a.id == ID);
                 cbbmahanghoachitiet.Text = cthh.hang_hoa.ten;

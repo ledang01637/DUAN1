@@ -28,7 +28,7 @@ namespace DUAN1
 
             using (DAXuongEntities db = new DAXuongEntities())
             {
-
+                Constant.ChangeDatabase(db);
                 //mã khách hàng
                 cbbmakhachhang.Items.Clear();
                 db.khach_hang.ToList().ForEach(row => cbbmakhachhang.Items.Add(row.ten_kh));
@@ -70,6 +70,7 @@ namespace DUAN1
             dataGridView1.Rows.Clear();
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 dataGridView1.Rows.Clear();
 
                 db.hoa_don.ToList().ForEach(hd =>
@@ -97,6 +98,7 @@ namespace DUAN1
             String MaHD = rowData.Cells[0].Value.ToString();
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 hoa_don hd = db.hoa_don.Where(x => x.ma_hd == MaHD).FirstOrDefault();
 
                 tbmahoadon.Text = hd.ma_hd;

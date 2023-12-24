@@ -18,8 +18,13 @@ namespace DUAN1
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
-
+            //Lưu tài khoản vào bảng tạm
+            tbusername.Text = Properties.Settings.Default.Username;
+            tbpassword.Text = Properties.Settings.Default.Password;
+            if (Properties.Settings.Default.Username != "")
+            {
+                cbghinhodn.Checked = true;
+            }
         }
 
         private void btnsubmit_Click(object sender, EventArgs e)
@@ -125,17 +130,6 @@ namespace DUAN1
             LayCode layCode = new LayCode();
             this.Hide();
             layCode.Show();
-        }
-
-        private void Login_Load_1(object sender, EventArgs e)
-        {
-            //Lưu tài khoản vào bảng tạm
-            tbusername.Text = Properties.Settings.Default.Username;
-            tbpassword.Text = Properties.Settings.Default.Password;
-            if (Properties.Settings.Default.Username != "")
-            {
-                cbghinhodn.Checked = true;
-            }
         }
 
         private void tbusername_TextChanged(object sender, EventArgs e)

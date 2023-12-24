@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
 using ZXing.QrCode;
 using ZXing;
 
@@ -28,6 +24,7 @@ namespace DUAN1
             this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 List<hang_hoa> cthh = db.hang_hoa.ToList();
                 foreach(var item in cthh)
                 {
@@ -42,6 +39,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 List<hang_hoa> cthh = db.hang_hoa.ToList();
                 cbbTenHang.Items.Clear();
                 foreach (var item in cthh)
@@ -52,6 +50,7 @@ namespace DUAN1
             dataGridView1.Rows.Clear();
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 var cthh = db.chitiet_hanghoa.ToList();
                 
                 dsChiTietHH = DBHandler.getListChiTietHangHoa();
@@ -89,6 +88,7 @@ namespace DUAN1
 
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 hang_hoa hh = db.hang_hoa.FirstOrDefault(a => a.ma_hang_hoa.Equals(MaHH));
                 cbbTenHang.Text = hh.ten;
             }
@@ -136,7 +136,8 @@ namespace DUAN1
             {
                 using(DAXuongEntities db = new DAXuongEntities())
                 {
-                    if(SL < 0)
+                    Constant.ChangeDatabase(db);
+                    if (SL < 0)
                     {
                         MessageBox.Show("Số lượng phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -229,6 +230,7 @@ namespace DUAN1
                 }
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     hang_hoa hh = db.hang_hoa.FirstOrDefault(a => a.ten.Equals(cbbTenHang.Text));
                     int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
                     chitiet_hanghoa selectedSP = dsChiTietHH[selectedRowIndex];
@@ -281,6 +283,7 @@ namespace DUAN1
 
                 using (DAXuongEntities db = new DAXuongEntities())
                 {
+                    Constant.ChangeDatabase(db);
                     List<chitiet_hanghoa> listsv = db.chitiet_hanghoa.Where(x => x.ma_hang_hoa.Equals(tbtimkiem.Text)).ToList();
                     dataGridView1.Rows.Clear();
                     listsv.ToList().ForEach(row =>

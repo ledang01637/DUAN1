@@ -25,7 +25,7 @@ namespace DUAN1
             ////Hiển thị thông tin nhân viên
             using (DAXuongEntities db = new DAXuongEntities())
             {
-
+                Constant.ChangeDatabase(db);
                 dang_nhap dn = db.dang_nhap.Where(x => x.tai_khoan.Equals(label2.Text)).FirstOrDefault();
                 nhan_vien nv = db.nhan_vien.Where(x => x.ma_nv.Equals(dn.ma_nv)).FirstOrDefault();
                 String RoleTK = DBHandler.CheckTK(label2.Text);

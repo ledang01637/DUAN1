@@ -33,6 +33,7 @@ namespace DUAN1
         {
             using(DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 cbbTenHH.Items.Clear();
                 db.hang_hoa.ToList().ForEach(item => cbbTenHH.Items.Add(item.ten));
                 cbbNsx.Items.Clear();
