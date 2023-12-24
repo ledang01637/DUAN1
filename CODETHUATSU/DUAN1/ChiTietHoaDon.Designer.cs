@@ -67,12 +67,12 @@ namespace DUAN1
             // 
             // cbbmahoadon
             // 
-            this.cbbmahoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbmahoadon.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmahoadon.FormattingEnabled = true;
             this.cbbmahoadon.Location = new System.Drawing.Point(989, 191);
             this.cbbmahoadon.Margin = new System.Windows.Forms.Padding(4);
             this.cbbmahoadon.Name = "cbbmahoadon";
-            this.cbbmahoadon.Size = new System.Drawing.Size(265, 33);
+            this.cbbmahoadon.Size = new System.Drawing.Size(265, 39);
             this.cbbmahoadon.TabIndex = 286;
             // 
             // btnhuy
@@ -174,18 +174,18 @@ namespace DUAN1
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(639, 371);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 36);
+            this.label1.Size = new System.Drawing.Size(147, 35);
             this.label1.TabIndex = 264;
             this.label1.Text = "Số lượng :";
             // 
             // tbsoluong
             // 
-            this.tbsoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbsoluong.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbsoluong.Location = new System.Drawing.Point(989, 372);
             this.tbsoluong.Margin = new System.Windows.Forms.Padding(4);
             this.tbsoluong.Multiline = true;
@@ -268,7 +268,7 @@ namespace DUAN1
             // tbdongia
             // 
             this.tbdongia.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbdongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbdongia.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbdongia.Location = new System.Drawing.Point(989, 434);
             this.tbdongia.Margin = new System.Windows.Forms.Padding(4);
             this.tbdongia.Multiline = true;
@@ -281,12 +281,12 @@ namespace DUAN1
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(640, 191);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 36);
+            this.label3.Size = new System.Drawing.Size(187, 35);
             this.label3.TabIndex = 265;
             this.label3.Text = "Mã hóa đơn :";
             // 
@@ -295,19 +295,19 @@ namespace DUAN1
             this.lbmahanghoa.AutoSize = true;
             this.lbmahanghoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbmahanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lbmahanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbmahanghoa.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbmahanghoa.ForeColor = System.Drawing.SystemColors.Control;
             this.lbmahanghoa.Location = new System.Drawing.Point(639, 133);
             this.lbmahanghoa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbmahanghoa.Name = "lbmahanghoa";
-            this.lbmahanghoa.Size = new System.Drawing.Size(304, 36);
+            this.lbmahanghoa.Size = new System.Drawing.Size(281, 35);
             this.lbmahanghoa.TabIndex = 258;
             this.lbmahanghoa.Text = "Mã chi tiết hóa đơn :";
             // 
             // tbmachitiethoadon
             // 
             this.tbmachitiethoadon.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbmachitiethoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbmachitiethoadon.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbmachitiethoadon.Location = new System.Drawing.Point(989, 133);
             this.tbmachitiethoadon.Margin = new System.Windows.Forms.Padding(4);
             this.tbmachitiethoadon.Multiline = true;
@@ -317,12 +317,12 @@ namespace DUAN1
             // 
             // cbbmahanghoachitiet
             // 
-            this.cbbmahanghoachitiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbmahanghoachitiet.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbmahanghoachitiet.FormattingEnabled = true;
             this.cbbmahanghoachitiet.Location = new System.Drawing.Point(989, 254);
             this.cbbmahanghoachitiet.Margin = new System.Windows.Forms.Padding(4);
             this.cbbmahanghoachitiet.Name = "cbbmahanghoachitiet";
-            this.cbbmahanghoachitiet.Size = new System.Drawing.Size(265, 33);
+            this.cbbmahanghoachitiet.Size = new System.Drawing.Size(265, 39);
             this.cbbmahanghoachitiet.TabIndex = 293;
             // 
             // label2
@@ -330,12 +330,12 @@ namespace DUAN1
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(640, 254);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(233, 36);
+            this.label2.Size = new System.Drawing.Size(211, 35);
             this.label2.TabIndex = 292;
             this.label2.Text = "Tên sản phẩm :";
             // 
@@ -344,12 +344,12 @@ namespace DUAN1
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(639, 431);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 36);
+            this.label4.Size = new System.Drawing.Size(134, 35);
             this.label4.TabIndex = 294;
             this.label4.Text = "Đơn giá :";
             this.label4.UseMnemonic = false;
@@ -364,7 +364,7 @@ namespace DUAN1
             this.QuetMaQR.Location = new System.Drawing.Point(1277, 496);
             this.QuetMaQR.Margin = new System.Windows.Forms.Padding(4);
             this.QuetMaQR.Name = "QuetMaQR";
-            this.QuetMaQR.Size = new System.Drawing.Size(175, 63);
+            this.QuetMaQR.Size = new System.Drawing.Size(160, 63);
             this.QuetMaQR.TabIndex = 369;
             this.QuetMaQR.Text = "Quét QR";
             this.QuetMaQR.UseVisualStyleBackColor = true;
@@ -374,7 +374,7 @@ namespace DUAN1
             // 
             this.btnThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThanhToan.Location = new System.Drawing.Point(1479, 495);
+            this.btnThanhToan.Location = new System.Drawing.Point(1479, 496);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(160, 63);
@@ -385,12 +385,12 @@ namespace DUAN1
             // 
             // cbbIDSP
             // 
-            this.cbbIDSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbIDSP.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbIDSP.FormattingEnabled = true;
             this.cbbIDSP.Location = new System.Drawing.Point(989, 309);
             this.cbbIDSP.Margin = new System.Windows.Forms.Padding(4);
             this.cbbIDSP.Name = "cbbIDSP";
-            this.cbbIDSP.Size = new System.Drawing.Size(265, 33);
+            this.cbbIDSP.Size = new System.Drawing.Size(265, 39);
             this.cbbIDSP.TabIndex = 371;
             this.cbbIDSP.TextChanged += new System.EventHandler(this.cbbIDSP_TextChanged);
             // 
@@ -399,12 +399,12 @@ namespace DUAN1
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(640, 309);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(260, 36);
+            this.label5.Size = new System.Drawing.Size(245, 35);
             this.label5.TabIndex = 372;
             this.label5.Text = "ID CT sản phẩm :";
             // 

@@ -17,36 +17,55 @@ namespace DUAN1
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            using (DAXuongEntities db = new DAXuongEntities())
+            try
             {
-                this.FormBorderStyle = FormBorderStyle.None;
-                Constant.ChangeDatabase(db);
-                dataGridView1.Rows.Clear();
+                DateTime fromDate = dtptungay.Value.Date;
+                DateTime toDate = dtpdenngay.Value.Date;
 
-                DateTime today = DateTime.Today;
-                DateTime lateday = today.AddDays(-10);
-
-                var hoaDonList = (from hd in db.hoa_don
-                                  join cthd in db.chi_tiet_hoa_don on hd.ma_hd equals cthd.ma_hd
-
-                                  select new
-                                  {
-                                      HoaDon = hd,
-                                      ChiTietHoaDon = cthd,
-                                  }).Where(cthd => cthd.HoaDon.ngay_lap <= today && cthd.HoaDon.ngay_lap >= lateday).ToList();
-
-                foreach (var item in hoaDonList)
+                if (dtptungay.Value.Year <= 1990 || dtpdenngay.Value.Year > DateTime.Today.Year)
                 {
-
-                    dataGridView1.Rows.Add(
-                        item.HoaDon.ma_hd,
-                        DateTime.Parse(item.HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                        item.ChiTietHoaDon.dongia,
-                        item.ChiTietHoaDon.so_luong,
-                        item.HoaDon.chi_tiet_hoa_don.Count(),
-                        item.HoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
-                    );;
+                    MessageBox.Show("Năm không nhỏ hơn 1990 và lớn hơn năm hiện tại ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+                else
+                {
+                    using (DAXuongEntities db = new DAXuongEntities())
+                    {
+                        Constant.ChangeDatabase(db);
+                        List<hoa_don> listhd = db.hoa_don
+                            .Where(x => x.ngay_lap >= fromDate && x.ngay_lap < toDate)
+                            .ToList();
+
+                        dataGridView1.Rows.Clear();
+
+                        var hoaDonList = (from hd in db.hoa_don
+                                          join cthd in db.chi_tiet_hoa_don on hd.ma_hd equals cthd.ma_hd
+
+                                          select new
+                                          {
+                                              HoaDon = hd,
+                                              ChiTietHoaDon = cthd,
+                                          }).Where(cthd => cthd.HoaDon.ma_hd.Equals(cthd.ChiTietHoaDon.ma_hd)).ToList();
+
+                        foreach (var item in hoaDonList)
+                        {
+                            //var countHD = db.hoa_don.Where(x => x.ma_hd.Equals(item.ChiTietHoaDon.ma_hd)).FirstOrDefault();
+
+                            dataGridView1.Rows.Add(
+                                item.HoaDon.ma_hd,
+                                DateTime.Parse(item.HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                                item.ChiTietHoaDon.dongia,
+                                item.ChiTietHoaDon.so_luong,
+                                item.HoaDon.chi_tiet_hoa_don.Count(),
+                                item.HoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
+                            ); ;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không để trống");
             }
 
 
@@ -135,7 +154,7 @@ namespace DUAN1
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            try
+           try
             {
                 DateTime fromDate = dtptungay.Value.Date;
                 DateTime toDate = dtpdenngay.Value.Date;
@@ -156,24 +175,28 @@ namespace DUAN1
 
                         dataGridView1.Rows.Clear();
 
-                        listhd.ForEach(hd =>
+                        var hoaDonList = (from hd in db.hoa_don
+                                          join cthd in db.chi_tiet_hoa_don on hd.ma_hd equals cthd.ma_hd
+
+                                          select new
+                                          {
+                                              HoaDon = hd,
+                                              ChiTietHoaDon = cthd,
+                                          }).Where(cthd => cthd.HoaDon.ma_hd.Equals(cthd.ChiTietHoaDon.ma_hd)).ToList();
+
+                        foreach (var item in hoaDonList)
                         {
-                            var CTHD = db.chi_tiet_hoa_don.FirstOrDefault(cthd => cthd.ma_hd == hd.ma_hd);
+                            //var countHD = db.hoa_don.Where(x => x.ma_hd.Equals(item.ChiTietHoaDon.ma_hd)).FirstOrDefault();
 
-                            chi_tiet_hoa_don cthh = db.chi_tiet_hoa_don.FirstOrDefault(x => x.ma_hd == hd.ma_hd);
-                            
-
-                            if (hd != null)
-                            {
-                                dataGridView1.Rows.Add(
-                                        hd.ma_hd,
-                                        hd.ngay_lap,
-                                        cthh.chitiet_hanghoa.gia_ban,
-                                        cthh.so_luong,
-                                        listhd.Count(),
-                                        cthh.dongia);
-                            }
-                        });
+                            dataGridView1.Rows.Add(
+                                item.HoaDon.ma_hd,
+                                DateTime.Parse(item.HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                                item.ChiTietHoaDon.dongia,
+                                item.ChiTietHoaDon.so_luong,
+                                item.HoaDon.chi_tiet_hoa_don.Count(),
+                                item.HoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
+                            ); ;
+                        }
                     }
                 }
             }

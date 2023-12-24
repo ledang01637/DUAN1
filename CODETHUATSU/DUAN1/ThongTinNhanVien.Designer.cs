@@ -59,11 +59,12 @@ namespace DUAN1
             this.lbsdt.AutoSize = true;
             this.lbsdt.BackColor = System.Drawing.Color.Transparent;
             this.lbsdt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lbsdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbsdt.Font = new System.Drawing.Font("Times New Roman", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbsdt.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbsdt.Location = new System.Drawing.Point(805, 468);
+            this.lbsdt.Location = new System.Drawing.Point(1073, 576);
+            this.lbsdt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbsdt.Name = "lbsdt";
-            this.lbsdt.Size = new System.Drawing.Size(271, 42);
+            this.lbsdt.Size = new System.Drawing.Size(317, 55);
             this.lbsdt.TabIndex = 36;
             this.lbsdt.Text = "Số điện thoại :";
             // 
@@ -72,10 +73,11 @@ namespace DUAN1
             this.tbsdt.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.tbsdt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbsdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsdt.Location = new System.Drawing.Point(1130, 470);
+            this.tbsdt.Location = new System.Drawing.Point(1507, 578);
+            this.tbsdt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbsdt.Multiline = true;
             this.tbsdt.Name = "tbsdt";
-            this.tbsdt.Size = new System.Drawing.Size(394, 40);
+            this.tbsdt.Size = new System.Drawing.Size(525, 49);
             this.tbsdt.TabIndex = 35;
             // 
             // lbtennhanvien
@@ -83,11 +85,12 @@ namespace DUAN1
             this.lbtennhanvien.AutoSize = true;
             this.lbtennhanvien.BackColor = System.Drawing.Color.Transparent;
             this.lbtennhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lbtennhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtennhanvien.Font = new System.Drawing.Font("Times New Roman", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtennhanvien.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbtennhanvien.Location = new System.Drawing.Point(805, 338);
+            this.lbtennhanvien.Location = new System.Drawing.Point(1073, 416);
+            this.lbtennhanvien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbtennhanvien.Name = "lbtennhanvien";
-            this.lbtennhanvien.Size = new System.Drawing.Size(291, 42);
+            this.lbtennhanvien.Size = new System.Drawing.Size(341, 55);
             this.lbtennhanvien.TabIndex = 34;
             this.lbtennhanvien.Text = "Tên nhân viên :";
             // 
@@ -96,10 +99,11 @@ namespace DUAN1
             this.tbtennhanvien.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.tbtennhanvien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbtennhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbtennhanvien.Location = new System.Drawing.Point(1130, 340);
+            this.tbtennhanvien.Location = new System.Drawing.Point(1507, 418);
+            this.tbtennhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbtennhanvien.Multiline = true;
             this.tbtennhanvien.Name = "tbtennhanvien";
-            this.tbtennhanvien.Size = new System.Drawing.Size(394, 40);
+            this.tbtennhanvien.Size = new System.Drawing.Size(525, 49);
             this.tbtennhanvien.TabIndex = 33;
             // 
             // lbmanhanvien
@@ -107,11 +111,12 @@ namespace DUAN1
             this.lbmanhanvien.AutoSize = true;
             this.lbmanhanvien.BackColor = System.Drawing.Color.Transparent;
             this.lbmanhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lbmanhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbmanhanvien.Font = new System.Drawing.Font("Times New Roman", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbmanhanvien.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbmanhanvien.Location = new System.Drawing.Point(805, 219);
+            this.lbmanhanvien.Location = new System.Drawing.Point(1073, 270);
+            this.lbmanhanvien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbmanhanvien.Name = "lbmanhanvien";
-            this.lbmanhanvien.Size = new System.Drawing.Size(277, 42);
+            this.lbmanhanvien.Size = new System.Drawing.Size(331, 55);
             this.lbmanhanvien.TabIndex = 32;
             this.lbmanhanvien.Text = "Mã nhân viên :";
             // 
@@ -120,19 +125,21 @@ namespace DUAN1
             this.tbmanhanvien.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.tbmanhanvien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbmanhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbmanhanvien.Location = new System.Drawing.Point(1130, 221);
+            this.tbmanhanvien.Location = new System.Drawing.Point(1507, 272);
+            this.tbmanhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbmanhanvien.Multiline = true;
             this.tbmanhanvien.Name = "tbmanhanvien";
-            this.tbmanhanvien.Size = new System.Drawing.Size(394, 40);
+            this.tbmanhanvien.Size = new System.Drawing.Size(525, 49);
             this.tbmanhanvien.TabIndex = 31;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(170, 221);
+            this.pictureBox3.Location = new System.Drawing.Point(227, 272);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(390, 395);
+            this.pictureBox3.Size = new System.Drawing.Size(520, 486);
             this.pictureBox3.TabIndex = 30;
             this.pictureBox3.TabStop = false;
             // 
@@ -141,11 +148,12 @@ namespace DUAN1
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(805, 576);
+            this.label1.Location = new System.Drawing.Point(1073, 709);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 42);
+            this.label1.Size = new System.Drawing.Size(175, 55);
             this.label1.TabIndex = 160;
             this.label1.Text = "Email :";
             // 
@@ -154,10 +162,11 @@ namespace DUAN1
             this.tbemail.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.tbemail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbemail.Location = new System.Drawing.Point(1130, 576);
+            this.tbemail.Location = new System.Drawing.Point(1507, 709);
+            this.tbemail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbemail.Multiline = true;
             this.tbemail.Name = "tbemail";
-            this.tbemail.Size = new System.Drawing.Size(394, 40);
+            this.tbemail.Size = new System.Drawing.Size(525, 49);
             this.tbemail.TabIndex = 159;
             // 
             // label3
@@ -166,33 +175,33 @@ namespace DUAN1
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Font = new System.Drawing.Font("Times New Roman", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(641, 9);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.MaximumSize = new System.Drawing.Size(1090, 54);
+            this.label3.Location = new System.Drawing.Point(855, 11);
+            this.label3.MaximumSize = new System.Drawing.Size(1453, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(523, 49);
+            this.label3.Size = new System.Drawing.Size(641, 61);
             this.label3.TabIndex = 333;
             this.label3.Text = "THÔNG TIN NHÂN VIÊN";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(178, 600);
+            this.label2.Location = new System.Drawing.Point(237, 738);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 334;
             this.label2.Text = "label2";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // ThongTinNhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1739, 940);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbemail);
@@ -206,6 +215,7 @@ namespace DUAN1
             this.Controls.Add(this.label2);
             this.DoubleBuffered = true;
             this.Location = new System.Drawing.Point(175, 65);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ThongTinNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ThongTinNhanVien";

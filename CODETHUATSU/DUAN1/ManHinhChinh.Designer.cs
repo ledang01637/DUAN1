@@ -99,10 +99,10 @@ namespace DUAN1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(36, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 18);
+            this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Đăng xuất";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -122,10 +122,10 @@ namespace DUAN1
             // lblTenForm
             // 
             this.lblTenForm.AutoSize = true;
-            this.lblTenForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenForm.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenForm.Location = new System.Drawing.Point(237, 25);
             this.lblTenForm.Name = "lblTenForm";
-            this.lblTenForm.Size = new System.Drawing.Size(130, 29);
+            this.lblTenForm.Size = new System.Drawing.Size(120, 29);
             this.lblTenForm.TabIndex = 3;
             this.lblTenForm.Text = "Tên Form";
             // 
@@ -144,11 +144,11 @@ namespace DUAN1
             // 
             this.tbusername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbusername.AutoSize = true;
-            this.tbusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbusername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbusername.Location = new System.Drawing.Point(61, 15);
             this.tbusername.MaximumSize = new System.Drawing.Size(120, 30);
             this.tbusername.Name = "tbusername";
-            this.tbusername.Size = new System.Drawing.Size(113, 30);
+            this.tbusername.Size = new System.Drawing.Size(115, 30);
             this.tbusername.TabIndex = 0;
             this.tbusername.Text = "Usernameeeeeeeee";
             // 
@@ -181,7 +181,7 @@ namespace DUAN1
             this.btnChiTietHoaDon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChiTietHoaDon.FlatAppearance.BorderSize = 0;
             this.btnChiTietHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChiTietHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChiTietHoaDon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTietHoaDon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnChiTietHoaDon.Location = new System.Drawing.Point(-1, 357);
             this.btnChiTietHoaDon.Margin = new System.Windows.Forms.Padding(4);
@@ -201,7 +201,7 @@ namespace DUAN1
             this.btnthongke.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnthongke.FlatAppearance.BorderSize = 0;
             this.btnthongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnthongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthongke.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthongke.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnthongke.Location = new System.Drawing.Point(-1, 562);
             this.btnthongke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -221,7 +221,7 @@ namespace DUAN1
             this.btnkhachhang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnkhachhang.FlatAppearance.BorderSize = 0;
             this.btnkhachhang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnkhachhang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnkhachhang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnkhachhang.Location = new System.Drawing.Point(-1, 495);
             this.btnkhachhang.Margin = new System.Windows.Forms.Padding(4);
@@ -240,7 +240,7 @@ namespace DUAN1
             this.btnnhanvien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnnhanvien.FlatAppearance.BorderSize = 0;
             this.btnnhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnnhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnhanvien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnnhanvien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnnhanvien.Location = new System.Drawing.Point(-1, 426);
             this.btnnhanvien.Margin = new System.Windows.Forms.Padding(4);
@@ -260,7 +260,7 @@ namespace DUAN1
             this.btnchitiethanghoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnchitiethanghoa.FlatAppearance.BorderSize = 0;
             this.btnchitiethanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnchitiethanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnchitiethanghoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnchitiethanghoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnchitiethanghoa.Location = new System.Drawing.Point(-1, 219);
             this.btnchitiethanghoa.Margin = new System.Windows.Forms.Padding(4);
@@ -268,7 +268,6 @@ namespace DUAN1
             this.btnchitiethanghoa.Size = new System.Drawing.Size(236, 62);
             this.btnchitiethanghoa.TabIndex = 349;
             this.btnchitiethanghoa.Text = "Chi Tiết Hàng Hóa";
-            this.btnchitiethanghoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnchitiethanghoa.UseVisualStyleBackColor = false;
             this.btnchitiethanghoa.Click += new System.EventHandler(this.btnkhohang_Click);
             // 
@@ -281,7 +280,7 @@ namespace DUAN1
             this.btnhanghoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnhanghoa.FlatAppearance.BorderSize = 0;
             this.btnhanghoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhanghoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhanghoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhanghoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnhanghoa.Location = new System.Drawing.Point(-1, 150);
             this.btnhanghoa.Margin = new System.Windows.Forms.Padding(4);
@@ -301,7 +300,7 @@ namespace DUAN1
             this.btnthongtinnv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnthongtinnv.FlatAppearance.BorderSize = 0;
             this.btnthongtinnv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnthongtinnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthongtinnv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthongtinnv.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnthongtinnv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnthongtinnv.Location = new System.Drawing.Point(-1, 81);
@@ -322,7 +321,7 @@ namespace DUAN1
             this.btnhoadon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnhoadon.FlatAppearance.BorderSize = 0;
             this.btnhoadon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhoadon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhoadon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnhoadon.Location = new System.Drawing.Point(-1, 288);
             this.btnhoadon.Margin = new System.Windows.Forms.Padding(4);
