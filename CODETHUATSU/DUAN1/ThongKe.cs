@@ -26,7 +26,7 @@ namespace DUAN1
                 DateTime today = DateTime.Today;
                 var lateday = today.AddDays(-10);
 
-                var hoaDonList = db.hoa_don.Where(cthd => cthd.ngay_lap <= today && cthd.ngay_lap >= lateday);
+                var hoaDonList = db.hoa_don.Where(cthd => cthd.ngay_lap <= today && cthd.ngay_lap >= lateday).ToList();
                 var Key = db.chi_tiet_hoa_don.GroupBy(a => a.chitiet_hanghoa.hang_hoa.ten);
 
                 foreach (var hoaDon in hoaDonList)

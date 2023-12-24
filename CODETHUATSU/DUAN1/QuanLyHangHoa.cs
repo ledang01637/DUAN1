@@ -196,6 +196,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 var HH = db.hang_hoa.ToList().Where(a => a.ten.Equals(cbbTenHH.Text));
                 dataGridView1.Rows.Clear();
                 foreach (var item in HH)
@@ -214,6 +215,7 @@ namespace DUAN1
         {
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(db);
                 var HH = db.hang_hoa.ToList().Where(a => a.noisx.Equals(cbbNsx.Text));
                 dataGridView1.Rows.Clear();
                 foreach (var item in HH)
