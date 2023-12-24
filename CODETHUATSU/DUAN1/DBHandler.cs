@@ -183,6 +183,29 @@ namespace DUAN1
             }
         }
         #endregion
+        public static bool updateHoaDon(hoa_don HDUpdate)
+        {
+            using (DAXuongEntities HD = new DAXuongEntities())
+            {
+                Constant.ChangeDatabase(HD);
+                try
+                {
+                    hoa_don found = HD.hoa_don
+                        .FirstOrDefault(sp => sp.ma_hd.Equals(HDUpdate.ma_hd));
+                    found.ma_kh = HDUpdate.ma_kh;
+                    found.ma_nv= HDUpdate.ma_nv;
+                    found.ngay_lap = HDUpdate.ngay_lap;
+                    found.trang_thai = HDUpdate.trang_thai;
+                    found.tongtien = HDUpdate.tongtien;
+                    HD.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
         public static hang_hoa timMaTen(string MaTen)
         {
             using (DAXuongEntities dUAN1Entities = new DAXuongEntities())

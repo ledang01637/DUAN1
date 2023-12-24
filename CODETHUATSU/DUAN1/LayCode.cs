@@ -91,6 +91,7 @@ namespace DUAN1
         {
             using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
             {
+                Constant.ChangeDatabase(dUAN1Entities);
                 dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.nhan_vien.email.Equals(email));
                 if (dang_ != null)
                 {

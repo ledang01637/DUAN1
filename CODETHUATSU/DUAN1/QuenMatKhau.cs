@@ -43,6 +43,7 @@ namespace DUAN1
                     using (DAXuongEntities dUAN1Entities = new DAXuongEntities())
                     {
                         //Mã hóa
+                        Constant.ChangeDatabase(dUAN1Entities);
                         DBHandler dBHanler = new DBHandler();
                         String Hash = dBHanler.GetMD5(tbpassword1.Text);
                         dang_nhap dang_ = dUAN1Entities.dang_nhap.FirstOrDefault(a => a.nhan_vien.email.Trim().ToLower().Equals(GetCode.Email));

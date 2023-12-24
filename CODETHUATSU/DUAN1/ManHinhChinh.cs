@@ -22,7 +22,7 @@ namespace DUAN1
         {
             tbusername.Text = username;
         }
-
+        string User = "";
         private void ManHinhChinh_Load(object sender, System.EventArgs e)
         {
             this.IsMdiContainer = true;
@@ -44,30 +44,32 @@ namespace DUAN1
             }
             activeForm = new ThongTinNhanVien(tbusername.Text) ;
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Thông tin nhân viên";
             activeForm.Show();
-
-            String RoleTK = DBHandler.CheckTK(tbusername.Text);
-            if (RoleTK.Equals("nhanvien"))
+            User = DBHandler.CheckTK(tbusername.Text);
+            Role();
+        }
+        private void Role()
+        {
+            if (User.Equals("nhanvien"))
             {
                 //Nếu nhân viên tồn tại, tên nhân viên và số điện thoại sẽ xuất ra trong text box dựa theo mã nhân viên ở tbmanhanvien
                 btnnhanvien.Enabled = false;
+                btnnhanvien.BackColor = Color.Gray;
+
             }
-            else if (RoleTK.Equals("admin"))
+            else if (User.Equals("admin"))
             {
                 //Nếu nhân viên không tồn tại, tên và số điện thoại của chủ shop sẽ truyền vào vì chỉ có một chủ shop duy nhất
                 btnnhanvien.Enabled = true;
-
+                btnnhanvien.Cursor = Cursors.Hand;
             }
         }
-
         private void Logout_Click(object sender, System.EventArgs e)
         {
-
-        }
-
-        private void SideBar_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Hide();
+            Login login = new Login();
+            login.Show();
         }
 
         private void ResetColorButton()
@@ -100,8 +102,9 @@ namespace DUAN1
         }
         private void btnthongtinnv_Click(object sender, System.EventArgs e)
         {
+            
             ResetColorButton();
-
+            Role();
             btnthongtinnv.BackColor = Color.FromArgb(176, 224, 230);
             btnthongtinnv.ForeColor = Color.Black;
             if (activeForm != null)
@@ -111,12 +114,15 @@ namespace DUAN1
             }
             activeForm = new ThongTinNhanVien(tbusername.Text);
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Thông tin nhân viên";
             activeForm.Show();
         }
 
         private void btnhanghoa_Click(object sender, System.EventArgs e)
         {
+            
             ResetColorButton();
+            Role();
             btnhanghoa.BackColor = Color.FromArgb(176, 224, 230);
             btnhanghoa.ForeColor = Color.Black;
             this.IsMdiContainer = true;
@@ -127,13 +133,15 @@ namespace DUAN1
             }
             activeForm = new QuanLyHangHoa();
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý hàng hóa";
             activeForm.Show();
         }
 
         private void btnkhohang_Click(object sender, System.EventArgs e)
         {
+            
             ResetColorButton();
-
+            Role();
             btnchitiethanghoa.BackColor = Color.FromArgb(176, 224, 230);
             btnchitiethanghoa.ForeColor = Color.Black;
             if (activeForm != null)
@@ -143,13 +151,15 @@ namespace DUAN1
             }
             activeForm = new ChiTietHangHoa();
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý chi tiết hàng hóa";
             activeForm.Show();
         }
 
         private void btnhoadon_Click(object sender, System.EventArgs e)
         {
+            
             ResetColorButton();
-
+            Role();
             btnhoadon.BackColor = Color.FromArgb(176, 224, 230);
             btnhoadon.ForeColor = Color.Black;
             if (activeForm != null)
@@ -157,15 +167,17 @@ namespace DUAN1
                 activeForm.Hide();
                 activeForm.Dispose();
             }
-            activeForm = new QuanLyHoaDon();
+            activeForm = new QuanLyHoaDon(tbusername.Text);
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý hóa đơn";
             activeForm.Show();
         }
 
         private void btnChiTietHoaDon_Click(object sender, System.EventArgs e)
         {
+           
             ResetColorButton();
-
+            Role();
             btnChiTietHoaDon.BackColor = Color.FromArgb(176, 224, 230);
             btnChiTietHoaDon.ForeColor = Color.Black;
             if (activeForm != null)
@@ -175,13 +187,15 @@ namespace DUAN1
             }
             activeForm = new ChiTietHoaDon();
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý chi tiết hóa đơn";
             activeForm.Show();
         }
 
         private void btnnhanvien_Click(object sender, System.EventArgs e)
         {
+           
             ResetColorButton();
-
+            Role();
             btnnhanvien.BackColor = Color.FromArgb(176, 224, 230);
             btnnhanvien.ForeColor = Color.Black;
             if (activeForm != null)
@@ -191,13 +205,15 @@ namespace DUAN1
             }
             activeForm = new QuanLyNhanVien();
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý nhân viên";
             activeForm.Show();
         }
 
         private void btnkhachhang_Click(object sender, System.EventArgs e)
         {
+           
             ResetColorButton();
-
+            Role();
             btnkhachhang.BackColor = Color.FromArgb(176, 224, 230);
             btnkhachhang.ForeColor = Color.Black;
             if (activeForm != null)
@@ -207,13 +223,15 @@ namespace DUAN1
             }
             activeForm = new QuanLyKhachHang();
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý khách hàng";
             activeForm.Show();
         }
 
         private void btnthongke_Click(object sender, System.EventArgs e)
         {
+            
             ResetColorButton();
-
+            Role();
             btnthongke.BackColor = Color.FromArgb(176, 224, 230);
             btnthongke.ForeColor = Color.Black;
             if (activeForm != null)
@@ -223,20 +241,22 @@ namespace DUAN1
             }
             activeForm = new ThongKe();
             activeForm.MdiParent = this;
+            lblTenForm.Text = "Quản lý thống kê";
             activeForm.Show();
         }
 
-        private void label1_Click(object sender, System.EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login login = new Login();
             login.Show();
-
         }
 
-        private void tbusername_Click(object sender, System.EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Login login = new Login();
+            login.Show();
         }
     }
 }

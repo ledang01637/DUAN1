@@ -100,21 +100,6 @@ namespace DUAN1
                 }
             }
         }
-        //private void ThongKe()
-        //{
-        //    using (DAXuongEntities db = new DAXuongEntities())
-        //    {
-        //        var cthh = db.chitiet_hanghoa.Where(x => x.hang_hoa.ten.Equals(cbbmahanghoachitiet.Text)).ToList();
-        //        foreach(var item in cthh)
-        //        {
-        //            if (cthh != null)
-        //            {
-        //                item.soluong -= int.Parse(tbsoluong.Text);
-        //                db.SaveChanges();
-        //            }
-        //        }  
-        //    }
-        //}
         //btn thêm
         private void btnthem_Click(object sender, EventArgs e)
         {
@@ -363,6 +348,8 @@ namespace DUAN1
             }
             else
             {
+                TongTien();
+                //updateSLHH();
                 PrintDialog PrintDialog1 = new PrintDialog();
                 docToPrint.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", width, height + 200);
                 PrintDialog1.AllowSomePages = true;
@@ -378,6 +365,42 @@ namespace DUAN1
                 }
             }
         }
+        private void TongTien()
+        {
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                Constant.ChangeDatabase(db);
+
+                var CTHD = db.chi_tiet_hoa_don.GroupBy(a => a.ma_hd).ToList();
+                foreach(var key in CTHD)
+                {
+                    foreach(var item in key)
+                    {
+                        var HD = db.hoa_don.FirstOrDefault(a => a.ma_hd.Equals(item.ma_hd));
+                        HD.tongtien = key.Sum(a => a.dongia);
+                        db.SaveChanges();
+                    }
+                }
+            }
+        }
+        //private void updateSLHH()
+        //{
+        //    using (DAXuongEntities db = new DAXuongEntities())
+        //    {
+        //        Constant.ChangeDatabase(db);
+        //        var CTHD = db.chi_tiet_hoa_don.GroupBy(a => a.ma_chitiet_hanghoa).ToList();
+        //        foreach (var key in CTHD)
+        //        {
+        //            foreach (var item in key)
+        //            {
+        //                var HD = db.chitiet_hanghoa.FirstOrDefault(a => a.id == item.ma_chitiet_hanghoa);
+
+        //                HD.soluong -= item.so_luong;
+        //                db.SaveChanges();  
+        //            }
+        //        }
+        //    }
+        //}
         private void document_PrintPage(object sender, PrintPageEventArgs e)
         {
             using (DAXuongEntities entities = new DAXuongEntities())

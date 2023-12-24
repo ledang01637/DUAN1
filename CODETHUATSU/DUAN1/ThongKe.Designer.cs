@@ -56,9 +56,10 @@ namespace DUAN1
             this.label9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(528, 254);
+            this.label9.Location = new System.Drawing.Point(704, 313);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 25);
+            this.label9.Size = new System.Drawing.Size(0, 31);
             this.label9.TabIndex = 236;
             // 
             // label7
@@ -67,9 +68,10 @@ namespace DUAN1
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(522, 207);
+            this.label7.Location = new System.Drawing.Point(696, 255);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 25);
+            this.label7.Size = new System.Drawing.Size(0, 31);
             this.label7.TabIndex = 235;
             // 
             // dataGridView1
@@ -85,11 +87,12 @@ namespace DUAN1
             this.soluongsanpham,
             this.soluonghoadon,
             this.giasanpham});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 263);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 324);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1688, 665);
+            this.dataGridView1.Size = new System.Drawing.Size(2277, 818);
             this.dataGridView1.TabIndex = 217;
             // 
             // mahoadon
@@ -102,6 +105,7 @@ namespace DUAN1
             // ngaylap
             // 
             this.ngaylap.HeaderText = "Ngày lập";
+            this.ngaylap.MinimumWidth = 6;
             this.ngaylap.Name = "ngaylap";
             this.ngaylap.ReadOnly = true;
             // 
@@ -115,12 +119,14 @@ namespace DUAN1
             // soluongsanpham
             // 
             this.soluongsanpham.HeaderText = "Số lượng sản phẩm";
+            this.soluongsanpham.MinimumWidth = 6;
             this.soluongsanpham.Name = "soluongsanpham";
             this.soluongsanpham.ReadOnly = true;
             // 
             // soluonghoadon
             // 
             this.soluonghoadon.HeaderText = "Số lượng hóa đơn";
+            this.soluonghoadon.MinimumWidth = 6;
             this.soluonghoadon.Name = "soluonghoadon";
             this.soluonghoadon.ReadOnly = true;
             // 
@@ -137,9 +143,10 @@ namespace DUAN1
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
-            this.btntimkiem.Location = new System.Drawing.Point(1229, 110);
+            this.btntimkiem.Location = new System.Drawing.Point(1639, 135);
+            this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(120, 52);
+            this.btntimkiem.Size = new System.Drawing.Size(160, 64);
             this.btntimkiem.TabIndex = 370;
             this.toolTip1.SetToolTip(this.btntimkiem, "Tìm kiếm");
             this.btntimkiem.UseVisualStyleBackColor = true;
@@ -150,9 +157,10 @@ namespace DUAN1
             this.dtptungay.CustomFormat = "dd/MM/yyyy";
             this.dtptungay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtptungay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtptungay.Location = new System.Drawing.Point(511, 122);
+            this.dtptungay.Location = new System.Drawing.Point(681, 150);
+            this.dtptungay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtptungay.Name = "dtptungay";
-            this.dtptungay.Size = new System.Drawing.Size(159, 35);
+            this.dtptungay.Size = new System.Drawing.Size(211, 41);
             this.dtptungay.TabIndex = 127;
             // 
             // dtpdenngay
@@ -160,9 +168,10 @@ namespace DUAN1
             this.dtpdenngay.CustomFormat = "dd/MM/yyyy";
             this.dtpdenngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpdenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpdenngay.Location = new System.Drawing.Point(887, 122);
+            this.dtpdenngay.Location = new System.Drawing.Point(1183, 150);
+            this.dtpdenngay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpdenngay.Name = "dtpdenngay";
-            this.dtpdenngay.Size = new System.Drawing.Size(159, 35);
+            this.dtpdenngay.Size = new System.Drawing.Size(211, 41);
             this.dtpdenngay.TabIndex = 373;
             // 
             // label1
@@ -171,9 +180,10 @@ namespace DUAN1
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(350, 122);
+            this.label1.Location = new System.Drawing.Point(467, 150);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 31);
+            this.label1.Size = new System.Drawing.Size(167, 39);
             this.label1.TabIndex = 374;
             this.label1.Text = "Từ ngày :";
             // 
@@ -183,9 +193,10 @@ namespace DUAN1
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(726, 122);
+            this.label2.Location = new System.Drawing.Point(968, 150);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 31);
+            this.label2.Size = new System.Drawing.Size(191, 39);
             this.label2.TabIndex = 375;
             this.label2.Text = "Đến ngày :";
             // 
@@ -195,23 +206,22 @@ namespace DUAN1
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Font = new System.Drawing.Font("Times New Roman", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(878, 9);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.MaximumSize = new System.Drawing.Size(1090, 54);
+            this.label3.Location = new System.Drawing.Point(1171, 11);
+            this.label3.MaximumSize = new System.Drawing.Size(1453, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 49);
+            this.label3.Size = new System.Drawing.Size(313, 61);
             this.label3.TabIndex = 376;
             this.label3.Text = "THỐNG KÊ";
             // 
             // ThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1739, 940);
+            this.ClientSize = new System.Drawing.Size(2319, 1157);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -223,7 +233,7 @@ namespace DUAN1
             this.Controls.Add(this.dataGridView1);
             this.DoubleBuffered = true;
             this.Location = new System.Drawing.Point(175, 65);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "QLThongKe";
