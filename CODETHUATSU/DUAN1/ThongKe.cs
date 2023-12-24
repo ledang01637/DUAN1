@@ -17,32 +17,38 @@ namespace DUAN1
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
             using (DAXuongEntities db = new DAXuongEntities())
             {
+                this.FormBorderStyle = FormBorderStyle.None;
                 Constant.ChangeDatabase(db);
                 dataGridView1.Rows.Clear();
 
                 DateTime today = DateTime.Today;
-                var lateday = today.AddDays(-10);
+                DateTime lateday = today.AddDays(-10);
 
-                var hoaDonList = db.hoa_don.Where(cthd => cthd.ngay_lap <= today && cthd.ngay_lap >= lateday).ToList();
-                var Key = db.chi_tiet_hoa_don.GroupBy(a => a.chitiet_hanghoa.hang_hoa.ten);
+                var hoaDonList = (from hd in db.hoa_don
+                                  join cthd in db.chi_tiet_hoa_don on hd.ma_hd equals cthd.ma_hd
 
-                foreach (var hoaDon in hoaDonList)
+                                  select new
+                                  {
+                                      HoaDon = hd,
+                                      ChiTietHoaDon = cthd,
+                                  }).Where(cthd => cthd.HoaDon.ngay_lap <= today && cthd.HoaDon.ngay_lap >= lateday).ToList();
+
+                foreach (var item in hoaDonList)
                 {
-                    var ChiTietHoaDon = db.chi_tiet_hoa_don.FirstOrDefault(cthd => cthd.ma_hd == hoaDon.ma_hd);
-                    
+
                     dataGridView1.Rows.Add(
-                        hoaDon.ma_hd,
-                        DateTime.Parse(hoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                        ChiTietHoaDon.dongia,
-                        ChiTietHoaDon.so_luong,
-                        hoaDon.chi_tiet_hoa_don.Count(),
-                        hoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
-                    ); ;
+                        item.HoaDon.ma_hd,
+                        DateTime.Parse(item.HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                        item.ChiTietHoaDon.dongia,
+                        item.ChiTietHoaDon.so_luong,
+                        item.HoaDon.chi_tiet_hoa_don.Count(),
+                        item.HoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
+                    );;
                 }
             }
+
 
         }
 
