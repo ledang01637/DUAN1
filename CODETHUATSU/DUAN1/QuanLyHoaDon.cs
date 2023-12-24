@@ -61,6 +61,7 @@ namespace DUAN1
                 cbbmakhachhang.Enabled = false;
                 cbbmanv.Enabled = false;
                 dtpngaylap.Enabled = false;
+                tbtongtien.ReadOnly = true;
             }
         }
 
@@ -80,7 +81,8 @@ namespace DUAN1
                     hd.khach_hang.ten_kh,
                     hd.nhan_vien.ten_nv,
                     DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                    hd.trang_thai
+                    hd.trang_thai,
+                    hd.tongtien
                     );
                 }
                 );
@@ -106,6 +108,7 @@ namespace DUAN1
                 cbbmanv.Text = hd.nhan_vien.ten_nv;
                 dtpngaylap.Text = hd.ngay_lap.ToString();
                 tbtrangthai.Text = hd.trang_thai;
+                tbtongtien.Text = hd.tongtien.ToString();
 
             }
 
@@ -119,7 +122,8 @@ namespace DUAN1
             cbbmanv.Enabled = true;
             tbtrangthai.ReadOnly = false;
             dtpngaylap.Enabled = true;
-            if(tbmahoadon.Text != null || tbmahoadon.Text != "")
+            tbtongtien.ReadOnly = true;
+            if (tbmahoadon.Text != null || tbmahoadon.Text != "")
             {
                 layTenHH(tbmahoadon.Text);
             }
@@ -139,6 +143,8 @@ namespace DUAN1
             cbbmanv.Enabled = true;
             tbtrangthai.ReadOnly = false;
             dtpngaylap.Enabled = true;
+            tbtongtien.ReadOnly = false;
+
             UpdateDGV();
         }
 
@@ -148,49 +154,52 @@ namespace DUAN1
             //try
             //{
 
-            //    hoa_don addhd = new hoa_don();
-            //    using (DUAN1Entities db = new DUAN1Entities())
-            //    {
-            //        var kh = db.khach_hang.FirstOrDefault(a => a.ten_kh.Equals(cbbmakhachhang.Text));
-            //        var nv = db.nhan_vien.FirstOrDefault(a => a.ten_nv.Equals(cbbmanv.Text));
-            //        addhd.ma_hd = tbmahoadon.Text;
-            //        addhd.ma_kh = kh.ma_kh;
-            //        addhd.ma_nv = nv.ma_nv;
-            //        addhd.ngay_lap = dtpngaylap.Value;
-            //        addhd.trang_thai = tbtrangthai.Text;
+                hoa_don addhd = new hoa_don();
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
 
-            //        db.hoa_don.Add(addhd);
-            //        db.SaveChanges();
+                    var kh = db.khach_hang.FirstOrDefault(a => a.ten_kh.Equals(cbbmakhachhang.Text));
+                    var nv = db.nhan_vien.FirstOrDefault(a => a.ten_nv.Equals(cbbmanv.Text));
 
-            //        MessageBox.Show("Thêm thành công");
-            //        UpdateDGV();
-            //    }
+                    addhd.ma_hd = tbmahoadon.Text;
+                    addhd.ma_kh = kh.ma_kh;
+                    addhd.ma_nv = nv.ma_nv;
+                    addhd.ngay_lap = dtpngaylap.Value;
+                    addhd.trang_thai = tbtrangthai.Text;
+                    addhd.tongtien = float.Parse(tbtongtien.Text);
+
+                    db.hoa_don.Add(addhd);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Thêm thành công");
+                    UpdateDGV();
+                }
             //}
             //catch (Exception)
             //{
             //    MessageBox.Show("Không được để trống");
             //}
-        }
+}
 
         //chức năng xóa
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    using (DUAN1Entities db = new DUAN1Entities())
-            //    {
-            //        hoa_don delete = db.hoa_don.Where(x => x.ma_hd == tbmahoadon.Text).FirstOrDefault();
+            try
+            {
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
+                    hoa_don delete = db.hoa_don.Where(x => x.ma_hd == tbmahoadon.Text).FirstOrDefault();
 
-            //        db.hoa_don.Remove(delete);
-            //        db.SaveChanges();
-            //    }
-            //    MessageBox.Show("Xóa thành công ");
-            //    UpdateDGV();
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Không tìm thấy sản phẩm cần xóa ");
-            //}
+                    db.hoa_don.Remove(delete);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Xóa thành công ");
+                UpdateDGV();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm cần xóa ");
+            }
         }
 
         // Chức năng hủy reload lại form
@@ -201,6 +210,7 @@ namespace DUAN1
             cbbmanv.Text = "";
             dtpngaylap.Text = "";
             tbtrangthai.Text = "";
+            tbtongtien.Text = "";
 
             btnxoa.Enabled = false;
             btnsua.Enabled = false;
@@ -212,129 +222,78 @@ namespace DUAN1
             cbbmanv.Enabled = false;
             tbtrangthai.ReadOnly = true;
             dtpngaylap.Enabled = false;
+            tbtongtien.ReadOnly = true;
         }
 
         // Chức năng tìm kiếm theo mã
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (tbtimkiem.Text.Equals(""))
-            //    {
-            //        tbtimkiem.Text = "";
-            //    }
+            try
+            {
+                if (tbtimkiem.Text.Equals(""))
+                {
+                    tbtimkiem.Text = "";
+                }
 
-            //    using (DUAN1Entities db = new DUAN1Entities())
-            //    {
-            //        List<hoa_don> listhd = db.hoa_don.Where(x => x.ma_hd.Equals(tbtimkiem.Text)).ToList();
-            //        dataGridView1.Rows.Clear();
-            //        listhd.ToList().ForEach(hd =>
-            //        {
-            //            dataGridView1.Rows.Add(
-            //            hd.ma_hd,
-            //            hd.ma_kh,
-            //            hd.ma_nv,
-            //            hd.ngay_lap,
-            //            hd.trang_thai);
-            //        }
-            //        );
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Không để trống");
-            //}
+                using (DAXuongEntities db = new DAXuongEntities())
+                {
+                    List<hoa_don> listhd = db.hoa_don.Where(x => x.ma_hd.Equals(tbtimkiem.Text)).ToList();
+                    dataGridView1.Rows.Clear();
+                    listhd.ToList().ForEach(hd =>
+                    {
+                        dataGridView1.Rows.Add(
+                        hd.ma_hd,
+                        hd.ma_kh,
+                        hd.ma_nv,
+                        hd.ngay_lap,
+                        hd.trang_thai,
+                        hd.tongtien);
+                    }
+                    );
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không để trống");
+            }
         }
         
         //chức năng sủa
         private void btnsua_Click(object sender, EventArgs e)
         {
-            //using (DUAN1Entities db = new DUAN1Entities())
-            //{
-            //    string maHD = tbmahoadon.Text;
+            using (DAXuongEntities db = new DAXuongEntities())
+            {
+                string maHD = tbmahoadon.Text;
 
-            //    hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == maHD);
-            //    if (hd != null)
-            //    {
-            //        hoa_don edit = db.hoa_don.FirstOrDefault(x => x.ma_hd == tbmahoadon.Text);
-            //        if (edit != null)
-            //        {
-            //            edit.ma_hd = tbmahoadon.Text;
-            //            edit.ma_kh = cbbmakhachhang.Text;
-            //            edit.ma_nv = cbbmanv.Text;
-            //            edit.ngay_lap = dtpngaylap.Value;
-            //            edit.trang_thai = tbtrangthai.Text;
-            //            db.SaveChanges();
-            //            MessageBox.Show("Sửa thành công");
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Không tìm thấy hóa đơn");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Không tìm thấy hàng hóa");
-            //    }
+                hoa_don hd = db.hoa_don.FirstOrDefault(x => x.ma_hd == maHD);
+                if (hd != null)
+                {
+                    hoa_don edit = db.hoa_don.FirstOrDefault(x => x.ma_hd == tbmahoadon.Text);
+                    if (edit != null)
+                    {
+                        edit.ma_hd = tbmahoadon.Text;
+                        edit.ma_kh = cbbmakhachhang.Text;
+                        edit.ma_nv = cbbmanv.Text;
+                        edit.ngay_lap = dtpngaylap.Value;
+                        edit.trang_thai = tbtrangthai.Text;
+                        edit.tongtien = int.Parse(tbtongtien.Text);
+                        db.SaveChanges();
+                        MessageBox.Show("Sửa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy hóa đơn");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy hàng hóa");
+                }
 
-            //    UpdateDGV();
-            //} 
+                UpdateDGV();
+            }
         }
-        //private void btnthoat_Click(object sender, EventArgs e)
-        //{
-        //    //Nút thoát ra ngoài form Đăng nhập
-        //    this.Hide();
-        //    Login form = new Login();
-        //    form.ShowDialog();
-        //    this.Close();
-        //}
-        //private void btnhanghoa_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
-        //    quanLyHangHoa.ShowDialog();
-        //    this.Close();
-        //}
 
-        //private void btnkhohang_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
-        //    khhh.ShowDialog();
-        //    this.Close();
-        //}
-
-        //private void btnhoadon_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyHoaDon qlhd = new QuanLyHoaDon(tbusername.Text);
-        //    qlhd.ShowDialog();
-        //    this.Close();
-        //}
-
-        //private void btnnhanvien_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
-        //    qlnv.ShowDialog();
-        //    this.Close();
-        //}
-
-        //private void btnkhachhang_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
-        //    qlkh.ShowDialog();
-        //    this.Close();
-        //}
-
-        //private void btnthongke_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ThongKe tk = new ThongKe(tbusername.Text);
-        //    tk.ShowDialog();
-        //    this.Close();
-        //}
         //Print HoaDon
         private readonly PrintDocument docToPrint = new PrintDocument();
         readonly int x = 0;
@@ -469,20 +428,7 @@ namespace DUAN1
             quetQR.ShowDialog();
             this.Close();
         }
-        //private void btnthongtinnv_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ThongTinNhanVien tinNhanVien = new ThongTinNhanVien(tbusername.Text);
-        //    tinNhanVien.ShowDialog();
-        //    this.Close();
-        //}
 
-        //private void btnchitiethoadon_Click_1(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ChiTietHoaDon cthd = new ChiTietHoaDon(tbusername.Text);
-        //    cthd.ShowDialog();
-        //    this.Close();
-        //}
+
     }
 }
