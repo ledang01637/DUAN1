@@ -325,9 +325,11 @@ namespace DUAN1
                                 MessageBox.Show("Ngày lập không được lớn hơn hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
+                            var kh = db.khach_hang.FirstOrDefault(a => a.ten_kh.Equals(cbbmakhachhang.Text));
+                            var nv = db.nhan_vien.FirstOrDefault(a => a.ten_nv.Equals(cbbmanv.Text));
                             edit.ma_hd = tbmahoadon.Text;
-                            edit.ma_kh = cbbmakhachhang.Text;
-                            edit.ma_nv = cbbmanv.Text;
+                            edit.ma_kh = kh.ma_kh;
+                            edit.ma_nv = nv.ma_nv;
                             edit.ngay_lap = dtpngaylap.Value;
                             edit.trang_thai = tbtrangthai.Text;
                             db.SaveChanges();

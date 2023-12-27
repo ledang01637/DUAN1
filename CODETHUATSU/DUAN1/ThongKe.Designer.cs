@@ -88,7 +88,7 @@ namespace DUAN1
             this.soluonghoadon,
             this.giasanpham});
             this.dataGridView1.Location = new System.Drawing.Point(16, 324);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -144,7 +144,7 @@ namespace DUAN1
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btntimkiem.Image")));
             this.btntimkiem.Location = new System.Drawing.Point(1639, 135);
-            this.btntimkiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btntimkiem.Margin = new System.Windows.Forms.Padding(4);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(160, 64);
             this.btntimkiem.TabIndex = 370;
@@ -158,10 +158,11 @@ namespace DUAN1
             this.dtptungay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtptungay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtptungay.Location = new System.Drawing.Point(681, 150);
-            this.dtptungay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtptungay.Margin = new System.Windows.Forms.Padding(4);
             this.dtptungay.Name = "dtptungay";
             this.dtptungay.Size = new System.Drawing.Size(211, 41);
             this.dtptungay.TabIndex = 127;
+            this.dtptungay.Value = new System.DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
             // dtpdenngay
             // 
@@ -169,7 +170,7 @@ namespace DUAN1
             this.dtpdenngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpdenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpdenngay.Location = new System.Drawing.Point(1183, 150);
-            this.dtpdenngay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpdenngay.Margin = new System.Windows.Forms.Padding(4);
             this.dtpdenngay.Name = "dtpdenngay";
             this.dtpdenngay.Size = new System.Drawing.Size(211, 41);
             this.dtpdenngay.TabIndex = 373;
@@ -221,7 +222,7 @@ namespace DUAN1
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(2319, 1157);
+            this.ClientSize = new System.Drawing.Size(1924, 748);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -233,7 +234,7 @@ namespace DUAN1
             this.Controls.Add(this.dataGridView1);
             this.DoubleBuffered = true;
             this.Location = new System.Drawing.Point(175, 65);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "QLThongKe";

@@ -17,6 +17,22 @@ namespace DUAN1
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
+            //using (DAXuongEntities db = new DAXuongEntities())
+            //{
+            //    Constant.ChangeDatabase(db);
+            //    var CTHD = db.chi_tiet_hoa_don.GroupBy(a => a.ma_chitiet_hanghoa).ToList();
+            //    foreach (var key in CTHD)
+            //    {
+            //        foreach (var item in key)
+            //        {
+            //            var HD = db.chitiet_hanghoa.FirstOrDefault(a => a.id == item.ma_chitiet_hanghoa);
+
+            //            HD.soluong -= item.so_luong;
+            //            db.SaveChanges();
+            //        }
+            //    }
+            //}
             try
             {
                 DateTime fromDate = dtptungay.Value.Date;
@@ -35,31 +51,50 @@ namespace DUAN1
                         List<hoa_don> listhd = db.hoa_don
                             .Where(x => x.ngay_lap >= fromDate && x.ngay_lap < toDate)
                             .ToList();
-
                         dataGridView1.Rows.Clear();
-
-                        var hoaDonList = (from hd in db.hoa_don
-                                          join cthd in db.chi_tiet_hoa_don on hd.ma_hd equals cthd.ma_hd
-
-                                          select new
-                                          {
-                                              HoaDon = hd,
-                                              ChiTietHoaDon = cthd,
-                                          }).Where(cthd => cthd.HoaDon.ma_hd.Equals(cthd.ChiTietHoaDon.ma_hd)).ToList();
-
-                        foreach (var item in hoaDonList)
+                        foreach (var hd in listhd)
                         {
-                            //var countHD = db.hoa_don.Where(x => x.ma_hd.Equals(item.ChiTietHoaDon.ma_hd)).FirstOrDefault();
-
+                            int tongtien = 0;
+                            int soluong = 0;
+                            foreach(var cthd in hd.chi_tiet_hoa_don)
+                            {
+                                tongtien += (int)cthd.dongia;
+                                soluong += (int)cthd.so_luong;
+                            }
                             dataGridView1.Rows.Add(
-                                item.HoaDon.ma_hd,
-                                DateTime.Parse(item.HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
-                                item.ChiTietHoaDon.dongia,
-                                item.ChiTietHoaDon.so_luong,
-                                item.HoaDon.chi_tiet_hoa_don.Count(),
-                                item.HoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
-                            ); ;
+                                hd.ma_hd,
+                                DateTime.Parse(hd.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                                tongtien,
+                                soluong,
+                                hd.chi_tiet_hoa_don.Count(),
+                                hd.tongtien.Value.ToString("#,0##")
+                            );
                         }
+
+                        //dataGridView1.Rows.Clear();
+
+                        //var hoaDonList = (from hd in db.hoa_don
+                        //                  join cthd in db.chi_tiet_hoa_don on hd.ma_hd equals cthd.ma_hd
+
+                        //                  select new
+                        //                  {
+                        //                      HoaDon = hd,
+                        //                      ChiTietHoaDon = cthd,
+                        //                  }).GroupBy(a => a.HoaDon.ma_hd);
+
+                        //foreach (var item in hoaDonList)
+                        //{
+                        //    //var countHD = db.hoa_don.Where(x => x.ma_hd.Equals(item.ChiTietHoaDon.ma_hd)).FirstOrDefault();
+                              
+                        //    dataGridView1.Rows.Add(
+                        //        item.ma_hd,
+                        //        DateTime.Parse(item.HoaDon.ngay_lap.ToString(), CultureInfo.CurrentCulture).ToString("dd/MM/yyyy"),
+                        //        item.ChiTietHoaDon.dongia,
+                        //        item.ChiTietHoaDon.so_luong,
+                        //        item.HoaDon.chi_tiet_hoa_don.Count(),
+                        //        item.HoaDon.chi_tiet_hoa_don.Sum(a => a.dongia).Value.ToString("#,##0")
+                        //    );
+                        //}
                     }
                 }
             }
@@ -67,90 +102,7 @@ namespace DUAN1
             {
                 MessageBox.Show("Không để trống");
             }
-
-
         }
-
-        ////btn hóa đơn
-        //private void btnhoadon_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyHoaDon form = new QuanLyHoaDon(tbusername.Text);
-        //    form.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn thoát
-        //private void btnthoat_Click(object sender, EventArgs e)
-        //{
-        //    //Nút thoát ra ngoài form Đăng nhập
-        //    this.Hide();
-        //    Login form = new Login();
-        //    form.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn hàng hóa
-        //private void btnhanghoa_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyHangHoa quanLyHangHoa = new QuanLyHangHoa(tbusername.Text);
-        //    quanLyHangHoa.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn kho hàng
-        //private void btnkhohang_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ChiTietHangHoa khhh = new ChiTietHangHoa(tbusername.Text);
-        //    khhh.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn nhân viên
-        //private void btnnhanvien_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyNhanVien qlnv = new QuanLyNhanVien(tbusername.Text);
-        //    qlnv.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn nhân viên
-        //private void btnkhachhang_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    QuanLyKhachHang qlkh = new QuanLyKhachHang(tbusername.Text);
-        //    qlkh.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn thống kê
-        //private void btnthongke_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ThongKe tk = new ThongKe(tbusername.Text);
-        //    tk.ShowDialog();
-        //    this.Close();
-        //}
-
-        ////btn thông tin nhân viên
-        //private void btnthongtinnv_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ThongTinNhanVien ttnv = new ThongTinNhanVien(tbusername.Text);
-        //    ttnv.ShowDialog();
-        //    this.Close();
-        //}
-
-        //private void btnChiTietHoaDon_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    ChiTietHoaDon ttnv = new ChiTietHoaDon(tbusername.Text);
-        //    ttnv.ShowDialog();
-        //    this.Close();
-        //}
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
