@@ -24,7 +24,7 @@ namespace DUAN1
 
         private void QuanLyHoaDon_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
+              this.FormBorderStyle = FormBorderStyle.None;
             dtpngaylap.Format = DateTimePickerFormat.Short;
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
             using (DAXuongEntities db = new DAXuongEntities())
